@@ -27,16 +27,16 @@ RUN apt-get update -y \
                        php8.3-tidy \
                        php8.3-soap \
                        php8.3-bcmath \
+                       php8.3-pgsql \
                        php8.3-opcache \
                        php8.3-xmlrpc -y \
     && service php8.3-fpm start
 RUN git config --global --add safe.directory /workspaces
 RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install nginx -y
+    && apt-get install nginx -y 
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 RUN pecl install mongodb \
     && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN cd /workspaces/web && composer install

@@ -18,3 +18,8 @@ services:
     volumes:
       - ../../bri-web-drupal:/workspaces:cached
     network_mode: service:app
+  mongod:
+    image: mongo:6-jammy
+    volumes:
+      - ../../bri-web-drupal:/workspaces:cached
+    network_mode: service:app
