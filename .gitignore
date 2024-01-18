@@ -63,15 +63,15 @@
 
 
 web/vendor/
-web/core/
+web/web/core/
 
 # Ignore configuration files that may contain sensitive information.
-web/sites/*/settings*.php
-web/sites/*/services*.yml
+web/web/sites/*/settings*.php
+web/web/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
 web/sites/*/files
-web/sites/*/private
+web/web/sites/*/private
 
 # Ignore multi-site test environment.
-web/sites/simpletest
+web/web/sites/simpletest
