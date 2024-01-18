@@ -12,15 +12,15 @@ if [ ! -f /etc/nginx/sites-available/drupal ]; then
     ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 fi
 # check if there is "core" folder on the /workspace/web
-if [ ! -d /workspaces/web/core ]; then
+if [ ! -d /workspaces/web/web/core ]; then
     echo "downloading drupal core"
     cd /workspaces/web
     composer install
 fi
 # check permission on /workspaces/web if it's root change to www-data:www-data
-if [ "$(stat -c '%U' /workspaces/web)" = "root" ]; then
-    echo "changing permission on /workspaces/web"
-    chown -R www-data:www-data /workspaces/web
+if [ "$(stat -c '%U' /workspaces/web/web)" = "root" ]; then
+    echo "changing permission on /workspaces/web/web"
+    chown -R www-data:www-data /workspaces/web/web
 fi
 
 echo "starting nginx"
