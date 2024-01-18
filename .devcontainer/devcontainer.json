@@ -1,0 +1,20 @@
+{
+    "name": "BRI CorpSite",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspaces/",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // "bmewburn.vscode-intelephense-client",
+                // "DEVSENSE.phptools-vscode",
+                // "DEVSENSE.composer-php-vscode",
+                "Bito.Bito",
+                "eamodio.gitlens",
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
+            ]
+        }
+    },
+    "forwardPorts": []
+}
