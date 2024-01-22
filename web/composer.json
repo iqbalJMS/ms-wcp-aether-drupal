@@ -8,6 +8,9 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
+    "autoload": {
+        "files":["load.environment.php"]
+    },
     "repositories": [
         {
             "type": "composer",
@@ -15,11 +18,15 @@
         }
     ],
     "require": {
+        "aws/aws-sdk-php": "^3.296",
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
-        "drupal/mongodb": "^2.1"
+        "drupal/gin": "^3.0@rc",
+        "drupal/gin_toolbar": "^1.0@rc",
+        "drupal/mongodb": "^2.1",
+        "symfony/dotenv": "^7.0"
     },
     "conflict": {
         "drupal/drupal": "*"

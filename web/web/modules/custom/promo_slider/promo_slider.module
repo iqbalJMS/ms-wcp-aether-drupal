@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function promo_slider_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.promo_slider':
+      return '<p>' . t('Description of what your module does and how to use it.') . '</p>';
+      break;
+  }
+}
+
+function promo_slider_theme($existing, $type, $theme, $path) {
+  return [
+    'promo_slider' => [
+      'variables' => [
+        'form' => NULL,
+        'test' => 'no data',
+      ],
+    ],
+  ];
+}

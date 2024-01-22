@@ -5,6 +5,7 @@
 # follows official upstream conventions:
 # https://www.drupal.org/docs/develop/using-composer
 
+.env
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
@@ -75,3 +76,4 @@
 
 # Ignore multi-site test environment.
 /web/web/sites/simpletest
+/web/composer.lock

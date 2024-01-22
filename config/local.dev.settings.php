@@ -881,13 +881,13 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
-  'database' => 'drupal_poc',
-  'username' => 'postgres',
-  'password' => 'postgres',
+$databases['default']['default'] = array(
+  'database' => $_ENV["POSTGRES_DB"],
+  'username' => $_ENV["POSTGRES_USER"],
+  'password' => $_ENV["POSTGRES_PASSWORD"],
   'prefix' => '',
-  'host' => 'localhost',
-  'port' => '5432',
+  'host' => $_ENV["POSTGRES_HOST"],
+  'port' => $_ENV["POSTGRES_PORT"],
   'driver' => 'pgsql',
   'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
@@ -895,18 +895,18 @@ $databases['default']['default'] = array (
 $settings['config_sync_directory'] = 'sites/default/files/config_Z5G3HlqxuiliMIa8zwFrYZmTcgbQmjFXY6ozq2Se1IbMir4TgLIwzLHzLfyU5mrkK8WqgPPOLg/sync';
 $settings['mongodb'] = [
   'clients' => [
-      // Client alias => connection constructor parameters.
-      'default' => [
-      'uri' => 'mongodb://localhost:27017',
+    // Client alias => connection constructor parameters.
+    'default' => [
+      'uri' => $_ENV["MONGO_URI"],
       'uriOptions' => [],
       'driverOptions' => [],
     ],
-   ],
+  ],
   'databases' => [
-     // Database alias => [ client_alias, database_name ]
+    // Database alias => [ client_alias, database_name ]
     // 'default' => ['default', 'drupal'],
     'keyvalue' => ['default', 'keyvalue'],
     // logger is needed when you are using mongodb watchdog module.
     'logger' => ['default', 'drupalmongo'],
-   ],
+  ],
 ];

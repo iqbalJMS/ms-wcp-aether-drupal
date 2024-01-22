@@ -6,9 +6,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                // "bmewburn.vscode-intelephense-client",
-                // "DEVSENSE.phptools-vscode",
-                // "DEVSENSE.composer-php-vscode",
+                "bmewburn.vscode-intelephense-client",
+                "DEVSENSE.phptools-vscode",
+                "DEVSENSE.composer-php-vscode",
                 "Bito.Bito",
                 "eamodio.gitlens",
                 "GitHub.copilot",
