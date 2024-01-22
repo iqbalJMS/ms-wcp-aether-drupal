@@ -12,6 +12,9 @@
 /mount/files/*
 /mount/INSTALLED.txt
 !/mount/files/README.md
+/web/web/sites/default/files
+/web/web/themes/contrib
+/web/web/modules/contrib
 # # Ignore paths that may contain user-generated content
 # /web/sites/*/files
 # /web/sites/*/public

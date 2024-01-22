@@ -59,6 +59,10 @@ done < /workspaces/config/module.txt
 echo "clear cache"
 vendor/bin/drush rc
 
+echo "set admin theme"
+vendor/bin/drush theme:enable gin -y
+vendor/bin/drush config-set system.theme admin gin -y
+
 echo "starting nginx"
 service nginx start
 echo "starting php-fpm"
