@@ -56,12 +56,12 @@ while IFS= read -r line; do
     /workspaces/web/vendor/bin/drush en $line -y
 done < /workspaces/config/module.txt
 
-echo "clear cache"
-vendor/bin/drush rc
-
 echo "set admin theme"
-vendor/bin/drush theme:enable gin -y
-vendor/bin/drush config-set system.theme admin gin -y
+/workspaces/web/vendor/bin/drush theme:enable gin -y
+/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y
+
+echo "clear cache"
+/workspaces/web/vendor/bin/drush rc
 
 echo "starting nginx"
 service nginx start
