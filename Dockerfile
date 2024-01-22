@@ -42,5 +42,5 @@ RUN pecl install mongodb \
     && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . .
-RUN ./.devcontainer/command.sh
+RUN chmod +x ./.devcontainer/command.sh && ./.devcontainer/command.sh
 ENTRYPOINT ["./.devcontainer/entrypoint.sh"]
