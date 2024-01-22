@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - promo_slider
+  theme:
+    - olivero
+id: promo_slider
+theme: olivero
+region: content_above
+weight: 0
+provider: null
+plugin: promo_slider
+settings:
+  id: promo_slider
+  label: "Promo Slider"
+  provider: promo_slider
+  label_display: "0"
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }
+

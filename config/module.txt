@@ -1,1 +1,2 @@
 promo_slider
+EOF
