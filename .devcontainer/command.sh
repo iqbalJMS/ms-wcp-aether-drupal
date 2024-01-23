@@ -33,6 +33,15 @@ if [ "$(stat -c '%U' /workspaces/web/web)" = "root" ]; then
     chown -R www-data:www-data /workspaces/web/web
 fi
 
+apt install tree
+
+echo "checking workspaces"
+ls -a /workspaces
+tree /workspaces
+
+ls -a /
+
+
 # check if there is INSTALLED.xt on /workspace/config
 if [ ! -f /workspaces/mount/INSTALLED.txt ]; then
     # read env.txt line by line
