@@ -46,5 +46,8 @@ RUN ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 RUN pecl install mongodb \
     && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN chmod +x ./.devcontainer/command.sh && ./.devcontainer/command.sh
-ENTRYPOINT ["./.devcontainer/entrypoint.sh"]
+RUN echo "true" > /workspaces/mount/INIT.txt
+RUN chmod +x ./.devcontainer/command.sh
+RUN chmod +x ./.devcontainer/entrypoint.sh
+# RUN chmod +x ./.devcontainer/command.sh && ./.devcontainer/command.sh
+# ENTRYPOINT ["./.devcontainer/entrypoint.sh"]
