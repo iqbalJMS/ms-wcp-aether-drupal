@@ -55,7 +55,7 @@ if [ ! -f /workspaces/mount/INSTALLED.txt ]; then
             ADMIN_PASS=$(echo $ADMIN_PASS | tr -d '"' | tr -d "'")
             /workspaces/web/vendor/bin/drush site:install standard --account-pass=$ADMIN_PASS -y
         fi
-    done < /workspaces/.env
+    done < /workspaces/config.txt
     echo "creating INSTALLED.txt"
     touch /workspaces/mount/INSTALLED.txt
 fi
