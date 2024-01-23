@@ -17,4 +17,4 @@ service nginx start
 echo "starting php-fpm"
 service php8.3-fpm start
 
-sleep infinity
+# sleep infinity
