@@ -2,7 +2,8 @@ FROM ubuntu:22.04
 WORKDIR /workspaces
 COPY . .
 
-RUN chmod +x ./.devcontainer/onlytree.sh && ./.devcontainer/onlytree.sh
+# RUN chmod +x ./.devcontainer/onlytree.sh && ./.devcontainer/onlytree.sh
+RUN apt-get update && apt install telnet -y && telnet 10.213.224.211 5432
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y software-properties-common \
