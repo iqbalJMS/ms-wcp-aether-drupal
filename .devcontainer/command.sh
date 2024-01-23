@@ -44,21 +44,21 @@ ls -a /
 
 
 # check if there is INSTALLED.xt on /workspace/config
-if [ ! -f /workspaces/mount/INSTALLED.txt ]; then
+# if [ ! -f /workspaces/mount/INSTALLED.txt ]; then
     # read env.txt line by line
     # find ADMIN_PASS and set it to admin password
-    while IFS= read -r line; do
-        if [[ $line == *"ADMIN_PASS"* ]]; then
-            echo "setting admin password"
-            ADMIN_PASS=$(echo $line | cut -d'=' -f2)
-            # clean up " and ' from ADMIN_PASS
-            ADMIN_PASS=$(echo $ADMIN_PASS | tr -d '"' | tr -d "'")
-            /workspaces/web/vendor/bin/drush site:install standard --account-pass=$ADMIN_PASS -y
-        fi
-    done < /workspaces/config.txt
-    echo "creating INSTALLED.txt"
-    touch /workspaces/mount/INSTALLED.txt
-fi
+while IFS= read -r line; do
+    if [[ $line == *"ADMIN_PASS"* ]]; then
+        echo "setting admin password"
+        ADMIN_PASS=$(echo $line | cut -d'=' -f2)
+        # clean up " and ' from ADMIN_PASS
+        ADMIN_PASS=$(echo $ADMIN_PASS | tr -d '"' | tr -d "'")
+        /workspaces/web/vendor/bin/drush site:install standard --account-pass=$ADMIN_PASS -y
+    fi
+done < /workspaces/config.txt
+#     echo "creating INSTALLED.txt"
+#     touch /workspaces/mount/INSTALLED.txt
+# fi
 
 # read config/module.txt line by line
 while IFS= read -r line; do
