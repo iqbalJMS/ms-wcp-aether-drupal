@@ -8,7 +8,7 @@ if [ -f /workspaces/INIT.txt ]; then
     if [ "$(cat /workspaces/INIT.txt)" = "true" ]; then
         # run ./command.sh
         echo "running command.sh"
-        /workspaces/.devcontainer/devcommand.sh
+        /workspaces/.devcontainer/command.sh
     fi
     # set INIT.txt to false
     echo "saving INIT.txt to false" 
