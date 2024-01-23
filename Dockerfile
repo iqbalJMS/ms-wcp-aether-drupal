@@ -47,4 +47,4 @@ RUN echo "true" > /workspaces/mount/INIT.txt
 RUN chmod +x ./.devcontainer/command.sh
 RUN chmod +x ./.devcontainer/entrypoint.sh
 # RUN chmod +x ./.devcontainer/command.sh && ./.devcontainer/command.sh
-ENTRYPOINT ["./.devcontainer/entrypoint.sh"]
+CMD ["./.devcontainer/entrypoint.sh"]
