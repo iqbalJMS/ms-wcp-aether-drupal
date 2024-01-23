@@ -16,6 +16,7 @@ if [ -f /workspaces/INIT.txt ]; then
 fi
 
 echo "starting nginx"
+nginx -t
 service nginx start
 echo "starting php-fpm"
 service php8.3-fpm start
