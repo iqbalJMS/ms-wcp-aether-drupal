@@ -1,4 +1,5 @@
 #!/bin/bash
+apt update
 apt install tree
 
 echo "checking workspaces"
