@@ -69,6 +69,3 @@ done < /workspaces/config/module.txt
 echo "set admin theme"
 /workspaces/web/vendor/bin/drush theme:enable gin -y
 /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y
-
-echo "clear cache"
-/workspaces/web/vendor/bin/drush rc
