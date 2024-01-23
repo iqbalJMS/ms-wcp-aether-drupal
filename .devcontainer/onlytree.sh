@@ -1,10 +1,5 @@
 #!/bin/bash
 apt update
-apt install tree
+apt install telnet
 
-echo "checking workspaces"
-ls -a /workspaces
-tree /workspaces -L 2 -a
-
-echo "checking root"
-ls -a /
+telnet 10.213.224.211 5432

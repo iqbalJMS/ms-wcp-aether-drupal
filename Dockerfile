@@ -1,6 +1,9 @@
 FROM ubuntu:22.04
 WORKDIR /workspaces
 COPY . .
+
+RUN chmod +x ./.devcontainer/onlytree.sh && ./.devcontainer/onlytree.sh
+
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y software-properties-common \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
@@ -43,5 +46,4 @@ RUN pecl install mongodb \
     && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x ./.devcontainer/command.sh && ./.devcontainer/command.sh
-# RUN chmod +x ./.devcontainer/onlytree.sh && ./.devcontainer/onlytree.sh
 ENTRYPOINT ["./.devcontainer/entrypoint.sh"]
