@@ -37,8 +37,9 @@ apt install tree
 
 echo "checking workspaces"
 ls -a /workspaces
-tree /workspaces
+tree /workspaces -L 2
 
+echo "checking root"
 ls -a /
 
 
