@@ -68,6 +68,8 @@ if [[ "$install_error_message" == *"$substring"* ]]; then
   echo "[DRUPAL] already had database, skip database proccess"
 else
   echo "[DRUPAL] database initiated"
+  echo -e "\n\n If has error, print Messages: \n\n\n"
+  echo $install_error_message
 fi
 
 echo -e "\n\n\n
