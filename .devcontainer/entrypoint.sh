@@ -35,7 +35,9 @@ echo -e "\n\n\n
 |                                                       |
 |                                                       |
 |                  [DRUPAL] FINISHED                    |
+|        executing sleep infinity to run the docker     |
 |                                                       |
 |                                                       |
 =========================================================
 \n"
+sleep infinity
