@@ -38,8 +38,6 @@ RUN git config --global --add safe.directory /workspaces
 RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install nginx -y 
-RUN rm /etc/nginx/sites-enabled/default
-RUN ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 RUN pecl install mongodb \
     && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
