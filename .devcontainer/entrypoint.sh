@@ -14,11 +14,16 @@ if [ -f /workspaces/INIT.txt ]; then
     echo "saving INIT.txt to false" 
     echo "false" > /workspaces/INIT.txt
 fi
-
-echo "starting nginx"
-nginx -t
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] finalize                    |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+echo "[FINAL] starting nginx"
 service nginx start
-echo "starting php-fpm"
+echo "[FINAL] starting php-fpm"
 service php8.3-fpm start
-
-# sleep infinity
