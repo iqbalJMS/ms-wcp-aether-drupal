@@ -1,10 +1,11 @@
 media
 media_library
 media_library_form_element
-field_group
 paragraphs
 entity_reference_revisions
 layout_builder
 layout_discovery
 promo_slider
+field_group
+dxpr_builder
 EOF
