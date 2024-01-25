@@ -102,7 +102,7 @@ echo -e "\n\n\n
 # read config/module.txt line by line
 while IFS= read -r line; do
     echo "[DRUPAL] module installing $line"
-    /workspaces/web/vendor/bin/drush en $line -y --debug
+    /workspaces/web/vendor/bin/drush en $line -y
 done < /workspaces/config/module.txt
 
 echo "[DRUPAL] clear cache"

@@ -3,17 +3,17 @@
 /**
  * Implements hook_help().
  */
-function home_menu_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+function home_saham_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
   switch ($route_name) {
-    case 'help.page.home_menu':
+    case 'help.page.home_saham':
       return '<p>' . t('Description of what your module does and how to use it.') . '</p>';
       break;
   }
 }
 
-function home_menu_theme($existing, $type, $theme, $path) {
+function home_saham_theme($existing, $type, $theme, $path) {
   return [
-    'home_menu' => [
+    'home_saham' => [
       'variables' => [
         'test'=>'yoho'
       ],

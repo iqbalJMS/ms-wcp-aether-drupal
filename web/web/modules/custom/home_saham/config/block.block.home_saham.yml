@@ -6,7 +6,7 @@ dependencies:
 id: home_saham
 theme: bri_main
 region: content
-weight: 0
+weight: 1
 provider: null
 plugin: home_saham
 settings:

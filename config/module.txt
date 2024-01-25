@@ -1,7 +1,3 @@
-media
-media_library
-media_library_form_element
-paragraphs
 layout_builder
 layout_discovery
 field_group
