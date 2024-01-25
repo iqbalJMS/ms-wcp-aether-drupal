@@ -94,7 +94,10 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+/workspaces/web/vendor/bin/drush theme:enable classy -y --debug
+/workspaces/web/vendor/bin/drush theme:enable minimal_lite -y --debug
 /workspaces/web/vendor/bin/drush theme:enable gin -y --debug
+/workspaces/web/vendor/bin/drush config-set system.theme default minimal_lite -y --debug
 /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
 
 # echo "clear cache"
