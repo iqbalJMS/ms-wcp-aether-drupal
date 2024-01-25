@@ -1,7 +1,6 @@
 FROM ubuntu:22.04
 WORKDIR /workspaces
 COPY . .
-
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y software-properties-common \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
@@ -32,6 +31,9 @@ RUN apt-get update -y \
                        php8.3-bcmath \
                        php8.3-pgsql \
                        php8.3-opcache \
+                       php-imagick \
+                       imagemagick \
+                       webp \ 
                        php8.3-xmlrpc -y \
     && service php8.3-fpm start
 RUN git config --global --add safe.directory /workspaces

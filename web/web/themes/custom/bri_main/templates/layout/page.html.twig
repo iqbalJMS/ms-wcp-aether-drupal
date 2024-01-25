@@ -46,24 +46,20 @@
 #}
 <div class="main-container">
 
-	<div class="header-main">
-		<div class="header-main__logo_wrapper">
-			<div class="header-main__logo">
-				{{ page.header }}
+	<main role="main">
+		{# link is in html.html.twig #}
+		<div class="header-main">
+			<div class="header-main__logo_wrapper">
+				<div class="header-main__logo">
+					{{ page.header }}
+				</div>
+			</div>
+			<div class="header-main__menu flex flex-1 w-full">
+				{{ page.menu_main }}
 			</div>
 		</div>
-		<div class="header-main__menu">
-			{{ page.menu_main }}
-		</div>
-	</div>
-
-	<main role="main">
-		<a id="main-content" tabindex="-1"></a>
-		{# link is in html.html.twig #}
-
-		<div class="-mx-4 md:flex">
-			<div class="p-4 md:flex-1 content__wrapper">
-				<a>hello guys??</a>
+		<div class="flex">
+			<div class="flex-1 content__wrapper">
 				{% if page.content %}
 					{{ page.content }}
 				{% endif %}

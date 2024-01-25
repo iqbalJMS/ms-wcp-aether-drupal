@@ -9,6 +9,12 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+echo "[PRE-FLIGHT] installing NVM for development"
+cd ~
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm install --latest
+cd /workspaces
 echo "[NGINX] removing default site if exist"
 # check if file exist
 if [ -f /etc/nginx/sites-enabled/default ]; then
@@ -74,6 +80,20 @@ echo -e "\n\n\n
 =========================================================
 |                                                       |
 |                                                       |
+|                  [DRUPAL] set theme                   |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+/workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
+/workspaces/web/vendor/bin/drush theme:enable gin -y --debug
+/workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
+/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
+
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
 |                 [DRUPAL] set module                   |
 |                                                       |
 |                                                       |
@@ -84,21 +104,6 @@ while IFS= read -r line; do
     echo "[DRUPAL] module installing $line"
     /workspaces/web/vendor/bin/drush en $line -y --debug
 done < /workspaces/config/module.txt
-
-echo -e "\n\n\n
-=========================================================
-|                                                       |
-|                                                       |
-|                  [DRUPAL] set theme                   |
-|                                                       |
-|                                                       |
-=========================================================
-\n"
-/workspaces/web/vendor/bin/drush theme:enable classy -y --debug
-/workspaces/web/vendor/bin/drush theme:enable tailwindcss -y --debug
-/workspaces/web/vendor/bin/drush theme:enable gin -y --debug
-/workspaces/web/vendor/bin/drush config-set system.theme default tailwindcss -y --debug
-/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
 
 echo "[DRUPAL] clear cache"
 /workspaces/web/vendor/bin/drush cr

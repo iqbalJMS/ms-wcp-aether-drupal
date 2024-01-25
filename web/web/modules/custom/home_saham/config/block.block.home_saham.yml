@@ -2,24 +2,22 @@ langcode: en
 status: true
 dependencies:
   module:
-    - promo_slider
-  # theme:
-  #   - olivero
-id: promo_slider
+    - home_saham
+id: home_saham
 theme: bri_main
 region: content
 weight: 0
 provider: null
-plugin: promo_slider
+plugin: home_saham
 settings:
-  id: promo_slider
-  label: "Promo Slider"
-  provider: promo_slider
+  id: home_saham
+  label: "Home Saham"
+  provider: home_saham
   label_display: "0"
 visibility:
   request_path:
     id: request_path
-    pages: '/user/*'
+    pages: '/home-1'
     negate: false
     context_mapping: {  }
 

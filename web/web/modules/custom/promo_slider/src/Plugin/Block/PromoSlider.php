@@ -3,7 +3,9 @@
 namespace Drupal\promo_slider\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Render\Renderer;
 use Drupal\promo_slider\Plugin\Block\content\Promos;
+use Drupal\views\Views;
 
 /**
  * Provides a 'PromoSlider' Block.
@@ -20,12 +22,18 @@ class PromoSlider extends BlockBase
      */
     public function build()
     {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('status', 1);
+        $query->accessCheck(FALSE); // Bypass access checks (user perms, etc
+        $result = $query->execute();
+
+        \Drupal::logger('promo_slider')->notice(print_r($result));
+
         $test = Promos::getTopPromo();
-        $form = \Drupal::formBuilder()->getForm('Drupal\promo_slider\Form\PromoSliderForm');
         return [
             '#theme' => 'promo_slider',
-            '#form' => $form,
             '#test' => $test,
+            '#promo' => $result,
         ];
     }
 }

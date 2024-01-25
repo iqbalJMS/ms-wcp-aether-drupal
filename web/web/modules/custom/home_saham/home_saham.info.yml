@@ -1,0 +1,6 @@
+name: Home Menu
+description: Creates a header.
+package: Custom
+
+type: module
+core_version_requirement: ^9.4 || ^10
