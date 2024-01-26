@@ -1,6 +1,46 @@
-<div>
-hello...
-{{ test.Env }}
-{{ promo }}
-end...
+<div class="flex w-full justify-center items-center min-h-[300px]">
+    <div class="md:px-[80px] max-w-[1366px] flex flex-col md:flex-row">
+        <div class="flex-1 max-w-[300px] px-[30px]">
+            <h2 class="text-[18px] font-bold mb-[10px] mt-[50px]">Promo Terbaru</h2>
+            <h2 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</h2>
+        </div>
+        <div class="relative flex items-center justify-center px-[20px]">
+            <div class="absolute h-[2px] w-full flex flex-row" style="z-index: 10;">
+                <div class="flex-1 flex justify-start">
+                    <button id="promo_slider__slide-left"
+                        class="w-[42px] h-[42px] bg-red-800 flex justify-center items-center text-white font-[24px] rounded-[10px]">
+                        &laquo
+                    </button>
+                </div>
+                <div class="flex-1 flex justify-end">
+                    <button id="promo_slider__slide-right"
+                        class="w-[42px] h-[42px] bg-red-800 flex justify-center items-center text-white font-[24px] rounded-[10px]">
+                        &raquo
+                    </button>
+                </div>
+            </div>
+            <div id="promo_slider" style="z-index: 5;"
+                class="absolute flex-1 py-[30px] whitespace-nowrap min-h-[300px] overflow-x-scroll relative">
+                {% for item in promo %}
+                <div class="inline-block p-[10px] bg-white">
+                    <!--Card 1-->
+                    <div class="max-w-xs rounded overflow-hidden shadow-lg">
+                        <img class="w-full h-[200px]" src="{{ file_url(item.image_uri) }}" alt="{{ item.title }}">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">{{ item.title }}</div>
+                        </div>
+                        <div class="px-6 pt-4 pb-2">
+                            <span
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{
+                                item.tag }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>

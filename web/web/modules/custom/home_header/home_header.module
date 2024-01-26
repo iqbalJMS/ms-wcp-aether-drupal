@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function home_header_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.home_header':
+      return '<p>' . t('Description of what your module does and how to use it.') . '</p>';
+      break;
+  }
+}
+
+function home_header_theme($existing, $type, $theme, $path) {
+  return [
+    'home_header' => [
+      'variables' => [
+        'image_bg'=>NULL
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,8 @@
+name: Home About BRI
+description: Creates a about.
+package: Custom
+type: module
+core_version_requirement: ^9.4 || ^10
+libraries:
+  - home_about/global-styling
+

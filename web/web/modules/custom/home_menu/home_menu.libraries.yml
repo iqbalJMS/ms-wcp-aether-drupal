@@ -1,0 +1,7 @@
+global-styling:
+  css:
+    theme:
+      dist/tailwind.css: {}
+  # js:
+  #   dist/bri.js: {}
+  #   dist/main.js: {}

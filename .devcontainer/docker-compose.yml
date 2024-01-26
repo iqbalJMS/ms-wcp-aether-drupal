@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: DockerfileApp
     volumes:
-      - ../../bri-web-drupal:/workspaces:cached
+      - ../../bri-web-main-drupal:/workspaces:cached
     command: sleep infinity
     network_mode: host
   db:

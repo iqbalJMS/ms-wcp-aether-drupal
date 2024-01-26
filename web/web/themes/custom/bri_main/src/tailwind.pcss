@@ -46,6 +46,13 @@ a:hover {
 
 .bgr-white {
     @apply bg-white;
+
+    nav {
+        a {
+            @apply !text-black;
+            @apply !font-[400];
+        }
+    }
 }
 
 .main-container {
@@ -58,6 +65,7 @@ a:hover {
 
 .header-main {
     @apply flex flex-row sticky top-0 z-[100] w-full min-h-[90px];
+    @apply backdrop-filter backdrop-blur-[10px] bg-opacity-50;
 
     .header-main__logo_wrapper {
         @apply flex flex-1 max-w-[200px] justify-center items-center;
@@ -86,6 +94,8 @@ a:hover {
 
                         a {
                             @apply flex h-full items-center justify-center;
+                            @apply text-white;
+                            @apply font-[400];
                         }
 
                         :hover {

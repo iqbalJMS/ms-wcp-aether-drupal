@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - home_footer
+id: home_footer
+theme: bri_main
+region: content
+weight: 0
+provider: null
+plugin: home_footer
+settings:
+  id: home_footer
+  label: "Home Footer"
+  provider: home_footer
+  label_display: "0"
+visibility:
+  request_path:
+    id: request_path
+    pages: '/home-1'
+    negate: false
+    context_mapping: {  }
+

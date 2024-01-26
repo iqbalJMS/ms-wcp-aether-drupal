@@ -1,0 +1,24 @@
+<div class="min-h-[300px] w-full flex justify-center py-[50px]"
+    style="background-image: url('{{ file_url(img_bg) }}'); background-size: cover;">
+    <div class="md:px-[80px] max-w-[1366px]">
+        <div class="max-w-[600px]">
+            <h2 class="font-bold text-[24px] my-[20px]">Mengapa Memilih BRI</h2>
+            <p class="mb-[50px]">Melayani lebih dari 127 tahun, Bank BRI senantiasa memberikan kemudahan dan kecepatan
+                dalam merespon
+                berbagai kebutuhan nasabah dengan didukung oleh layanan perbankan yang prima.</p>
+        </div>
+        <div class="flex flex-wrap max-w-[800px]">
+            {% for item in content %}
+            <div class="w-1/2 min-w-[300px] flex flex-row mb-[40px] md:pr-[30px]">
+                <div class="flex-1 max-w-[84px]">
+                    <img class="h-[64px] w-[64px]" src="{{ file_url(item["image"]) }}" alt="{{ item["title"] }}">
+                </div>
+                <div class="flex-1">
+                    <p class="font-[600] text-[18px] mb-[10px]">{{ item["title"] }}</p>
+                    <p>{{ item["content"] }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

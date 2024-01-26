@@ -18,10 +18,17 @@ class HomeMenu extends BlockBase
      * {@inheritdoc}
      */
     public function build()
-    {
+    {   
+        $module_handler = \Drupal::service('module_handler');
+        $module_path = $module_handler->getModule('home_menu')->getPath();
         return [
             '#theme' => 'home_menu',
-            '#test' => 'mihoyo'
+            '#test' => $module_path,
+            '#attached' => [
+                'library' => [
+                    'home_menu/global-styling'
+                ]
+            ]
         ];
     }
 }

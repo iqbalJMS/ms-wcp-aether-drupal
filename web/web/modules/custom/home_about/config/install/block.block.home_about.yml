@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - home_about
+id: home_about
+theme: bri_main
+region: content
+weight: 4
+provider: null
+plugin: home_about
+settings:
+  id: home_about
+  label: "Home about"
+  provider: home_about
+  label_display: "0"
+visibility:
+  request_path:
+    id: request_path
+    pages: '/home-1'
+    negate: false
+    context_mapping: {  }
+

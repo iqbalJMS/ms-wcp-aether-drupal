@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - home_header
+id: home_header
+theme: bri_main
+region: content
+weight: 0
+provider: null
+plugin: home_header
+settings:
+  id: home_header
+  label: "Home Header"
+  provider: home_header
+  label_display: "0"
+visibility:
+  request_path:
+    id: request_path
+    pages: '/home-1'
+    negate: false
+    context_mapping: {  }
+

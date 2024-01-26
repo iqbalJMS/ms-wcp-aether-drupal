@@ -15,8 +15,7 @@ function promo_slider_theme($existing, $type, $theme, $path) {
   return [
     'promo_slider' => [
       'variables' => [
-        'form' => NULL,
-        'test' => 'no data',
+        'promo' => NULL,
       ],
     ],
   ];

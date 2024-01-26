@@ -8,7 +8,7 @@ dependencies:
 id: promo_slider
 theme: bri_main
 region: content
-weight: 0
+weight: 2
 provider: null
 plugin: promo_slider
 settings:
@@ -19,7 +19,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '/user/*'
+    pages: '/home-1'
     negate: false
     context_mapping: {  }
 

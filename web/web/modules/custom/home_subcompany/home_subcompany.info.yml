@@ -1,0 +1,9 @@
+name: Home Subcompany
+description: Creates a page showing "Promo Slider".
+package: Custom
+
+type: module
+core_version_requirement: ^9.4 || ^10
+
+libraries:
+  - home_subcompany/global-styling

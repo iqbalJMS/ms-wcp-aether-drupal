@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - home_subcompany
+  # theme:
+  #   - olivero
+id: home_subcompany
+theme: bri_main
+region: content
+weight: 9
+provider: null
+plugin: home_subcompany
+settings:
+  id: home_subcompany
+  label: "Home Subcompany"
+  provider: home_subcompany
+  label_display: "0"
+visibility:
+  request_path:
+    id: request_path
+    pages: '/home-1'
+    negate: false
+    context_mapping: {  }
+

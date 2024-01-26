@@ -4,3 +4,6 @@ package: Custom
 
 type: module
 core_version_requirement: ^9.4 || ^10
+
+libraries:
+  - promo_slider/global-styling

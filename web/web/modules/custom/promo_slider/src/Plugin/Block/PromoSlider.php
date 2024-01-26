@@ -3,9 +3,6 @@
 namespace Drupal\promo_slider\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Render\Renderer;
-use Drupal\promo_slider\Plugin\Block\content\Promos;
-use Drupal\views\Views;
 
 /**
  * Provides a 'PromoSlider' Block.
@@ -22,18 +19,45 @@ class PromoSlider extends BlockBase
      */
     public function build()
     {
-        $query = \Drupal::entityQuery('node');
-        $query->condition('status', 1);
-        $query->accessCheck(FALSE); // Bypass access checks (user perms, etc
-        $result = $query->execute();
+        $cacheBackend = \Drupal::cache('data');
+        $cacheKey = 'promo_slider';
 
-        \Drupal::logger('promo_slider')->notice(print_r($result));
+        if ($cacheItem = $cacheBackend->get($cacheKey)) {
+            // Data found in cache. Use cached data.
+            $result = $cacheItem->data;
+        }else{
+            $database = \Drupal::database();
+            $query = $database->select('node_field_data', 'n');
+            $query->fields('n', ['title', 'created']);
+            $query->condition('n.type', 'article');
+            // sort desc
+            $query->orderBy('n.created', 'DESC');
 
-        $test = Promos::getTopPromo();
+            $query->leftJoin('node__field_image', 'nf', 'n.nid = nf.entity_id');
+            $query->leftJoin('file_managed', 'fm', 'nf.field_image_target_id = fm.fid');
+            $query->addField('fm', 'uri', 'image_uri');
+
+            $query->leftJoin('taxonomy_index', 'ti', 'n.nid = ti.nid');
+            $query->leftJoin('taxonomy_term_field_data', 'ttfd', 'ti.tid = ttfd.tid');
+            $query->addField('ttfd', 'name', 'tag');
+
+            $resultd = $query->execute()->fetchAll();
+            $cacheBackend->set($cacheKey, $resultd);
+            $result = $resultd;
+        }
+
+        // $json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=BBRI&apikey=5NNP2I07G2HLTVVH');
+
+        // $data = json_decode($json, true);
+
         return [
             '#theme' => 'promo_slider',
-            '#test' => $test,
             '#promo' => $result,
+            '#attached' => [
+                'library' => [
+                    'promo_slider/global-styling'
+                ]
+            ]
         ];
     }
 }

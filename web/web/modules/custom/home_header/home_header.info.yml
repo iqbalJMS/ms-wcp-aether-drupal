@@ -1,0 +1,9 @@
+name: Home Header
+description: Creates a header.
+package: Custom
+
+type: module
+core_version_requirement: ^9.4 || ^10
+
+libraries:
+  - home_header/global-styling
