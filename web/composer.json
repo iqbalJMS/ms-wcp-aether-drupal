@@ -28,7 +28,6 @@
         "drupal/gin": "^3.0@rc",
         "drupal/gin_toolbar": "^1.0@rc",
         "drupal/imagemagick": "^3.7",
-        "drupal/mongodb": "^2.1",
         "drupal/tailwindcss": "^5.0@alpha",
         "drupal/webp": "^1.0@RC",
         "symfony/dotenv": "^7.0"

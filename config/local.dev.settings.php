@@ -893,20 +893,20 @@ $databases['default']['default'] = array(
   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_Z5G3HlqxuiliMIa8zwFrYZmTcgbQmjFXY6ozq2Se1IbMir4TgLIwzLHzLfyU5mrkK8WqgPPOLg/sync';
-$settings['mongodb'] = [
-  'clients' => [
-    // Client alias => connection constructor parameters.
-    'default' => [
-      'uri' => $_ENV["MONGO_URI"],
-      'uriOptions' => [],
-      'driverOptions' => [],
-    ],
-  ],
-  'databases' => [
-    // Database alias => [ client_alias, database_name ]
-    // 'default' => ['default', 'drupal'],
-    'keyvalue' => ['default', 'keyvalue'],
-    // logger is needed when you are using mongodb watchdog module.
-    'logger' => ['default', 'drupalmongo'],
-  ],
-];
+// $settings['mongodb'] = [
+//   'clients' => [
+//     // Client alias => connection constructor parameters.
+//     'default' => [
+//       'uri' => $_ENV["MONGO_URI"],
+//       'uriOptions' => [],
+//       'driverOptions' => [],
+//     ],
+//   ],
+//   'databases' => [
+//     // Database alias => [ client_alias, database_name ]
+//     // 'default' => ['default', 'drupal'],
+//     'keyvalue' => ['default', 'keyvalue'],
+//     // logger is needed when you are using mongodb watchdog module.
+//     'logger' => ['default', 'drupalmongo'],
+//   ],
+// ];

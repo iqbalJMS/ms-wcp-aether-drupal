@@ -16,6 +16,7 @@
 /web/web/sites/default/files
 /web/web/themes/contrib
 /web/web/modules/contrib
+composer-lock.json
 # # Ignore paths that may contain user-generated content
 # /web/sites/*/files
 # /web/sites/*/public
