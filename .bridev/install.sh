@@ -32,5 +32,5 @@ sudo apt install git php8.3 \
     webp \ 
     php8.3-xmlrpc -y
 sudo service php8.3-fpm start
-#run other sh
+# run other sh
 sh ../.devcontainer/devcommand.sh
