@@ -5,6 +5,7 @@ echo "Enter the folder name (absolute path) for the project"
 read folder
 # set folder to os env
 export FOLDER=$folder
+echo "true" > $FOLDER/INIT.txt
 
 echo -e "\n\n\n
 =========================================================

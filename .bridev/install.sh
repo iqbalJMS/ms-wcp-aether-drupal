@@ -32,6 +32,11 @@ sudo apt install -y php-imagick
 sudo apt install -y imagemagick 
 sudo apt install -y webp
 sudo apt install -y php-xmlrpc
+sudo apt install -y nginx
+sudo pecl install mongodb
+sudo echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
+sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 sudo service php8.3-fpm start
 # run other sh
 sh ./.bridev/command.sh
