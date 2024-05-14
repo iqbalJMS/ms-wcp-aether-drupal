@@ -26,7 +26,7 @@ RUN apt-get update -y \
                        php-xmlrpc -y \
                        imagemagick \
                        webp \ 
-RUN git config --global --add safe.directory /workspaces
+# RUN git config --global --add safe.directory /workspaces
 RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install nginx -y
