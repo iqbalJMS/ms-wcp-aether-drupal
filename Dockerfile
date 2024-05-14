@@ -34,14 +34,12 @@ RUN apt-get update -y \
                        php-imagick \
                        imagemagick \
                        webp \ 
-                       php8.3-xmlrpc -y \
+                       php-xmlrpc -y \
     && service php8.3-fpm start
 RUN git config --global --add safe.directory /workspaces
 RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install nginx -y 
-RUN pecl install mongodb \
-    && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
+    && apt-get install nginx -y
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN echo "true" > /workspaces/INIT.txt
 RUN chmod +x ./.devcontainer/command.sh
