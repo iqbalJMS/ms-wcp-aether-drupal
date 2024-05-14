@@ -9,13 +9,14 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[NGINX] removing default site if exist"
-# check if file exist
-if [ -f /etc/nginx/sites-enabled/default ]; then
-    echo "default site exist"
-    rm /etc/nginx/sites-enabled/default
-fi
-echo "[NGINX] copy nginx config (already handled by devops)"
+echo "[NGINX] we're not using nginx anymore, moving to native FPM"
+# echo "[NGINX] removing default site if exist"
+# # check if file exist
+# if [ -f /etc/nginx/sites-enabled/default ]; then
+#     echo "default site exist"
+#     rm /etc/nginx/sites-enabled/default
+# fi
+# echo "[NGINX] copy nginx config (already handled by devops)"
 # dont copy if exit
 #================================================================================
 #                                                                               #

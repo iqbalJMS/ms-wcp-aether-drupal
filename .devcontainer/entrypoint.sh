@@ -23,10 +23,10 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[FINAL] checking nginx"
-nginx -t
-echo "[FINAL] starting nginx"
-service nginx start
+# echo "[FINAL] checking nginx"
+# nginx -t
+# echo "[FINAL] starting nginx"
+# service nginx start
 echo "[FINAL] starting php-fpm"
 service php8.3-fpm start
 

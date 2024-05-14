@@ -1,14 +1,8 @@
-FROM php:fpm-bookworm
+FROM php:fpm-alpine3.19
 WORKDIR /workspaces
 COPY . .
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y software-properties-common \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y curl zip unzip wget \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-RUN apt-get update -y \
-    && apt-get install git php8.3-dev \
+RUN apk add curl zip unzip wget
+RUN apk add git php8.3-dev \
                        php8.3-common \
                        php8.3-zip \
                        php8.3-gd \
@@ -27,10 +21,8 @@ RUN apt-get update -y \
                        imagemagick \
                        webp \ 
 # RUN git config --global --add safe.directory /workspaces
-RUN apt-get update -y \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install nginx -y
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+EXPOSE 9000
 RUN echo "true" > /workspaces/INIT.txt
 RUN chmod +x ./.devcontainer/command.sh
 RUN chmod +x ./.devcontainer/entrypoint.sh
