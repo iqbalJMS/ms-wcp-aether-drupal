@@ -17,15 +17,6 @@ if [ -f /etc/nginx/sites-enabled/default ]; then
     rm /etc/nginx/sites-enabled/default
 fi
 echo "[NGINX] copy nginx config (already handled by devops)"
-# dont copy if exit
-#================================================================================
-#                                                                               #
-#  if [ ! -f /etc/nginx/sites-available/drupal ]; then                          #
-#      echo "copying nginx config"                                              #
-#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal      #
-#      ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/        #
-#  fi                                                                           #
-#================================================================================
 
 echo "[DRUPAL] copying php config"
 cp /workspaces/config/local.dev.settings.php /workspaces/web/web/sites/default/settings.php

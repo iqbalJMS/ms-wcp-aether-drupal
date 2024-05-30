@@ -5,6 +5,7 @@
 # follows official upstream conventions:
 # https://www.drupal.org/docs/develop/using-composer
 
+.DS_Store
 .env
 # config.txt
 # Ignore configuration files that may contain sensitive information
