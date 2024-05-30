@@ -40,4 +40,5 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 # Set the entrypoint script
-CMD ["./.devcontainer/entrypoint.sh"]
+RUN echo "true" > /workspaces/INIT.txt
+CMD ["./server/entrypoint.sh"]
