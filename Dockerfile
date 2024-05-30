@@ -1,4 +1,6 @@
 FROM ubuntu:22.04
+WORKDIR /workspaces
+COPY . .
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y software-properties-common \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
