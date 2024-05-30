@@ -9,8 +9,8 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[NGINX] we're not using nginx anymore, moving to native FPM"
-# echo "[NGINX] removing default site if exist"
+# echo "[NGINX] we're not using nginx anymore, moving to native FPM"
+echo "[NGINX] removing default site if exist"
 # check if file exist
 if [ -f /etc/nginx/sites-enabled/default ]; then
     echo "default site exist"
