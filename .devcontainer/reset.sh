@@ -16,11 +16,16 @@ rm -r /workspaces/web/web/example.gitignore
 rm -r /workspaces/web/web/install.php
 rm -r /workspaces/web/web/INSTALL.txt
 rm -r /workspaces/web/web/README.md
-rm -r /workspaces/web/web/tobots.txt
+rm -r /workspaces/web/web/robots.txt
 rm -r /workspaces/web/web/update.php
 rm -r /workspaces/web/web/web.config
-rm -r /workspaces/web/web/modules/README.md
-rm -r /workspaces/web/web/themes/README.md
+rm -r /workspaces/web/web/index.php
+rm -r /workspaces/web/composer.lock
+rm -r /workspaces/web/web/modules/README.txt
+rm -r /workspaces/web/web/themes/README.txt
+rm -r /workspaces/web/web/sites/default/default.settings.php
+rm -r /workspaces/web/web/sites/default/files
+rm -r /workspaces/web/web/profiles/README.txt
 
 rm -r /workspaces/web/web/sites/default/default.services.yml
 rm -r /workspaces/web/web/sites/default/default.settings.local.php
@@ -29,5 +34,5 @@ rm -r /workspaces/web/web/sites/default/settings.php
 rm -r /workspaces/web/web/sites/development.services.yml
 rm -r /workspaces/web/web/sites/example.settings.local.php
 rm -r /workspaces/web/web/sites/example.sites.php
-rm -r /workspaces/web/web/sites/README.md
+rm -r /workspaces/web/web/sites/README.txt
 
