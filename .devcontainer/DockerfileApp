@@ -10,8 +10,7 @@ RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install ca-certificates apt-transport-https software-properties-common lsb-release -y \
     && add-apt-repository ppa:ondrej/php -y \
-    && apt-get update \
-    && apt-get upgrade -y \
+    && apt-get update -y \
     && apt-get install git php8.3 \
                        php8.3-dev \
                        php8.3-cli \
@@ -32,14 +31,11 @@ RUN apt-get update -y \
                        php-imagick \
                        imagemagick \
                        webp \ 
-                       php8.3-xmlrpc -y \
-    && service php8.3-fpm start
+                       php8.3-xmlrpc -y
 RUN git config --global --add safe.directory /workspaces
 RUN apt-get update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install nginx -y 
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
-RUN pecl install mongodb \
-    && echo "extension=mongodb.so" >> /etc/php/8.3/cli/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
