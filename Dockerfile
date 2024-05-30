@@ -1,16 +1,10 @@
 FROM ubuntu:22.04
 WORKDIR /workspaces
 COPY . .
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y software-properties-common \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y curl zip unzip wget \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-RUN apt-get update -y \
-    && apt-get dist-upgrade -y \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install ca-certificates apt-transport-https software-properties-common lsb-release -y \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -y
+RUN apt-get install -y software-properties-common curl zip unzip wget
+RUN apt-get install ca-certificates apt-transport-https software-properties-common lsb-release -y \
     && add-apt-repository ppa:ondrej/php -y \
     && apt-get update -y \
     && apt-get install git php8.3 \
@@ -34,14 +28,13 @@ RUN apt-get update -y \
                        imagemagick \
                        webp \ 
                        php8.3-xmlrpc -y
-RUN git config --global --add safe.directory /workspaces
-RUN apt-get update -y \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install nginx -y 
+RUN apt-get install nginx -y 
 RUN rm /etc/nginx/sites-enabled/default
+RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 # Set the entrypoint script
 RUN touch /workspaces/INIT.txt
 RUN echo "true" > /workspaces/INIT.txt
 RUN chmod +x /workspaces/server/entrypoint.sh
+EXPOSE 1234
 CMD ["./server/entrypoint.sh"]
