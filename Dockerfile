@@ -29,6 +29,7 @@ RUN apt-get install ca-certificates apt-transport-https software-properties-comm
                        webp \ 
                        php8.3-xmlrpc -y
 RUN apt-get install nginx -y 
+RUN apt-get install sudo -y
 RUN rm /etc/nginx/sites-enabled/default
 RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
