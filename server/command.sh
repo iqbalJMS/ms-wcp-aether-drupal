@@ -72,7 +72,7 @@ while IFS= read -r line; do
     fi
 done < /workspaces/config.txt
 
-install_error_message=$(/workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS -y 2>&1)
+install_error_message=$(/workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --allow-root -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
   echo "[DRUPAL] already had database, skip database proccess"
@@ -94,7 +94,7 @@ echo -e "\n\n\n
 # read config/module.txt line by line
 while IFS= read -r line; do
     echo "[DRUPAL] module installing $line"
-    /workspaces/web/vendor/bin/drush en $line -y --debug
+    /workspaces/web/vendor/bin/drush en $line -y --debug --allow-root
 done < /workspaces/config/module.txt
 
 echo -e "\n\n\n
@@ -106,16 +106,16 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-/workspaces/web/vendor/bin/drush theme:enable classy -y --debug
-/workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
-/workspaces/web/vendor/bin/drush theme:enable gin -y --debug
-/workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug
-/workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug
+/workspaces/web/vendor/bin/drush theme:enable classy -y --debug --allow-root
+/workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug --allow-root
+/workspaces/web/vendor/bin/drush theme:enable gin -y --debug --allow-root
+/workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug --allow-root
+/workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug --allow-root
 # /workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
-/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
+/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug --allow-root
 
 echo "[DRUPAL] clear cache"
-/workspaces/web/vendor/bin/drush cr
+/workspaces/web/vendor/bin/drush cr --allow-root
 
 
 echo -e "\n\n\n
