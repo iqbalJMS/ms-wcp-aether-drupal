@@ -39,4 +39,4 @@ RUN echo "true" > /workspaces/INIT.txt
 RUN echo "v1.0"
 RUN chmod +x /workspaces/server/entrypoint.sh
 EXPOSE 1234
-CMD ["./server/entrypoint.sh"]
+CMD ["./server/entrypoint-1.sh"]
