@@ -57,6 +57,7 @@ echo -e "\n\n\n
 =========================================================
 \n"
 ADMIN_PASS="default"
+ADMIN_USER="mylexicalclassy"
 # check if there is INSTALLED.xt on /workspace/config
 while IFS= read -r line; do
     if [[ $line == *"ADMIN_PASS"* ]]; then
@@ -64,9 +65,14 @@ while IFS= read -r line; do
         # clean up " and ' from ADMIN_PASS
         ADMIN_PASS=$(echo $ADMIN_PASS | tr -d '"' | tr -d "'")
     fi
+    if [[ $line == *"ADMIN_USER"* ]]; then
+        ADMIN_USER=$(echo $line | cut -d'=' -f2)
+        # clean up " and ' from ADMIN_USER
+        ADMIN_USER=$(echo $ADMIN_USER | tr -d '"' | tr -d "'")
+    fi
 done < /workspaces/config.txt
 
-install_error_message=$(/workspaces/web/vendor/bin/drush site:install standard --account-pass=$ADMIN_PASS -y 2>&1)
+install_error_message=$(/workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
   echo "[DRUPAL] already had database, skip database proccess"
@@ -103,8 +109,25 @@ echo -e "\n\n\n
 /workspaces/web/vendor/bin/drush theme:enable classy -y --debug
 /workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
 /workspaces/web/vendor/bin/drush theme:enable gin -y --debug
-/workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
+/workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug
+/workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug
+# /workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
 /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
 
 echo "[DRUPAL] clear cache"
 /workspaces/web/vendor/bin/drush cr
+
+
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] admin acc                   |
+|                                                       |
+|                                                       |
+=========================================================
+
+config username and password as follow :
+u : $ADMIN_USER
+p : $ADMIN_PASS
+\n"
