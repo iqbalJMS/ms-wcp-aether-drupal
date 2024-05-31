@@ -34,7 +34,7 @@ cp /workspaces/config/local.dev.settings.php /workspaces/web/web/sites/default/s
 if [ ! -d /workspaces/web/web/core ]; then
     echo "[DRUPAL] downloading drupal core"
     cd /workspaces/web
-    composer install
+    sudo -u www-data composer install
 fi
 
 # create symlink folder between /workspaces/mount and /workspaces/web/web/sites/default/files
