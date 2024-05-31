@@ -43,8 +43,8 @@ ln -s /workspaces/mount/files /workspaces/web/web/sites/default
 
 # check permission on /workspaces/web if it's root change to www-data:www-data
 if [ "$(stat -c '%U' /workspaces/web/web)" = "root" ]; then
-    echo "[DRUPAL] changing permission on /workspaces/web/web"
-    chown -R www-data:www-data /workspaces/web/web
+    echo "[DRUPAL] changing permission on /workspaces/web"
+    chown -R www-data:www-data /workspaces/web
 fi
 
 echo -e "\n\n\n
