@@ -7,6 +7,8 @@ if [ -f /workspaces/INIT.txt ]; then
     # check the value of INIT.txt
     if [ "$(cat /workspaces/INIT.txt)" = "true" ]; then
         # run ./command.sh
+        echo "cleanup everything"
+        /workspaces/.devcontainer/reset.sh 
         echo "running command.sh"
         /workspaces/server/command.sh
     fi
