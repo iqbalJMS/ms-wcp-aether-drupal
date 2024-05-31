@@ -9,6 +9,10 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+#set env
+echo "[COMPOSER] set to use superuser"
+export COMPOSER_ALLOW_SUPERUSER=1
+
 # echo "[NGINX] we're not using nginx anymore, moving to native FPM"
 echo "[NGINX] removing default site if exist"
 # check if file exist
