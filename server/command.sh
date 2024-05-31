@@ -42,10 +42,9 @@ echo "[DRUPAL] mounting NFS"
 ln -s /workspaces/mount/files /workspaces/web/web/sites/default
 
 # check permission on /workspaces/web if it's root change to www-data:www-data
-if [ "$(stat -c '%U' /workspaces/web/web)" = "root" ]; then
-    echo "[DRUPAL] changing permission on /workspaces/web"
-    chown -R www-data:www-data /workspaces/web
-fi
+# force to set www-data
+echo "[DRUPAL] changing permission on /workspaces/web"
+chown -R www-data:www-data /workspaces/web
 
 echo -e "\n\n\n
 =========================================================
@@ -72,7 +71,7 @@ while IFS= read -r line; do
     fi
 done < /workspaces/config.txt
 
-install_error_message=$(sudo -u www-data /workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --allow-root -y 2>&1)
+install_error_message=$(sudo -u www-data /workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
   echo "[DRUPAL] already had database, skip database proccess"
@@ -94,7 +93,7 @@ echo -e "\n\n\n
 # read config/module.txt line by line
 while IFS= read -r line; do
     echo "[DRUPAL] module installing $line"
-    sudo -u www-data /workspaces/web/vendor/bin/drush en $line -y --debug --allow-root
+    sudo -u www-data /workspaces/web/vendor/bin/drush en $line -y --debug
 done < /workspaces/config/module.txt
 
 echo -e "\n\n\n
@@ -106,16 +105,16 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable classy -y --debug --allow-root
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug --allow-root
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable gin -y --debug --allow-root
-sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug --allow-root
-sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug --allow-root
+sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable classy -y --debug
+sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
+sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable gin -y --debug
+sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug
+sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug
 # sudo -u www-data /workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug --allow-root
+sudo -u www-data /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
 
 echo "[DRUPAL] clear cache"
-sudo -u www-data /workspaces/web/vendor/bin/drush cr --allow-root
+sudo -u www-data /workspaces/web/vendor/bin/drush cr
 
 
 echo -e "\n\n\n
