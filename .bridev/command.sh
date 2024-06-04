@@ -33,12 +33,12 @@ echo "[NGINX] copy nginx config"
 # dont copy if exit
 if [ ! -f /etc/nginx/sites-available/drupal ]; then
     echo "copying nginx config"
-    cp $FOLDER/config/drupal.conf /etc/nginx/sites-available/drupal
-    ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
+    sudo cp $FOLDER/config/drupal.bridev.conf /etc/nginx/sites-available/drupal
+    sudo ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 fi
 
 echo "[DRUPAL] copying php config"
-cp $FOLDER/config/local.dev.settings.php $FOLDER/web/web/sites/default/settings.php
+sudo cp $FOLDER/config/local.bridev.settings.php $FOLDER/web/web/sites/default/settings.php
 
 # check if there is "core" folder on the /workspace/web
 if [ ! -d $FOLDER/web/web/core ]; then
@@ -49,12 +49,12 @@ fi
 
 # create symlink folder between $FOLDER/mount and $FOLDER/web/web/sites/default/files
 echo "[DRUPAL] mounting NFS"
-ln -s $FOLDER/mount/files $FOLDER/web/web/sites/default
+sudo ln -s $FOLDER/mount/files $FOLDER/web/web/sites/default
 
 # check permission on $FOLDER/web if it's root change to www-data:www-data
 if [ "$(stat -c '%U' $FOLDER/web/web)" = "root" ]; then
     echo "[DRUPAL] changing permission on $FOLDER/web/web"
-    chown -R www-data:www-data $FOLDER/web/web
+    sudo chown -R www-data:www-data $FOLDER/web/web
 fi
 
 echo -e "\n\n\n
