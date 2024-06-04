@@ -38,4 +38,4 @@ sudo apt install -y nginx
 
 sudo service php8.3-fpm start
 # run other sh
-sh ./.bridev/command.sh
+sh ../.devcontainer/devcommand.sh
