@@ -9,6 +9,17 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+echo "[PRE-FLIGHT] installing NVM for installing"
+cd ~
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm install --latest
+cd /workspaces
+
+#set env
+echo "[COMPOSER] set to use superuser"
+export COMPOSER_ALLOW_SUPERUSER=1
+
 # echo "[NGINX] we're not using nginx anymore, moving to native FPM"
 echo "[NGINX] removing default site if exist"
 # check if file exist
@@ -34,7 +45,7 @@ cp /workspaces/config/local.dev.settings.php /workspaces/web/web/sites/default/s
 if [ ! -d /workspaces/web/web/core ]; then
     echo "[DRUPAL] downloading drupal core"
     cd /workspaces/web
-    sudo -u www-data composer install
+    composer install
 fi
 
 # create symlink folder between /workspaces/mount and /workspaces/web/web/sites/default/files
@@ -71,7 +82,7 @@ while IFS= read -r line; do
     fi
 done < /workspaces/config.txt
 
-install_error_message=$(sudo -u www-data /workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS -y 2>&1)
+install_error_message=$(/workspaces/web/vendor/bin/drush site:install standard --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
   echo "[DRUPAL] already had database, skip database proccess"
@@ -93,7 +104,7 @@ echo -e "\n\n\n
 # read config/module.txt line by line
 while IFS= read -r line; do
     echo "[DRUPAL] module installing $line"
-    sudo -u www-data /workspaces/web/vendor/bin/drush en $line -y --debug
+    /workspaces/web/vendor/bin/drush en $line -y --debug
 done < /workspaces/config/module.txt
 
 echo -e "\n\n\n
@@ -105,16 +116,16 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable classy -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush theme:enable gin -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug
-# sudo -u www-data /workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
-sudo -u www-data /workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
+/workspaces/web/vendor/bin/drush theme:enable classy -y --debug
+/workspaces/web/vendor/bin/drush theme:enable bri_main -y --debug
+/workspaces/web/vendor/bin/drush theme:enable gin -y --debug
+/workspaces/web/vendor/bin/drush pm:enable jsonapi -y --debug
+/workspaces/web/vendor/bin/drush pm:enable basic_auth -y --debug
+# /workspaces/web/vendor/bin/drush config-set system.theme default bri_main -y --debug
+/workspaces/web/vendor/bin/drush config-set system.theme admin gin -y --debug
 
 echo "[DRUPAL] clear cache"
-sudo -u www-data /workspaces/web/vendor/bin/drush cr
+/workspaces/web/vendor/bin/drush cr
 
 
 echo -e "\n\n\n

@@ -36,6 +36,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set the entrypoint script
 RUN touch /workspaces/INIT.txt
 RUN echo "true" > /workspaces/INIT.txt
+RUN echo "v1.0"
 RUN chmod +x /workspaces/server/entrypoint.sh
 EXPOSE 1234
-CMD ["./server/entrypoint.sh"]
+CMD ["./server/entrypoint-1.sh"]

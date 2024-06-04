@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # check if there is INIT.txt on /workspaces
-echo "running entrypoint" 
+echo "running entrypoint v1.0" 
 if [ -f /workspaces/INIT.txt ]; then
     echo "INIT file FOUND" 
     # check the value of INIT.txt
     if [ "$(cat /workspaces/INIT.txt)" = "true" ]; then
         # run ./command.sh
+        echo "cleanup everything"
+        /workspaces/.devcontainer/reset.sh 
         echo "running command.sh"
         /workspaces/server/command.sh
     fi
