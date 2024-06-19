@@ -39,8 +39,14 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     ];
     $row['uid']['data'] = $entity->get('uid')->view($username_options);
     $row['created']['data'] = $entity->get('created')->view(['label' => 'hidden']);
-    $row['changed']['data'] = $entity->get('changed')->view(['label' => 'hidden']);
+//    $row['changed']['data'] = $entity->get('changed')->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
+  }
+
+  public function render(): array {
+    $build['form'] = \Drupal::formBuilder()->getForm('Drupal\bricc\Form\BriccCategoryFilterForm');
+    $build += parent::render();
+    return $build;
   }
 
 }
