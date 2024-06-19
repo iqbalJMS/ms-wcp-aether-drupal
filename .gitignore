@@ -84,3 +84,5 @@ composer-lock.json
 # Ignore multi-site test environment.
 /web/web/sites/simpletest
 /web/composer.lock
+
+/web/.lando.yml

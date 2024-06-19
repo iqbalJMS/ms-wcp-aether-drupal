@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_category_save_action
+label: 'Save categories'
+type: bricc_category
+plugin: entity:save_action:bricc_category
+configuration: {  }

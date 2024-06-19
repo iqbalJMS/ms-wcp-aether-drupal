@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for bricc module.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function bricc_theme(): array {
+  return [
+    'bricc_category' => ['render element' => 'elements'],
+  ];
+}
+
+/**
+ * Prepares variables for category templates.
+ *
+ * Default template: bricc-category.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the category information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_bricc_category(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function bricc_user_cancel($edit, UserInterface $account, $method): void {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish categories.
+      $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+      $bricc_category_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($bricc_category_ids) as $bricc_category) {
+        $bricc_category->set('status', FALSE)->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize categories.
+      $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+      $bricc_category_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($bricc_category_ids) as $bricc_category) {
+        $bricc_category->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function bricc_user_predelete(UserInterface $account): void {
+  // Delete categories that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+  $bricc_category_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($bricc_category_ids)
+  );
+}

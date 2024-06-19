@@ -1,0 +1,3 @@
+administer bricc_category:
+  title: 'Administer categories'
+  restrict access: true

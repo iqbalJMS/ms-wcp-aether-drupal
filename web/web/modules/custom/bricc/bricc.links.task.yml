@@ -1,0 +1,22 @@
+entity.bricc_category.settings:
+  title: 'Settings'
+  route_name: entity.bricc_category.settings
+  base_route: entity.bricc_category.settings
+entity.bricc_category.view:
+  title: 'View'
+  route_name: entity.bricc_category.canonical
+  base_route: entity.bricc_category.canonical
+entity.bricc_category.edit_form:
+  title: 'Edit'
+  route_name: entity.bricc_category.edit_form
+  base_route: entity.bricc_category.canonical
+entity.bricc_category.delete_form:
+  title: 'Delete'
+  route_name: entity.bricc_category.delete_form
+  base_route: entity.bricc_category.canonical
+  weight: 10
+entity.bricc_category.collection:
+  title: 'Categories'
+  route_name: entity.bricc_category.collection
+  base_route: system.admin_content
+  weight: 10

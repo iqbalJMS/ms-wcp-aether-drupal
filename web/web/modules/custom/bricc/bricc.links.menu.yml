@@ -1,0 +1,17 @@
+bricc.admin:
+  title: Administration
+  route_name: bricc.admin
+  weight: 9
+  menu_name: bricc_admin
+
+entity.bricc_category.settings:
+  title: 'Category'
+  description: 'Configure a Category entity type.'
+  route_name:  entity.bricc_category.settings
+  parent: system.admin_structure
+
+entity.bricc_category.collection:
+  title: 'Categories'
+  description: 'List of categories.'
+  route_name: entity.bricc_category.collection
+  parent: system.admin_content

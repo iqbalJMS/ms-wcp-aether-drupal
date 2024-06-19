@@ -1,0 +1,10 @@
+entity.bricc_category.edit_form:
+  route_name: entity.bricc_category.edit_form
+  group: bricc_category
+  title: 'Edit'
+
+entity.bricc_category.delete_form:
+  route_name: entity.bricc_category.delete_form
+  group: bricc_category
+  title: 'Delete'
+  weight: 10

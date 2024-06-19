@@ -1,0 +1,5 @@
+bricc_category.add_form:
+  title: 'Add category'
+  route_name: entity.bricc_category.add_form
+  appears_on:
+    - entity.bricc_category.collection
