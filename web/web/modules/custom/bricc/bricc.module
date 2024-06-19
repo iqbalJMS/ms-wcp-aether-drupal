@@ -81,3 +81,13 @@ function bricc_user_predelete(UserInterface $account): void {
     $storage->loadMultiple($bricc_category_ids)
   );
 }
+
+/**
+ * Implements hook_page_attachments().
+ */
+function bricc_page_attachments(array &$attachments) {
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $attachments['#attached']['library'][] = 'bricc/admin';
+  }
+}
+

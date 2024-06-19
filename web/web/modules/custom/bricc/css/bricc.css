@@ -1,3 +1,7 @@
 .bricc-category-filter {
   margin-bottom: var(--gin-spacing-l);
 }
+
+.filter-submit {
+  padding-top: 25px;
+}

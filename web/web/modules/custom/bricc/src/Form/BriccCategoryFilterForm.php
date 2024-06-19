@@ -32,15 +32,40 @@ final class BriccCategoryFilterForm extends FormBase {
       ],
     ];
 
-    $form['filter']['foo'] = [
+    $form['filter']['label'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Category title'),
+      '#default_value' => $request->get('label') ?? '',
+    ];
+
+    $form['filter']['status'] = [
       '#type' => 'select',
-      '#title' => 'Which foo?',
+      '#title' => 'Status',
       '#options' => [
-        'hello' => 'Hello',
-        'world' => 'World',
+        '' => '- Any -',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
       ],
-    '#default_value' => $request->get('foo') ?? 0,
-  ];
+      '#default_value' => $request->get('status') ?? '',
+    ];
+
+    $form['filter']['wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['form-item', 'filter-submit']],
+    ];
+
+    $form['filter']['wrapper']['submit'] = [
+      '#type' => 'submit',
+      '#value' => 'Filter',
+    ];
+
+    if ($request->getQueryString()) {
+      $form['filter']['wrapper']['reset'] = [
+        '#type' => 'submit',
+        '#value' => 'Reset',
+        '#submit' => ['::resetForm'],
+      ];
+    }
 
     return $form;
   }
