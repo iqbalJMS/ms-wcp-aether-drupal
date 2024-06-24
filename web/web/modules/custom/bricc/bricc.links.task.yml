@@ -20,3 +20,26 @@ entity.bricc_category.collection:
   route_name: entity.bricc_category.collection
   base_route: system.admin_content
   weight: 10
+
+entity.bricc_card_item.settings:
+  title: 'Settings'
+  route_name: entity.bricc_card_item.settings
+  base_route: entity.bricc_card_item.settings
+entity.bricc_card_item.view:
+  title: 'View'
+  route_name: entity.bricc_card_item.canonical
+  base_route: entity.bricc_card_item.canonical
+entity.bricc_card_item.edit_form:
+  title: 'Edit'
+  route_name: entity.bricc_card_item.edit_form
+  base_route: entity.bricc_card_item.canonical
+entity.bricc_card_item.delete_form:
+  title: 'Delete'
+  route_name: entity.bricc_card_item.delete_form
+  base_route: entity.bricc_card_item.canonical
+  weight: 10
+entity.bricc_card_item.collection:
+  title: 'Card items'
+  route_name: entity.bricc_card_item.collection
+  base_route: system.admin_content
+  weight: 10

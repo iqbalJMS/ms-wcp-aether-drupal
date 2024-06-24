@@ -1,3 +1,21 @@
 administer bricc_category:
   title: 'Administer categories'
   restrict access: true
+
+administer bricc_card_item:
+  title: 'Administer card items'
+  restrict access: true
+view bricc_card_item:
+  title: 'View card item'
+edit bricc_card_item:
+  title: 'Edit card item'
+delete bricc_card_item:
+  title: 'Delete card item'
+create bricc_card_item:
+  title: 'Create card item'
+view bricc_card_item revision:
+  title: 'View card item revision'
+revert bricc_card_item revision:
+  title: 'Revert card item revision'
+delete bricc_card_item revision:
+  title: 'Delete card item revision'

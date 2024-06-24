@@ -15,3 +15,15 @@ entity.bricc_category.collection:
   description: 'List of categories.'
   route_name: entity.bricc_category.collection
   parent: system.admin_content
+
+entity.bricc_card_item.settings:
+  title: 'Card item'
+  description: 'Configure a Card item entity type.'
+  route_name:  entity.bricc_card_item.settings
+  parent: system.admin_structure
+
+entity.bricc_card_item.collection:
+  title: 'Card items'
+  description: 'List of card items.'
+  route_name: entity.bricc_card_item.collection
+  parent: system.admin_content

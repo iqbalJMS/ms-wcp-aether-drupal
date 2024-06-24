@@ -21,3 +21,11 @@ entity.bricc_category.settings:
     _title: 'Category'
   requirements:
     _permission: 'administer bricc_category'
+
+entity.bricc_card_item.settings:
+  path: 'admin/structure/bricc-card-item'
+  defaults:
+    _form: '\Drupal\bricc\Form\BriccCardItemSettingsForm'
+    _title: 'Card item'
+  requirements:
+    _permission: 'administer bricc_card_item'

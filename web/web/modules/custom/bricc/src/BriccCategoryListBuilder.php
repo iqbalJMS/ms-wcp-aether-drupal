@@ -20,7 +20,11 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     $header['description'] = $this->t('Description');
     $header['card_count'] = $this->t('Card Count');
     $header['status'] = $this->t('Active');
-    $header['created'] = $this->t('Created');
+    $header['created'] = [
+      'data' => $this->t('Created'),
+      'field' => 'created',
+      'sort' => 'DESC',
+    ];
     return $header + parent::buildHeader();
   }
 
@@ -31,13 +35,13 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     /** @var \Drupal\bricc\BriccCategoryInterface $entity */
     $row['label'] = $entity->toLink();
     $row['description'] = $entity->get('description')->value;
-    $row['card_count'] = 0;
+    $row['card_count'] = $entity->get('card_count')->value;
     $row['status'] = $entity->get('status')->value ? $this->t('Active') : $this->t('Disabled');
     $username_options = [
       'label' => 'hidden',
       'settings' => ['link' => $entity->get('uid')->entity->isAuthenticated()],
     ];
-    $row['uid']['data'] = $entity->get('uid')->view($username_options);
+//    $row['uid']['data'] = $entity->get('uid')->view($username_options);
     $row['created']['data'] = $entity->get('created')->view(['label' => 'hidden']);
 //    $row['changed']['data'] = $entity->get('changed')->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
@@ -48,5 +52,28 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     $build += parent::render();
     return $build;
   }
+
+  protected function getEntityIds() {
+    $query = \Drupal::entityQuery($this->entityTypeId);
+    $request = \Drupal::request();
+
+    $label = $request->get('label') ?? '';
+    if (!empty($label)) {
+      $query->condition('label', $label, 'CONTAINS');
+    }
+
+    $status = $request->get('status') ?? '';
+    if (!empty($status)) {
+      $status = $status === 'active';
+      $query->condition('status', $status);
+    }
+
+    if ($this->limit) {
+      $query->pager($this->limit);
+    }
+
+    return $query->accessCheck()->execute();
+  }
+
 
 }

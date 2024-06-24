@@ -10,13 +10,13 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Provides a bricc form.
  */
-final class BriccCategoryFilterForm extends FormBase {
+final class BriccCardItemFilterForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'bricc_category_filter';
+    return 'bricc_card_item_filter';
   }
 
   /**
@@ -34,7 +34,7 @@ final class BriccCategoryFilterForm extends FormBase {
 
     $form['filter']['label'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Category title'),
+      '#title' => $this->t('Card title'),
       '#default_value' => $request->get('label') ?? '',
     ];
 
@@ -102,11 +102,11 @@ final class BriccCategoryFilterForm extends FormBase {
       $query['status'] = $status;
     }
 
-    $form_state->setRedirect('entity.bricc_category.collection', $query);
+    $form_state->setRedirect('entity.bricc_card_item.collection', $query);
   }
 
   public function resetForm(array $form, FormStateInterface &$form_state): void {
-    $form_state->setRedirect('entity.bricc_category.collection');
+    $form_state->setRedirect('entity.bricc_card_item.collection');
   }
 
 

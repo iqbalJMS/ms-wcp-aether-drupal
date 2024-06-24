@@ -70,7 +70,6 @@ class BriccController extends ControllerBase {
    * @return array
    */
   public function pageCreditCard(): array {
-    $url = Url::fromRoute('entity.bricc_category.settings');
     $output = [
       '#theme' => 'admin_block_content',
       '#content' => [
@@ -81,7 +80,7 @@ class BriccController extends ControllerBase {
         ],
         [
           'title' => $this->t('Items'),
-          'url' => $url,
+          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],
