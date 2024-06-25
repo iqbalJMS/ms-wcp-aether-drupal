@@ -44,7 +44,6 @@ class BriccController extends ControllerBase {
    * Builds the response.
    */
   public function build(): array {
-    $url = Url::fromRoute('node.add_page');
     $output = [
       '#theme' => 'admin_block_content',
       '#content' => [
@@ -55,7 +54,7 @@ class BriccController extends ControllerBase {
         ],
         [
           'title' => $this->t('Management'),
-          'url' => $url,
+          'url' => Url::fromRoute('bricc.admin.management'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],
@@ -89,4 +88,28 @@ class BriccController extends ControllerBase {
     return $output;
   }
 
+  public function pageManagement(): array {
+    $output = [
+      '#theme' => 'admin_block_content',
+      '#content' => [
+        [
+          'title' => $this->t('Region'),
+          'url' => Url::fromRoute('entity.bricc_category.collection'),
+          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+        [
+          'title' => $this->t('Applicant List'),
+          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
+          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+        [
+          'title' => $this->t('Applicant Status'),
+          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
+          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+      ],
+    ];
+
+    return $output;
+  }
 }
