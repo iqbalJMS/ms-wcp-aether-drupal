@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_city_save_action
+label: 'Save cities'
+type: bricc_city
+plugin: entity:save_action:bricc_city
+configuration: {  }

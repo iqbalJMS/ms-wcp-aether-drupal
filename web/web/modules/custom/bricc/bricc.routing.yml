@@ -15,10 +15,18 @@ bricc.admin.credit_card:
     _permission: 'access administration pages'
 
 bricc.admin.management:
-  path: '/admin/bricc/credit-card'
+  path: '/admin/bricc/management'
   defaults:
     _controller: '\Drupal\bricc\Controller\BriccController::pageManagement'
     _title: 'Management'
+  requirements:
+    _permission: 'access administration pages'
+
+bricc.admin.management.region:
+  path: '/admin/bricc/management/region'
+  defaults:
+    _controller: '\Drupal\bricc\Controller\BriccController::pageRegion'
+    _title: 'Region'
   requirements:
     _permission: 'access administration pages'
 
@@ -37,3 +45,19 @@ entity.bricc_card_item.settings:
     _title: 'Card item'
   requirements:
     _permission: 'administer bricc_card_item'
+
+entity.bricc_province.settings:
+  path: 'admin/structure/bricc-province'
+  defaults:
+    _form: '\Drupal\bricc\Form\BriccProvinceSettingsForm'
+    _title: 'Province'
+  requirements:
+    _permission: 'administer bricc_province'
+
+entity.bricc_city.settings:
+  path: 'admin/structure/bricc-city'
+  defaults:
+    _form: '\Drupal\bricc\Form\BriccCitySettingsForm'
+    _title: 'City'
+  requirements:
+    _permission: 'administer bricc_city'

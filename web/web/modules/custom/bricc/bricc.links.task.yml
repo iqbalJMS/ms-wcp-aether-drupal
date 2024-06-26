@@ -43,3 +43,23 @@ entity.bricc_card_item.collection:
   route_name: entity.bricc_card_item.collection
   base_route: system.admin_content
   weight: 10
+
+entity.bricc_province.settings:
+  title: 'Settings'
+  route_name: entity.bricc_province.settings
+  base_route: entity.bricc_province.settings
+entity.bricc_province.collection:
+  title: 'Provinces'
+  route_name: entity.bricc_province.collection
+  base_route: system.admin_content
+  weight: 10
+
+entity.bricc_city.settings:
+  title: 'Settings'
+  route_name: entity.bricc_city.settings
+  base_route: entity.bricc_city.settings
+entity.bricc_city.collection:
+  title: 'Cities'
+  route_name: entity.bricc_city.collection
+  base_route: system.admin_content
+  weight: 10

@@ -112,4 +112,24 @@ class BriccController extends ControllerBase {
 
     return $output;
   }
+
+  public function pageRegion(): array {
+    $output = [
+      '#theme' => 'admin_block_content',
+      '#content' => [
+        [
+          'title' => $this->t('Province'),
+          'url' => Url::fromRoute('entity.bricc_category.collection'),
+          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+        [
+          'title' => $this->t('City'),
+          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
+          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+      ],
+    ];
+
+    return $output;
+  }
 }

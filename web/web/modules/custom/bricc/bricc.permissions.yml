@@ -19,3 +19,11 @@ revert bricc_card_item revision:
   title: 'Revert card item revision'
 delete bricc_card_item revision:
   title: 'Delete card item revision'
+
+administer bricc_province:
+  title: 'Administer provinces'
+  restrict access: true
+
+administer bricc_city:
+  title: 'Administer cities'
+  restrict access: true

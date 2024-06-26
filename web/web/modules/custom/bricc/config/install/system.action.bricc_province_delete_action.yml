@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_province_delete_action
+label: 'Delete provinces'
+type: bricc_province
+plugin: entity:delete_action:bricc_province
+configuration: {  }

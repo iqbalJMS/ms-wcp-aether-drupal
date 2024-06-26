@@ -9,3 +9,15 @@ bricc_card_item.add_form:
   route_name: entity.bricc_card_item.add_form
   appears_on:
     - entity.bricc_card_item.collection
+
+bricc_province.add_form:
+  title: 'Add province'
+  route_name: entity.bricc_province.add_form
+  appears_on:
+    - entity.bricc_province.collection
+
+bricc_city.add_form:
+  title: 'Add city'
+  route_name: entity.bricc_city.add_form
+  appears_on:
+    - entity.bricc_city.collection
