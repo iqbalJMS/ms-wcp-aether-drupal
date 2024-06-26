@@ -1,0 +1,20 @@
+uuid: 78018ddb-54b9-47cd-9c04-f14ed613e946
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_late_payment_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_late_payment_fee
+field_name: field_late_payment_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya keterlambatan pembayaran'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,24 @@
+uuid: 2f251ddf-1433-4a66-9a86-cc546796d4fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_pin_change_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_pin_change_fee
+field_name: field_pin_change_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya penggantian pin'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

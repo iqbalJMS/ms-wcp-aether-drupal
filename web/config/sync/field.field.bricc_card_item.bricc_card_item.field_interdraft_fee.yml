@@ -1,0 +1,24 @@
+uuid: 26027019-7c4d-44a4-bba2-8efe25561935
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_interdraft_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_interdraft_fee
+field_name: field_interdraft_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya copy sales draft internasional'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

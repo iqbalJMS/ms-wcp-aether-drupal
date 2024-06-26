@@ -1,0 +1,20 @@
+uuid: 9fc49f6c-c8b7-441b-9c1a-d37d00bea453
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_max_cash_withdraw
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_max_cash_withdraw
+field_name: field_max_cash_withdraw
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Maximal penarikan tunai'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

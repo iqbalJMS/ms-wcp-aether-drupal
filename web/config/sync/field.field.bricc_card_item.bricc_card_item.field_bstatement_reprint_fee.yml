@@ -1,0 +1,24 @@
+uuid: 249a18cd-aaf5-4156-8e6f-d3751ab7990f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_bstatement_reprint_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_bstatement_reprint_fee
+field_name: field_bstatement_reprint_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya pencetakan ulang billing statement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,24 @@
+uuid: 4faa5c37-35e4-4299-abfe-d0b0d90a3c09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_limit_upgrade_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_limit_upgrade_fee
+field_name: field_limit_upgrade_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya kenaikan limit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

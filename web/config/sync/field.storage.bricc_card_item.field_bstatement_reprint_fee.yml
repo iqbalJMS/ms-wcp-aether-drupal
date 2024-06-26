@@ -1,0 +1,20 @@
+uuid: 8d305257-87b9-4a8d-b00a-bfec89a8594d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_bstatement_reprint_fee
+field_name: field_bstatement_reprint_fee
+entity_type: bricc_card_item
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

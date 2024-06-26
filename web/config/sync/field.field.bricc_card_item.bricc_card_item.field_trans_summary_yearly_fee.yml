@@ -1,0 +1,24 @@
+uuid: b521a469-0d91-41d1-99b5-8036a30a3e15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_trans_summary_yearly_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_trans_summary_yearly_fee
+field_name: field_trans_summary_yearly_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya ringkasan transaksi tahunan'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

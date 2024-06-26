@@ -1,0 +1,20 @@
+uuid: fc9ac94a-b288-44d2-8c32-c8c9b0423c44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_card_limit
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_card_limit
+field_name: field_card_limit
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Limit kartu kredit BRI'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

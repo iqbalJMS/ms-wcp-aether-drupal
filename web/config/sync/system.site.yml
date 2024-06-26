@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: c4cc3e24-23e6-4b57-963c-0152ae8811a0
+name: 'BRI CC'
+mail: permanaonline@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

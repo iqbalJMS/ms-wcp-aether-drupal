@@ -1,0 +1,24 @@
+uuid: 3805528e-d0bf-4dba-84a7-40f531cfa9c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_card_upgrade_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_card_upgrade_fee
+field_name: field_card_upgrade_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya upgrade kartu'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

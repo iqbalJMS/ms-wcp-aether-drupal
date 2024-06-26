@@ -1,0 +1,24 @@
+uuid: fa43406d-3f63-41ad-94e9-c0d916154eb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_basic_annualfee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_basic_annualfee
+field_name: field_basic_annualfee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: Basic
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

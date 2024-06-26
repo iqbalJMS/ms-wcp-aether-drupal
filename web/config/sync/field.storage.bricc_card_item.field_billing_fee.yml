@@ -1,0 +1,20 @@
+uuid: c6d3dd2c-21f2-43f8-af40-58fd4124ab29
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_billing_fee
+field_name: field_billing_fee
+entity_type: bricc_card_item
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 73bdc0d9-0f2d-40d2-8bbb-857bafb519da
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_basic_annualfee
+field_name: field_basic_annualfee
+entity_type: bricc_card_item
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
