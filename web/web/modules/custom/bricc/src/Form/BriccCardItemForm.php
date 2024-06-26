@@ -44,4 +44,15 @@ final class BriccCardItemForm extends ContentEntityForm {
     return $result;
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function form(array $form, FormStateInterface $form_state): array {
+    $form = parent::form($form, $form_state);
+
+    $form['revision_information']['#group'] = 'advanced';
+    $form['advanced']['#type'] = 'fieldset';
+    return $form;
+  }
+
 }

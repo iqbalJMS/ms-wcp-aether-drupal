@@ -6,3 +6,8 @@
 .filter-submit {
   padding-top: 25px;
 }
+
+.bricc-card-item-form .field-group-html-element h4 {
+  font-weight: 600;
+  font-size: 20px;
+}
