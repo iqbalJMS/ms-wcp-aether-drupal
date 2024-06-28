@@ -94,7 +94,7 @@ class BriccController extends ControllerBase {
       '#content' => [
         [
           'title' => $this->t('Region'),
-          'url' => Url::fromRoute('entity.bricc_category.collection'),
+          'url' => Url::fromRoute('bricc.admin.management.region'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
@@ -119,12 +119,12 @@ class BriccController extends ControllerBase {
       '#content' => [
         [
           'title' => $this->t('Province'),
-          'url' => Url::fromRoute('entity.bricc_category.collection'),
+          'url' => Url::fromRoute('entity.bricc_province.collection'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
           'title' => $this->t('City'),
-          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
+          'url' => Url::fromRoute('entity.bricc_city.collection'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],

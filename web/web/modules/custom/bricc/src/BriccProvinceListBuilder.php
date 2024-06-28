@@ -16,12 +16,8 @@ final class BriccProvinceListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader(): array {
-    $header['id'] = $this->t('ID');
-    $header['label'] = $this->t('Label');
-    $header['status'] = $this->t('Status');
-    $header['uid'] = $this->t('Author');
+    $header['label'] = $this->t('Province name');
     $header['created'] = $this->t('Created');
-    $header['changed'] = $this->t('Updated');
     return $header + parent::buildHeader();
   }
 
@@ -30,17 +26,21 @@ final class BriccProvinceListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity): array {
     /** @var \Drupal\bricc\BriccProvinceInterface $entity */
-    $row['id'] = $entity->id();
     $row['label'] = $entity->label();
-    $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
-    $username_options = [
-      'label' => 'hidden',
-      'settings' => ['link' => $entity->get('uid')->entity->isAuthenticated()],
-    ];
-    $row['uid']['data'] = $entity->get('uid')->view($username_options);
-    $row['created']['data'] = $entity->get('created')->view(['label' => 'hidden']);
-    $row['changed']['data'] = $entity->get('changed')->view(['label' => 'hidden']);
+
+    $created_timestamp = $entity->get('created')->value;
+    $formatted_date = \Drupal::service('date.formatter')->format($created_timestamp, 'custom', 'd M Y');
+
+    // Set the formatted date in the row
+    $row['created'] = $formatted_date;
+
     return $row + parent::buildRow($entity);
+  }
+
+  public function render(): array {
+    $build['form'] = \Drupal::formBuilder()->getForm('Drupal\bricc\Form\BriccProvinceFilterForm');
+    $build += parent::render();
+    return $build;
   }
 
 }
