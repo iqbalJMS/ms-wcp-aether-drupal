@@ -43,4 +43,10 @@ final class BriccCityListBuilder extends EntityListBuilder {
     return $row + parent::buildRow($entity);
   }
 
+  public function render(): array {
+    $build['form'] = \Drupal::formBuilder()->getForm('Drupal\bricc\Form\BriccCityFilterForm');
+    $build += parent::render();
+    return $build;
+  }
+
 }

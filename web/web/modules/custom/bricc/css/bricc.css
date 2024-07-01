@@ -1,5 +1,6 @@
 .bricc-card-item-filter,
 .bricc-province-filter,
+.bricc-city-filter,
 .bricc-category-filter {
   margin-bottom: var(--gin-spacing-l);
 }
