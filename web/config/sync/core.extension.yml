@@ -5,7 +5,9 @@ module:
   breakpoint: 0
   bricc: 0
   config: 0
+  config_pages: 0
   config_split: 0
+  custom_login_url: 0
   dblog: 0
   devel: 0
   devel_entity_updates: 0
