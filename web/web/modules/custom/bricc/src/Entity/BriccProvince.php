@@ -47,7 +47,7 @@ use Drupal\user\EntityOwnerTrait;
  *     "owner" = "uid",
  *   },
  *   links = {
- *     "collection" = "/admin/content/province",
+ *     "collection" = "/admin/bricc/management/region/province",
  *     "add-form" = "/admin/bricc/management/region/province/add",
  *     "canonical" = "/admin/bricc/management/region/province/{bricc_province}",
  *     "edit-form" = "/admin/bricc/management/region/province/{bricc_province}",

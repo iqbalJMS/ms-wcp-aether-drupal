@@ -59,7 +59,7 @@ use Drupal\user\EntityOwnerTrait;
  *     "revision_log_message" = "revision_log",
  *   },
  *   links = {
- *     "collection" = "/admin/content/card-item",
+ *     "collection" = "/admin/bricc/credit-card/card-item",
  *     "add-form" = "/admin/bricc/card-items/add",
  *     "canonical" = "/admin/bricc/card-items/{bricc_card_item}",
  *     "edit-form" = "/admin/bricc/card-items/{bricc_card_item}/edit",

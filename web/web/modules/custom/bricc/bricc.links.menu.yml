@@ -14,7 +14,7 @@ entity.bricc_category.collection:
   title: 'Categories'
   description: 'List of categories.'
   route_name: entity.bricc_category.collection
-  parent: system.admin_content
+  parent: system.admin_bricc
 
 entity.bricc_card_item.settings:
   title: 'Card item'
