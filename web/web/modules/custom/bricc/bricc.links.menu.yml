@@ -51,3 +51,9 @@ entity.bricc_city.collection:
   description: 'List of cities.'
   route_name: entity.bricc_city.collection
   parent: system.admin_content
+
+entity.bricc_applicant_status.collection:
+  title: 'Applicant Status'
+  description: 'List of applicant status.'
+  route_name: entity.bricc_applicant_status.collection
+  parent: system.admin_content

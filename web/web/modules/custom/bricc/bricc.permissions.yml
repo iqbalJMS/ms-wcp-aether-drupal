@@ -27,3 +27,7 @@ administer bricc_province:
 administer bricc_city:
   title: 'Administer cities'
   restrict access: true
+
+administer bricc_applicant_status:
+  title: 'Administer applicant status'
+  restrict access: true
