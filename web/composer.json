@@ -28,6 +28,7 @@
         "drupal/core-recommended": "^10.2",
         "drupal/custom_login_url": "^2.0",
         "drupal/default_content_deploy": "^2.0",
+        "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.4",
         "drupal/gin": "^3.0@rc",
         "drupal/gin_login": "^2.1",
