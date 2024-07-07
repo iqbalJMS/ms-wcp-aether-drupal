@@ -1,0 +1,10 @@
+uuid: b60c4eba-60da-47cf-b2aa-5f9224885167
+langcode: en
+status: true
+dependencies: {  }
+id: promo
+label: Promo
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

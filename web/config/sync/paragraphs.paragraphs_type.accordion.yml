@@ -1,0 +1,12 @@
+uuid: 2a614255-7f98-4706-b3ee-1af1e4cf3d98
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:968609b5-fe9f-48bf-a9d2-8862a210563d'
+id: accordion
+label: Accordion
+icon_uuid: 968609b5-fe9f-48bf-a9d2-8862a210563d
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGklEQVR4nO2a7QqCMBSGnx/iPVUX49WUdVvJriHqt3Ybi2BC6Gja1PZxHjjg2Bh73V7PmAMhPQqgAh7AzTz7lgufAZXABXgCOvDogNqMecTZs/P+zS5V1hPiZBPSmcrdzJnsO12rbGP/MTMjpnQQipCv7UQIMiPbLi09Mdb2iAKaFIQ0wNVHiAvxSG4eUQNvRCukGXjjZyEuxCO5blGUbx5xEU0e0YEkxCH5CnERTR5xEU0e0aksLZ2KEBdbCVGSR1JbWjoVIS7WFqIkj8xEllauZldyrjUR8UhuHlFyrjUT8Uhue618hXSm4v3rN3QhB9OmtVXWMz61oVwYONqElEZMPzMhR2tEWK9w+F6quZuoFigXSw5Q4A+8AGWFwUoNpKzOAAAAAElFTkSuQmCC'
+description: 'Accordion element'
+behavior_plugins: {  }

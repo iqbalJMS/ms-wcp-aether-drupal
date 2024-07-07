@@ -1,0 +1,50 @@
+uuid: 46f279ce-b051-4295-bf95-1449a29144c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.limited_html
+  module:
+    - ckeditor5
+format: limited_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+      - '|'
+      - blockQuote
+      - bulletedList
+      - numberedList
+      - sourceEditing
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: false
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<a hreflang>'
+        - '<blockquote cite>'
+        - '<ul type>'
+        - '<ol type="1 A I">'
+        - '<h2 id="jump-*">'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+image_upload: {  }

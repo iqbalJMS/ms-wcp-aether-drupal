@@ -2,7 +2,10 @@ uuid: 7ce32144-3bb2-430d-9164-ab1b312a8248
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.limited_html
   module:
+    - filter
     - media
     - system
 _core:
@@ -13,4 +16,5 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format limited_html'
   - 'view media'

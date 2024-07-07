@@ -1,0 +1,55 @@
+uuid: 963451ef-bf7d-4a47-8e2b-2ac56bab8019
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_detail
+    - paragraphs.paragraphs_type.card_detail
+    - paragraphs.paragraphs_type.card_detail_item
+  module:
+    - entity_reference_revisions
+id: paragraph.card_detail.field_card_detail
+field_name: field_card_detail
+entity_type: paragraph
+bundle: card_detail
+label: 'Card detail'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_detail_item: card_detail_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 11
+        enabled: false
+      accordion_item:
+        weight: 12
+        enabled: false
+      card_detail:
+        weight: 13
+        enabled: false
+      card_detail_item:
+        weight: 10
+        enabled: true
+      card_popular:
+        weight: 14
+        enabled: false
+      card_slider:
+        weight: 15
+        enabled: false
+      from_library:
+        weight: 16
+        enabled: false
+      header:
+        weight: 17
+        enabled: false
+      promo:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

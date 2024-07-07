@@ -1,0 +1,45 @@
+uuid: 96d57d1e-65c2-4c03-a59a-7bc51d5f102a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_slider.field_category
+    - field.field.paragraph.card_slider.field_content
+    - field.field.paragraph.card_slider.field_title
+    - paragraphs.paragraphs_type.card_slider
+  module:
+    - text
+id: paragraph.card_slider.default
+targetEntityType: paragraph
+bundle: card_slider
+mode: default
+content:
+  field_category:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

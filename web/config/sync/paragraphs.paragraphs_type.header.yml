@@ -1,0 +1,12 @@
+uuid: 672b60e3-7e70-4d88-81b7-50a4364b3e44
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:6af925ba-5143-49c0-9a21-217dcaebf0cd'
+id: header
+label: Header
+icon_uuid: 6af925ba-5143-49c0-9a21-217dcaebf0cd
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdklEQVR4nO3WMQ7AIAzF0Nz/0u7UBdS1/BA/iaWblRJRJUk6jKZnc11IFxgShrETIeSsDMGJlL8W3pHanb4buLUW10wkFYaEwYmEYfREOLhmv8wOScToEIKeJq/ZIYkYHULAul3NDkmEIV0nQpNvm2tCJEn1lwcS0uU3USomKwAAAABJRU5ErkJggg=='
+description: 'Header element'
+behavior_plugins: {  }

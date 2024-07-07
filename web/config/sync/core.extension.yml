@@ -4,6 +4,7 @@ module:
   block: 0
   breakpoint: 0
   bricc: 0
+  ckeditor5: 0
   config: 0
   config_pages: 0
   config_split: 0
@@ -13,7 +14,9 @@ module:
   devel: 0
   devel_entity_updates: 0
   dynamic_page_cache: 0
+  editor: 0
   entity_reference_revisions: 0
+  entity_usage: 0
   field: 0
   field_group: 0
   field_ui: 0
