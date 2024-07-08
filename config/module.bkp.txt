@@ -8,4 +8,11 @@ image
 file
 field
 webp
+home_about
+home_footer
+home_header
+home_menu
+home_saham
+home_subcompany
+promo_slider
 EOF
