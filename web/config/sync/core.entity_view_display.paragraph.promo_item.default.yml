@@ -1,0 +1,45 @@
+uuid: d0d3016a-95b6-4a59-b1c6-f6f03ad85467
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.promo_item.field_content
+    - field.field.paragraph.promo_item.field_primary_cta
+    - field.field.paragraph.promo_item.field_title
+    - paragraphs.paragraphs_type.promo_item
+  module:
+    - link
+    - text
+id: paragraph.promo_item.default
+targetEntityType: paragraph
+bundle: promo_item
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_primary_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

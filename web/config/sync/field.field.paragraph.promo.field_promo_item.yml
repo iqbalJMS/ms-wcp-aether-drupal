@@ -1,0 +1,76 @@
+uuid: 119ed66a-e138-4d8b-be3c-086a9db4af7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_promo_item
+    - paragraphs.paragraphs_type.promo
+    - paragraphs.paragraphs_type.promo_item
+  module:
+    - entity_reference_revisions
+id: paragraph.promo.field_promo_item
+field_name: field_promo_item
+entity_type: paragraph
+bundle: promo
+label: 'Promo item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      promo_item: promo_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 18
+        enabled: false
+      accordion_item:
+        weight: 19
+        enabled: false
+      card_comparation:
+        weight: 20
+        enabled: false
+      card_detail:
+        weight: 21
+        enabled: false
+      card_detail_item:
+        weight: 22
+        enabled: false
+      card_group_nav:
+        weight: 23
+        enabled: false
+      card_popular:
+        weight: 24
+        enabled: false
+      card_slider:
+        weight: 25
+        enabled: false
+      from_library:
+        weight: 26
+        enabled: false
+      header:
+        weight: 27
+        enabled: false
+      promo:
+        weight: 28
+        enabled: false
+      promo_item:
+        weight: 17
+        enabled: true
+      slider:
+        weight: 29
+        enabled: false
+      slider_item:
+        weight: 30
+        enabled: false
+      step_item:
+        weight: 31
+        enabled: false
+      steps:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

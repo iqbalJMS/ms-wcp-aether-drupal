@@ -1,0 +1,67 @@
+uuid: ebfffbf0-e957-427f-8037-899688836728
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slider_items
+    - paragraphs.paragraphs_type.slider
+    - paragraphs.paragraphs_type.slider_item
+  module:
+    - entity_reference_revisions
+id: paragraph.slider.field_slider_items
+field_name: field_slider_items
+entity_type: paragraph
+bundle: slider
+label: Items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slider_item: slider_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 15
+        enabled: false
+      accordion_item:
+        weight: 16
+        enabled: false
+      card_comparation:
+        weight: 17
+        enabled: false
+      card_detail:
+        weight: 18
+        enabled: false
+      card_detail_item:
+        weight: 19
+        enabled: false
+      card_group_nav:
+        weight: 20
+        enabled: false
+      card_popular:
+        weight: 21
+        enabled: false
+      card_slider:
+        weight: 22
+        enabled: false
+      from_library:
+        weight: 23
+        enabled: false
+      header:
+        weight: 24
+        enabled: false
+      promo:
+        weight: 25
+        enabled: false
+      slider:
+        weight: 26
+        enabled: false
+      slider_item:
+        weight: 14
+        enabled: true
+field_type: entity_reference_revisions
