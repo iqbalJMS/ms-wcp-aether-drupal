@@ -3,3 +3,6 @@ type: module
 description: 'Shared functionality for BRI CC'
 package: Custom
 core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:text
+  - drupal:options

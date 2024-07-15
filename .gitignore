@@ -87,3 +87,4 @@ composer-lock.json
 /web/composer.lock
 
 /web/.lando.yml
+/web/local

@@ -1,0 +1,12 @@
+uuid: bdc70d0c-443f-4f61-a5a5-0a6ad5c9bd08
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:a1aee391-7f05-4c6e-99a7-2dda047cdf0d'
+id: card_content
+label: 'Card content'
+icon_uuid: a1aee391-7f05-4c6e-99a7-2dda047cdf0d
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAACKUlEQVR4nO2azUocQRDHfxf1ZsBzVomQHGQfIIn6CCGaZ4mXiGDI1+YNxCfwDVQIgTgMvkDOEREF9ZCcVDykZaAWJIwb+mN3u5r6QbEMvV1T/6KrumcYeJhJ4CtwBjildgr0RIs3vQwEpLJGizenMvklelm6txK8cWLaCdbh/plYA5XHdXEJqIADj+viEqAVSwC2ArASYIi1U2dw0OlbNY4SqDIQ3re2Xch6ANYDSFoC9YhquM61B1QjquGQ+1gPaMF6ABn0gCpyvvoecBA533pABNYDyKAHuIS1XWvsAS5hbQ+6v50DWrAeQAE9wHnU/NBXQJWB8EE1P/QEaMMSgK0ArASIqB1XiFkCfHG2C2DboEM/tg1i2yAu5iOpJfSyHPORVC+DvTvVG+YvIQmYlCT0V0Iu5vOGOepDyWEwL4Edt4ydyNgTCmZVRO63jH2TsdcUzLaIXG8Z25CxLQrlEfBHRC60jHdl7DcwTYG8F4HfB/znh/xnk8LoAjfA3/98fL0oCbiROeqpE+/76qgS7/uGMQaeycHlKsGZfFR2JTE/jRU/BRwlOJOPy37FPge8Ekc/gRn0MCMxO9EQzCdx8gF9fJTYm99g9sTJCnofvHZjnFyIkw766Ejsl6EO5mIdZMC5aJgNmfwmxRIaM7uioSkHb97J5M/opd/EGy3erMnkHWACfUxI7I2GtyEOHgPXGRxmYu1atATxAjgEbjMQ4mtNzE3szwcpvAM5a0XUKkK9pAAAAABJRU5ErkJggg=='
+description: 'Card content element'
+behavior_plugins: {  }
