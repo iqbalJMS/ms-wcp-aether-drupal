@@ -894,6 +894,7 @@ $databases['default']['default'] = array(
 );
 $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
+$settings['trusted_host_patterns'][] = '^drupal\.indesc\.com$';
 
 // $settings['mongodb'] = [
 //   'clients' => [
