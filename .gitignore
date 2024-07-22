@@ -7,7 +7,7 @@
 
 .DS_Store
 .env
-# config.txt
+config.txt
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
