@@ -7,10 +7,12 @@ dependencies:
     - filter.format.limited_html
   module:
     - filter
+    - rest
 id: administrator
 label: Administrator
 weight: 2
 is_admin: null
 permissions:
+  - 'administer rest resources'
   - 'use text format full_html'
   - 'use text format limited_html'
