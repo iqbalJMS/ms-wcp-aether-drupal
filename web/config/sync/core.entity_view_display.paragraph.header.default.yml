@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.header.field_content
+    - field.field.paragraph.header.field_header_style
+    - field.field.paragraph.header.field_image
     - field.field.paragraph.header.field_primary_cta
     - field.field.paragraph.header.field_title
     - paragraphs.paragraphs_type.header
   module:
     - link
+    - options
     - text
 id: paragraph.header.default
 targetEntityType: paragraph
@@ -19,6 +22,22 @@ content:
     type: text_default
     label: above
     settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_header_style:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content

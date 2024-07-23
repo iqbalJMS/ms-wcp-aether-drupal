@@ -3,16 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.two_column.field_column_width
     - field.field.paragraph.two_column.field_first_column
     - field.field.paragraph.two_column.field_second_column
     - paragraphs.paragraphs_type.two_column
   module:
     - entity_reference_revisions
+    - options
 id: paragraph.two_column.default
 targetEntityType: paragraph
 bundle: two_column
 mode: default
 content:
+  field_column_width:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_first_column:
     type: entity_reference_revisions_entity_view
     label: above
