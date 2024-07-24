@@ -1,0 +1,31 @@
+uuid: 82da52f8-9654-4695-a77e-df47e8822092
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_detail_item.field_image
+    - field.field.paragraph.card_detail_item.field_title
+    - paragraphs.paragraphs_type.card_detail_item
+id: paragraph.card_detail_item.default
+targetEntityType: paragraph
+bundle: card_detail_item
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

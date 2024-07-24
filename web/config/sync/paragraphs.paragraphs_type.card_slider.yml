@@ -1,0 +1,12 @@
+uuid: 43a5e379-ae4c-4894-a8ac-d148f1093061
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:e6c6fc7b-f82e-4204-93f9-8e8e4573921d'
+id: card_slider
+label: 'Card slider'
+icon_uuid: e6c6fc7b-f82e-4204-93f9-8e8e4573921d
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8UlEQVR4nO2Z0QrCMAxF739svqn/LmNPzr9S2PYDVwopCF3FSWFJmwN5ahg5JO0eAjiOs4cewABgBUClsQIYAVy+SbwUFMofI9TabYkMknDPJSihAzBJrbethDhOmiUiJ6l1xgaxZVZgrl4X0doRGouE6kSsQBex3BEWnOHS94FNi/xDTqTEtwIuUkVHWMsdoXURzbBJESqLT9oWORq6iOAdKQx9tISjXyn68ws7cM9/RDNsRoTGIqE6ESvQRax0ZJGDsBQ1vXob5XBSLtMDeEitYYGbcAXwVPAKccd6+pyz7WTlG8dMYyzSiayE4zhIeAMRry5WvGQIVAAAAABJRU5ErkJggg=='
+description: 'Card slider element'
+behavior_plugins: {  }

@@ -1,0 +1,30 @@
+uuid: 6934b247-9031-4274-b0fc-204d384f099f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_card_front_view
+    - media.type.image
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_card_front_view
+field_name: field_card_front_view
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Card front view'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

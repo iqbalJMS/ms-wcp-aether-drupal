@@ -1,0 +1,29 @@
+bricc_category.add_form:
+  title: 'Add category'
+  route_name: entity.bricc_category.add_form
+  appears_on:
+    - entity.bricc_category.collection
+
+bricc_card_item.add_form:
+  title: 'Add card item'
+  route_name: entity.bricc_card_item.add_form
+  appears_on:
+    - entity.bricc_card_item.collection
+
+bricc_province.add_form:
+  title: 'Add province'
+  route_name: entity.bricc_province.add_form
+  appears_on:
+    - entity.bricc_province.collection
+
+bricc_city.add_form:
+  title: 'Add city'
+  route_name: entity.bricc_city.add_form
+  appears_on:
+    - entity.bricc_city.collection
+
+bricc_applicant_status.add_form:
+  title: 'Add applicant status'
+  route_name: entity.bricc_applicant_status.add_form
+  appears_on:
+    - entity.bricc_applicant_status.collection

@@ -1,0 +1,21 @@
+uuid: bc8489c8-4e4c-4206-b596-fbce7ccad43c
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_late_payment_fee
+field_name: field_late_payment_fee
+entity_type: bricc_card_item
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

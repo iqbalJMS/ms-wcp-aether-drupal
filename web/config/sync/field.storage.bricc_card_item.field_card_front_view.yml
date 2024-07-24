@@ -1,0 +1,20 @@
+uuid: 0d6a4f24-eaf8-4825-abb8-a7828fa43e20
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+    - media
+id: bricc_card_item.field_card_front_view
+field_name: field_card_front_view
+entity_type: bricc_card_item
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

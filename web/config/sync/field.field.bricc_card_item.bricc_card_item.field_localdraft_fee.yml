@@ -1,0 +1,24 @@
+uuid: c5da4c84-2506-45cb-a913-42888e44ae9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_localdraft_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_localdraft_fee
+field_name: field_localdraft_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya copy sales draft lokal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

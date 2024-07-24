@@ -1,0 +1,13 @@
+uuid: 34844745-47ae-40a8-a0ca-a0ed6e5cb22f
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Image
+description: 'Locally hosted images.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

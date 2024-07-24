@@ -1,0 +1,23 @@
+uuid: 371d6c73-af8f-4625-af1b-2aaacd889e93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_style
+    - paragraphs.paragraphs_type.card_content
+  module:
+    - options
+id: paragraph.card_content.field_card_style
+field_name: field_card_style
+entity_type: paragraph
+bundle: card_content
+label: Style
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

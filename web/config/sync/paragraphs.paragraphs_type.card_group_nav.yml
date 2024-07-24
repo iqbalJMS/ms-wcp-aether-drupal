@@ -1,0 +1,12 @@
+uuid: 531244e5-3a4e-40a3-971e-6ddeead9ab19
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:0eb181b5-1220-4690-9329-9f2de52be921'
+id: card_group_nav
+label: 'Card group nav'
+icon_uuid: 0eb181b5-1220-4690-9329-9f2de52be921
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+ElEQVR4nO2ZMQ6CUBBE5xiKJ1I8j9hKPJZYwIUM2FCNIVkKSUw+FP8vOC/ZbjeZYT7ZYgEhxFLOACoAbwBMXJ1pyeeauDsQzx9VzkliGOgBXABkSE8GoDBNg7ZTyNDTmodBbxSm7RHS3FnzHv7YmbY2pHl8i15hqD4ZiQSViDOoRCY0EbZ3g40YqWMYSQ1lxBlUIs6gEnEG17RHmq0YqWMYSQ1lxBlUIs6gEnEG17RHmq0YqWMYSQ1lxBlUIs7g3yXSWqOHk9uUg2l7IYDK8entOuf0lltzb2Y8HkOPoYNlhO29tG5zv8LJIhz/mZTVmpbgJIQQ+OIDvrPJx04tYoYAAAAASUVORK5CYII='
+description: 'Card group nav element'
+behavior_plugins: {  }

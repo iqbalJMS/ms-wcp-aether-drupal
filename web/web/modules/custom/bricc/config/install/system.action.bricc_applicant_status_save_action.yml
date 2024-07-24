@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_applicant_status_save_action
+label: 'Save applicant status'
+type: bricc_applicant_status
+plugin: entity:save_action:bricc_applicant_status
+configuration: {  }

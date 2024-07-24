@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_category_delete_action
+label: 'Delete categories'
+type: bricc_category
+plugin: entity:delete_action:bricc_category
+configuration: {  }

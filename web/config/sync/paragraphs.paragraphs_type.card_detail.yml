@@ -1,0 +1,12 @@
+uuid: 5d22cca0-822c-472c-ab87-c23da9046f21
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:dcd47b5e-921f-4908-a60a-32e83114ef21'
+id: card_detail
+label: 'Card detail'
+icon_uuid: dcd47b5e-921f-4908-a60a-32e83114ef21
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR4nO3ZSw6CQBAE0DoG4JHwOH4OgNfSOwkucNWGpIiJ/Ew0sQbrJbNqF92pwYQGMDMzs1FbAGcANwAhdhr2VmLBSaDZePNUc0l0P2gB7ADk0JMD2LPHmErmwmI3hLoDe+2u2UDDYgZ9GXutx4r93UtFTPW7ukEisTPw64Y8iBNBIs9IKsKDrCGR+PY99iBPfkbUhP+1xIQTERNOREw4kVQSqVlQXMy92rDX66DCZVdwk6fuOLegK1lsuckroKfgEHf2OrnMrgReXePTJXavZGT9CjXJzwpmZmZ/6QH2xwppLKlXMgAAAABJRU5ErkJggg=='
+description: 'Card detail element'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: c888c781-ddcd-4417-9ce9-f7bdb83b02d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_province.bricc_province.default
+targetEntityType: bricc_province
+bundle: bricc_province
+mode: default
+content:
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,26 @@
+uuid: b1a99f79-9e5b-4b2c-9cf0-fc0ab9af7679
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.header
+  module:
+    - text
+id: paragraph.header.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: header
+label: Summary
+description: 'Short text'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+    - plain_text
+field_type: text_long

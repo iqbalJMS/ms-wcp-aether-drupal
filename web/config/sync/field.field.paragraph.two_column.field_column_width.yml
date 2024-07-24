@@ -1,0 +1,23 @@
+uuid: 1f4cf944-c1e4-489c-b7ef-f10f437c1a1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_width
+    - paragraphs.paragraphs_type.two_column
+  module:
+    - options
+id: paragraph.two_column.field_column_width
+field_name: field_column_width
+entity_type: paragraph
+bundle: two_column
+label: 'Column width'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '50_50'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

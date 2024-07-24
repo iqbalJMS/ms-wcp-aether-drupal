@@ -892,7 +892,10 @@ $databases['default']['default'] = array(
   'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_Z5G3HlqxuiliMIa8zwFrYZmTcgbQmjFXY6ozq2Se1IbMir4TgLIwzLHzLfyU5mrkK8WqgPPOLg/sync';
+$settings['config_sync_directory'] = '../config/sync';
+$config_directories['sync'] = '../config/sync';
+$settings['trusted_host_patterns'][] = '^drupal\.indesc\.com$';
+
 // $settings['mongodb'] = [
 //   'clients' => [
 //     // Client alias => connection constructor parameters.

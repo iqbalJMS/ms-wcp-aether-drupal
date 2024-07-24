@@ -1,0 +1,26 @@
+uuid: 26d93da3-6521-49d7-b800-89d7fce6004f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_category
+    - paragraphs.paragraphs_type.card_slider
+id: paragraph.card_slider.field_category
+field_name: field_category
+entity_type: paragraph
+bundle: card_slider
+label: Category
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bricc_category'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

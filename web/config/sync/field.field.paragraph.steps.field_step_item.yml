@@ -1,0 +1,73 @@
+uuid: 691ee468-7ec4-40ff-9902-db1706104951
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_step_item
+    - paragraphs.paragraphs_type.step_item
+    - paragraphs.paragraphs_type.steps
+  module:
+    - entity_reference_revisions
+id: paragraph.steps.field_step_item
+field_name: field_step_item
+entity_type: paragraph
+bundle: steps
+label: 'Step item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      step_item: step_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 17
+        enabled: false
+      accordion_item:
+        weight: 18
+        enabled: false
+      card_comparation:
+        weight: 19
+        enabled: false
+      card_detail:
+        weight: 20
+        enabled: false
+      card_detail_item:
+        weight: 21
+        enabled: false
+      card_group_nav:
+        weight: 22
+        enabled: false
+      card_popular:
+        weight: 23
+        enabled: false
+      card_slider:
+        weight: 24
+        enabled: false
+      from_library:
+        weight: 25
+        enabled: false
+      header:
+        weight: 26
+        enabled: false
+      promo:
+        weight: 27
+        enabled: false
+      slider:
+        weight: 28
+        enabled: false
+      slider_item:
+        weight: 29
+        enabled: false
+      step_item:
+        weight: 16
+        enabled: true
+      steps:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

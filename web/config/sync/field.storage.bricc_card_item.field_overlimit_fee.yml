@@ -1,0 +1,20 @@
+uuid: 1c4aff00-6b12-43ac-84f3-6c50c78a650e
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_overlimit_fee
+field_name: field_overlimit_fee
+entity_type: bricc_card_item
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

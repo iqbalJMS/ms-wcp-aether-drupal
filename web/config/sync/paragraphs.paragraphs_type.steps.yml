@@ -1,0 +1,12 @@
+uuid: d6c1cdf2-507d-43e1-bf2f-27cd493e22b8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:0da2c59c-7a59-4c89-9b78-a9b864abdd02'
+id: steps
+label: Steps
+icon_uuid: 0da2c59c-7a59-4c89-9b78-a9b864abdd02
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR4nO2XTytEURjGf5TYzhoLe3wAJYZYWtog2WhIamiSsLfwDYydhaIsZO9LWLOjlAWRyZ+jW0e9XWfMuXfm3nOvOU89dZu3M/P+et773jvglV2pDLkp/TsQl1IepF0SURmytdoCxKWUB2mXRFSGbFTbgriU8iBCPpEWSvnREvKj1UIpP1pCfrT+w2h1A13kHKQHuAOegUugDAwBHdF6dw8SJPFkeOEL4I6BsQjf5Xy0zv94g/0A5vICsmwAqAEn+vodmM0DSH8I4g2Y0bUtkcx8Hh6I1/rcKzAVqkmYhayDHOhzF0Cnob4X4Z5xCjIIvOizh3Vgdi3HzPm71qh+ngTnj+rAVATMYoRefxUfhZP4zz5hkcx2AxgrEJNbCWKbzKaufwGlKD0UDE4KJFDRIpmKrn8CS830kCSIbTIbIpmVrILYwpQFzGozII0WQBpjVhYwsUEaLYC0kinFBbFdAGkmsy5gfu6ZWEoSxBZmTcME3iGjIIHGBUy1Dsy+6GWSGDItgCRcE78VhhkGHkT9qhmQtF3VMGEIpZdEZBVS9rQYs1MDRGwQFyoKGJPPyJFGgHsDRPDZgOvmoqpPr+Rb4EZf9waVb1zJp9izMNC+AAAAAElFTkSuQmCC'
+description: 'Display multiple card describe a step-by-step of a workflow.'
+behavior_plugins: {  }

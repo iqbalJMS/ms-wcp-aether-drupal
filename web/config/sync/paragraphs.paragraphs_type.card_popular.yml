@@ -1,0 +1,12 @@
+uuid: ada2550a-9959-4a28-ad70-7eefbb61c71d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:874f8aab-3443-4251-8f89-abd30df387ba'
+id: card_popular
+label: 'Card popular'
+icon_uuid: 874f8aab-3443-4251-8f89-abd30df387ba
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2ZTWrDQAxG3zFs90Ix7nH6c4D0WskioRepc4G6XSQrlQkaGIaASxa1VOvB4JlBBn18MgYJgiAIgoV5BHbANyDG15fmOtQi3gwkd+/alk6kizPwBLTYpwWeNWfJzuz1kER440VzT2V2rbd0aPBHo7lPFLXmFcn5hxAjSDhiDAlHjCGrcWQATlVwjhuBHidCxuK+FpKeHzgsLTFcgjInpHbg1tmdkBpXQsb/8o30KqaMyXFJxAYbyGr+I16QEGIMCUeMIatx5B04zuyXjPu1kPTSYWa/ZNz6SssLkvOfdOOheV3zoLl/og1g0e62N17LJvZQjBVSd7vDPp2KuJRjBXRYIt4HPZlBLcpjBpejtyAIgoC/5AdvP4PlBQHhbAAAAABJRU5ErkJggg=='
+description: 'Card popular element'
+behavior_plugins: {  }

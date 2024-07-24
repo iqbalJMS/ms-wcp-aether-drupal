@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_city_delete_action
+label: 'Delete cities'
+type: bricc_city
+plugin: entity:delete_action:bricc_city
+configuration: {  }

@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for bricc module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function bricc_theme(): array {
+  return [
+    'bricc_category' => ['render element' => 'elements'],
+    'bricc_card_item' => ['render element' => 'elements'],
+  ];
+}
+
+/**
+ * Prepares variables for category templates.
+ *
+ * Default template: bricc-category.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the category information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_bricc_category(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for card item templates.
+ *
+ * Default template: bricc-card-item.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the card item information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_bricc_card_item(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ *
+ * @todo Handle content ownership for card items
+ */
+function bricc_user_cancel($edit, UserInterface $account, $method): void {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish categories.
+      $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+      $bricc_category_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($bricc_category_ids) as $bricc_category) {
+        $bricc_category->set('status', FALSE)->save();
+      }
+
+      // Unpublish Card Item
+      $storageCard = \Drupal::entityTypeManager()->getStorage('bricc_card_item');
+      $bricc_card_ids = $storageCard->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storageCard->loadMultiple($bricc_card_ids) as $bricc_card_item) {
+        $bricc_card_item->set('status', FALSE)->save();
+      }
+
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize categories.
+      $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+      $bricc_category_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($bricc_category_ids) as $bricc_category) {
+        $bricc_category->setOwnerId(0)->save();
+      }
+
+      // Anonymize card item.
+      $storageCard = \Drupal::entityTypeManager()->getStorage('bricc_card_item');
+      $bricc_card_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storageCard->loadMultiple($bricc_card_ids) as $bricc_card_item) {
+        $bricc_card_item->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function bricc_user_predelete(UserInterface $account): void {
+  // Delete categories that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('bricc_category');
+  $bricc_category_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($bricc_category_ids)
+  );
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function bricc_page_attachments(array &$attachments) {
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $attachments['#attached']['library'][] = 'bricc/admin';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function bricc_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#submit'][] = 'bricc_user_login_submit';
+}
+
+/**
+ * Form submission handler for user_login_form().
+ *
+ * Redirects the user to the dashboard after logging in.
+ */
+function bricc_user_login_submit(&$form, FormStateInterface $form_state) {
+  $url = Url::fromRoute('bricc.admin');
+
+  // Check if a destination was set, probably on an exception controller.
+  // @see \Drupal\user\Form\UserLoginForm::submitForm()
+  $request = \Drupal::service('request_stack')->getCurrentRequest();
+  if (!$request->request->has('destination')) {
+    $form_state->setRedirectUrl($url);
+  }
+  else {
+    $request->query->set('destination', $request->request->get('destination'));
+  }
+}

@@ -1,0 +1,20 @@
+uuid: f8c0e8fe-e1ad-4e77-bbd4-3d786508b10f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_trans_summary_yearly_fee
+field_name: field_trans_summary_yearly_fee
+entity_type: bricc_card_item
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

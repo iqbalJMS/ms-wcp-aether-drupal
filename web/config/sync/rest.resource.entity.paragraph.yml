@@ -1,0 +1,19 @@
+uuid: e0f0cbe8-897a-40b1-a9c5-78ba9ba076f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - paragraphs
+    - serialization
+id: entity.paragraph
+plugin_id: 'entity:paragraph'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - hal_json
+      - json
+    supported_auth:
+      - basic_auth

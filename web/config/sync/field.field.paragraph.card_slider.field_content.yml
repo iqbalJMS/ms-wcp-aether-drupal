@@ -1,0 +1,22 @@
+uuid: d83ba490-927f-4ec1-83a0-cbe45f4dce9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.card_slider
+  module:
+    - text
+id: paragraph.card_slider.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: card_slider
+label: Summary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

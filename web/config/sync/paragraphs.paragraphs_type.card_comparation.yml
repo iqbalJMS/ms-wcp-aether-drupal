@@ -1,0 +1,12 @@
+uuid: 831f5d7b-1911-46be-b55f-eff454026a70
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:7fbcb3c0-72ae-4c28-bd95-45d566258155'
+id: card_comparation
+label: 'Card comparation'
+icon_uuid: 7fbcb3c0-72ae-4c28-bd95-45d566258155
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nO3YYQqCQBAF4HeJQrpinbYkqcu8EBREAt23M7uj7APpV2wfM85oQEvc0OB6A+jOACGAD4BbBIiaMBgaQYbFZ3dkyBXAq2ZlaARBbQwNITPmWQNDY8iYSw0MHSDrNiuyi+gEmSvzTcAMORhPyFyZfqPNaLGLLBfi3hZy2UUsDOHGLurVyuRCLM7iahdJmGgQGRMRImGiQpIxkSFJmBzIPXFMKhBMZ2yOZhXyEGb+FoQZu0iGKJPFCkJLiIKxuB/pAUnFVIVQ6N8R1yC1WmvXaPxzVjeN79S4QFIQy7OW3xvHeFVIKsLqvYPWkJyFqCLcWkt9RMl5N6fXza78CHl7o0FsQ4M/7RittVQMI0FCjV8lRRYiC16ujygsDFFDzw6q0Z4uaRAhbBXZkdZaUVuLBxnh54e0IDM/5540A4Pfb0cAAAAASUVORK5CYII='
+description: 'Card comparation element'
+behavior_plugins: {  }

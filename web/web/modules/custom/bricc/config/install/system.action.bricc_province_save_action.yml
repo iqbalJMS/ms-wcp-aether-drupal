@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_province_save_action
+label: 'Save provinces'
+type: bricc_province
+plugin: entity:save_action:bricc_province
+configuration: {  }

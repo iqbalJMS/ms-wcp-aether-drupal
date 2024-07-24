@@ -1,0 +1,16 @@
+.application-status-filter,
+.bricc-card-item-filter,
+.bricc-province-filter,
+.bricc-city-filter,
+.bricc-category-filter {
+  margin-bottom: var(--gin-spacing-l);
+}
+
+.filter-submit {
+  padding-top: 25px;
+}
+
+.bricc-card-item-form .field-group-html-element h4 {
+  font-weight: 600;
+  font-size: 20px;
+}

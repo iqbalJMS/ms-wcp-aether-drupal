@@ -1,0 +1,92 @@
+uuid: 08094aad-7f87-49f5-9892-eede25ca0c92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_second_column
+    - paragraphs.paragraphs_type.accordion_item
+    - paragraphs.paragraphs_type.card_detail_item
+    - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.header
+    - paragraphs.paragraphs_type.promo_item
+    - paragraphs.paragraphs_type.slider_item
+    - paragraphs.paragraphs_type.step_item
+    - paragraphs.paragraphs_type.two_column
+  module:
+    - entity_reference_revisions
+id: paragraph.two_column.field_second_column
+field_name: field_second_column
+entity_type: paragraph
+bundle: two_column
+label: 'Second column'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordion_item: accordion_item
+      card_detail_item: card_detail_item
+      from_library: from_library
+      header: header
+      promo_item: promo_item
+      slider_item: slider_item
+      step_item: step_item
+      two_column: two_column
+    negate: 1
+    target_bundles_drag_drop:
+      accordion:
+        weight: 18
+        enabled: false
+      accordion_item:
+        weight: 19
+        enabled: true
+      card_comparation:
+        weight: 20
+        enabled: false
+      card_detail:
+        weight: 21
+        enabled: false
+      card_detail_item:
+        weight: 22
+        enabled: true
+      card_group_nav:
+        weight: 23
+        enabled: false
+      card_popular:
+        weight: 24
+        enabled: false
+      card_slider:
+        weight: 25
+        enabled: false
+      from_library:
+        weight: 26
+        enabled: true
+      header:
+        weight: 27
+        enabled: true
+      promo:
+        weight: 28
+        enabled: false
+      promo_item:
+        weight: 29
+        enabled: true
+      slider:
+        weight: 30
+        enabled: false
+      slider_item:
+        weight: 31
+        enabled: true
+      step_item:
+        weight: 32
+        enabled: true
+      steps:
+        weight: 33
+        enabled: false
+      two_column:
+        weight: 34
+        enabled: true
+field_type: entity_reference_revisions

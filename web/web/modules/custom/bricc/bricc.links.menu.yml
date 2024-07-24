@@ -1,0 +1,59 @@
+bricc.admin:
+  title: Administration
+  route_name: bricc.admin
+  weight: 9
+  menu_name: bricc_admin
+
+entity.bricc_category.settings:
+  title: 'Category'
+  description: 'Configure a Category entity type.'
+  route_name:  entity.bricc_category.settings
+  parent: system.admin_structure
+
+entity.bricc_category.collection:
+  title: 'Categories'
+  description: 'List of categories.'
+  route_name: entity.bricc_category.collection
+  parent: system.admin_bricc
+
+entity.bricc_card_item.settings:
+  title: 'Card item'
+  description: 'Configure a Card item entity type.'
+  route_name:  entity.bricc_card_item.settings
+  parent: system.admin_structure
+
+entity.bricc_card_item.collection:
+  title: 'Card items'
+  description: 'List of card items.'
+  route_name: entity.bricc_card_item.collection
+  parent: system.admin_content
+
+entity.bricc_province.settings:
+  title: 'Province'
+  description: 'Configure a Province entity type.'
+  route_name:  entity.bricc_province.settings
+  parent: system.admin_structure
+
+entity.bricc_province.collection:
+  title: 'Provinces'
+  description: 'List of provinces.'
+  route_name: entity.bricc_province.collection
+  parent: system.admin_content
+
+entity.bricc_city.settings:
+  title: 'City'
+  description: 'Configure a City entity type.'
+  route_name:  entity.bricc_city.settings
+  parent: system.admin_structure
+
+entity.bricc_city.collection:
+  title: 'Cities'
+  description: 'List of cities.'
+  route_name: entity.bricc_city.collection
+  parent: system.admin_content
+
+entity.bricc_applicant_status.collection:
+  title: 'Applicant Status'
+  description: 'List of applicant status.'
+  route_name: entity.bricc_applicant_status.collection
+  parent: system.admin_content

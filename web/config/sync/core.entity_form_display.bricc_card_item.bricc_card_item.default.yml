@@ -1,0 +1,291 @@
+uuid: 8d4902cb-cdad-4acb-9c54-c2f7dd626519
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.bricc_card_item.bricc_card_item.field_advantage
+    - field.field.bricc_card_item.bricc_card_item.field_basic_annualfee
+    - field.field.bricc_card_item.bricc_card_item.field_billing_fee
+    - field.field.bricc_card_item.bricc_card_item.field_bstatement_reprint_fee
+    - field.field.bricc_card_item.bricc_card_item.field_card_back_view
+    - field.field.bricc_card_item.bricc_card_item.field_card_front_view
+    - field.field.bricc_card_item.bricc_card_item.field_card_limit
+    - field.field.bricc_card_item.bricc_card_item.field_card_replace_fee
+    - field.field.bricc_card_item.bricc_card_item.field_card_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_interdraft_fee
+    - field.field.bricc_card_item.bricc_card_item.field_late_payment_fee
+    - field.field.bricc_card_item.bricc_card_item.field_limit_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_localdraft_fee
+    - field.field.bricc_card_item.bricc_card_item.field_max_cash_withdraw
+    - field.field.bricc_card_item.bricc_card_item.field_overlimit_fee
+    - field.field.bricc_card_item.bricc_card_item.field_pin_change_fee
+    - field.field.bricc_card_item.bricc_card_item.field_supplement_annualfee
+    - field.field.bricc_card_item.bricc_card_item.field_trans_summary_yearly_fee
+  module:
+    - bricc
+    - field_group
+    - media_library
+    - text
+third_party_settings:
+  field_group:
+    group_card_detail:
+      children:
+        - group_annual_fee
+        - group_additional_fee
+      label: 'Card detail'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_annual_fee:
+      children:
+        - field_basic_annualfee
+        - field_supplement_annualfee
+      label: 'Annual fee'
+      region: content
+      parent_name: group_card_detail
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_additional_fee:
+      children:
+        - field_max_cash_withdraw
+        - field_overlimit_fee
+        - field_late_payment_fee
+        - field_card_replace_fee
+        - field_bstatement_reprint_fee
+        - field_localdraft_fee
+        - field_interdraft_fee
+        - field_pin_change_fee
+        - field_trans_summary_yearly_fee
+        - field_card_limit
+        - field_limit_upgrade_fee
+        - field_card_upgrade_fee
+        - field_billing_fee
+      label: 'Additional Fee'
+      region: content
+      parent_name: group_card_detail
+      weight: 21
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_card_view:
+      children:
+        - field_card_front_view
+        - field_card_back_view
+      label: 'Card view'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+id: bricc_card_item.bricc_card_item.default
+targetEntityType: bricc_card_item
+bundle: bricc_card_item
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_advantage:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_basic_annualfee:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_billing_fee:
+    type: number
+    weight: 18
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_bstatement_reprint_fee:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_card_back_view:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_card_front_view:
+    type: media_library_widget
+    weight: 6
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_card_limit:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_card_replace_fee:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_card_upgrade_fee:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_interdraft_fee:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_late_payment_fee:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_limit_upgrade_fee:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_localdraft_fee:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_max_cash_withdraw:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_overlimit_fee:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_pin_change_fee:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_supplement_annualfee:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_trans_summary_yearly_fee:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true

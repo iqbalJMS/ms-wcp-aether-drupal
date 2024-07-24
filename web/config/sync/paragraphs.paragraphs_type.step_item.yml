@@ -1,0 +1,10 @@
+uuid: 32436c74-86b1-446d-acbc-3af7fcdb0ee7
+langcode: en
+status: true
+dependencies: {  }
+id: step_item
+label: 'Step item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

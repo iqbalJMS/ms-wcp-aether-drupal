@@ -1,0 +1,56 @@
+uuid: df2d1e78-51ce-4352-a76c-5b0889e7ea34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.promo.field_content
+    - field.field.paragraph.promo.field_promo_item
+    - field.field.paragraph.promo.field_title
+    - paragraphs.paragraphs_type.promo
+  module:
+    - paragraphs
+    - text
+id: paragraph.promo.default
+targetEntityType: paragraph
+bundle: promo
+mode: default
+content:
+  field_content:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_promo_item:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: promo_item
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

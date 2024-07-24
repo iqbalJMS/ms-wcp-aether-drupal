@@ -1,0 +1,23 @@
+uuid: 7974c036-f4a0-4e72-901e-17f22d4bcc4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_comparation.field_title
+    - paragraphs.paragraphs_type.card_comparation
+id: paragraph.card_comparation.default
+targetEntityType: paragraph
+bundle: card_comparation
+mode: default
+content:
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

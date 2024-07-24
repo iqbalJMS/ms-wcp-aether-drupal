@@ -1,0 +1,23 @@
+uuid: 1c68622b-1ee8-4a77-92eb-075ff3168c26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_style
+    - paragraphs.paragraphs_type.header
+  module:
+    - options
+id: paragraph.header.field_header_style
+field_name: field_header_style
+entity_type: paragraph
+bundle: header
+label: 'Header style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: style_1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

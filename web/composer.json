@@ -19,23 +19,36 @@
     ],
     "require": {
         "aws/aws-sdk-php": "^3.296",
-        "composer/installers": "^2.0",
+        "composer/installers": "^2.3",
         "drupal/classy": "^1.0",
+        "drupal/config_pages": "^2.15",
+        "drupal/config_split": "^2.0",
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
+        "drupal/custom_login_url": "^2.0",
+        "drupal/default_content_deploy": "^2.0",
+        "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.4",
         "drupal/gin": "^3.0@rc",
+        "drupal/gin_login": "^2.1",
         "drupal/gin_toolbar": "^1.0@rc",
         "drupal/imagemagick": "^3.7",
+        "drupal/openapi": "^2.2",
+        "drupal/openapi_rest": "^2.0@RC",
+        "drupal/openapi_ui": "^1.0@RC",
+        "drupal/openapi_ui_swagger": "^1.1",
+        "drupal/paragraphs": "^1.17",
+        "drupal/restui": "^1.22",
         "drupal/tailwindcss": "^5.0@alpha",
         "drupal/webp": "^1.0@RC",
+        "mnsami/composer-custom-directory-installer": "^2.0",
         "symfony/dotenv": "^7.0"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
@@ -44,7 +57,8 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "mnsami/composer-custom-directory-installer": true
         },
         "sort-packages": true
     },
@@ -59,7 +73,8 @@
                 "type:drupal-core"
             ],
             "web/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "swagger-api/swagger-ui"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -106,6 +121,9 @@
         }
     },
     "require-dev": {
+        "drupal/devel": "^5.2",
+        "drupal/devel_entity_updates": "^4.1",
+        "drupal/webprofiler": "^10.1",
         "drush/drush": "^12.4"
     }
 }

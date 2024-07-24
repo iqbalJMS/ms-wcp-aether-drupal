@@ -1,0 +1,24 @@
+uuid: f8ffaba4-cab7-4479-979c-22ca342dd1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_billing_fee
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_billing_fee
+field_name: field_billing_fee
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Biaya penagihan'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: Rp
+  suffix: ''
+field_type: decimal

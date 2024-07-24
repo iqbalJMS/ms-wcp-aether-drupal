@@ -1,0 +1,22 @@
+uuid: 8ea5e8a0-95c3-4307-8b0c-744965e764fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.step_item
+  module:
+    - text
+id: paragraph.step_item.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: step_item
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

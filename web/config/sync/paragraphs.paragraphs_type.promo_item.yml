@@ -1,0 +1,10 @@
+uuid: 970ff379-e879-49f4-8c57-9d2a09bbadbd
+langcode: en
+status: true
+dependencies: {  }
+id: promo_item
+label: 'Promo item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

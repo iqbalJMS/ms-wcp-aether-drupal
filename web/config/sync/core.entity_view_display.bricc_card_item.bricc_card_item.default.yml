@@ -1,0 +1,266 @@
+uuid: 54d753dc-16d5-4e7c-b9e8-247ead4d8537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.bricc_card_item.bricc_card_item.field_advantage
+    - field.field.bricc_card_item.bricc_card_item.field_basic_annualfee
+    - field.field.bricc_card_item.bricc_card_item.field_billing_fee
+    - field.field.bricc_card_item.bricc_card_item.field_bstatement_reprint_fee
+    - field.field.bricc_card_item.bricc_card_item.field_card_back_view
+    - field.field.bricc_card_item.bricc_card_item.field_card_front_view
+    - field.field.bricc_card_item.bricc_card_item.field_card_limit
+    - field.field.bricc_card_item.bricc_card_item.field_card_replace_fee
+    - field.field.bricc_card_item.bricc_card_item.field_card_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_interdraft_fee
+    - field.field.bricc_card_item.bricc_card_item.field_late_payment_fee
+    - field.field.bricc_card_item.bricc_card_item.field_limit_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_localdraft_fee
+    - field.field.bricc_card_item.bricc_card_item.field_max_cash_withdraw
+    - field.field.bricc_card_item.bricc_card_item.field_overlimit_fee
+    - field.field.bricc_card_item.bricc_card_item.field_pin_change_fee
+    - field.field.bricc_card_item.bricc_card_item.field_supplement_annualfee
+    - field.field.bricc_card_item.bricc_card_item.field_trans_summary_yearly_fee
+  module:
+    - bricc
+    - text
+    - user
+id: bricc_card_item.bricc_card_item.default
+targetEntityType: bricc_card_item
+bundle: bricc_card_item
+mode: default
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_advantage:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_basic_annualfee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_billing_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_bstatement_reprint_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_card_back_view:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 39
+    region: content
+  field_card_front_view:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_card_limit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_card_replace_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_card_upgrade_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_interdraft_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_late_payment_fee:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_limit_upgrade_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_localdraft_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_max_cash_withdraw:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_overlimit_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_pin_change_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_supplement_annualfee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_trans_summary_yearly_fee:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  status:
+    type: boolean
+    label: above
+    settings:
+      format: enabled-disabled
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  uid:
+    type: author
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+hidden: {  }

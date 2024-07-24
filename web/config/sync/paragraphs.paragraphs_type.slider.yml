@@ -1,0 +1,12 @@
+uuid: 00009983-7165-4e3b-8154-925ae6e16ff8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:a36dd0ad-00ad-4eaf-b513-24647567b850'
+id: slider
+label: Slider
+icon_uuid: a36dd0ad-00ad-4eaf-b513-24647567b850
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjklEQVR4nO3ZQQqAMAxE0dz/WBXPNa6ELKtOIi3/QVaCEvtdGQEAOzsjQg1zVC+ixml545XkODUttIhmbvL2uoMmnsEiN07kAZFWwsduJNJKSMtIpJWQlpFIKyEtI5FWQlpGIq2EtIxEWglpGYm0EtIyEmntnJZW/61wLLTI6HiIY0rNntjXGbVrAED87ALcMKyC0P76zwAAAABJRU5ErkJggg=='
+description: 'Slider element'
+behavior_plugins: {  }
