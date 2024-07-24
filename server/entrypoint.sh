@@ -9,8 +9,6 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[NGINX] we're not using nginx anymore, moving to native FPM"
-
 echo "[PRE-FLIGHT] installing NVM for installing"
 cd ~
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -21,6 +19,30 @@ cd /workspaces
 #set env
 echo "[COMPOSER] set to use superuser"
 export COMPOSER_ALLOW_SUPERUSER=1
+
+# echo "[NGINX] we're not using nginx anymore, moving to native FPM"
+echo "[NGINX] removing default site if exist"
+# check if file exist
+if [ -f /etc/nginx/sites-enabled/default ]; then
+    echo "default site exist"
+    rm /etc/nginx/sites-enabled/default
+fi
+# echo "[NGINX] copy nginx config (already handled by devops)"
+echo "[NGINX] copy nginx config"
+if [ ! -f /etc/nginx/sites-available/drupal ]; then
+    echo "copying nginx config"
+    cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal
+    ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
+fi
+# dont copy if exit
+#================================================================================
+#                                                                               #
+#  if [ ! -f /etc/nginx/sites-available/drupal ]; then                          #
+#      echo "copying nginx config"                                              #
+#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal      #
+#      ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/        #
+#  fi                                                                           #
+#================================================================================
 
 echo "[DRUPAL] copying php config"
 cp /workspaces/config/local.indesc.settings.php /workspaces/web/web/sites/default/settings.php

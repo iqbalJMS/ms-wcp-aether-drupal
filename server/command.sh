@@ -9,8 +9,6 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[NGINX] we're not using nginx anymore, moving to native FPM"
-
 echo "[PRE-FLIGHT] installing NVM for installing"
 cd ~
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -22,13 +20,31 @@ cd /workspaces
 echo "[COMPOSER] set to use superuser"
 export COMPOSER_ALLOW_SUPERUSER=1
 
+# echo "[NGINX] we're not using nginx anymore, moving to native FPM"
+echo "[NGINX] removing default site if exist"
+# check if file exist
+if [ -f /etc/nginx/sites-enabled/default ]; then
+    echo "default site exist"
+    rm /etc/nginx/sites-enabled/default
+fi
+echo "[NGINX] copy nginx config (already handled by devops)"
+# dont copy if exit
+#================================================================================
+#                                                                               #
+#  if [ ! -f /etc/nginx/sites-available/drupal ]; then                          #
+#      echo "copying nginx config"                                              #
+#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal      #
+#      ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/        #
+#  fi                                                                           #
+#================================================================================
+
 echo "[DRUPAL] copying php config"
 cp /workspaces/config/local.indesc.settings.php /workspaces/web/web/sites/default/settings.php
 
 # check if there is "core" folder on the /workspace/web
+cd /workspaces/web
 if [ ! -d /workspaces/web/web/core ]; then
     echo "[DRUPAL] downloading drupal core"
-    cd /workspaces/web
     composer install
 else
     composer update
@@ -54,7 +70,7 @@ echo -e "\n\n\n
 \n"
 ADMIN_PASS="default"
 ADMIN_USER="gumini"
-DB_CONNECTION="postgresql://db_ms_wcp_aether_drupal_owner:N7aMbnzSdw3t@ep-ancient-field-a1xfmqiy.ap-southeast-1.aws.neon.tech/db_ms_wcp_aether_drupal?sslmode=require"
+DB_CONNECTION="pgsql://db_ms_wcp_aether_drupal_owner:N7aMbnzSdw3t@ep-ancient-field-a1xfmqiy.ap-southeast-1.aws.neon.tech/db_ms_wcp_aether_drupal?sslmode=require"
 
 install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$DB_CONNECTION --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"
