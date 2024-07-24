@@ -26,9 +26,9 @@ echo "[DRUPAL] copying php config"
 cp /workspaces/config/local.indesc.settings.php /workspaces/web/web/sites/default/settings.php
 
 # check if there is "core" folder on the /workspace/web
+cd /workspaces/web
 if [ ! -d /workspaces/web/web/core ]; then
     echo "[DRUPAL] downloading drupal core"
-    cd /workspaces/web
     composer install
 else
     composer update
@@ -82,3 +82,47 @@ config username and password as follow :
 u : $ADMIN_USER
 p : $ADMIN_PASS
 \n"
+
+# check if there is INIT.txt on /workspaces
+echo "running entrypoint v1.0"
+if [ -f /workspaces/INIT.txt ]; then
+    echo "INIT file FOUND"
+    # check the value of INIT.txt
+    if [ "$(cat /workspaces/INIT.txt)" = "true" ]; then
+        # run ./command.sh
+        echo "cleanup everything"
+        /workspaces/server/reset.sh
+        echo "running command.sh"
+        /workspaces/server/command.sh
+    fi
+    # set INIT.txt to false
+    echo "saving INIT.txt to false"
+    echo "false" >/workspaces/INIT.txt
+fi
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] finalize                    |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+echo "[FINAL] checking nginx"
+nginx -t
+echo "[FINAL] starting nginx"
+service nginx start
+echo "[FINAL] starting php-fpm"
+service php8.3-fpm start
+
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] FINISHED                    |
+|        executing sleep infinity to run the docker     |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+sleep infinity
