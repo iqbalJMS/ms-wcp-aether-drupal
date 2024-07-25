@@ -38,6 +38,6 @@ RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x /workspaces/server/entrypoint.sh
 
-EXPOSE 80
+EXPOSE 3000
 
 CMD ["/workspaces/server/entrypoint.sh"]
