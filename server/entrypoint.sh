@@ -27,7 +27,13 @@ if [ -f /etc/nginx/sites-enabled/default ]; then
     echo "default site exist"
     rm /etc/nginx/sites-enabled/default
 fi
-echo "[NGINX] copy nginx config (already handled by devops)"
+# echo "[NGINX] copy nginx config (already handled by devops)"
+echo "[NGINX] copy nginx config"
+if [ ! -f /etc/nginx/sites-available/drupal ]; then
+    echo "copying nginx config"
+    cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal
+    ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
+fi
 # dont copy if exit
 #================================================================================
 #                                                                               #
@@ -98,3 +104,31 @@ config username and password as follow :
 u : $ADMIN_USER
 p : $ADMIN_PASS
 \n"
+
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] finalize                    |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+echo "[FINAL] checking nginx"
+nginx -t
+echo "[FINAL] starting nginx"
+service nginx start
+echo "[FINAL] starting php-fpm"
+service php8.3-fpm start
+
+echo -e "\n\n\n
+=========================================================
+|                                                       |
+|                                                       |
+|                  [DRUPAL] FINISHED                    |
+|        executing sleep infinity to run the docker     |
+|                                                       |
+|                                                       |
+=========================================================
+\n"
+sleep infinity

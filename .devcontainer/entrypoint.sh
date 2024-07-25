@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # check if there is INIT.txt on /workspaces
-echo "running entrypoint" 
+echo "running entrypoint"
 if [ -f /workspaces/INIT.txt ]; then
-    echo "INIT file FOUND" 
+    echo "INIT file FOUND"
     # check the value of INIT.txt
     if [ "$(cat /workspaces/INIT.txt)" = "true" ]; then
         # run ./command.sh
@@ -11,8 +11,8 @@ if [ -f /workspaces/INIT.txt ]; then
         /workspaces/.devcontainer/command.sh
     fi
     # set INIT.txt to false
-    echo "saving INIT.txt to false" 
-    echo "false" > /workspaces/INIT.txt
+    echo "saving INIT.txt to false"
+    echo "false" >/workspaces/INIT.txt
 fi
 echo -e "\n\n\n
 =========================================================

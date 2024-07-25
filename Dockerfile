@@ -1,6 +1,8 @@
 FROM ubuntu:22.04
+
 WORKDIR /workspaces
 COPY . .
+
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y
 RUN apt-get install -y software-properties-common curl zip unzip wget
@@ -8,35 +10,34 @@ RUN apt-get install ca-certificates apt-transport-https software-properties-comm
     && add-apt-repository ppa:ondrej/php -y \
     && apt-get update -y \
     && apt-get install git php8.3 \
-                       php8.3-dev \
-                       php8.3-cli \
-                       php8.3-fpm \
-                       php8.3-common \
-                       php8.3-zip \
-                       php8.3-gd \
-                       php8.3-intl \
-                       php8.3-mbstring \
-                       php8.3-curl \
-                       php8.3-xml \
-                       php-pear \
-                       php8.3-tidy \
-                       php8.3-soap \
-                       php8.3-bcmath \
-                       php8.3-pgsql \
-                       php8.3-opcache \
-                       php-imagick \
-                       imagemagick \
-                       webp \ 
-                       php8.3-xmlrpc -y
+    php8.3-dev \
+    php8.3-cli \
+    php8.3-fpm \
+    php8.3-common \
+    php8.3-zip \
+    php8.3-gd \
+    php8.3-intl \
+    php8.3-mbstring \
+    php8.3-curl \
+    php8.3-xml \
+    php-pear \
+    php8.3-tidy \
+    php8.3-soap \
+    php8.3-bcmath \
+    php8.3-pgsql \
+    php8.3-opcache \
+    php-imagick \
+    imagemagick \
+    webp \ 
+    php8.3-xmlrpc -y
 RUN apt-get install nginx -y 
 RUN apt-get install sudo -y
+
 RUN rm /etc/nginx/sites-enabled/default
 RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# Set the entrypoint script
-RUN touch /workspaces/INIT.txt
-RUN echo "true" > /workspaces/INIT.txt
-RUN echo "v1.0"
 RUN chmod +x /workspaces/server/entrypoint.sh
-EXPOSE 1234
-CMD ["./server/entrypoint-1.sh"]
+
+EXPOSE 80
+
+CMD ["/workspaces/server/entrypoint.sh"]
