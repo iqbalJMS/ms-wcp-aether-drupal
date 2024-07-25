@@ -895,6 +895,7 @@ $databases['default']['default'] = array(
 $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
 $settings['trusted_host_patterns'][] = '^drupal\.indesc\.com$';
+$settings['trusted_host_patterns'][] = '^bri-corpsite\.dev-kjt\.id$';
 $settings['trusted_host_patterns'][] = '^localhost$';
 
 // $settings['mongodb'] = [
