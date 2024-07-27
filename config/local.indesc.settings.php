@@ -898,7 +898,7 @@ $settings['trusted_host_patterns'][] = '^drupal\.indesc\.com$';
 $settings['trusted_host_patterns'][] = '^bri\.co\.id$';
 $settings['trusted_host_patterns'][] = '^bri-corpsite\.dev-kjt\.id$';
 $settings['trusted_host_patterns'][] = '^localhost$';
-$settings['trusted_host_patterns'][] = '^160\.19\.166\.113\:5011$';
+$settings['trusted_host_patterns'][] = '^160\.19\.166\.113$';
 
 // $settings['mongodb'] = [
 //   'clients' => [
