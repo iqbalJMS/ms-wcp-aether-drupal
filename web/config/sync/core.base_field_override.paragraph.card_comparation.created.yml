@@ -1,0 +1,18 @@
+uuid: 432acd3f-4f64-43fa-a5a5-1e0c1967918e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_comparation
+id: paragraph.card_comparation.created
+field_name: created
+entity_type: paragraph
+bundle: card_comparation
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -14,7 +14,7 @@ bundle: two_column
 label: 'Column width'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: '50_50'

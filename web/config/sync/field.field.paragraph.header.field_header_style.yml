@@ -14,7 +14,7 @@ bundle: header
 label: 'Header style'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: style_1

@@ -1,0 +1,22 @@
+uuid: 8172cdc5-cd66-4cbb-83ce-e1d3b3942eef
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_popular
+id: paragraph.card_popular.status
+field_name: status
+entity_type: paragraph
+bundle: card_popular
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
