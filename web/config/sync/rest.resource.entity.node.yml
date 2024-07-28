@@ -6,6 +6,7 @@ dependencies:
     - basic_auth
     - hal
     - node
+    - rest_entity_recursive
     - serialization
 id: entity.node
 plugin_id: 'entity:node'
@@ -14,6 +15,7 @@ configuration:
   GET:
     supported_formats:
       - hal_json
+      - json_recursive
       - json
     supported_auth:
       - basic_auth

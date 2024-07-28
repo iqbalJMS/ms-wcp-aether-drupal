@@ -1,0 +1,18 @@
+uuid: 56a39509-2362-4bde-8501-467053693452
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_detail_item
+id: paragraph.card_detail_item.created
+field_name: created
+entity_type: paragraph
+bundle: card_detail_item
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

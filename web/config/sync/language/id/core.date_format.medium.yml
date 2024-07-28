@@ -1,0 +1,2 @@
+label: 'Tanggal format menengah bawaan'
+pattern: 'D, m/d/Y - H:i'

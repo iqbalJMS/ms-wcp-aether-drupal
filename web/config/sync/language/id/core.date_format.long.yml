@@ -1,0 +1,2 @@
+label: 'Tanggal panjang standar'
+pattern: 'l, F j, Y - H:i'

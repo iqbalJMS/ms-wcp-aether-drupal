@@ -1,0 +1,20 @@
+label: 'Pengguna yang baru'
+description: 'Tampilkan daftar akun pengguna baru pada situs.'
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      title: 'Pengguna yang baru'
+      exposed_form:
+        options:
+          submit_button: Terapkan
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
+          sort_desc_label: Desc
+  block_1:
+    display_title: 'Pengguna yang baru'
+    display_options:
+      display_description: 'Daftar pengguna baru'
+      block_description: 'Pengguna yang baru'
+      block_category: Pengguna
