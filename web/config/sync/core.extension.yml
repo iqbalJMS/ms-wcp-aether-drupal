@@ -42,6 +42,8 @@ module:
   path_alias: 0
   pgsql: 0
   rest: 0
+  rest_entity_recursive: 0
+  rest_paragraphs_recursive: 0
   restui: 0
   schemata: 0
   schemata_json_schema: 0

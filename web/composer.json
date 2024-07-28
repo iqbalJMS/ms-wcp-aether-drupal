@@ -39,6 +39,7 @@
         "drupal/openapi_ui": "^1.0@RC",
         "drupal/openapi_ui_swagger": "^1.1",
         "drupal/paragraphs": "^1.17",
+        "drupal/rest_entity_recursive": "^2.0@RC",
         "drupal/restui": "^1.22",
         "drupal/tailwindcss": "^5.0@alpha",
         "drupal/webp": "^1.0@RC",
