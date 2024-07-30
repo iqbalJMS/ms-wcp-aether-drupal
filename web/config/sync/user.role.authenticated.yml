@@ -18,5 +18,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'use text format limited_html'
+  - 'view bricc_card_item'
   - 'view bricc_city'
   - 'view media'
