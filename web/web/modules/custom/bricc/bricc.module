@@ -27,8 +27,8 @@ function bricc_theme(): array {
  *
  * @param array $variables
  *   An associative array containing:
- *   - elements: An associative array containing the category information and any
- *     fields attached to the entity.
+ *   - elements: An associative array containing the category information and
+ *   any fields attached to the entity.
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_bricc_category(array &$variables): void {
@@ -45,8 +45,8 @@ function template_preprocess_bricc_category(array &$variables): void {
  *
  * @param array $variables
  *   An associative array containing:
- *   - elements: An associative array containing the card item information and any
- *     fields attached to the entity.
+ *   - elements: An associative array containing the card item information and
+ *   any fields attached to the entity.
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_bricc_card_item(array &$variables): void {
@@ -160,4 +160,23 @@ function bricc_user_login_submit(&$form, FormStateInterface $form_state) {
   else {
     $request->query->set('destination', $request->request->get('destination'));
   }
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function bricc_views_data() {
+  $data = [];
+
+  $data['bricc_applicant_remote_data']['table']['group'] = 'bricc_applicant_remote_data';
+  $data['bricc_applicant_remote_data']['table']['base'] = [
+    'title' => 'BRI CC Applicant remote data',
+    'query_id' => 'views_remote_data_query',
+  ];
+
+  return $data;
+}
+
+function bricc_applicant_remote_data() {
+
 }

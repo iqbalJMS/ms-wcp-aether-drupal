@@ -20,6 +20,9 @@ display:
             format_custom_true: Dipublikasikan
         changed:
           label: Diperbaharui
+        langcode:
+          label: Bahasa
+          separator: ', '
         operations:
           label: Operasi-operasi
       pager:

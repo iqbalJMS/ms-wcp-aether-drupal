@@ -42,6 +42,7 @@
         "drupal/rest_entity_recursive": "^2.0@RC",
         "drupal/restui": "^1.22",
         "drupal/tailwindcss": "^5.0@alpha",
+        "drupal/views_remote_data": "^1.0",
         "drupal/webp": "^1.0@RC",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "symfony/dotenv": "^7.0"
