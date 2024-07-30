@@ -27,6 +27,14 @@ administer bricc_province:
 administer bricc_city:
   title: 'Administer cities'
   restrict access: true
+view bricc_city:
+  title: 'View City'
+edit bricc_city:
+  title: 'Edit City'
+delete bricc_city:
+  title: 'Delete City'
+create bricc_city:
+  title: 'Create City'
 
 administer bricc_applicant_status:
   title: 'Administer applicant status'
