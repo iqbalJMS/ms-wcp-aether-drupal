@@ -1,0 +1,51 @@
+uuid: 0f386e59-2c96-4705-aeda-b5abb729ab1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.bricc_city.bricc_city.field_province
+  module:
+    - bricc
+id: bricc_city.bricc_city.default
+targetEntityType: bricc_city
+bundle: bricc_city
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_province:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,27 @@
+uuid: f3219faa-b730-44c2-98b7-e810c3fdba45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_city.field_province
+  module:
+    - bricc
+id: bricc_city.bricc_city.field_province
+field_name: field_province
+entity_type: bricc_city
+bundle: bricc_city
+label: Province
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bricc_province'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

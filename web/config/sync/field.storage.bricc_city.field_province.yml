@@ -1,0 +1,19 @@
+uuid: 1657cf10-3b35-41f4-8868-b8b6261375b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_city.field_province
+field_name: field_province
+entity_type: bricc_city
+type: entity_reference
+settings:
+  target_type: bricc_province
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
