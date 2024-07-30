@@ -16,4 +16,5 @@ permissions:
   - 'access content'
   - 'view bricc_card_item'
   - 'view bricc_city'
+  - 'view bricc_province'
   - 'view media'

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\bricc\Entity;
 
 use Drupal\bricc\ApplicantStatusInterface;
+use Drupal\Core\Entity\Annotation\ContentEntityType;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
