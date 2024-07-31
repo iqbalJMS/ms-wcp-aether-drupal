@@ -1,0 +1,21 @@
+uuid: 74908ccd-4871-4b69-86b8-c05a1cc30ffd
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - bricc
+    - hal
+    - rest_entity_recursive
+    - serialization
+id: entity.bricc_city
+plugin_id: 'entity:bricc_city'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - hal_json
+      - json_recursive
+      - json
+    supported_auth:
+      - basic_auth

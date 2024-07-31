@@ -91,6 +91,9 @@ fi
 echo "[DRUPAL] clear cache"
 /workspaces/web/vendor/bin/drush cr
 
+echo "[DRUPAL] import latest config"
+/workspaces/web/vendor/bin/drush cim -y
+
 echo -e "\n\n\n
 =========================================================
 |                                                       |

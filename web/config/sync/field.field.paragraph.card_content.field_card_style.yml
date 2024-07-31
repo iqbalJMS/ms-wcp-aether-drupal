@@ -14,7 +14,7 @@ bundle: card_content
 label: Style
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: blue

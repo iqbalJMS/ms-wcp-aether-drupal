@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\bricc\Entity;
 
 use Drupal\bricc\BriccCardItemInterface;
+use Drupal\Core\Entity\Annotation\ContentEntityType;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;

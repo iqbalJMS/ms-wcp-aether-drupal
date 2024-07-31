@@ -23,10 +23,26 @@ delete bricc_card_item revision:
 administer bricc_province:
   title: 'Administer provinces'
   restrict access: true
+view bricc_province:
+  title: 'View provinces'
+edit bricc_province:
+  title: 'Edit provinces'
+delete bricc_province:
+  title: 'Delete provinces'
+create bricc_province:
+  title: 'Create provinces'
 
 administer bricc_city:
   title: 'Administer cities'
   restrict access: true
+view bricc_city:
+  title: 'View cities'
+edit bricc_city:
+  title: 'Edit cities'
+delete bricc_city:
+  title: 'Delete cities'
+create bricc_city:
+  title: 'Create cities'
 
 administer bricc_applicant_status:
   title: 'Administer applicant status'

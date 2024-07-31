@@ -1,0 +1,10 @@
+services:
+  bricc.event_subscriber:
+    class: Drupal\bricc\EventSubscriber\ApplicantRemoteDataSubscriber
+    arguments: ['@bricc.application_remote_data']
+    tags:
+      - { name: event_subscriber }
+  bricc.application_remote_data:
+    class: Drupal\bricc\ApplicantRemoteData
+    arguments: [ '@http_client', '@cache.data' ]
+

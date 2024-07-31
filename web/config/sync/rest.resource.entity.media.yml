@@ -6,6 +6,7 @@ dependencies:
     - basic_auth
     - hal
     - media
+    - rest_entity_recursive
     - serialization
 id: entity.media
 plugin_id: 'entity:media'
@@ -15,6 +16,7 @@ configuration:
     - GET
   formats:
     - hal_json
+    - json_recursive
     - json
   authentication:
     - basic_auth

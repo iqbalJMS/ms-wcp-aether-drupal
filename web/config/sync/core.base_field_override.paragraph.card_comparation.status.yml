@@ -1,0 +1,22 @@
+uuid: 01b25080-2c1e-4595-a3ea-dee091405350
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_comparation
+id: paragraph.card_comparation.status
+field_name: status
+entity_type: paragraph
+bundle: card_comparation
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

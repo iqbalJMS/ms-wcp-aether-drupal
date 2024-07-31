@@ -89,3 +89,4 @@ composer-lock.json
 /web/.lando.yml
 /web/local
 /web/web/libraries/swagger-ui/
+.idea
