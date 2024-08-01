@@ -132,4 +132,11 @@ class BriccController extends ControllerBase {
 
     return $output;
   }
+
+  public function applicantDetail($id): array {
+    $build = [
+      '#markup' => $this->t('Hello World!'),
+    ];
+    return $build;
+  }
 }

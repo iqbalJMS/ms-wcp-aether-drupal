@@ -6,8 +6,14 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Psr\Log\LoggerInterface;
 
 class ApplicantRemoteData {
+
+  /**
+   * @var string
+   */
+  private $sourceBaseUrl = 'https://66aa39d9613eced4eba8176b.mockapi.io/bricc-api/applicant';
 
   /**
    * @var \GuzzleHttp\Client
@@ -20,6 +26,11 @@ class ApplicantRemoteData {
   private CacheBackendInterface $cache;
 
   /**
+   * @var \Psr\Log\LoggerInterface
+   */
+  private LoggerInterface $logger;
+
+  /**
    * Constructs a new PokeApi object.
    *
    * @param \GuzzleHttp\Client $client
@@ -27,9 +38,10 @@ class ApplicantRemoteData {
    * @param CacheBackendInterface $cache
    *   The cache backend.
    */
-  public function __construct(Client $client, CacheBackendInterface $cache) {
+  public function __construct(Client $client, CacheBackendInterface $cache, LoggerInterface $logger) {
     $this->client = $client;
     $this->cache = $cache;
+    $this->logger = $logger;
   }
 
   /**
@@ -42,26 +54,52 @@ class ApplicantRemoteData {
    *   The result.
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function get(string $uri): array {
+  public function get(string $uri, int $offset = 0, int $limit = 10, array $params = []): array {
     $cache_key = "bricc:$uri";
+    $cache_key = time();
+
+    // TODO page or offset
+    $page = $offset + 1;
+
+    $queryParams = [
+      'page' => $page,
+      'limit' => $limit,
+    ] + $params;
+
+    $options = [
+      'headers' => [
+        'Content-Type' => 'application/json',
+      ],
+      'query' => $queryParams,
+    ];
+
     if ($cache = $this->cache->get($cache_key)) {
       return $cache->data;
     }
     try {
-      $response = $this->client->get($uri);
+      $response = $this->client->get($uri, $options);
       $data = Json::decode((string) $response->getBody());
       $this->cache->set($cache_key, $data);
       return $data;
     }
     catch (RequestException $e) {
+      $this->logger->warning($e->getMessage());
       return [];
     }
   }
 
-  public function listApplicant(int $offset, int $limit): array {
-    $endpoint = 'https://bri-cc.lndo.site/bricc-api/city?_format=json';
-    $result = $this->get($endpoint);
-    return $result;
+  /**
+   * @param int $offset
+   * @param int $limit
+   * @param array $params
+   *
+   * @return array
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   */
+  public function listApplicant(int $offset, int $limit = 10, array $params = []): array {
+    $endpoint = $this->sourceBaseUrl;
+
+    return $this->get($endpoint, $offset, $limit, $params);
   }
 
 }
