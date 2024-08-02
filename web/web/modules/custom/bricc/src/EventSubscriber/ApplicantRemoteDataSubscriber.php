@@ -10,7 +10,7 @@ use Drupal\views_remote_data\Events\RemoteDataQueryEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * @todo Add description for this subscriber.
+ * This to fetch remote data
  */
 final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
 
@@ -45,7 +45,23 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
     $supported_bases = ['bricc_applicant_remote_data'];
     $base_tables = array_keys($event->getView()->getBaseTables());
     if (count(array_intersect($supported_bases, $base_tables)) > 0) {
-      $remote_data = $this->applicantRemoteData->listApplicant(0, 0);
+
+      // Filter
+      $params = $event->getView()->getExposedInput();
+
+      // Pagination data
+      $offset = $event->getView()->getPager()->getCurrentPage();
+      $limit = $event->getLimit();
+      if (!empty($params['items_per_page'])) {
+        $limit = (int) $params['items_per_page'];
+        unset($params['items_per_page']);
+      }
+
+      // TODO replace with total amount of data
+      $event->getView()->getPager()->total_items = 21;
+
+      // Fetch data
+      $remote_data = $this->applicantRemoteData->listApplicant($offset, $limit, $params);
 
       foreach ($remote_data as $item) {
         $event->addResult(new ResultRow($item));
