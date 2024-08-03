@@ -18,6 +18,16 @@
 /*
 Applicant
 */
+input.form-date,
 .form-item--filtering-type {
   width: 100%;
+}
+
+.form-item--startdate,
+.form-item--enddate,
+.form-item--jeniskartu,
+.form-item--name,
+.form-item--phone,
+.form-item--tgllahir {
+  width: calc(33% - 8px);
 }

@@ -97,6 +97,22 @@ class ApplicantRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function listApplicant(int $offset, int $limit = 10, array $params = []): array {
+    // If no params, return empty first.
+    if (empty($params)) {
+      return [];
+    }
+
+    // Filter type
+    $filter_type = $params['filter_type'] ?? 'date';
+
+    if ($filter_type == 'date') {
+
+    }
+    else {
+      // Filter by name
+
+    }
+
     $endpoint = $this->sourceBaseUrl;
 
     return $this->get($endpoint, $offset, $limit, $params);

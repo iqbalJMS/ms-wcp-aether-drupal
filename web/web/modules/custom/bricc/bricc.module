@@ -193,5 +193,13 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
         '#default_value' => 'date',
       ]
     ], $form);
+
+    // Edit field to be type date
+    $field_date = [
+      'startdate', 'enddate', 'tgllahir'
+    ];
+    foreach ($field_date as $field) {
+      $form[$field]['#type']= 'date';
+    }
   }
 }
