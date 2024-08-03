@@ -177,6 +177,21 @@ function bricc_views_data() {
   return $data;
 }
 
-function bricc_applicant_remote_data() {
-
+/**
+ * Implements hook_form_alter().
+ */
+function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'views_exposed_form') {
+    $form = array_merge([
+      'filtering_type' => [
+        '#type' => 'select',
+        '#title' => t('Filter type'),
+        '#options' => [
+          'date' => t('Date'),
+          'name' => t('Name'),
+        ],
+        '#default_value' => 'date',
+      ]
+    ], $form);
+  }
 }

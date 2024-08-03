@@ -14,3 +14,10 @@
   font-weight: 600;
   font-size: 20px;
 }
+
+/*
+Applicant
+*/
+.form-item--filtering-type {
+  width: 100%;
+}

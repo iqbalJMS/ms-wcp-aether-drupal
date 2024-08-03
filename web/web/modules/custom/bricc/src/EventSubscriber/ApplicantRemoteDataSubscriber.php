@@ -49,6 +49,9 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
       // Filter
       $params = $event->getView()->getExposedInput();
 
+      // Filter type
+      $filter_type = $params['filter_type'] ?? 'date';
+
       // Pagination data
       $offset = $event->getView()->getPager()->getCurrentPage();
       $limit = $event->getLimit();
