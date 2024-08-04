@@ -205,4 +205,24 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       }
     }
   }
+  elseif ($form_id === 'bricc_card_item_add_form' || $form_id === 'bricc_card_item_edit_form') {
+    // Card type
+    $card_type = \Drupal::service('bricc.parser_remote_data')->listCardType();
+    $card_type_options = [];
+    if (isset($card_type['data']['creditCardTypes'])) {
+      foreach ($card_type['data']['creditCardTypes'] as $card) {
+        $card_type_options[$card['idCardType']] = $card['descCardType'];
+      }
+    }
+    $form['select_idcardtype'] = [
+      '#type' => 'select',
+      '#title' => t('Card link'),
+      '#options' => $card_type_options,
+      '#default_value' => $form['field_idcardtype']['widget'][0]['value']['#default_value'], // Set the default value if needed.
+      '#description' => t('Connect this data with BRI Card Type'),
+      '#weight' => 0,
+      '#required' => TRUE,
+    ];
+    $form['field_idcardtype']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+  }
 }

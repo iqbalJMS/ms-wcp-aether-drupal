@@ -27,6 +27,7 @@ settings:
       - bulletedList
       - '|'
       - insertTable
+      - style
   plugins:
     ckeditor5_alignment:
       enabled_alignments:
@@ -46,6 +47,11 @@ settings:
         reversed: true
         startIndex: true
       multiBlock: true
+    ckeditor5_style:
+      styles:
+        -
+          label: BRImo
+          element: '<ol class="brimo">'
     media_media:
       allow_view_mode_override: false
 image_upload:

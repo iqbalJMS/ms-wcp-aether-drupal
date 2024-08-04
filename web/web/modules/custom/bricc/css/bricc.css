@@ -31,3 +31,7 @@ input.form-date,
 .form-item--tgllahir {
   width: calc(33% - 8px);
 }
+
+input:read-only {
+  background-color: var(--gin-color-disabled-bg);
+}

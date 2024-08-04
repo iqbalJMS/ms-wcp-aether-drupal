@@ -47,4 +47,16 @@
       }
     },
   }
+
+  Drupal.behaviors.briccIdCardType = {
+    attach: function (context, settings) {
+      once('briccIdCardType', '.form-item--select-idcardtype', context)
+        .forEach(function (element) {
+          $(element).on('change', '[data-drupal-selector="edit-select-idcardtype"]', function (e) {
+            let selectedIdCardType = e.target.value;
+            $(element).closest('form').find('[data-drupal-selector="edit-field-idcardtype-0-value"]').val(selectedIdCardType);
+          })
+        });
+    }
+  }
 })(jQuery, Drupal, drupalSettings);
