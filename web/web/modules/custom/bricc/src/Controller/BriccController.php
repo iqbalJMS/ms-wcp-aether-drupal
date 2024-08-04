@@ -135,7 +135,7 @@ class BriccController extends ControllerBase {
 
   public function applicantDetail($id): array {
     $build = [
-      '#markup' => $this->t('Hello World!'),
+      '#theme' => 'applicant_detail',
     ];
     return $build;
   }

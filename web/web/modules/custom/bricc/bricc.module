@@ -17,6 +17,7 @@ function bricc_theme(): array {
   return [
     'bricc_category' => ['render element' => 'elements'],
     'bricc_card_item' => ['render element' => 'elements'],
+    'applicant_detail' => ['render element' => 'elements'],
   ];
 }
 
@@ -182,24 +183,26 @@ function bricc_views_data() {
  */
 function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'views_exposed_form') {
-    $form = array_merge([
-      'filtering_type' => [
-        '#type' => 'select',
-        '#title' => t('Filter type'),
-        '#options' => [
-          'date' => t('Date'),
-          'name' => t('Name'),
-        ],
-        '#default_value' => 'date',
-      ]
-    ], $form);
+    if ($form['#id'] === 'views-exposed-form-applicant-page-1') {
+      $form = array_merge([
+        'filtering_type' => [
+          '#type' => 'select',
+          '#title' => t('Filter type'),
+          '#options' => [
+            'date' => t('Date'),
+            'name' => t('Name'),
+          ],
+          '#default_value' => 'date',
+        ]
+      ], $form);
 
-    // Edit field to be type date
-    $field_date = [
-      'startdate', 'enddate', 'tgllahir'
-    ];
-    foreach ($field_date as $field) {
-      $form[$field]['#type']= 'date';
+      // Edit field to be type date
+      $field_date = [
+        'startdate', 'enddate', 'tgllahir'
+      ];
+      foreach ($field_date as $field) {
+        $form[$field]['#type']= 'date';
+      }
     }
   }
 }

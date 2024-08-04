@@ -99,7 +99,7 @@ class ApplicantRemoteData {
   public function listApplicant(int $offset, int $limit = 10, array $params = []): array {
     // If no params, return empty first.
     if (empty($params)) {
-      return [];
+//      return [];
     }
 
     // Filter type
