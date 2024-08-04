@@ -56,10 +56,6 @@ else
     composer update
 fi
 
-# create symlink folder between /workspaces/mount and /workspaces/web/web/sites/default/files
-echo "[DRUPAL] mounting NFS"
-ln -s /workspaces/mount/files /workspaces/web/web/sites/default/files/uploads
-
 # check permission on /workspaces/web if it's root change to www-data:www-data
 # force to set www-data
 echo "[DRUPAL] changing permission on /workspaces/web"
