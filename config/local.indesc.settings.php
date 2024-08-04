@@ -900,6 +900,8 @@ $settings['trusted_host_patterns'][] = '^bri-corpsite\.dev-kjt\.id$';
 $settings['trusted_host_patterns'][] = '^localhost$';
 $settings['trusted_host_patterns'][] = '^160\.19\.166\.113$';
 $settings['state_cache'] = TRUE;
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
 
 // $settings['mongodb'] = [
 //   'clients' => [
