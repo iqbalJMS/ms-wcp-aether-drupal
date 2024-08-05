@@ -17,7 +17,11 @@ function bricc_theme(): array {
   return [
     'bricc_category' => ['render element' => 'elements'],
     'bricc_card_item' => ['render element' => 'elements'],
-    'applicant_detail' => ['render element' => 'elements'],
+    'applicant_detail' => [
+      'variables' => [
+        'detail' => NULL
+      ]
+    ],
   ];
 }
 

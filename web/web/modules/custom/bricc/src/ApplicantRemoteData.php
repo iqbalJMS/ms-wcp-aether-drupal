@@ -5,6 +5,7 @@ namespace Drupal\bricc;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 
@@ -61,7 +62,7 @@ class ApplicantRemoteData {
     $options = array_merge([
       'headers' => [
         'Content-Type' => 'application/json',
-      ]
+      ],
     ], $options);
 
     if ($cache = $this->cache->get($cache_key)) {
@@ -80,12 +81,10 @@ class ApplicantRemoteData {
   }
 
   /**
-   * @param int $offset
-   * @param int $limit
    * @param array $params
    *
    * @return array
-   * @throws \GuzzleHttp\Exception\GuzzleException
+   * @throws GuzzleException
    */
   public function listApplicant(array $params = []): array {
     // If no params, return empty first.
@@ -103,7 +102,7 @@ class ApplicantRemoteData {
       $start_date = $params['startdate'] ?? '';
       $end_date = $params['enddate'] ?? '';
       $jenis_kartu = $params['jeniskartu'] ?? '';
-      $qgl_str = '{"query":"{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu: \"%s\"\n  ) {\n    namaNasabah,\n    nik,\n    noHp,\n    tanggalLahir,\n    tanggalVerif\n  }\n}"}';
+      $qgl_str = '{"query":"{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu: \"%s\"\n  ) {\n _id,    namaNasabah,\n    nik,\n    noHp,\n    tanggalLahir,\n    tanggalVerif\n  }\n}"}';
       $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
 
       $result = $this->post($this->sourceBaseUrl, $options);
@@ -119,4 +118,14 @@ class ApplicantRemoteData {
     return [];
   }
 
+  public function applicantDetail ($_id) {
+    $qgl_str = '{"query":"query {\n  personalInfo (id:\"66b068ccc283e96d8123694e\") {\n    _id\n    email\n    jenisKartuKredit\n    namaDepan\n    kewarganegaraan\n    kodePos\n    namaBelakang\n    namaDiKartu\n    sexType\n    statusNikah\n    statusRumah\n    tinggalSejak\n    tanggalLahir\n    tempatLahir\n    asalKota\n    noTelp\n    alamat1\n    alamat2\n    alamat3\n    jumlahAnak\n    edukasi\n    nik\n    noHp\n  }\n}"}';
+    $options['body'] = sprintf($qgl_str, $_id);
+
+    $result = $this->post($this->sourceBaseUrl, $options);
+
+    if (isset($result['data']['personalInfo'])) {
+      return $result['data']['personalInfo'];
+    }
+  }
 }

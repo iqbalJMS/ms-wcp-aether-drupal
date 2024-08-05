@@ -134,9 +134,28 @@ class BriccController extends ControllerBase {
   }
 
   public function applicantDetail($id): array {
-    $build = [
+    $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
+
+    // Rename jenis kartu
+    $remote_card_types = \Drupal::service('bricc.parser_remote_data')->listCardType();
+    $card_type_options = [];
+    if (isset($remote_card_types['data']['creditCardTypes'])) {
+      foreach ($remote_card_types['data']['creditCardTypes'] as $card) {
+        $card_type_options[$card['idCardType']] = $card['descCardType'];
+      }
+    }
+    if (isset($card_type_options[$detail['jenisKartuKredit']])) {
+      $detail['jenisKartuKredit'] = $card_type_options[$detail['jenisKartuKredit']];
+    }
+
+
+
+
+    $build['detail_applicant'] = [
       '#theme' => 'applicant_detail',
+      '#detail' => $detail,
     ];
+
     return $build;
   }
 }

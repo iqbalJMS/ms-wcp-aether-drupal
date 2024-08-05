@@ -37,3 +37,19 @@ Applicant
 input:read-only {
   /*background-color: var(--gin-color-disabled-bg);*/
 }
+
+.applicant-detail--wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.applicant-detail--item {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.applicant-detail--item.applicant-detail--item-alamat {
+  width: 100%;
+}
+
