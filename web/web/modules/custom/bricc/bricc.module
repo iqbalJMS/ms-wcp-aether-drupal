@@ -221,7 +221,7 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       '#default_value' => $form['field_idcardtype']['widget'][0]['value']['#default_value'], // Set the default value if needed.
       '#description' => t('Connect this data with BRI Card Type'),
       '#weight' => 0,
-      '#required' => TRUE,
+//      '#required' => TRUE,
     ];
     $form['field_idcardtype']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
   }

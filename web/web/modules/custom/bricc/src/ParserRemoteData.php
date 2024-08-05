@@ -56,7 +56,6 @@ class ParserRemoteData {
    */
   public function post(string $uri, array $options = []): array {
     $cache_key = "bricc:$uri";
-    $cache_key = time();
 
     if ($cache = $this->cache->get($cache_key)) {
       return $cache->data;
