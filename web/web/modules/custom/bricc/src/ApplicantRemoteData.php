@@ -111,8 +111,17 @@ class ApplicantRemoteData {
       }
     }
     else {
-      // TODO Filter by name
+      // Filter by name
+      $name = $params['name'] ?? '';
+      $phone = $params['phone'] ?? '';
+      $tgllahir = $params['tgllahir'] ?? '';
 
+      $gql_str = '{"query":"query {\n  personalInfosByName(\n    namaNasabah:\"%s\"\n    noHp:\"%s\"\n    tanggalLahir:\"%s\"\n  ){\n    _id\n    namaNasabah\n    jenisKartuKredit\n    nik\n    noHp\n    tanggalLahir\n    tanggalVerif\n  }\n}"}';
+      $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
+      $result = $this->post($this->sourceBaseUrl, $options);
+      if (isset($result['data']['personalInfosByName'])) {
+        return $result['data']['personalInfosByName'];
+      }
     }
 
     return [];

@@ -56,7 +56,13 @@ class ParserRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function post(string $uri, array $options = []): array {
-    $cache_key = "bricc:$uri";
+    $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
+
+    $options = array_merge([
+      'headers' => [
+        'Content-Type' => 'application/json',
+      ],
+    ], $options);
 
     if ($cache = $this->cache->get($cache_key)) {
       return $cache->data;
@@ -78,15 +84,48 @@ class ParserRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function listCardType(): array {
-    $graphqlQuery = '{"query": "query { creditCardTypes { descCardType idCardType}}"}';
-    $options = [
-      'headers' => [
-        'Content-Type' => 'application/json',
-      ],
-      'body' => $graphqlQuery,
-    ];
-
+    $options['body'] = '{"query": "query { creditCardTypes { descCardType idCardType}}"}';
     return $this->post($this->sourceBaseUrl, $options);
+  }
+
+  public function listEducation() {
+    $options['body'] = '{"query":"query {\n  education {\n    education\n    educationDesc\n  }\n}"}';
+    return $this->post($this->sourceBaseUrl, $options);
+  }
+
+  public function listMaritalStatusAsOptions() {
+    $options['body'] = '{"query":"query {\n  maritalStatus{\n    maritalStatus\n    maritalStatusDesc\n  }\n}"}';
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['maritalStatus'])) {
+      foreach ($result['data']['maritalStatus'] as $maritalStatus) {
+        $values[$maritalStatus['maritalStatus']] = $maritalStatus['maritalStatusDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listHomeStatusAsOptions() {
+    $options['body'] = '{"query":"query {\n  homeStatus{\n    homeStatus\n    homeStatusDesc\n  }\n}"}';
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['homeStatus'])) {
+      foreach ($result['data']['homeStatus'] as $item) {
+        $values[$item['homeStatus']] = $item['homeStatusDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listEducationAsOptions(){
+    $result = $this->listEducation();
+    $values = [];
+    if (isset($result['data']['education'])) {
+      foreach ($result['data']['education'] as $education) {
+        $values[$education['education']] = $education['educationDesc'];
+      }
+    }
+    return $values;
   }
 
 }

@@ -148,8 +148,23 @@ class BriccController extends ControllerBase {
       $detail['jenisKartuKredit'] = $card_type_options[$detail['jenisKartuKredit']];
     }
 
+    // Description untuk edukasi
+    $list_edukasi = \Drupal::service('bricc.parser_remote_data')->listEducationAsOptions();
+    if (isset($list_edukasi[$detail['edukasi']])) {
+      $detail['edukasi'] = $list_edukasi[$detail['edukasi']];
+    }
 
+    // Description untuk marital status
+    $list_maritalstatus = \Drupal::service('bricc.parser_remote_data')->listMaritalStatusAsOptions();
+    if (isset($list_maritalstatus[$detail['statusNikah']])) {
+      $detail['statusNikah'] = $list_maritalstatus[$detail['statusNikah']];
+    }
 
+    // Description untuk home status
+    $list_homestatus = \Drupal::service('bricc.parser_remote_data')->listHomeStatusAsOptions();
+    if (isset($list_homestatus[$detail['statusRumah']])) {
+      $detail['statusRumah'] = $list_homestatus[$detail['statusRumah']];
+    }
 
     $build['detail_applicant'] = [
       '#theme' => 'applicant_detail',
