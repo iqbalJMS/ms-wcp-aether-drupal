@@ -30,9 +30,9 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: id'
+          admin_label: 'remote: nik'
           plugin_id: views_remote_data_property
-          label: ID
+          label: _id
           exclude: true
           alter:
             alter_text: false
@@ -73,7 +73,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: id
+          property_path: _id
         counter:
           id: counter
           table: views
@@ -130,7 +130,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: createdAt'
+          admin_label: 'remote: tanggalVerif'
           plugin_id: views_remote_data_property
           label: 'Tanggal submit'
           exclude: false
@@ -173,14 +173,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: createdAt
+          property_path: tanggalVerif
         property:
           id: property
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: name'
+          admin_label: 'remote: namaNasabah'
           entity_type: null
           entity_field: null
           plugin_id: views_remote_data_property
@@ -225,7 +225,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: name
+          property_path: namaNasabah
         property_1:
           id: property_1
           table: bricc_applicant_remote_data
@@ -332,7 +332,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: phone'
+          admin_label: 'remote: noHp'
           plugin_id: views_remote_data_property
           label: 'No. Handphone'
           exclude: false
@@ -375,14 +375,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: phone
+          property_path: noHp
         property_2:
           id: property_2
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: tglLahir'
+          admin_label: 'remote: tanggalLahir'
           plugin_id: views_remote_data_property
           label: 'Tanggal Lahir'
           exclude: false
@@ -425,7 +425,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: tglLahir
+          property_path: tanggalLahir
         nothing:
           id: nothing
           table: views
