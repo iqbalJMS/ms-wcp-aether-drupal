@@ -31,10 +31,15 @@ RUN apt-get install ca-certificates apt-transport-https software-properties-comm
     imagemagick \
     webp \ 
     php8.3-xmlrpc -y
-RUN apt-get install nginx -y 
+
+RUN apt-get install apache2 -y 
+RUN apt-get install libapache2-mod-php8.3
+RUN a2enmod php8.3
 RUN apt-get install sudo -y
 
-RUN rm /etc/nginx/sites-enabled/default
+RUN rm /etc/apache2/sites-enabled/000-default.conf
+RUN echo 'ServerName 127.0.0.1' >> /etc/apache2/apache2.conf
+RUN echo 'listen 5000' >> /etc/apache2/ports.conf
 RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x /workspaces/server/entrypoint.sh
