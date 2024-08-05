@@ -58,12 +58,12 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
       }
 
       // Fetch data
-      $remote_data = $this->applicantRemoteData->listApplicant($offset, $limit, $params);
+      $remote_data = $this->applicantRemoteData->listApplicant($params);
 
       if (!empty($remote_data)) {
-        // TODO replace with total amount of data
-        $event->getView()->getPager()->total_items = 21;
+        $event->getView()->getPager()->total_items = count($remote_data);
 
+        // TODO pagination
         foreach ($remote_data as $item) {
           $event->addResult(new ResultRow($item));
         }

@@ -18,7 +18,9 @@
 /*
 Applicant
 */
-input.form-date,
+.views-exposed-form input.form-text,
+.views-exposed-form input.form-date,
+[data-drupal-selector="edit-jeniskartu"],
 .form-item--filtering-type {
   width: 100%;
 }
@@ -33,5 +35,5 @@ input.form-date,
 }
 
 input:read-only {
-  background-color: var(--gin-color-disabled-bg);
+  /*background-color: var(--gin-color-disabled-bg);*/
 }

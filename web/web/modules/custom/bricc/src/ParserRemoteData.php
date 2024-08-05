@@ -13,7 +13,7 @@ class ParserRemoteData {
   /**
    * @var string
    */
-  private $sourceBaseUrl = 'https://bri-corpsite.dev-kjt.id/gql/basilisk/parser';
+  private $sourceBaseUrl = '';
 
   /**
    * @var \GuzzleHttp\Client
@@ -42,6 +42,7 @@ class ParserRemoteData {
     $this->client = $client;
     $this->cache = $cache;
     $this->logger = $logger;
+    $this->sourceBaseUrl = $_ENV['PARSER_URL'];
   }
 
   /**

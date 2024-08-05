@@ -13,7 +13,7 @@ class ApplicantRemoteData {
   /**
    * @var string
    */
-  private $sourceBaseUrl = 'https://66aa39d9613eced4eba8176b.mockapi.io/bricc-api/applicant';
+  private $sourceBaseUrl = '';
 
   /**
    * @var \GuzzleHttp\Client
@@ -42,6 +42,7 @@ class ApplicantRemoteData {
     $this->client = $client;
     $this->cache = $cache;
     $this->logger = $logger;
+    $this->sourceBaseUrl = $_ENV['APPLICANT_URL'];
   }
 
   /**
@@ -54,30 +55,20 @@ class ApplicantRemoteData {
    *   The result.
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function get(string $uri, int $offset = 0, int $limit = 10, array $params = []): array {
-    $cache_key = "bricc:$uri";
-    $cache_key = time();
+  public function post(string $uri, array $options = []): array {
+    $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
 
-    // TODO page or offset
-    $page = $offset + 1;
-
-    $queryParams = [
-      'page' => $page,
-      'limit' => $limit,
-    ] + $params;
-
-    $options = [
+    $options = array_merge([
       'headers' => [
         'Content-Type' => 'application/json',
-      ],
-      'query' => $queryParams,
-    ];
+      ]
+    ], $options);
 
     if ($cache = $this->cache->get($cache_key)) {
       return $cache->data;
     }
     try {
-      $response = $this->client->get($uri, $options);
+      $response = $this->client->post($uri, $options);
       $data = Json::decode((string) $response->getBody());
       $this->cache->set($cache_key, $data);
       return $data;
@@ -96,26 +87,36 @@ class ApplicantRemoteData {
    * @return array
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function listApplicant(int $offset, int $limit = 10, array $params = []): array {
+  public function listApplicant(array $params = []): array {
     // If no params, return empty first.
     if (empty($params)) {
-//      return [];
+      return [];
     }
 
     // Filter type
     $filter_type = $params['filter_type'] ?? 'date';
 
-    if ($filter_type == 'date') {
+    $options = [];
 
+    if ($filter_type == 'date') {
+      // Filter by date
+      $start_date = $params['startdate'] ?? '';
+      $end_date = $params['enddate'] ?? '';
+      $jenis_kartu = $params['jeniskartu'] ?? '';
+      $qgl_str = '{"query":"{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu: \"%s\"\n  ) {\n    namaNasabah,\n    nik,\n    noHp,\n    tanggalLahir,\n    tanggalVerif\n  }\n}"}';
+      $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
+
+      $result = $this->post($this->sourceBaseUrl, $options);
+      if (isset($result['data']['personalInfoByDate'])) {
+        return $result['data']['personalInfoByDate'];
+      }
     }
     else {
-      // Filter by name
+      // TODO Filter by name
 
     }
 
-    $endpoint = $this->sourceBaseUrl;
-
-    return $this->get($endpoint, $offset, $limit, $params);
+    return [];
   }
 
 }
