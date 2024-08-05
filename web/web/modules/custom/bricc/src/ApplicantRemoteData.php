@@ -136,5 +136,7 @@ class ApplicantRemoteData {
     if (isset($result['data']['personalInfo'])) {
       return $result['data']['personalInfo'];
     }
+
+    return [];
   }
 }
