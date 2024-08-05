@@ -12,6 +12,7 @@ dependencies:
     - field.field.bricc_card_item.bricc_card_item.field_card_limit
     - field.field.bricc_card_item.bricc_card_item.field_card_replace_fee
     - field.field.bricc_card_item.bricc_card_item.field_card_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_category
     - field.field.bricc_card_item.bricc_card_item.field_idcardtype
     - field.field.bricc_card_item.bricc_card_item.field_interdraft_fee
     - field.field.bricc_card_item.bricc_card_item.field_late_payment_fee
@@ -198,6 +199,12 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_category:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_idcardtype:
     type: string_textfield
     weight: 1
@@ -215,7 +222,7 @@ content:
     third_party_settings: {  }
   field_late_payment_fee:
     type: string_textfield
-    weight: 9
+    weight: 8
     region: content
     settings:
       size: 60
@@ -259,7 +266,7 @@ content:
     third_party_settings: {  }
   field_supplement_annualfee:
     type: number
-    weight: 17
+    weight: 16
     region: content
     settings:
       placeholder: ''
@@ -279,13 +286,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 2
-    region: content
-    settings:
-      display_label: false
-    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 4
@@ -298,3 +298,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  status: true
