@@ -914,6 +914,3 @@ $settings['state_cache'] = TRUE;
 //     'logger' => ['default', 'drupalmongo'],
 //   ],
 // ];
-
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;

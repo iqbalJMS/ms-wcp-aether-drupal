@@ -20,18 +20,19 @@ cd /workspaces
 echo "[COMPOSER] set to use superuser"
 export COMPOSER_ALLOW_SUPERUSER=1
 
-echo "[APACHE] removing default site if exist"
+# echo "[NGINX] we're not using nginx anymore, moving to native FPM"
+echo "[NGINX] removing default site if exist"
 # check if file exist
-if [ -f /etc/apache2/sites-enabled/000-default.conf ]; then
+if [ -f /etc/nginx/sites-enabled/default ]; then
     echo "default site exist"
-    rm /etc/apache2/sites-enabled/000-default.conf
+    rm /etc/nginx/sites-enabled/default
 fi
-
-echo "[APACHE] copy apache2 config"
-if [ ! -f /etc/apache2/sites-enabled/drupal.conf ]; then
-    echo "copying apache2 config"
-    cp /workspaces/config/drupal.apache.conf /etc/apache2/sites-available/drupal.conf
-    ln -s /etc/apache2/sites-available/drupal.conf /etc/apache2/sites-enabled/drupal.conf
+# echo "[NGINX] copy nginx config (already handled by devops)"
+echo "[NGINX] copy nginx config"
+if [ ! -f /etc/nginx/sites-available/drupal ]; then
+    echo "copying nginx config"
+    cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal
+    ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 fi
 # dont copy if exit
 #================================================================================
@@ -112,10 +113,12 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[FINAL] checking apache2"
-apachectl configtest
-echo "[FINAL] starting apache2"
-apachectl start
+echo "[FINAL] checking nginx"
+nginx -t
+echo "[FINAL] starting nginx"
+service nginx start
+echo "[FINAL] starting php-fpm"
+service php8.3-fpm start
 
 echo -e "\n\n\n
 =========================================================
