@@ -528,7 +528,7 @@ $settings['file_assets_path'] = 'proxy/1234/sites/default/files';
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
-# $settings['file_public_base_url'] = 'http://downloads.example.com/files';
+$settings['file_public_base_url'] = 'https://bri-corpsite.dev-kjt.id/dashboard/panel/sites/default/files/';
 
 /**
  * Public file path:

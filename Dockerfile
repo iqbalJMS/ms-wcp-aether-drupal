@@ -39,7 +39,7 @@ RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x /workspaces/server/entrypoint.sh
 RUN mkdir /workspaces/web/web/web
-RUN ln -s /workspaces/web/web /workspaces/web/web/web/panel
+RUN ln -s /workspaces/web/web /workspaces/web/web/dashboard/panel
 
 EXPOSE 5000
 
