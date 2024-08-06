@@ -73,7 +73,7 @@ echo -e "\n\n\n
 \n"
 ADMIN_PASS="default"
 ADMIN_USER="gumini"
-DB_CONNECTION="pgsql://db_ms_wcp_aether_drupal_owner:N7aMbnzSdw3t@ep-ancient-field-a1xfmqiy.ap-southeast-1.aws.neon.tech/db_ms_wcp_aether_drupal?sslmode=require"
+DB_CONNECTION="pgsql://db_ms_wcp_aether_drupal_owner:N7aMbnzSdw3t@160.19.166.113:5432/db_ms_wcp_aether_drupal"
 
 install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$DB_CONNECTION --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"
