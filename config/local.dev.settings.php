@@ -2,6 +2,9 @@
 
 // phpcs:ignoreFile
 
+$settings['file_assets_path'] = 'dashboard/sites/default/files';
+$settings['file_public_base_url'] = 'http://localhost:8779/dashboard/sites/default/files';
+$settings['file_public_path'] = 'dashboard/sites/default/files';
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -528,7 +531,9 @@ $settings['update_free_access'] = FALSE;
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
+# $settings['file_assets_path'] = 'sites/default/files';
 # $settings['file_public_base_url'] = 'http://downloads.example.com/files';
+# $settings['file_public_path'] = 'sites/default/files';
 
 /**
  * Public file path:
