@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.card_detail.field_card_detail
+    - field.field.paragraph.card_detail.field_card_item
     - field.field.paragraph.card_detail.field_image
     - field.field.paragraph.card_detail.field_primary_cta
     - field.field.paragraph.card_detail.field_secondary_cta
@@ -25,6 +26,15 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_card_item:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_image:
     type: entity_reference_entity_view

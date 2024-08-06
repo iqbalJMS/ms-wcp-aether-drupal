@@ -1,0 +1,28 @@
+uuid: e4790cd4-322a-4576-82e4-4b21d1c48848
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_item
+    - paragraphs.paragraphs_type.card_detail
+  module:
+    - entity_reference_revisions
+id: paragraph.card_detail.field_card_item
+field_name: field_card_item
+entity_type: paragraph
+bundle: card_detail
+label: 'Card item'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bricc_card_item'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference_revisions

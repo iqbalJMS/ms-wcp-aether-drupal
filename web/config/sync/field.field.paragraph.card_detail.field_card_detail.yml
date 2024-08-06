@@ -15,7 +15,7 @@ bundle: card_detail
 label: 'Card detail'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -31,12 +31,21 @@ settings:
       accordion_item:
         weight: 12
         enabled: false
+      card_comparation:
+        weight: 21
+        enabled: false
+      card_content:
+        weight: 22
+        enabled: false
       card_detail:
         weight: 13
         enabled: false
       card_detail_item:
         weight: 10
         enabled: true
+      card_group_nav:
+        weight: 25
+        enabled: false
       card_popular:
         weight: 14
         enabled: false
@@ -51,5 +60,23 @@ settings:
         enabled: false
       promo:
         weight: 18
+        enabled: false
+      promo_item:
+        weight: 31
+        enabled: false
+      slider:
+        weight: 32
+        enabled: false
+      slider_item:
+        weight: 33
+        enabled: false
+      step_item:
+        weight: 34
+        enabled: false
+      steps:
+        weight: 35
+        enabled: false
+      two_column:
+        weight: 36
         enabled: false
 field_type: entity_reference_revisions

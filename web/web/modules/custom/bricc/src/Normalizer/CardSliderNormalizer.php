@@ -19,7 +19,7 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
    *
    * @var array
    */
-  protected $supportedParagraphTypes = ['card_slider', 'card_group_nav'];
+  protected $supportedParagraphTypes = ['card_slider', 'card_group_nav', 'card_detail'];
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -87,6 +87,15 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
         $category_items[$category->id()] = $category->label();
       }
       $normalized['items'] = $category_items;
+    }
+    elseif ($entity->bundle() == 'card_detail') {
+      if ($entity->hasField('field_card_item')) {
+        if (!$entity->get('field_card_item')->isEmpty()) {
+          $card_item_id = $entity->get('field_card_item')->target_id;
+          $card_item = $this->em->getStorage('bricc_card_item')->load($card_item_id);
+          $normalized['card_detail'] = $this->serializer->normalize($card_item, 'json_recursive');
+        }
+      }
     }
 
     return $normalized;
