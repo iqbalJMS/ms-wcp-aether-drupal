@@ -19,7 +19,7 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
    *
    * @var array
    */
-  protected $supportedParagraphTypes = ['card_slider'];
+  protected $supportedParagraphTypes = ['card_slider', 'card_group_nav'];
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -64,15 +64,29 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
       $context
     );
 
-    if ($entity->hasField('field_category')) {
-      if (!$entity->get('field_category')->isEmpty()) {
-        $field_category = $entity->get('field_category')->target_id;
-        // Get card item data based on category field.
-        $card_items = $this->em->getStorage('bricc_card_item')->loadByProperties([
-          'field_category' => $field_category,
-        ]);
-        $normalized['card_items'] = $this->serializer->normalize($card_items, 'json_recursive');
+    if ($entity->bundle() == 'card_slider') {
+      if ($entity->hasField('field_category')) {
+        if (!$entity->get('field_category')->isEmpty()) {
+          $field_category = $entity->get('field_category')->target_id;
+          // Get card item data based on category field.
+          $card_items = $this->em->getStorage('bricc_card_item')->loadByProperties([
+            'field_category' => $field_category,
+          ]);
+          $normalized['card_items'] = $this->serializer->normalize($card_items, 'json_recursive');
+        }
       }
+    }
+    elseif ($entity->bundle() == 'card_group_nav') {
+      // Get list of categories
+      $categories = $this->em->getStorage('bricc_category')->loadByProperties([
+        'status' => TRUE,
+      ]);
+      $category_items = [];
+      /** @var \Drupal\bricc\Entity\BriccCategory $category */
+      foreach ($categories as $category) {
+        $category_items[$category->id()] = $category->label();
+      }
+      $normalized['items'] = $category_items;
     }
 
     return $normalized;
