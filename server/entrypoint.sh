@@ -45,6 +45,7 @@ fi
 #================================================================================
 
 echo "[DRUPAL] copying php config"
+cp /workspaces/config/example.env /workspaces/web/.env
 cp /workspaces/config/local.indesc.settings.php /workspaces/web/web/sites/default/settings.php
 
 # check if there is "core" folder on the /workspace/web
