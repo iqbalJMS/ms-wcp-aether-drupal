@@ -515,7 +515,7 @@ $settings['update_free_access'] = FALSE;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_assets_path'] = 'sites/default/files';
+$settings['file_assets_path'] = $_ENV["PUBLIC_PATH"];
 
 /**
  * Public file base URL:
@@ -528,7 +528,7 @@ $settings['update_free_access'] = FALSE;
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
-$settings['file_public_base_url'] = 'https://bri-corpsite.dev-kjt.id/dashboard/panel/sites/default/files/';
+$settings['file_public_base_url'] = $_ENV["FILES_FULL_URL"];
 
 /**
  * Public file path:
@@ -537,7 +537,7 @@ $settings['file_public_base_url'] = 'https://bri-corpsite.dev-kjt.id/dashboard/p
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_public_path'] = 'sites/default/files';
+$settings['file_public_path'] = $_ENV["PUBLIC_PATH"];
 
 /**
  * Additional public file schemes:
@@ -885,7 +885,7 @@ $databases['default']['default'] = array(
   'database' => $_ENV["POSTGRES_DB"],
   'username' => $_ENV["POSTGRES_USER"],
   'password' => $_ENV["POSTGRES_PASSWORD"],
-  'prefix' => 'a01_',
+  'prefix' => $_ENV["POSTGRES_TABLE_PREFIX"],
   'host' => $_ENV["POSTGRES_HOST"],
   'port' => $_ENV["POSTGRES_PORT"],
   'driver' => 'pgsql',
@@ -894,23 +894,9 @@ $databases['default']['default'] = array(
 );
 $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
-$settings['trusted_host_patterns'][] = '^drupal\.indesc\.com$';
+$settings['trusted_host_patterns'][] = '^bri\.co\.id$';
+$settings['trusted_host_patterns'][] = '^bri-corpsite\.dev-kjt\.id$';
+$settings['trusted_host_patterns'][] = '^localhost$';
 $settings['state_cache'] = TRUE;
-
-// $settings['mongodb'] = [
-//   'clients' => [
-//     // Client alias => connection constructor parameters.
-//     'default' => [
-//       'uri' => $_ENV["MONGO_URI"],
-//       'uriOptions' => [],
-//       'driverOptions' => [],
-//     ],
-//   ],
-//   'databases' => [
-//     // Database alias => [ client_alias, database_name ]
-//     // 'default' => ['default', 'drupal'],
-//     'keyvalue' => ['default', 'keyvalue'],
-//     // logger is needed when you are using mongodb watchdog module.
-//     'logger' => ['default', 'drupalmongo'],
-//   ],
-// ];
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
