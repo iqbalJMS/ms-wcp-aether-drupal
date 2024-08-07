@@ -1,18 +1,17 @@
-uuid: 0bdae887-fccf-406b-9a57-f3ec51202b0b
+uuid: 004a886e-c7a6-4a68-9577-d1ce47fc091d
 langcode: en
 status: true
 dependencies:
   module:
     - bricc
-    - entity_reference_revisions
     - paragraphs
-id: paragraph.field_card_item
-field_name: field_card_item
+id: paragraph.field_card
+field_name: field_card
 entity_type: paragraph
-type: entity_reference_revisions
+type: entity_reference
 settings:
   target_type: bricc_card_item
-module: entity_reference_revisions
+module: core
 locked: false
 cardinality: 1
 translatable: true

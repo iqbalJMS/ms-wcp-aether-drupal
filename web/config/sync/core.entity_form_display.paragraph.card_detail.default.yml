@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.card_detail.field_card
     - field.field.paragraph.card_detail.field_card_detail
-    - field.field.paragraph.card_detail.field_card_item
     - field.field.paragraph.card_detail.field_image
     - field.field.paragraph.card_detail.field_primary_cta
     - field.field.paragraph.card_detail.field_secondary_cta
@@ -17,11 +17,15 @@ targetEntityType: paragraph
 bundle: card_detail
 mode: default
 content:
-  field_card_item:
-    type: options_select
+  field_card:
+    type: entity_reference_autocomplete
     weight: 1
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_primary_cta:
     type: link_default

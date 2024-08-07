@@ -91,7 +91,7 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
     elseif ($entity->bundle() == 'card_detail') {
       if ($entity->hasField('field_card_item')) {
         if (!$entity->get('field_card_item')->isEmpty()) {
-          $card_item_id = $entity->get('field_card_item')->target_id;
+          $card_item_id = $entity->get('field_card')->target_id;
           $card_item = $this->em->getStorage('bricc_card_item')->load($card_item_id);
           $normalized['card_detail'] = $this->serializer->normalize($card_item, 'json_recursive');
         }

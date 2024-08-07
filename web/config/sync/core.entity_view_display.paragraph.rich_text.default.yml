@@ -1,0 +1,22 @@
+uuid: 3dfae315-eb38-45e1-ae74-04f7101cf700
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rich_text.field_content
+    - paragraphs.paragraphs_type.rich_text
+  module:
+    - text
+id: paragraph.rich_text.default
+targetEntityType: paragraph
+bundle: rich_text
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }
