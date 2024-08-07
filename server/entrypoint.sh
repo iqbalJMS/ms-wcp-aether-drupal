@@ -9,12 +9,11 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-echo "[PRE-FLIGHT] installing NVM for installing"
-cd ~
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.bashrc
-nvm install --latest
+echo "[PRE-FLIGHT] installing"
 cd /workspaces
+set -a            
+source .env
+set +a
 
 #set env
 echo "[COMPOSER] set to use superuser"
@@ -27,6 +26,7 @@ if [ -f /etc/nginx/sites-enabled/default ]; then
     echo "default site exist"
     rm /etc/nginx/sites-enabled/default
 fi
+
 # echo "[NGINX] copy nginx config (already handled by devops)"
 echo "[NGINX] copy nginx config"
 if [ ! -f /etc/nginx/sites-available/drupal ]; then
@@ -34,19 +34,9 @@ if [ ! -f /etc/nginx/sites-available/drupal ]; then
     cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal
     ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/
 fi
-# dont copy if exit
-#================================================================================
-#                                                                               #
-#  if [ ! -f /etc/nginx/sites-available/drupal ]; then                          #
-#      echo "copying nginx config"                                              #
-#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal      #
-#      ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/        #
-#  fi                                                                           #
-#================================================================================
 
 echo "[DRUPAL] copying php config"
-cp /workspaces/config/example.env /workspaces/.env
-cp /workspaces/config/local.indesc.settings.php /workspaces/web/web/sites/default/settings.php
+cp /workspaces/config/local.dev.settings.php /workspaces/web/web/sites/default/settings.php
 
 # check if there is "core" folder on the /workspace/web
 cd /workspaces/web
@@ -71,11 +61,8 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-ADMIN_PASS="default"
-ADMIN_USER="gumini"
-DB_CONNECTION="pgsql://db_ms_wcp_aether_drupal_owner:N7aMbnzSdw3t@160.19.166.113:5432/db_ms_wcp_aether_drupal"
 
-install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$DB_CONNECTION --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
+install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$POSTGRES_CONNECTION_STRING --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
     echo "[DRUPAL] already had database, skip database proccess"
@@ -95,7 +82,7 @@ echo -e "\n\n\n
 =========================================================
 |                                                       |
 |                                                       |
-|                  [DRUPAL] admin acc                   |
+|                  [DRUPAL] admin access                |
 |                                                       |
 |                                                       |
 =========================================================
