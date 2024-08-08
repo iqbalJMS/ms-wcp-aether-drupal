@@ -44,17 +44,19 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
     $script = <<<EOT
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var links = document.querySelectorAll('a[href^="/"]:not([href^="/dashboard"])');
+  var links = document.querySelectorAll('a[href^="/"]:not([href^="APP_PREFIX"])');
   links.forEach(function(link) {
-    link.href = '/dashboard' + link.getAttribute('href');
+    link.href = 'APP_PREFIX' + link.getAttribute('href');
   });
-  var forms = document.querySelectorAll('form[action^="/"]:not([action^="/dashboard"])');
+  var forms = document.querySelectorAll('form[action^="/"]:not([action^="APP_PREFIX"])');
   forms.forEach(function(formx) {
-    formx.action = '/dashboard' + formx.getAttribute('action');
+    formx.action = 'APP_PREFIX' + formx.getAttribute('action');
   });
 });
 </script>
 EOT;
+
+    $script = str_replace('APP_PREFIX', $_ENV['APP_PREFIX'], $script);
 
     // Insert the script before the closing </body> tag.
     $content = preg_replace('/<\/body>/i', $script . '</body>', $content);
