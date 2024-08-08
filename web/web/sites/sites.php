@@ -55,4 +55,4 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/docs/getting-started/multisite-drupal
  */
-$sites['localhost.dashboard'] = 'default';
+$sites['localhost.controlpanel'] = 'default';
