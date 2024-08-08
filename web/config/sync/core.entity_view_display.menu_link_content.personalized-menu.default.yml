@@ -1,0 +1,28 @@
+uuid: c455053e-881b-4eaf-a490-2854b20953fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.personalized-menu.field_image
+    - system.menu.personalized-menu
+id: menu_link_content.personalized-menu.default
+targetEntityType: menu_link_content
+bundle: personalized-menu
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

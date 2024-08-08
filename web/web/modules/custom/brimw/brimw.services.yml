@@ -1,0 +1,6 @@
+services:
+  brimw.personalized_shortcut_normalizer:
+    class: Drupal\brimw\Normalizer\PersonalizedShortcutNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 10 }

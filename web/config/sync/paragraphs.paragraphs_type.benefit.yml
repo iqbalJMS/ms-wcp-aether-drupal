@@ -1,0 +1,10 @@
+uuid: 9bf4fd7d-7683-45e1-8abb-2e0bbea6b784
+langcode: en
+status: true
+dependencies: {  }
+id: benefit
+label: Benefit
+icon_uuid: null
+icon_default: null
+description: 'Displays benefit items with background image'
+behavior_plugins: {  }

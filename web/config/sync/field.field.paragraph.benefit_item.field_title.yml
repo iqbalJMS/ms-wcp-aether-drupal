@@ -1,0 +1,19 @@
+uuid: 2aa6c97a-ee1e-482b-9ec8-7fe7959e76fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.benefit_item
+id: paragraph.benefit_item.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: benefit_item
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

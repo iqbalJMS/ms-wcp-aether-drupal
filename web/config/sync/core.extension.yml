@@ -5,6 +5,7 @@ module:
   block: 0
   breakpoint: 0
   bricc: 0
+  brimw: 0
   ckeditor5: 0
   config: 0
   config_pages: 0
@@ -29,6 +30,7 @@ module:
   locale: 0
   media: 0
   media_library: 0
+  menu_item_extras: 0
   menu_link_content: 0
   menu_ui: 0
   node: 0

@@ -1,0 +1,29 @@
+uuid: 7a555e65-f28e-4d4b-8fac-b9ad82c6d8cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.benefit
+id: paragraph.benefit.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: benefit
+label: 'Featured image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: a942115e-2441-4cc6-abf6-5fc659ddf7c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.personalized_shortcut
+id: paragraph.personalized_shortcut.status
+field_name: status
+entity_type: paragraph
+bundle: personalized_shortcut
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
