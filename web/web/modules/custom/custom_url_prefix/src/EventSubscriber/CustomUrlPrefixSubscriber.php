@@ -27,8 +27,16 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
   public function onResponse(ResponseEvent $event) {
     $response = $event->getResponse();
 
+    if ($response->getStatusCode() == 303) {
+      $location = $response->headers->get('Location');
+      $port = $_ENV['CONTAINER_PORT'] ?? 5551;
+      $prefix = $_ENV['APP_PREFIX'] ?? '/dashboard';
+      $newval = str_replace('localhost/', 'localhost:' . $port . $prefix . '/', $location);
+      $response->headers->set('Location', $newval);
+    }
+
     // Check if the response content type is HTML.
-    if (strpos($response->headers->get('Content-Type'), 'text/html') === false) {
+    if (!str_contains($response->headers->get('Content-Type'), 'text/html')) {
       return;
     }
 
@@ -56,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 EOT;
 
-    $script = str_replace('APP_PREFIX', $_ENV['APP_PREFIX'], $script);
+    $app_prefix = $_ENV['APP_PREFIX'];
+    $script = str_replace('APP_PREFIX', $app_prefix, $script);
 
     // Insert the script before the closing </body> tag.
     $content = preg_replace('/<\/body>/i', $script . '</body>', $content);

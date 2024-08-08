@@ -1,13 +1,13 @@
 <?php
 
-function custom_url_prefix_user_login(&$edit, $account) {
+//function custom_url_prefix_user_login($account) {
   // Custom URL to redirect after login.
-  $custom_redirect_url = $_ENV['APP_PREFIX']; // Change this URL as needed.
-
-  // Redirect user to the custom URL.
-  $response = new \Symfony\Component\HttpFoundation\RedirectResponse($custom_redirect_url);
-  $response->send();
-}
+//  $custom_redirect_url = $_ENV['APP_PREFIX']; // Change this URL as needed.
+//
+//  // Redirect user to the custom URL.
+//  $response = new \Symfony\Component\HttpFoundation\RedirectResponse($custom_redirect_url);
+//  $response->send();
+//}
 
 /**
  * Implements hook_js_settings_alter().
@@ -16,5 +16,5 @@ function custom_url_prefix_js_settings_alter(
   array &$settings,
   \Drupal\Core\Asset\AttachedAssetsInterface $assets
 ) {
-  $settings['path']['baseUrl'] = '/control/panel/';
+  $settings['path']['baseUrl'] = rtrim($_ENV['APP_PREFIX'], '/') . '/';
 }
