@@ -1,0 +1,24 @@
+uuid: 88fd7b89-a93e-4569-891f-76d22f4d78bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_slider.field_image_slider_items
+    - paragraphs.paragraphs_type.image_slider
+  module:
+    - entity_reference_revisions
+id: paragraph.image_slider.default
+targetEntityType: paragraph
+bundle: image_slider
+mode: default
+content:
+  field_image_slider_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
