@@ -1,0 +1,6 @@
+services:
+  custom_url_prefix.event_subscriber:
+    class: Drupal\custom_url_prefix\EventSubscriber\CustomUrlPrefixSubscriber
+    arguments: []
+    tags:
+      - { name: 'event_subscriber' }

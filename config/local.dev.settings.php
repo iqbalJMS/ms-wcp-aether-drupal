@@ -2,6 +2,9 @@
 
 // phpcs:ignoreFile
 
+$settings['file_assets_path'] = 'dashboard/sites/default/files';
+$settings['file_public_base_url'] = 'http://localhost:8779/dashboard/sites/default/files';
+$settings['file_public_path'] = 'dashboard/sites/default/files';
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -515,7 +518,7 @@ $settings['update_free_access'] = FALSE;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_assets_path'] = $_ENV["PUBLIC_PATH"];
+# $settings['file_assets_path'] = 'sites/default/files';
 
 /**
  * Public file base URL:
@@ -528,7 +531,9 @@ $settings['file_assets_path'] = $_ENV["PUBLIC_PATH"];
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
-$settings['file_public_base_url'] = $_ENV["FILES_FULL_URL"];
+# $settings['file_assets_path'] = 'sites/default/files';
+# $settings['file_public_base_url'] = 'http://downloads.example.com/files';
+# $settings['file_public_path'] = 'sites/default/files';
 
 /**
  * Public file path:
@@ -537,7 +542,7 @@ $settings['file_public_base_url'] = $_ENV["FILES_FULL_URL"];
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_public_path'] = $_ENV["PUBLIC_PATH"];
+# $settings['file_public_path'] = 'sites/default/files';
 
 /**
  * Additional public file schemes:
@@ -885,18 +890,28 @@ $databases['default']['default'] = array(
   'database' => $_ENV["POSTGRES_DB"],
   'username' => $_ENV["POSTGRES_USER"],
   'password' => $_ENV["POSTGRES_PASSWORD"],
-  'prefix' => $_ENV["POSTGRES_TABLE_PREFIX"],
+  'prefix' => 'a01_',
   'host' => $_ENV["POSTGRES_HOST"],
   'port' => $_ENV["POSTGRES_PORT"],
   'driver' => 'pgsql',
   'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
 );
-$settings['config_sync_directory'] = '../config/sync';
-$config_directories['sync'] = '../config/sync';
-$settings['trusted_host_patterns'][] = '^bri\.co\.id$';
-$settings['trusted_host_patterns'][] = '^bri-corpsite\.dev-kjt\.id$';
-$settings['trusted_host_patterns'][] = '^localhost$';
-$settings['state_cache'] = TRUE;
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
+$settings['config_sync_directory'] = 'sites/default/files/config_Z5G3HlqxuiliMIa8zwFrYZmTcgbQmjFXY6ozq2Se1IbMir4TgLIwzLHzLfyU5mrkK8WqgPPOLg/sync';
+// $settings['mongodb'] = [
+//   'clients' => [
+//     // Client alias => connection constructor parameters.
+//     'default' => [
+//       'uri' => $_ENV["MONGO_URI"],
+//       'uriOptions' => [],
+//       'driverOptions' => [],
+//     ],
+//   ],
+//   'databases' => [
+//     // Database alias => [ client_alias, database_name ]
+//     // 'default' => ['default', 'drupal'],
+//     'keyvalue' => ['default', 'keyvalue'],
+//     // logger is needed when you are using mongodb watchdog module.
+//     'logger' => ['default', 'drupalmongo'],
+//   ],
+// ];
