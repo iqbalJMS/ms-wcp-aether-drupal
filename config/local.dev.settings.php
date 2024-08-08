@@ -890,14 +890,17 @@ $databases['default']['default'] = array(
   'database' => $_ENV["POSTGRES_DB"],
   'username' => $_ENV["POSTGRES_USER"],
   'password' => $_ENV["POSTGRES_PASSWORD"],
-  'prefix' => 'a01_',
+  'prefix' => $_ENV["POSTGRES_TABLE_PREFIX"],
   'host' => $_ENV["POSTGRES_HOST"],
   'port' => $_ENV["POSTGRES_PORT"],
   'driver' => 'pgsql',
   'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_Z5G3HlqxuiliMIa8zwFrYZmTcgbQmjFXY6ozq2Se1IbMir4TgLIwzLHzLfyU5mrkK8WqgPPOLg/sync';
+
+$settings['config_sync_directory'] = '../config/sync';
+$config_directories['sync'] = '../config/sync';
+
 // $settings['mongodb'] = [
 //   'clients' => [
 //     // Client alias => connection constructor parameters.
