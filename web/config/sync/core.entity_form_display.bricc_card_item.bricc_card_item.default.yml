@@ -12,6 +12,8 @@ dependencies:
     - field.field.bricc_card_item.bricc_card_item.field_card_limit
     - field.field.bricc_card_item.bricc_card_item.field_card_replace_fee
     - field.field.bricc_card_item.bricc_card_item.field_card_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_category
+    - field.field.bricc_card_item.bricc_card_item.field_idcardtype
     - field.field.bricc_card_item.bricc_card_item.field_interdraft_fee
     - field.field.bricc_card_item.bricc_card_item.field_late_payment_fee
     - field.field.bricc_card_item.bricc_card_item.field_limit_upgrade_fee
@@ -35,7 +37,7 @@ third_party_settings:
       label: 'Card detail'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: html_element
       format_settings:
         classes: ''
@@ -109,7 +111,7 @@ third_party_settings:
       label: 'Card view'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 7
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -126,7 +128,7 @@ mode: default
 content:
   description:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -134,7 +136,7 @@ content:
     third_party_settings: {  }
   field_advantage:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -149,14 +151,14 @@ content:
     third_party_settings: {  }
   field_billing_fee:
     type: number
-    weight: 18
+    weight: 19
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_bstatement_reprint_fee:
     type: number
-    weight: 10
+    weight: 11
     region: content
     settings:
       placeholder: ''
@@ -177,7 +179,7 @@ content:
     third_party_settings: {  }
   field_card_limit:
     type: string_textfield
-    weight: 15
+    weight: 16
     region: content
     settings:
       size: 60
@@ -185,21 +187,35 @@ content:
     third_party_settings: {  }
   field_card_replace_fee:
     type: number
-    weight: 9
+    weight: 10
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_card_upgrade_fee:
     type: number
-    weight: 17
+    weight: 18
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_category:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_idcardtype:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_interdraft_fee:
     type: number
-    weight: 12
+    weight: 13
     region: content
     settings:
       placeholder: ''
@@ -214,14 +230,14 @@ content:
     third_party_settings: {  }
   field_limit_upgrade_fee:
     type: number
-    weight: 16
+    weight: 17
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_localdraft_fee:
     type: number
-    weight: 11
+    weight: 12
     region: content
     settings:
       placeholder: ''
@@ -243,21 +259,21 @@ content:
     third_party_settings: {  }
   field_pin_change_fee:
     type: number
-    weight: 13
+    weight: 14
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_supplement_annualfee:
     type: number
-    weight: 17
+    weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_trans_summary_yearly_fee:
     type: number
-    weight: 14
+    weight: 15
     region: content
     settings:
       placeholder: ''
@@ -270,16 +286,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 1
-    region: content
-    settings:
-      display_label: false
-    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -289,3 +298,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  status: true

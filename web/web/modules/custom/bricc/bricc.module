@@ -17,6 +17,11 @@ function bricc_theme(): array {
   return [
     'bricc_category' => ['render element' => 'elements'],
     'bricc_card_item' => ['render element' => 'elements'],
+    'applicant_detail' => [
+      'variables' => [
+        'detail' => NULL
+      ]
+    ],
   ];
 }
 
@@ -177,6 +182,68 @@ function bricc_views_data() {
   return $data;
 }
 
-function bricc_applicant_remote_data() {
+/**
+ * Implements hook_form_alter().
+ */
+function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'views_exposed_form') {
+    if ($form['#id'] === 'views-exposed-form-applicant-page-1') {
+      $form = array_merge([
+        'filtering_type' => [
+          '#type' => 'select',
+          '#title' => t('Filter type'),
+          '#options' => [
+            'date' => t('Date'),
+            'name' => t('Name'),
+          ],
+          '#default_value' => 'date',
+        ],
+      ], $form);
 
+      // Jenis kartu to use dropdown
+      $card_items = \Drupal::entityTypeManager()->getStorage('bricc_card_item')->loadByProperties([
+        'status' => 1,
+      ]);
+      $option_jenis_kartu = [];
+      /** @var \Drupal\bricc\Entity\BriccCardItem $card_item */
+      foreach ($card_items as $card_item) {
+        if (!$card_item->get('field_idcardtype')->isEmpty()) {
+          $key = $card_item->get('field_idcardtype')->value;
+          $label = $card_item->label();
+          $option_jenis_kartu[$key] = $label;
+        }
+      }
+      $form['jeniskartu']['#type'] = 'select';
+      $form['jeniskartu']['#options'] = $option_jenis_kartu;
+      unset($form['jeniskartu']['#size']);
+
+      // Edit field to be type date
+      $field_date = [
+        'startdate', 'enddate', 'tgllahir',
+      ];
+      foreach ($field_date as $field) {
+        $form[$field]['#type']= 'date';
+      }
+    }
+  }
+  elseif ($form_id === 'bricc_card_item_add_form' || $form_id === 'bricc_card_item_edit_form') {
+    // Card type
+    $card_type = \Drupal::service('bricc.parser_remote_data')->listCardType();
+    $card_type_options = [];
+    if (isset($card_type['data']['creditCardTypes'])) {
+      foreach ($card_type['data']['creditCardTypes'] as $card) {
+        $card_type_options[$card['idCardType']] = $card['descCardType'];
+      }
+    }
+    $form['select_idcardtype'] = [
+      '#type' => 'select',
+      '#title' => t('Card link'),
+      '#options' => $card_type_options,
+      '#default_value' => $form['field_idcardtype']['widget'][0]['value']['#default_value'], // Set the default value if needed.
+      '#description' => t('Connect this data with BRI Card Type'),
+      '#weight' => 0,
+//      '#required' => TRUE,
+    ];
+    $form['field_idcardtype']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+  }
 }

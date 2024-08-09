@@ -5,6 +5,7 @@ namespace Drupal\bricc;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 
@@ -13,7 +14,7 @@ class ApplicantRemoteData {
   /**
    * @var string
    */
-  private $sourceBaseUrl = 'https://66aa39d9613eced4eba8176b.mockapi.io/bricc-api/applicant';
+  private $sourceBaseUrl = '';
 
   /**
    * @var \GuzzleHttp\Client
@@ -42,6 +43,7 @@ class ApplicantRemoteData {
     $this->client = $client;
     $this->cache = $cache;
     $this->logger = $logger;
+    $this->sourceBaseUrl = $_ENV['APPLICANT_URL'];
   }
 
   /**
@@ -54,30 +56,20 @@ class ApplicantRemoteData {
    *   The result.
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function get(string $uri, int $offset = 0, int $limit = 10, array $params = []): array {
-    $cache_key = "bricc:$uri";
-    $cache_key = time();
+  public function post(string $uri, array $options = []): array {
+    $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
 
-    // TODO page or offset
-    $page = $offset + 1;
-
-    $queryParams = [
-      'page' => $page,
-      'limit' => $limit,
-    ] + $params;
-
-    $options = [
+    $options = array_merge([
       'headers' => [
         'Content-Type' => 'application/json',
       ],
-      'query' => $queryParams,
-    ];
+    ], $options);
 
     if ($cache = $this->cache->get($cache_key)) {
       return $cache->data;
     }
     try {
-      $response = $this->client->get($uri, $options);
+      $response = $this->client->post($uri, $options);
       $data = Json::decode((string) $response->getBody());
       $this->cache->set($cache_key, $data);
       return $data;
@@ -89,17 +81,62 @@ class ApplicantRemoteData {
   }
 
   /**
-   * @param int $offset
-   * @param int $limit
    * @param array $params
    *
    * @return array
-   * @throws \GuzzleHttp\Exception\GuzzleException
+   * @throws GuzzleException
    */
-  public function listApplicant(int $offset, int $limit = 10, array $params = []): array {
-    $endpoint = $this->sourceBaseUrl;
+  public function listApplicant(array $params = []): array {
+    // If no params, return empty first.
+    if (empty($params)) {
+      return [];
+    }
 
-    return $this->get($endpoint, $offset, $limit, $params);
+    // Filter type
+    $filter_type = $params['filter_type'] ?? 'date';
+
+    $options = [];
+
+    if ($filter_type == 'date') {
+      // Filter by date
+      $start_date = $params['startdate'] ?? '';
+      $end_date = $params['enddate'] ?? '';
+      $jenis_kartu = $params['jeniskartu'] ?? '';
+      $qgl_str = '{"query":"{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu: \"%s\"\n  ) {\n _id,    namaNasabah,\n    nik,\n    noHp,\n    tanggalLahir,\n    tanggalVerif\n  }\n}"}';
+      $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
+
+      $result = $this->post($this->sourceBaseUrl, $options);
+      if (isset($result['data']['personalInfoByDate'])) {
+        return $result['data']['personalInfoByDate'];
+      }
+    }
+    else {
+      // Filter by name
+      $name = $params['name'] ?? '';
+      $phone = $params['phone'] ?? '';
+      $tgllahir = $params['tgllahir'] ?? '';
+
+      $gql_str = '{"query":"query {\n  personalInfosByName(\n    namaNasabah:\"%s\"\n    noHp:\"%s\"\n    tanggalLahir:\"%s\"\n  ){\n    _id\n    namaNasabah\n    jenisKartuKredit\n    nik\n    noHp\n    tanggalLahir\n    tanggalVerif\n  }\n}"}';
+      $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
+      $result = $this->post($this->sourceBaseUrl, $options);
+      if (isset($result['data']['personalInfosByName'])) {
+        return $result['data']['personalInfosByName'];
+      }
+    }
+
+    return [];
   }
 
+  public function applicantDetail ($_id) {
+    $qgl_str = '{"query":"query {\n  personalInfo (id:\"66b068ccc283e96d8123694e\") {\n    _id\n    email\n    jenisKartuKredit\n    namaDepan\n    kewarganegaraan\n    kodePos\n    namaBelakang\n    namaDiKartu\n    sexType\n    statusNikah\n    statusRumah\n    tinggalSejak\n    tanggalLahir\n    tempatLahir\n    asalKota\n    noTelp\n    alamat1\n    alamat2\n    alamat3\n    jumlahAnak\n    edukasi\n    nik\n    noHp\n  }\n}"}';
+    $options['body'] = sprintf($qgl_str, $_id);
+
+    $result = $this->post($this->sourceBaseUrl, $options);
+
+    if (isset($result['data']['personalInfo'])) {
+      return $result['data']['personalInfo'];
+    }
+
+    return [];
+  }
 }

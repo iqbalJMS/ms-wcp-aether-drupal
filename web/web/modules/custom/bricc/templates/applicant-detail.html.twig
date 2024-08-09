@@ -1,0 +1,84 @@
+<h2>{{ 'Data Pribadi'|t }}</h2>
+
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>ID</h6>
+    <p>{{ detail._id }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Jenis Kartu Kredit</h6>
+    <p>{{ detail.jenisKartuKredit }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Nama Lengkap</h6>
+    <p>{{ detail.namaDepan ~ ' ' ~ detail.namaBelakang }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Nama Pada Kartu</h6>
+    <p>{{ detail.namaDiKartu }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Jenis Kelamin</h6>
+    <p>{{ detail.sexType == 1 ? 'Pria' : 'Wanita' }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kewarganegaraan</h6>
+    <p>{{ detail.kewarganegaraan }}</p>
+  </div>
+
+  <div class="applicant-detail--item">
+    <h6>Nomor Identitas Penduduk</h6>
+    <p>{{ detail.nik }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Tempat lahir</h6>
+    <p>{{ detail.tempatLahir }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Tanggal lahir</h6>
+    <p>{{ detail.tanggalLahir }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Email</h6>
+    <p>{{ detail.email }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Status Rumah</h6>
+    <p>{{ detail.statusRumah }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Lama menempati</h6>
+    <p>{{ detail.tinggalSejak }}</p>
+  </div>
+  <div class="applicant-detail--item applicant-detail--item-alamat">
+    <h6>Alamat Rumah</h6>
+    <p>{{ [detail.alamat1, detail.alamat2, detail.alamat3]|join(' ') }}</p>
+  </div>
+
+  <div class="applicant-detail--item">
+    <h6>Asal Kota</h6>
+    <p>{{ detail.asalKota }}</p>
+  </div>
+
+  <div class="applicant-detail--item">
+    <h6>Telepon Rumah</h6>
+    <p>{{ detail.noTelp }}</p>
+  </div>
+
+  <div class="applicant-detail--item">
+    <h6>No. Handphone</h6>
+    <p>{{ detail.noHp }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Status</h6>
+    <p>{{ detail.statusNikah }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Jumlah Tanggungan</h6>
+    <p>{{ detail.jumlahAnak }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Pendidikan Terakhir</h6>
+    <p>{{ detail.edukasi }}</p>
+  </div>
+</div>

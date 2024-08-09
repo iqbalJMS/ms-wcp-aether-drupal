@@ -6,8 +6,6 @@ dependencies:
     - system.menu.admin
   module:
     - bricc
-    - rest
-    - serialization
     - user
     - views_remote_data
 id: applicant
@@ -26,6 +24,56 @@ display:
     display_options:
       title: Applicant
       fields:
+        property_4:
+          id: property_4
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'remote: nik'
+          plugin_id: views_remote_data_property
+          label: _id
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: _id
         counter:
           id: counter
           table: views
@@ -82,7 +130,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: createdAt'
+          admin_label: 'remote: tanggalVerif'
           plugin_id: views_remote_data_property
           label: 'Tanggal submit'
           exclude: false
@@ -125,14 +173,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: createdAt
+          property_path: tanggalVerif
         property:
           id: property
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: name'
+          admin_label: 'remote: namaNasabah'
           entity_type: null
           entity_field: null
           plugin_id: views_remote_data_property
@@ -177,7 +225,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: name
+          property_path: namaNasabah
         property_1:
           id: property_1
           table: bricc_applicant_remote_data
@@ -284,7 +332,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: phone'
+          admin_label: 'remote: noHp'
           plugin_id: views_remote_data_property
           label: 'No. Handphone'
           exclude: false
@@ -327,14 +375,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: phone
+          property_path: noHp
         property_2:
           id: property_2
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: tglLahir'
+          admin_label: 'remote: tanggalLahir'
           plugin_id: views_remote_data_property
           label: 'Tanggal Lahir'
           exclude: false
@@ -377,7 +425,56 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: tglLahir
+          property_path: tanggalLahir
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{ path('bricc.applicant_detail', {'id': property_4} ) }}\">{{ 'View'|t }}</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
       pager:
         type: full
         options:
@@ -421,6 +518,132 @@ display:
       sorts: {  }
       arguments: {  }
       filters:
+        property_1:
+          id: property_1
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'Start Date'
+          plugin_id: views_remote_data_property
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: property_1_op
+            label: 'Start Date'
+            description: ''
+            use_operator: false
+            operator: property_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: startdate
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              api_user: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          property_path: createdAt
+        property_2:
+          id: property_2
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'End Date'
+          plugin_id: views_remote_data_property
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: property_2_op
+            label: 'End Date'
+            description: ''
+            use_operator: false
+            operator: property_2_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: enddate
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              api_user: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          property_path: createdAt
+        property_3:
+          id: property_3
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'Jenis Kartu'
+          plugin_id: views_remote_data_property
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: property_3_op
+            label: 'Jenis Kartu'
+            description: ''
+            use_operator: false
+            operator: property_3_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: jeniskartu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              api_user: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          property_path: jenisKartu
         combine:
           id: combine
           table: views
@@ -431,7 +654,7 @@ display:
           plugin_id: combine
           operator: contains
           value: ''
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: combine_op
@@ -475,7 +698,7 @@ display:
           plugin_id: combine
           operator: contains
           value: ''
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: combine_1_op
@@ -519,7 +742,7 @@ display:
           plugin_id: views_remote_data_property
           operator: '='
           value: ''
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: property_op
@@ -551,6 +774,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           property_path: tglLahir
+      filter_groups:
+        operator: OR
+        groups:
+          1: AND
+          2: AND
       style:
         type: table
         options:

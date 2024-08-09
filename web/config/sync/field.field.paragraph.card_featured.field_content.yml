@@ -1,0 +1,22 @@
+uuid: b38594da-c1b8-4d38-a87b-320e4a29dfd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.card_featured
+  module:
+    - text
+id: paragraph.card_featured.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: card_featured
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

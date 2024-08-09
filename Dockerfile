@@ -38,8 +38,6 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chmod +x /workspaces/server/entrypoint.sh
-RUN mkdir /workspaces/web/web/web
-RUN ln -s /workspaces/web/web /workspaces/web/web/web/panel
 
 EXPOSE 5000
 

@@ -7,7 +7,15 @@ services:
   bricc.application_remote_data:
     class: Drupal\bricc\ApplicantRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel' ]
+  bricc.parser_remote_data:
+    class: Drupal\bricc\ParserRemoteData
+    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel' ]
   bricc.logger.channel:
     parent: logger.channel_base
     arguments: [ 'bricc' ]
+  bricc.normalizer:
+    class: Drupal\bricc\Normalizer\CardSliderNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 10 }
 

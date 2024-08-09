@@ -17,7 +17,7 @@
             ]
         }
     },
-    "forwardPorts": [],
+    "forwardPorts": [80],
     // "postCreateCommand": "./.devcontainer/devcommand.sh",
     "postStartCommand": "./.devcontainer/devcommand.sh"
 }

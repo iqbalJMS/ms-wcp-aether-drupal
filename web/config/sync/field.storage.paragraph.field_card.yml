@@ -1,0 +1,20 @@
+uuid: 004a886e-c7a6-4a68-9577-d1ce47fc091d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+    - paragraphs
+id: paragraph.field_card
+field_name: field_card
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: bricc_card_item
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

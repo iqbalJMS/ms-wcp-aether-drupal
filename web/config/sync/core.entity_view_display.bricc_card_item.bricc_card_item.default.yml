@@ -12,6 +12,8 @@ dependencies:
     - field.field.bricc_card_item.bricc_card_item.field_card_limit
     - field.field.bricc_card_item.bricc_card_item.field_card_replace_fee
     - field.field.bricc_card_item.bricc_card_item.field_card_upgrade_fee
+    - field.field.bricc_card_item.bricc_card_item.field_category
+    - field.field.bricc_card_item.bricc_card_item.field_idcardtype
     - field.field.bricc_card_item.bricc_card_item.field_interdraft_fee
     - field.field.bricc_card_item.bricc_card_item.field_late_payment_fee
     - field.field.bricc_card_item.bricc_card_item.field_limit_upgrade_fee
@@ -144,6 +146,22 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 36
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 41
+    region: content
+  field_idcardtype:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 40
     region: content
   field_interdraft_fee:
     type: number_decimal

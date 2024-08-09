@@ -69,4 +69,4 @@ bricc.applicant_detail:
     _title: 'Applicant detail'
   requirements:
     _permission: 'access administration pages'
-    id: '\d+'
+    id: '[a-zA-Z0-9]+'

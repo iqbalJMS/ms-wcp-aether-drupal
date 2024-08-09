@@ -70,6 +70,8 @@ composer-lock.json
 # /web/drupal.phar
 # /web/drupal
 
+/web/dashboard/
+/web/web/dashboard/
 
 /web/vendor/
 /web/web/core/

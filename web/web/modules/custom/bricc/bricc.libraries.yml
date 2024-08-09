@@ -1,8 +1,10 @@
 # Custom library for general purposes.
 admin:
-  version: 1.0.0
+  version: 1.0.1
   css:
     theme:
       css/bricc.css: {}
+  js:
+    js/bricc.js: {}
   dependencies:
     - core/drupalSettings

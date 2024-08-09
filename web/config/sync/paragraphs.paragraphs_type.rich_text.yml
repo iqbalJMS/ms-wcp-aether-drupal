@@ -1,0 +1,12 @@
+uuid: ad88243c-ab5e-42f4-9e07-daec0c9b4cc8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:f4a06183-7719-4080-9adf-4eee5edb7511'
+id: rich_text
+label: 'Rich text'
+icon_uuid: f4a06183-7719-4080-9adf-4eee5edb7511
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAlklEQVR4nO3agQ2DMAwAwd9/aXeGopa45U7KAiaBvEQBAMC7ZtE6YhYtAzhhFi0DOGEWLQM4YS4+hU88zZU74HEDuGrleb6TAWQH5AjkHZCXYL4C+QzmHpCLUG6CuQqnBRJDqcHkcA8wcjg5PHI4OTxyODk8cjg5PHI4OTxyODk8crj/zuH5hd9evskAsgN69BEAAKBFXhT9OuJW9GD7AAAAAElFTkSuQmCC'
+description: 'Create widget for text with formatting'
+behavior_plugins: {  }

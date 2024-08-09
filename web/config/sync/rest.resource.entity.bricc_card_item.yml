@@ -1,0 +1,20 @@
+uuid: 977dc70a-9326-4b95-aa8c-6b12068ddc7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - bricc
+    - rest_entity_recursive
+    - serialization
+id: entity.bricc_card_item
+plugin_id: 'entity:bricc_card_item'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json_recursive
+    - json
+  authentication:
+    - basic_auth

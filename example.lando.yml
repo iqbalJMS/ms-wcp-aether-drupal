@@ -1,5 +1,5 @@
 name: bri-cc
-recipe: drupal9
+recipe: drupal10
 config:
   webroot: web
   database: postgres:14
@@ -7,3 +7,5 @@ config:
 services:
   appserver:
     scanner: false
+  appcache:
+    type: redis

@@ -1,0 +1,21 @@
+uuid: 31cb7d2a-e1bb-448d-92e1-5bc77dae40fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.field_idcardtype
+field_name: field_idcardtype
+entity_type: bricc_card_item
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

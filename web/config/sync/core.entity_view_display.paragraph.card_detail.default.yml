@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.card_detail.field_card
     - field.field.paragraph.card_detail.field_card_detail
     - field.field.paragraph.card_detail.field_image
     - field.field.paragraph.card_detail.field_primary_cta
@@ -17,6 +18,14 @@ targetEntityType: paragraph
 bundle: card_detail
 mode: default
 content:
+  field_card:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
   field_card_detail:
     type: entity_reference_revisions_entity_view
     label: above
