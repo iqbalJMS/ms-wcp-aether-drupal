@@ -3,18 +3,16 @@
 namespace Drupal\brimw\Normalizer;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Menu\Menu;
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\paragraphs\ParagraphInterface;
 
-class PersonalizedShortcutNormalizer extends BaseParagraphNormalizer 
+class SubscriptionNormalizer extends BaseParagraphNormalizer 
 {
   /**
    * Array of supported paragraph types.
    *
    * @var array
    */
-  protected $supportedParagraphType = 'personalized_shortcut';
+  protected $supportedParagraphType = 'subscription';
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -39,13 +37,11 @@ class PersonalizedShortcutNormalizer extends BaseParagraphNormalizer
       $context
     );
 
-    $personalizedMenus = $this->em->getStorage('menu_link_content')
-                                  ->loadByProperties(['menu_name' => 'personalized-menu']);
+    $subscription = $this->em->getStorage('webform')
+                                  ->load('subscription');
 
-    usort($personalizedMenus, fn ($a, $b) => $a->weight->value > $b->weight->value);
-
-    if ($personalizedMenus) {
-      $normalized['personalized_menu'] = $this->serializer->normalize($personalizedMenus, 'json_recursive');
+    if ($subscription) {
+      $normalized['subscription_form'] = $this->serializer->normalize($subscription, 'json_recursive');
     }
 
     return $normalized;

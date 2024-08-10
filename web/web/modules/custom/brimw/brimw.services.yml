@@ -4,3 +4,8 @@ services:
     arguments: ['@entity_type.manager']
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.subscription_normalizer:
+    class: Drupal\brimw\Normalizer\SubscriptionNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 10 }
