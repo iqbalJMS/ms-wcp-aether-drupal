@@ -1,18 +1,19 @@
-uuid: 427d8a26-a6aa-498b-8597-936e99f53355
+uuid: 375a4765-5e2b-49eb-8d4e-878057f8f50b
 langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.image_slider
-id: paragraph.image_slider.created
-field_name: created
+id: paragraph.image_slider.field_title
+field_name: field_title
 entity_type: paragraph
 bundle: image_slider
-label: 'Authored on'
-description: 'The time that the Paragraph was created.'
+label: Title
+description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: created
+field_type: string

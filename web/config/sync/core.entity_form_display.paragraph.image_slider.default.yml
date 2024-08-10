@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.image_slider.field_image_slider_items
+    - field.field.paragraph.image_slider.field_title
     - paragraphs.paragraphs_type.image_slider
   module:
     - paragraphs
@@ -29,6 +30,14 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   translation:
     weight: 10
