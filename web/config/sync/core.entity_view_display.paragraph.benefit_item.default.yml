@@ -3,17 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.benefit_item.field_description
+    - field.field.paragraph.benefit_item.field_content
     - field.field.paragraph.benefit_item.field_image
     - field.field.paragraph.benefit_item.field_title
     - paragraphs.paragraphs_type.benefit_item
+  module:
+    - text
 id: paragraph.benefit_item.default
 targetEntityType: paragraph
 bundle: benefit_item
 mode: default
 content:
-  field_description:
-    type: basic_string
+  field_content:
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
