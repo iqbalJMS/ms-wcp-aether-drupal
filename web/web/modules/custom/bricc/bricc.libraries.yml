@@ -4,6 +4,7 @@ admin:
   css:
     theme:
       css/bricc.css: {}
+      css/gin-extended.css: {}
   js:
     js/bricc.js: {}
   dependencies:

@@ -139,4 +139,48 @@ class ApplicantRemoteData {
 
     return [];
   }
+
+  public function listApplicantProcess(array $params = []): array {
+    // If no params, return empty first.
+    if (empty($params)) {
+      return [];
+    }
+
+    // Filter type
+    $filter_type = $params['filter_type'] ?? 'date';
+
+    $options = [];
+
+    if ($filter_type == 'date') {
+      // Filter by date
+      $start_date = $params['startdate'] ?? '';
+      $end_date = $params['enddate'] ?? '';
+      $jenis_kartu = $params['jeniskartu'] ?? '';
+      $qgl_str = '{"query":"query{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu:\"%s\") {_id, namaNasabah, nik,noHp,tanggalLahir,jenisKartuKredit,isDeduped,isDukcapil,isSubmitted}}"}';
+      $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
+
+      $result = $this->post($this->sourceBaseUrl, $options);
+
+//      dump($result);
+
+      if (isset($result['data']['personalInfoByDate'])) {
+        return $result['data']['personalInfoByDate'];
+      }
+    }
+    else {
+      // Filter by name
+      $name = $params['name'] ?? '';
+      $phone = $params['phone'] ?? '';
+      $tgllahir = $params['tgllahir'] ?? '';
+
+      $gql_str = '{"query":"query {\n\tpersonalInfosByName (\n\t\tnamaNasabah:\"%s\", noHp:\"%s\", tanggalLahir:\"%s\") {\n\t\t_id,\n\t\tnamaNasabah,\n\t\tjenisKartuKredit,\n\t\tnik,  \n\t\tnoHp,\n\t\ttanggalLahir,\n\t\tjenisKartuKredit,\n\t\tisDeduped,\n\t\tisDukcapil,\n\t\tisSubmitted\n\t}\n}"}';
+      $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
+      $result = $this->post($this->sourceBaseUrl, $options);
+      if (isset($result['data']['personalInfosByName'])) {
+        return $result['data']['personalInfosByName'];
+      }
+    }
+
+    return [];
+  }
 }

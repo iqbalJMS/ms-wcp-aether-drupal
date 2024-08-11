@@ -187,7 +187,8 @@ function bricc_views_data() {
  */
 function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'views_exposed_form') {
-    if ($form['#id'] === 'views-exposed-form-applicant-page-1') {
+    if ($form['#id'] === 'views-exposed-form-applicant-page-1' ||
+        $form['#id'] === 'views-exposed-form-applicant-page-2') {
       $form = array_merge([
         'filtering_type' => [
           '#type' => 'select',

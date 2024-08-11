@@ -1,7 +1,7 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.briccApplicant = {
     attach: function(context, settings) {
-      once('briccApplicant', '[data-drupal-selector="views-exposed-form-applicant-page-1"]', context)
+      once('briccApplicant', '.applicant-ui', context)
         .forEach(function (element) {
 
           let selectedFilterType = $(element).find('[data-drupal-selector="edit-filtering-type"]').val();
