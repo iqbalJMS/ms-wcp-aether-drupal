@@ -58,13 +58,62 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
       }
 
       // Fetch data
-      $remote_data = $this->applicantRemoteData->listApplicant($params);
+      $remote_data = $this->applicantRemoteData->listApplicantProcess($params);
 
       if (!empty($remote_data)) {
         $event->getView()->getPager()->total_items = count($remote_data);
 
         // TODO pagination
         foreach ($remote_data as $item) {
+          if (isset($item['isDeduped'])) {
+            $cek_class = '';
+            $cek_deduped = 'Pending';
+            if ($item['isDeduped'] === TRUE) {
+              $cek_class = 'published';
+              $cek_deduped = 'Berhasil';
+            }
+            elseif ($item['isDeduped'] === FALSE) {
+              $cek_class = 'danger';
+              $cek_deduped = 'Gagal';
+            }
+            $item['status_dedup'] = [
+              'class' => $cek_class,
+              'text' => $cek_deduped,
+            ];
+          }
+          if (isset($item['isDukcapil'])) {
+            $cek_class = '';
+            $cek_dukcapil = 'Pending';
+            if ($item['isDukcapil'] === TRUE) {
+              $cek_class = 'published';
+              $cek_dukcapil = 'Berhasil';
+            }
+            elseif ($item['isDukcapil'] === FALSE) {
+              $cek_class = 'danger';
+              $cek_dukcapil = 'Gagal';
+            }
+            $item['status_dukcapil'] = [
+              'class' => $cek_class,
+              'text' => $cek_dukcapil,
+            ];
+          }
+          if (isset($item['isSubmitted'])) {
+            $cek_class = '';
+            $cek_submit = 'Pending';
+            if ($item['isSubmitted'] === TRUE) {
+              $cek_class = 'published';
+              $cek_submit = 'Berhasil';
+            }
+            elseif ($item['isSubmitted'] === FALSE) {
+              $cek_class = 'danger';
+              $cek_submit = 'Gagal';
+            }
+            $item['status_submit'] = [
+              'class' => $cek_class,
+              'text' => $cek_submit,
+            ];
+          }
+
           $event->addResult(new ResultRow($item));
         }
       }

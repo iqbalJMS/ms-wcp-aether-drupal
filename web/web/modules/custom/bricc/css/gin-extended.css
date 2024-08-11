@@ -1,0 +1,4 @@
+.views-field .marker.marker--danger {
+  color: var(--gin-status-danger-text);
+  background-color: var(--gin-status-danger-bg);
+}

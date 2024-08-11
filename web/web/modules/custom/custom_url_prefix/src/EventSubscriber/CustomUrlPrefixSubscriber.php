@@ -26,8 +26,9 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
    */
   public function onResponse(ResponseEvent $event) {
     $response = $event->getResponse();
+    $redirect_codes = [301, 302, 303, 307, 308];
 
-    if ($response->getStatusCode() == 303) {
+    if (in_array($response->getStatusCode(), $redirect_codes)) {
       $location = $response->headers->get('Location');
       $port = $_ENV['CONTAINER_PORT'] ?? 5551;
       $prefix = $_ENV['APP_PREFIX'] ?? '/dashboard';
