@@ -28,11 +28,12 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
     $response = $event->getResponse();
     $redirect_codes = [301, 302, 303, 307, 308];
 
-    if (in_array($response->getStatusCode(), $redirect_codes)) {
+    if ($response->isRedirection()) {
       $location = $response->headers->get('Location');
       $port = $_ENV['CONTAINER_PORT'] ?? 5551;
       $prefix = $_ENV['APP_PREFIX'] ?? '/dashboard';
-      $newval = str_replace('localhost/', 'localhost:' . $port . $prefix . '/', $location);
+      $app_base_url = $_ENV['APP_BASE_URL'];
+      $newval = str_replace('localhost/', $app_base_url, $location);
       $response->headers->set('Location', $newval);
     }
 
