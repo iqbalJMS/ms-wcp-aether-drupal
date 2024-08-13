@@ -37,6 +37,7 @@ fi
 
 echo "[DRUPAL] copying php config"
 cp /workspaces/config/local.dev.settings.php /workspaces/web/web/sites/default/settings.php
+cp /workspaces/config/settings.yml /workspaces/web/web/sites/default/settings.yml
 
 # check if there is "core" folder on the /workspace/web
 cd /workspaces/web
