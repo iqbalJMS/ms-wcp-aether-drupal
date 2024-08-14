@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_components
     - node.type.page
     - paragraphs.paragraphs_type.accordion_item
-    - paragraphs.paragraphs_type.benefit_item
     - paragraphs.paragraphs_type.card_detail_item
     - paragraphs.paragraphs_type.from_library
     - paragraphs.paragraphs_type.image_slider_item
@@ -32,7 +31,6 @@ settings:
       from_library: from_library
       accordion_item: accordion_item
       card_detail_item: card_detail_item
-      benefit_item: benefit_item
       promo_item: promo_item
       slider_item: slider_item
       step_item: step_item

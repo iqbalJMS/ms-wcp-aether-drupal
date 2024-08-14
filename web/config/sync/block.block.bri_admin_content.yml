@@ -1,0 +1,22 @@
+uuid: 3eeef78f-1182-4a7d-85eb-19a6fe709d39
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bri_admin
+_core:
+  default_config_hash: hBHXB7hC05XU7pDYzETt-GUcpFlogK1gkjyAsg0Ym58
+id: bri_admin_content
+theme: bri_admin
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

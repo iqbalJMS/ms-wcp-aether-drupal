@@ -1,0 +1,25 @@
+uuid: 3a845aea-74da-4d53-bfad-08214bd21521
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_maximum_lines
+    - paragraphs.paragraphs_type.icon_content_item
+id: paragraph.icon_content_item.field_maximum_lines
+field_name: field_maximum_lines
+entity_type: paragraph
+bundle: icon_content_item
+label: 'Maximum lines'
+description: 'Maximum lines displayed, 0 for unlimited.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

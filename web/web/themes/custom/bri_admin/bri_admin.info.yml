@@ -1,0 +1,25 @@
+name: BRI Admin
+description: A theme for BRI Admin based on gin admin theme.
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+type: theme
+base theme: gin
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+
+ckeditor5-stylesheets:
+  - css/ckeditor5.css
+
+version: '1.0.0-beta1'
+project: 'bri_admin'
+datestamp: 1698076132

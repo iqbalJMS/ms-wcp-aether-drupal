@@ -1,0 +1,22 @@
+uuid: 79592c45-f753-4d1a-b030-5555899c8669
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bri_admin
+_core:
+  default_config_hash: y9X3xgCsO59pQyzNLzY1D3SDJJxCHILLWkpPnmuTJ2E
+id: bri_admin_breadcrumbs
+theme: bri_admin
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

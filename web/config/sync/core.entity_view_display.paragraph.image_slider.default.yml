@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.image_slider.field_image_slider_items
+    - field.field.paragraph.image_slider.field_image_slider_style
     - field.field.paragraph.image_slider.field_title
     - paragraphs.paragraphs_type.image_slider
   module:
     - entity_reference_revisions
+    - options
 id: paragraph.image_slider.default
 targetEntityType: paragraph
 bundle: image_slider
@@ -21,6 +23,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_image_slider_style:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_title:
     type: string

@@ -1,0 +1,25 @@
+uuid: 19fabf65-cf67-48df-8562-5d3bc7c80afd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_maximum_lines
+    - paragraphs.paragraphs_type.icon_cta
+id: paragraph.icon_cta.field_maximum_lines
+field_name: field_maximum_lines
+entity_type: paragraph
+bundle: icon_cta
+label: 'Maximum lines'
+description: 'Maximum lines displayed, 0 for unlimited.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

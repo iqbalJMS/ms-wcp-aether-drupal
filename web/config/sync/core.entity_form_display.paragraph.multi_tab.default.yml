@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.multi_tab.field_paragraphs
+    - field.field.paragraph.multi_tab.field_tab
     - paragraphs.paragraphs_type.multi_tab
   module:
     - paragraphs
@@ -12,7 +12,7 @@ targetEntityType: paragraph
 bundle: multi_tab
 mode: default
 content:
-  field_paragraphs:
+  field_tab:
     type: paragraphs
     weight: 0
     region: content

@@ -1,0 +1,19 @@
+uuid: 233916ff-04a0-4727-b565-1c1ce1e51f6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.icon_cta
+id: paragraph.icon_cta.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: icon_cta
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

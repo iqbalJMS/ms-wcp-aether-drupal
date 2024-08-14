@@ -1,0 +1,24 @@
+uuid: a242dc3e-7d9b-45f2-a6f9-b3d10789552c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.section
+  module:
+    - text
+id: paragraph.section.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: section
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

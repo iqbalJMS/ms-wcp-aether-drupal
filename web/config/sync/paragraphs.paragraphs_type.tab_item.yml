@@ -1,0 +1,10 @@
+uuid: 10b6e410-1ec3-4089-ba49-d828563d2c73
+langcode: en
+status: true
+dependencies: {  }
+id: tab_item
+label: 'Tab item'
+icon_uuid: null
+icon_default: null
+description: 'Tab used in multi tab'
+behavior_plugins: {  }

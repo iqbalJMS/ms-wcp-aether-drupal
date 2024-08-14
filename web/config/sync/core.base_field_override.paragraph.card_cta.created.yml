@@ -1,0 +1,18 @@
+uuid: c40a4dd7-dd24-431a-a179-8c0b4d809a8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_cta
+id: paragraph.card_cta.created
+field_name: created
+entity_type: paragraph
+bundle: card_cta
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

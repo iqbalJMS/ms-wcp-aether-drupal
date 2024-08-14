@@ -1,0 +1,10 @@
+uuid: 6372fed3-0667-4a81-a824-50604cd1cd76
+langcode: en
+status: true
+dependencies: {  }
+id: card_cta
+label: 'Card CTA'
+icon_uuid: null
+icon_default: null
+description: "Display full width image with title and blue click to action\t"
+behavior_plugins: {  }

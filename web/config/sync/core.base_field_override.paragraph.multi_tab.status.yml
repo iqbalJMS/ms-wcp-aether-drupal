@@ -1,0 +1,22 @@
+uuid: 08240d7e-0f7e-4f8c-852a-907d8d7108ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.multi_tab
+id: paragraph.multi_tab.status
+field_name: status
+entity_type: paragraph
+bundle: multi_tab
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

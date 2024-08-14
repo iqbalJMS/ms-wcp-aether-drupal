@@ -12,6 +12,6 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p> <h2 id="jump-*"> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang> <blockquote cite> <ul type> <ol type="1 A I" start> <strong> <em> <li>'
+      allowed_html: '<br> <p class="text-blue text-gray"> <h2 class="text-blue" id="jump-*"> <h3 class="text-blue" id> <h4 class="text-blue" id> <h5 class="text-blue" id> <h6 class="text-blue" id> <li class="text-gray"> <cite> <dl> <dt> <dd> <a hreflang> <blockquote cite> <ul type> <ol type="1 A I" start> <strong> <em>'
       filter_html_help: true
       filter_html_nofollow: false

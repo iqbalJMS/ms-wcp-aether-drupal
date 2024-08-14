@@ -1,0 +1,112 @@
+uuid: 0eb13a10-439c-4260-9d43-e4fe27e823d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tab
+    - paragraphs.paragraphs_type.multi_tab
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - entity_reference_revisions
+id: paragraph.multi_tab.field_tab
+field_name: field_tab
+entity_type: paragraph
+bundle: multi_tab
+label: Tab
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tab_item: tab_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
+      accordion_item:
+        weight: 31
+        enabled: false
+      card_comparation:
+        weight: 32
+        enabled: false
+      card_content:
+        weight: 33
+        enabled: false
+      card_detail:
+        weight: 34
+        enabled: false
+      card_detail_item:
+        weight: 35
+        enabled: false
+      card_featured:
+        weight: 36
+        enabled: false
+      card_group_nav:
+        weight: 37
+        enabled: false
+      card_popular:
+        weight: 38
+        enabled: false
+      card_slider:
+        weight: 39
+        enabled: false
+      from_library:
+        weight: 40
+        enabled: false
+      header:
+        weight: 41
+        enabled: false
+      image_slider:
+        weight: 42
+        enabled: false
+      image_slider_item:
+        weight: 43
+        enabled: false
+      menu_list:
+        weight: 44
+        enabled: false
+      multi_tab:
+        weight: 45
+        enabled: false
+      personalized_shortcut:
+        weight: 46
+        enabled: false
+      promo:
+        weight: 47
+        enabled: false
+      promo_item:
+        weight: 48
+        enabled: false
+      rich_text:
+        weight: 49
+        enabled: false
+      section:
+        weight: 50
+        enabled: false
+      slider:
+        weight: 51
+        enabled: false
+      slider_item:
+        weight: 52
+        enabled: false
+      step_item:
+        weight: 53
+        enabled: false
+      steps:
+        weight: 54
+        enabled: false
+      subscription:
+        weight: 55
+        enabled: false
+      tab_item:
+        weight: 29
+        enabled: true
+      two_column:
+        weight: 56
+        enabled: false
+field_type: entity_reference_revisions
