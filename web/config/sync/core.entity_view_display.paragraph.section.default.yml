@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.section.field_formatted_title
     - field.field.paragraph.section.field_image
     - field.field.paragraph.section.field_margin_left
+    - field.field.paragraph.section.field_note
     - field.field.paragraph.section.field_primary_cta
     - field.field.paragraph.section.field_title_alignment
     - paragraphs.paragraphs_type.section
@@ -75,6 +76,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_note:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_primary_cta:
     type: link
