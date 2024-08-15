@@ -50,9 +50,6 @@ settings:
     ckeditor5_style:
       styles:
         -
-          label: BRImo
-          element: '<ol class="brimo">'
-        -
           label: 'Paragraph blue color'
           element: '<p class="text-blue">'
         -
@@ -76,6 +73,9 @@ settings:
         -
           label: 'List gray color'
           element: '<li class="text-gray">'
+        -
+          label: 'Checked list'
+          element: '<ul class="checked-list">'
         -
           label: 'Table dark blue'
           element: '<table class="dark-blue">'

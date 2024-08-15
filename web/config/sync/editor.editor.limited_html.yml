@@ -74,5 +74,8 @@ settings:
         -
           label: 'List gray color'
           element: '<li class="text-gray">'
+        -
+          label: 'Checked list'
+          element: '<ul class="checked-list">'
 image_upload:
   status: false

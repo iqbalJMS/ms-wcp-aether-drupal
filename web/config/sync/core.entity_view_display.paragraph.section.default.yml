@@ -7,10 +7,10 @@ dependencies:
     - field.field.paragraph.section.field_column_per_row
     - field.field.paragraph.section.field_container
     - field.field.paragraph.section.field_content
+    - field.field.paragraph.section.field_formatted_title
     - field.field.paragraph.section.field_image
     - field.field.paragraph.section.field_margin_left
     - field.field.paragraph.section.field_primary_cta
-    - field.field.paragraph.section.field_title
     - field.field.paragraph.section.field_title_alignment
     - paragraphs.paragraphs_type.section
   module:
@@ -53,6 +53,13 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_formatted_title:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: above
@@ -80,14 +87,6 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_title_alignment:
     type: list_default
