@@ -173,4 +173,56 @@ class BriccController extends ControllerBase {
 
     return $build;
   }
+
+  public function documentDetail($type, $id): array {
+    $types = [
+      'ktp' => 'ktpUrl',
+      'npwp' => 'npwpUrl',
+      'slip-gaji' => 'slipGajiUrl',
+      'swafoto-ktp' => 'swafotoKtpUrl',
+    ];
+    $allowed_types = array_keys($types);
+
+    if (!in_array($type, $allowed_types)) {
+      return [
+        '#markup' => '<p>Invalid type</p>',
+      ];
+    }
+
+    // Call API to get document detail.
+    $document = \Drupal::service('bricc.application_remote_data')->documentDetail($id);
+    dump($document);
+    if (isset($document['data']['document'])) {
+      $key = $types[$type];
+      $document_url = $document['data']['document'][$key];
+      return [
+        '#theme' => 'item_list',
+        '#items' => [
+          [
+            '#markup' => $document_url,
+          ],
+          [
+            '#theme' => 'image',
+            '#uri' => $document_url,
+            '#alt' => 'Document',
+            '#title' => 'Document',
+          ],
+          [
+          '#type' => 'link',
+          '#title' => $this->t('Download'),
+          '#url' => 'http://example.com',
+          '#attributes' => [
+            'target' => '_blank',
+            'class' => ['bri-download-document'],
+          ],
+        ],
+        ],
+        '#attributes' => ['class' => ['my-custom-page']],
+      ];
+    }
+
+    return [
+      '#markup' => '<p>Image not found</p>',
+    ];
+  }
 }

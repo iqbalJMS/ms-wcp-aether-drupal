@@ -9,3 +9,4 @@ admin:
     js/bricc.js: {}
   dependencies:
     - core/drupalSettings
+    - core/drupal.dialog.ajax

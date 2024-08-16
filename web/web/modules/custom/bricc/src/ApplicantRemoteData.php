@@ -161,8 +161,6 @@ class ApplicantRemoteData {
 
       $result = $this->post($this->sourceBaseUrl, $options);
 
-//      dump($result);
-
       if (isset($result['data']['personalInfoByDate'])) {
         return $result['data']['personalInfoByDate'];
       }
@@ -182,5 +180,16 @@ class ApplicantRemoteData {
     }
 
     return [];
+  }
+
+  public function documentDetail ($_id): array {
+    $qgl_str = '{"query":"{\n  document(id:\"%s\") {\n    ktpUrl,\n    npwpUrl,\n    slipGajiUrl,\n    swafotoKtpUrl\n  }\n}"}';
+    $options['body'] = sprintf($qgl_str, $_id);
+    return $this->post($this->sourceBaseUrl, $options);
+  }
+
+  public function documentUrl ($documentId): array {
+    // TODO Implementation
+    return $this->post($this->sourceBaseUrl, []);
   }
 }

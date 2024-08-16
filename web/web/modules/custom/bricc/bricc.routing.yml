@@ -70,3 +70,12 @@ bricc.applicant_detail:
   requirements:
     _permission: 'access administration pages'
     id: '[a-zA-Z0-9]+'
+
+bricc.document_detail:
+  path: '/admin/bricc/document/{type}/{id}'
+  defaults:
+    _controller: '\Drupal\bricc\Controller\BriccController::documentDetail'
+    _title: 'Document detail'
+  requirements:
+    _permission: 'access administration pages'
+    id: '[a-zA-Z0-9_-]+'
