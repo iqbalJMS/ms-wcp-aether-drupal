@@ -515,7 +515,7 @@ $settings['update_free_access'] = FALSE;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_assets_path'] = $_ENV["FILE_ASSETS_PATH"];
+# $settings['file_assets_path'] = $_ENV["FILE_ASSETS_PATH"];
 
 /**
  * Public file base URL:
@@ -528,7 +528,7 @@ $settings['file_assets_path'] = $_ENV["FILE_ASSETS_PATH"];
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
-$settings['file_public_base_url'] = $_ENV["FILE_PUBLIC_BASE_URL"];
+# $settings['file_public_base_url'] = $_ENV["FILE_PUBLIC_BASE_URL"];
 
 /**
  * Public file path:
@@ -537,7 +537,7 @@ $settings['file_public_base_url'] = $_ENV["FILE_PUBLIC_BASE_URL"];
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_public_path'] = $_ENV["FILE_PUBLIC_PATH"];
+# $settings['file_public_path'] = $_ENV["FILE_PUBLIC_PATH"];
 
 /**
  * Additional public file schemes:
