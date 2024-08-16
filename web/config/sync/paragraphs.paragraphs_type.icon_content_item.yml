@@ -1,0 +1,10 @@
+uuid: b1e7b497-1f12-416e-8c45-4e344ad9fc60
+langcode: en
+status: true
+dependencies: {  }
+id: icon_content_item
+label: 'Icon content item'
+icon_uuid: null
+icon_default: null
+description: 'Display icon with rich text'
+behavior_plugins: {  }

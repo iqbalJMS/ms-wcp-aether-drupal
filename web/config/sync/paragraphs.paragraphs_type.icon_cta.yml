@@ -1,0 +1,10 @@
+uuid: aa35576b-a391-42fc-b5bf-cd3600dead7f
+langcode: en
+status: true
+dependencies: {  }
+id: icon_cta
+label: 'Icon CTA'
+icon_uuid: null
+icon_default: null
+description: 'Display icon with title and click to action'
+behavior_plugins: {  }

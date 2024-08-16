@@ -1,0 +1,10 @@
+uuid: 8498126c-b9c0-4585-b9d9-e68ef6628b6c
+langcode: en
+status: true
+dependencies: {  }
+id: list_content_item
+label: 'List content item'
+icon_uuid: null
+icon_default: null
+description: "Display big yellow title with rich text\t"
+behavior_plugins: {  }

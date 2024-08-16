@@ -1,0 +1,22 @@
+uuid: 5f81a2e4-c23d-4537-b8c1-0211ab7072ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_cta
+id: paragraph.card_cta.status
+field_name: status
+entity_type: paragraph
+bundle: card_cta
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

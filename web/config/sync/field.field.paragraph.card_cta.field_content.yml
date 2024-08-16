@@ -1,0 +1,24 @@
+uuid: b3baba2d-7f0a-4725-9727-49bc99949693
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.card_cta
+  module:
+    - text
+id: paragraph.card_cta.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: card_cta
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

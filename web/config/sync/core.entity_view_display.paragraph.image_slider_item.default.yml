@@ -1,0 +1,37 @@
+uuid: 7511859b-1296-45e8-8b1e-cb7d3655ab6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_slider_item.field_image
+    - field.field.paragraph.image_slider_item.field_primary_cta
+    - paragraphs.paragraphs_type.image_slider_item
+  module:
+    - link
+id: paragraph.image_slider_item.default
+targetEntityType: paragraph
+bundle: image_slider_item
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

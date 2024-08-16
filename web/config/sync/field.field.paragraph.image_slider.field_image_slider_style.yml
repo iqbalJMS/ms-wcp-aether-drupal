@@ -1,0 +1,23 @@
+uuid: 0af05cff-ec64-47a9-b527-8239fa70110a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_slider_style
+    - paragraphs.paragraphs_type.image_slider
+  module:
+    - options
+id: paragraph.image_slider.field_image_slider_style
+field_name: field_image_slider_style
+entity_type: paragraph
+bundle: image_slider
+label: 'Image slider style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: multiple
+default_value_callback: ''
+settings: {  }
+field_type: list_string

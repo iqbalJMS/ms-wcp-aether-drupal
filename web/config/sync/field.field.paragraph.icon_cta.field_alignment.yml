@@ -1,0 +1,21 @@
+uuid: 4b993245-700d-4588-8f60-1ffece642749
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment
+    - paragraphs.paragraphs_type.icon_cta
+  module:
+    - options
+id: paragraph.icon_cta.field_alignment
+field_name: field_alignment
+entity_type: paragraph
+bundle: icon_cta
+label: Alignment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

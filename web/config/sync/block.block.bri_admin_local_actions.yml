@@ -1,0 +1,20 @@
+uuid: c68c9329-3b29-41f8-af1b-8bec852e8c5e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bri_admin
+_core:
+  default_config_hash: OQ9aJ-4qVwK1x00o9EOYK4eFDjQr_HLpbPiJaPSVZiQ
+id: bri_admin_local_actions
+theme: bri_admin
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: 671f1f2c-392c-4d17-8e39-aaaa835aee41
+langcode: en
+status: true
+dependencies: {  }
+id: staircase_cards
+label: 'Staircase cards'
+icon_uuid: null
+icon_default: null
+description: 'Display staircase cards with maximum of 3 cards'
+behavior_plugins: {  }

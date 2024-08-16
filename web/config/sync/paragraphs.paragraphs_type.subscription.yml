@@ -1,0 +1,10 @@
+uuid: 145b7ad3-aae7-4584-838d-2af3fbd3b47f
+langcode: en
+status: true
+dependencies: {  }
+id: subscription
+label: Subscription
+icon_uuid: null
+icon_default: null
+description: 'Displays a subscription form with background image'
+behavior_plugins: {  }

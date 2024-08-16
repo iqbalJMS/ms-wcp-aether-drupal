@@ -1,0 +1,22 @@
+uuid: 1bd10ec1-3a6d-4dcb-8be9-b9c822db7925
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bri_admin
+_core:
+  default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
+id: bri_admin_secondary_local_tasks
+theme: bri_admin
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

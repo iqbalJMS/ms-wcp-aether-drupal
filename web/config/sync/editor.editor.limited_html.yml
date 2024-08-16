@@ -18,6 +18,7 @@ settings:
       - blockQuote
       - bulletedList
       - numberedList
+      - style
       - sourceEditing
   plugins:
     ckeditor5_heading:
@@ -47,5 +48,34 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Paragraph blue color'
+          element: '<p class="text-blue">'
+        -
+          label: 'H2 blue color'
+          element: '<h2 class="text-blue">'
+        -
+          label: 'H3 blue color'
+          element: '<h3 class="text-blue">'
+        -
+          label: 'H4 blue color'
+          element: '<h4 class="text-blue">'
+        -
+          label: 'H5 blue color'
+          element: '<h5 class="text-blue">'
+        -
+          label: 'H6 blue color'
+          element: '<h6 class="text-blue">'
+        -
+          label: 'Paragraph gray color'
+          element: '<p class="text-gray">'
+        -
+          label: 'List gray color'
+          element: '<li class="text-gray">'
+        -
+          label: 'Checked list'
+          element: '<ul class="checked-list">'
 image_upload:
   status: false

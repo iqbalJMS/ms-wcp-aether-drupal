@@ -1,0 +1,23 @@
+uuid: c7befced-6c6d-4907-ba26-a4d7440e9d9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_cta_style
+    - paragraphs.paragraphs_type.icon_cta
+  module:
+    - options
+id: paragraph.icon_cta.field_icon_cta_style
+field_name: field_icon_cta_style
+entity_type: paragraph
+bundle: icon_cta
+label: Style
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

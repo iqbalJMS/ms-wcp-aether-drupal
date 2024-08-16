@@ -34,6 +34,7 @@
         "drupal/gin_login": "^2.1",
         "drupal/gin_toolbar": "^1.0@rc",
         "drupal/imagemagick": "^3.7",
+        "drupal/menu_item_extras": "^3.0",
         "drupal/openapi": "^2.2",
         "drupal/openapi_rest": "^2.0@RC",
         "drupal/openapi_ui": "^1.0@RC",
@@ -45,6 +46,7 @@
         "drupal/tailwindcss": "^5.0@alpha",
         "drupal/views_data_export": "^1.4",
         "drupal/views_remote_data": "^1.0",
+        "drupal/webform_rest": "^4.1",
         "drupal/webp": "^1.0@RC",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "symfony/dotenv": "^7.0"

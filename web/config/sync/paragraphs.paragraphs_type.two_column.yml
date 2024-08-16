@@ -7,6 +7,6 @@ dependencies:
 id: two_column
 label: 'Two column'
 icon_uuid: de463325-956b-4ef6-a247-cb0cac0d68e7
-icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAVRJREFUeJztm7FOAkEURY920BkbgU/R+Fl22mmp+H2EwliKfgAWWoyY+NQhvB1yd8M9yRS7IZPzzpKtZsEYY4ypMQMegSWwBj56vtZfrnNg2nX4S+CtB0Nl1ytwkR1+NvDhN2sFTP4b8rgS4Ao42RJpCJxSZtmZJT9L3gKjdl6/nlQrRsBd2HuR2Si+8FoOD/sLAMU1vhj/5KiySZSq/TZDL/avvQMOAgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6hxALWAGgdQC6ipBXgP160PSu6TcbiOs3xTC/Acrq8ZRoQxcBPuPWU2mqM/6d1q3WcCTCnn7dXyXdcLcJYJAOVjg1UPhugy/Hl2+A0T4IFy5Hwon8wsKH/79JM3xhhzCHwChqhyrn7G0SQAAAAASUVORK5CYII='
-description: 'Two column layout'
+icon_default: 'data:image/png;base64,'
+description: 'Two column layout with container options'
 behavior_plugins: {  }
