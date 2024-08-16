@@ -190,20 +190,17 @@ class BriccController extends ControllerBase {
     }
 
     // Call API to get document detail.
-    $document = \Drupal::service('bricc.application_remote_data')->documentDetail($id);
-    dump($document);
-    if (isset($document['data']['document'])) {
-      $key = $types[$type];
-      $document_url = $document['data']['document'][$key];
+    $document = \Drupal::service('bricc.application_remote_data')->documentDetail($types[$type], $id);
+    if ($document) {
       return [
         '#theme' => 'item_list',
         '#items' => [
           [
-            '#markup' => $document_url,
+            '#markup' => 'The document',
           ],
           [
             '#theme' => 'image',
-            '#uri' => $document_url,
+            '#uri' => $document,
             '#alt' => 'Document',
             '#title' => 'Document',
           ],

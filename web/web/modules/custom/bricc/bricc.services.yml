@@ -6,7 +6,7 @@ services:
       - { name: event_subscriber }
   bricc.application_remote_data:
     class: Drupal\bricc\ApplicantRemoteData
-    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel' ]
+    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
   bricc.parser_remote_data:
     class: Drupal\bricc\ParserRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel' ]
