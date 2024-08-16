@@ -1,0 +1,127 @@
+uuid: b18aa57d-2960-4181-8b78-4cd05253f20a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cards
+    - paragraphs.paragraphs_type.card_cta
+    - paragraphs.paragraphs_type.staircase_cards
+  module:
+    - entity_reference_revisions
+id: paragraph.staircase_cards.field_cards
+field_name: field_cards
+entity_type: paragraph
+bundle: staircase_cards
+label: Cards
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_cta: card_cta
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 35
+        enabled: false
+      accordion_item:
+        weight: 36
+        enabled: false
+      card_comparation:
+        weight: 37
+        enabled: false
+      card_content:
+        weight: 38
+        enabled: false
+      card_cta:
+        weight: 39
+        enabled: true
+      card_detail:
+        weight: 40
+        enabled: false
+      card_detail_item:
+        weight: 41
+        enabled: false
+      card_featured:
+        weight: 42
+        enabled: false
+      card_group_nav:
+        weight: 43
+        enabled: false
+      card_popular:
+        weight: 44
+        enabled: false
+      card_slider:
+        weight: 45
+        enabled: false
+      from_library:
+        weight: 46
+        enabled: false
+      header:
+        weight: 47
+        enabled: false
+      icon_content_item:
+        weight: 48
+        enabled: false
+      icon_cta:
+        weight: 49
+        enabled: false
+      image_slider:
+        weight: 50
+        enabled: false
+      image_slider_item:
+        weight: 51
+        enabled: false
+      list_content_item:
+        weight: 52
+        enabled: false
+      menu_list:
+        weight: 53
+        enabled: false
+      multi_tab:
+        weight: 54
+        enabled: false
+      personalized_shortcut:
+        weight: 55
+        enabled: false
+      promo:
+        weight: 56
+        enabled: false
+      promo_item:
+        weight: 57
+        enabled: false
+      rich_text:
+        weight: 58
+        enabled: false
+      section:
+        weight: 59
+        enabled: false
+      slider:
+        weight: 60
+        enabled: false
+      slider_item:
+        weight: 61
+        enabled: false
+      staircase_cards:
+        weight: 34
+        enabled: false
+      step_item:
+        weight: 62
+        enabled: false
+      steps:
+        weight: 63
+        enabled: false
+      subscription:
+        weight: 64
+        enabled: false
+      tab_item:
+        weight: 65
+        enabled: false
+      two_column:
+        weight: 66
+        enabled: false
+field_type: entity_reference_revisions
