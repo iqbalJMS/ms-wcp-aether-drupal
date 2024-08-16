@@ -9,7 +9,6 @@ module:
   config: 0
   config_pages: 0
   config_split: 0
-  custom_url_prefix: 0
   dblog: 0
   default_content_deploy: 0
   dynamic_page_cache: 0

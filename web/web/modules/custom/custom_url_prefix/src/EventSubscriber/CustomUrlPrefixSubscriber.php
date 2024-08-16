@@ -27,12 +27,25 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
   public function onResponse(ResponseEvent $event) {
     $response = $event->getResponse();
 
-    if ($response->getStatusCode() == 303) {
+    if ($response->isRedirection()) {
       $location = $response->headers->get('Location');
       $port = $_ENV['CONTAINER_PORT'] ?? 5551;
       $prefix = $_ENV['APP_PREFIX'] ?? '/dashboard';
-      $newval = str_replace('localhost/', 'localhost:' . $port . $prefix . '/', $location);
-      $response->headers->set('Location', $newval);
+      $app_base_url = $_ENV['APP_BASE_URL'];
+      $parseurl = parse_url($location);
+
+      if (!str_contains($location, '/dashboard/')) {
+        $newval[] = $app_base_url;
+        if (isset($parseurl['path'])) {
+          $newval[] = ltrim($parseurl['path'], '/');
+        }
+        if (isset($parseurl['query'])) {
+          $newval[] = '?' . $parseurl['query'];
+        }
+        $new_location = implode('', $newval);
+        $new_response = new \Symfony\Component\HttpFoundation\RedirectResponse($new_location, $response->getStatusCode(), $response->headers->all());
+        $event->setResponse($new_response);
+      }
     }
 
     // Check if the response content type is HTML.
