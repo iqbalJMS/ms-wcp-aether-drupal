@@ -26,7 +26,6 @@ class CustomUrlPrefixSubscriber implements EventSubscriberInterface {
    */
   public function onResponse(ResponseEvent $event) {
     $response = $event->getResponse();
-    $redirect_codes = [301, 302, 303, 307, 308];
 
     if ($response->isRedirection()) {
       $location = $response->headers->get('Location');
