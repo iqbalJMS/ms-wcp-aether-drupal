@@ -1,0 +1,23 @@
+uuid: e9f2f48d-e018-4f2b-b672-2766a1deda9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_margin_left
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_margin_left
+field_name: field_margin_left
+entity_type: paragraph
+bundle: section
+label: 'Margin left'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: none
+default_value_callback: ''
+settings: {  }
+field_type: list_string

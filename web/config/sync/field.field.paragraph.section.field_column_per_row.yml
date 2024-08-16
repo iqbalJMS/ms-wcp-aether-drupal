@@ -1,0 +1,21 @@
+uuid: a876b48d-d93e-4e52-be0d-280b9ed0ea73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_per_row
+    - paragraphs.paragraphs_type.section
+  module:
+    - options
+id: paragraph.section.field_column_per_row
+field_name: field_column_per_row
+entity_type: paragraph
+bundle: section
+label: 'Column per row'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

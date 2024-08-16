@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.accordion_item
     - paragraphs.paragraphs_type.card_detail_item
     - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.image_slider_item
     - paragraphs.paragraphs_type.promo_item
     - paragraphs.paragraphs_type.slider_item
     - paragraphs.paragraphs_type.step_item
@@ -33,6 +34,7 @@ settings:
       promo_item: promo_item
       slider_item: slider_item
       step_item: step_item
+      image_slider_item: image_slider_item
     negate: 1
     target_bundles_drag_drop:
       accordion:
@@ -40,6 +42,12 @@ settings:
         enabled: false
       accordion_item:
         weight: 5
+        enabled: true
+      benefit:
+        weight: 29
+        enabled: false
+      benefit_item:
+        weight: 30
         enabled: true
       card_comparation:
         weight: 21
@@ -53,6 +61,9 @@ settings:
       card_detail_item:
         weight: 10
         enabled: true
+      card_featured:
+        weight: 35
+        enabled: false
       card_group_nav:
         weight: 25
         enabled: false
@@ -68,12 +79,27 @@ settings:
       header:
         weight: 2
         enabled: false
+      image_slider:
+        weight: 41
+        enabled: false
+      image_slider_item:
+        weight: 42
+        enabled: true
+      menu_list:
+        weight: 43
+        enabled: false
+      personalized_shortcut:
+        weight: 44
+        enabled: false
       promo:
         weight: 14
         enabled: false
       promo_item:
         weight: 31
         enabled: true
+      rich_text:
+        weight: 47
+        enabled: false
       slider:
         weight: 32
         enabled: false
@@ -85,6 +111,9 @@ settings:
         enabled: true
       steps:
         weight: 35
+        enabled: false
+      subscription:
+        weight: 53
         enabled: false
       two_column:
         weight: 36

@@ -1,0 +1,24 @@
+uuid: c07767be-50c7-4195-a793-db2a0b63a7db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.subscription
+  module:
+    - text
+id: paragraph.subscription.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: subscription
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

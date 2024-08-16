@@ -1,0 +1,32 @@
+uuid: 5c86c899-21df-4f82-83de-1c1ff7915d72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.subscription.field_content
+    - field.field.paragraph.subscription.field_image
+    - paragraphs.paragraphs_type.subscription
+  module:
+    - text
+id: paragraph.subscription.default
+targetEntityType: paragraph
+bundle: subscription
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

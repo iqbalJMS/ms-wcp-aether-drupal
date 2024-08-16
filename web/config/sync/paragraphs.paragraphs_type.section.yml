@@ -1,0 +1,10 @@
+uuid: 1d9462b9-564c-4618-966b-4ba86d32e4ea
+langcode: en
+status: true
+dependencies: {  }
+id: section
+label: Section
+icon_uuid: null
+icon_default: null
+description: 'Define container width, multi column, margin left, and many more.'
+behavior_plugins: {  }

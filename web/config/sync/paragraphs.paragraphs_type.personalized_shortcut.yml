@@ -1,0 +1,10 @@
+uuid: 5c4afe8a-76b9-4baa-ac93-68a9718fd254
+langcode: en
+status: true
+dependencies: {  }
+id: personalized_shortcut
+label: 'Personalized shortcut'
+icon_uuid: null
+icon_default: null
+description: 'Displays personalized menu'
+behavior_plugins: {  }

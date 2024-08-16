@@ -1,0 +1,21 @@
+uuid: fc84e1cc-7f09-4004-9c3c-9eb1806ae79f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment
+    - paragraphs.paragraphs_type.card_cta
+  module:
+    - options
+id: paragraph.card_cta.field_alignment
+field_name: field_alignment
+entity_type: paragraph
+bundle: card_cta
+label: Alignment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

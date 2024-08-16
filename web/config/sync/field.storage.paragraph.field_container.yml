@@ -1,0 +1,33 @@
+uuid: fc75f994-27c8-4f56-9518-62fa4305377c
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_container
+field_name: field_container
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: container-fluid
+      label: 'Full width'
+    -
+      value: container
+      label: Default
+    -
+      value: 'container narrow'
+      label: 'Narrow (90%)'
+    -
+      value: 'container tight'
+      label: 'Tight (70%)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

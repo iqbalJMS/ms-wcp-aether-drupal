@@ -1,0 +1,8 @@
+uuid: fcaa1371-d001-429e-898a-67b33f2c31c1
+langcode: en
+status: true
+dependencies: {  }
+id: personalized-menu
+label: 'Personalized menu'
+description: 'Used in personalized shortcut paragraph'
+locked: false

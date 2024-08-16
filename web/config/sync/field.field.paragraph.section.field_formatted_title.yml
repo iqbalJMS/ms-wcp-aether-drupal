@@ -1,0 +1,24 @@
+uuid: d6d5e35f-1f60-4080-99ba-d3e6cb3a8699
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_formatted_title
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.section
+  module:
+    - text
+id: paragraph.section.field_formatted_title
+field_name: field_formatted_title
+entity_type: paragraph
+bundle: section
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

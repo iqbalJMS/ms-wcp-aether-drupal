@@ -5,6 +5,7 @@ module:
   block: 0
   breakpoint: 0
   bricc: 0
+  brimw: 0
   ckeditor5: 0
   config: 0
   config_pages: 0
@@ -29,6 +30,7 @@ module:
   locale: 0
   media: 0
   media_library: 0
+  menu_item_extras: 0
   menu_link_content: 0
   menu_ui: 0
   node: 0
@@ -55,6 +57,9 @@ module:
   user: 0
   views_remote_data: 0
   views_ui: 0
+  webform: 0
+  webform_rest: 0
+  webform_ui: 0
   content_translation: 10
   views: 10
   paragraphs: 11
@@ -63,4 +68,5 @@ theme:
   stark: 0
   claro: 0
   gin: 0
+  bri_admin: 0
 profile: minimal

@@ -1,0 +1,10 @@
+uuid: 97f8be37-bf3c-4acf-8469-dfb157e2612d
+langcode: en
+status: true
+dependencies: {  }
+id: multi_tab
+label: 'Multi tab'
+icon_uuid: null
+icon_default: null
+description: 'Displays tabs with specified paragraph'
+behavior_plugins: {  }
