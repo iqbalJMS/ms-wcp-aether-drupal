@@ -99,12 +99,12 @@ class BriccController extends ControllerBase {
         ],
         [
           'title' => $this->t('Applicant List'),
-          'url' => Url::fromRoute('entity.bricc_card_item.collection'),
+          'url' => Url::fromRoute('entity.bricc_applicant_status.collection'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
         [
           'title' => $this->t('Applicant Status'),
-          'url' => Url::fromRoute('entity.bricc_applicant_status.collection'),
+          'url' => Url::fromRoute('view.applicant.page_2'),
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         ],
       ],

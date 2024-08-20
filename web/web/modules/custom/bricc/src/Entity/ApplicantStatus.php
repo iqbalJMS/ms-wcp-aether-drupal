@@ -48,7 +48,7 @@ use Drupal\user\EntityOwnerTrait;
  *     "owner" = "uid",
  *   },
  *   links = {
- *     "collection" = "/admin/content/applicant-status",
+ *     "collection" = "/admin/bricc/applicant",
  *     "add-form" = "/applicant-status/add",
  *     "canonical" = "/applicant-status/{bricc_applicant_status}",
  *     "edit-form" = "/applicant-status/{bricc_applicant_status}",

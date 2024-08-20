@@ -14,12 +14,23 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 
-class ApplicantRemoteData {
+class ApplicantRemoteData
+{
 
   /**
    * @var string
    */
   private $sourceBaseUrl = '';
+
+  /**
+   * @var string
+   */
+  private $fileServiceUrl = '';
+
+  /**
+   * @var string
+   */
+  private $applicantImageBaseUrl = '';
 
   /**
    * @var \GuzzleHttp\Client
@@ -64,7 +75,9 @@ class ApplicantRemoteData {
     $this->client = $client;
     $this->cache = $cache;
     $this->logger = $logger;
-    $this->sourceBaseUrl = $_ENV['APPLICANT_URL'];
+    $this->sourceBaseUrl = $_ENV['APPLICANT_URL'] ?? '';
+    $this->fileServiceUrl = $_ENV['FILE_SERVICE_URL'] ?? '';
+    $this->applicantImageBaseUrl = $_ENV['APPLICANT_IMAGE_BASE_URL'] ?? '';
     $this->file_system = $file_system;
     $this->em = $entity_type_manager;
   }
@@ -79,7 +92,8 @@ class ApplicantRemoteData {
    *   The result.
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function post(string $uri, array $options = []): array {
+  public function post(string $uri, array $options = []): array
+  {
     $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
 
     $options = array_merge([
@@ -96,11 +110,27 @@ class ApplicantRemoteData {
       $data = Json::decode((string) $response->getBody());
       $this->cache->set($cache_key, $data);
       return $data;
-    }
-    catch (RequestException $e) {
+    } catch (RequestException $e) {
       $this->logger->warning($e->getMessage());
       return [];
     }
+  }
+
+  /**
+   * Convert image id to url.
+   *
+   * @param string $id
+   *   Image's id.
+   *
+   * @return string
+   *   The image url.
+   */
+  public function getImage(string $id): string {
+    if ($id && $this->applicantImageBaseUrl) {
+      return $this->applicantImageBaseUrl . '/' . $id;
+    }
+
+    return '';
   }
 
   /**
@@ -125,7 +155,19 @@ class ApplicantRemoteData {
       $start_date = $params['startdate'] ?? '';
       $end_date = $params['enddate'] ?? '';
       $jenis_kartu = $params['jeniskartu'] ?? '';
-      $qgl_str = '{"query":"{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu: \"%s\"\n  ) {\n _id,    namaNasabah,\n    nik,\n    noHp,\n    tanggalLahir,\n    tanggalVerif\n  }\n}"}';
+      $qgl_str = '{"query":"{
+        personalInfoByDate(
+          startDate: \"%s\",
+          endDate: \"%s\",
+          jenisKartu: \"%s\"
+        ) {
+       _id,    namaNasabah,
+          nik,
+          noHp,
+          tanggalLahir,
+          tanggalVerif
+        }
+      }"}';
       $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
 
       $result = $this->post($this->sourceBaseUrl, $options);
@@ -151,12 +193,17 @@ class ApplicantRemoteData {
   }
 
   public function applicantDetail ($_id) {
-    $qgl_str = '{"query":"query {\n  personalInfo (id:\"66b068ccc283e96d8123694e\") {\n    _id\n    email\n    jenisKartuKredit\n    namaDepan\n    kewarganegaraan\n    kodePos\n    namaBelakang\n    namaDiKartu\n    sexType\n    statusNikah\n    statusRumah\n    tinggalSejak\n    tanggalLahir\n    tempatLahir\n    asalKota\n    noTelp\n    alamat1\n    alamat2\n    alamat3\n    jumlahAnak\n    edukasi\n    nik\n    noHp\n  }\n}"}';
+    $qgl_str = '{"query":"query {\n  personalInfo (id:\"%s\") {\n    _id\n    email\n    jenisKartuKredit\n    namaDepan\n    kewarganegaraan\n    kodePos\n    namaBelakang\n    namaDiKartu\n    sexType\n    statusNikah\n    statusRumah\n    tinggalSejak\n    tanggalLahir\n    tempatLahir\n    asalKota\n    noTelp\n    alamat1\n    alamat2\n    alamat3\n    jumlahAnak\n    edukasi\n    nik\n    noHp\n  }\n}"}';
     $options['body'] = sprintf($qgl_str, $_id);
 
     $result = $this->post($this->sourceBaseUrl, $options);
 
     if (isset($result['data']['personalInfo'])) {
+      $result['data']['personalInfo']['documents']['ktpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['ktpUrl'] ?? '');
+      $result['data']['personalInfo']['documents']['npwpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['npwpUrl'] ?? '');
+      $result['data']['personalInfo']['documents']['slipGajiUrl'] = $this->getImage($result['data']['personalInfo']['documents']['slipGajiUrl'] ?? '');
+      $result['data']['personalInfo']['documents']['swafotoKtpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['swafotoKtpUrl'] ?? '');
+      
       return $result['data']['personalInfo'];
     }
 
@@ -215,8 +262,6 @@ class ApplicantRemoteData {
     $options['body'] = sprintf($qgl_str, $applicantId);
     $response_doc = $this->post($this->sourceBaseUrl, $options);
 
-    $file_service_url = $_ENV['FILE_SERVICE_URL'] ?? 'https://31c5-36-66-71-38.ngrok-free.app/api/v1/file';
-
     if (isset($response_doc['data']['document'][$type])) {
       $doc_id = $response_doc['data']['document'][$type];
 
@@ -237,7 +282,7 @@ class ApplicantRemoteData {
       else {
         // File not exist, fetch
         try {
-          $endpoint_url = $file_service_url . '/' . $doc_id;
+          $endpoint_url = $this->fileServiceUrl . '/' . $doc_id;
           $response = $this->client->get($endpoint_url, [
             'stream' => true,
             'headers' => [
