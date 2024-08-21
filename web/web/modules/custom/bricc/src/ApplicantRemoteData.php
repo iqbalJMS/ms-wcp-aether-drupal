@@ -77,7 +77,6 @@ class ApplicantRemoteData
     $this->logger = $logger;
     $this->sourceBaseUrl = $_ENV['APPLICANT_URL'] ?? '';
     $this->fileServiceUrl = $_ENV['FILE_SERVICE_URL'] ?? '';
-    $this->applicantImageBaseUrl = $_ENV['APPLICANT_IMAGE_BASE_URL'] ?? '';
     $this->file_system = $file_system;
     $this->em = $entity_type_manager;
   }
@@ -117,6 +116,41 @@ class ApplicantRemoteData
   }
 
   /**
+   * Gets results from the API.
+   *
+   * @param string $uri
+   *   The uri.
+   *
+   * @return array
+   *   The result.
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   */
+  public function postGql(string $query = ''): array
+  {
+    $cache_key = sprintf('gql:%s', json_encode($query));
+
+    $options = array_merge([
+      'headers' => [
+        'Content-Type' => 'application/json',
+      ],
+      'body' => json_encode(['query' => $query]),
+    ]);
+
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    try {
+      $response = $this->client->post($this->sourceBaseUrl, $options);
+      $data = Json::decode((string) $response->getBody());
+      $this->cache->set($cache_key, $data);
+      return $data;
+    } catch (RequestException $e) {
+      $this->logger->warning($e->getMessage());
+      return [];
+    }
+  }
+
+  /**
    * Convert image id to url.
    *
    * @param string $id
@@ -126,8 +160,8 @@ class ApplicantRemoteData
    *   The image url.
    */
   public function getImage(string $id): string {
-    if ($id && $this->applicantImageBaseUrl) {
-      return $this->applicantImageBaseUrl . '/' . $id;
+    if ($id && $this->fileServiceUrl) {
+      return $this->fileServiceUrl . '/' . $id;
     }
 
     return '';
@@ -155,19 +189,22 @@ class ApplicantRemoteData
       $start_date = $params['startdate'] ?? '';
       $end_date = $params['enddate'] ?? '';
       $jenis_kartu = $params['jeniskartu'] ?? '';
-      $qgl_str = '{"query":"{
+      $qgl_str = <<< GRAPHQL
+      query {
         personalInfoByDate(
-          startDate: \"%s\",
-          endDate: \"%s\",
+          startDate: \"%s\"
+          endDate: \"%s\"
           jenisKartu: \"%s\"
         ) {
-       _id,    namaNasabah,
-          nik,
-          noHp,
-          tanggalLahir,
+          _id
+          namaNasabah
+          nik
+          noHp
+          tanggalLahir
           tanggalVerif
         }
-      }"}';
+      }
+      GRAPHQL;
       $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
 
       $result = $this->post($this->sourceBaseUrl, $options);
@@ -193,17 +230,81 @@ class ApplicantRemoteData
   }
 
   public function applicantDetail ($_id) {
-    $qgl_str = '{"query":"query {\n  personalInfo (id:\"%s\") {\n    _id\n    email\n    jenisKartuKredit\n    namaDepan\n    kewarganegaraan\n    kodePos\n    namaBelakang\n    namaDiKartu\n    sexType\n    statusNikah\n    statusRumah\n    tinggalSejak\n    tanggalLahir\n    tempatLahir\n    asalKota\n    noTelp\n    alamat1\n    alamat2\n    alamat3\n    jumlahAnak\n    edukasi\n    nik\n    noHp\n  }\n}"}';
-    $options['body'] = sprintf($qgl_str, $_id);
+    $qgl_str = <<<'GRAPHQL'
+    query {
+      personalInfo (id:"%s") {
+        documents {
+          ktpId
+          npwpId
+          slipGajiId
+          swafotoKtpId
+        }
 
-    $result = $this->post($this->sourceBaseUrl, $options);
+        _id
+        jenisKartuKredit
+        namaDepan
+        namaBelakang
+        namaDiKartu
+        sexType
+        kewarganegaraan
+        nik
+        tempatLahir
+        tanggalLahir
+        email
+        statusRumah
+        tinggalSejak
+        alamat1
+        alamat2
+        alamat3
+        asalKota
+        noTelp
+        noHp
+        statusNikah
+        jumlahAnak
+        edukasi
+        namaIbuKandung
+
+        emergencyRelation {
+          namaKontakDarurat
+          hubungan
+          alamat1
+          alamat2
+          alamat3
+          emergencyCity
+          noTelp
+        }
+
+        jobInfo {
+          namaPerusahaan
+          totalPegawai
+          kategoriPekerjaan
+          statusPekerjaan
+          bidangPekerjaan
+          subBidangPekerjaan
+          titelPekerjaan
+          bekerjaSejak
+          alamatPerusahaan1
+          alamatPerusahaan2
+          alamatPerusahaan3
+          kotaPerusahaan
+          kodePos
+          teleponPerusahaan
+          penghasilanPerTahun
+        }
+      }
+    }
+    GRAPHQL;
+
+    $options = sprintf($qgl_str, $_id);
+
+    $result = $this->postGql($options);
 
     if (isset($result['data']['personalInfo'])) {
-      $result['data']['personalInfo']['documents']['ktpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['ktpUrl'] ?? '');
-      $result['data']['personalInfo']['documents']['npwpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['npwpUrl'] ?? '');
-      $result['data']['personalInfo']['documents']['slipGajiUrl'] = $this->getImage($result['data']['personalInfo']['documents']['slipGajiUrl'] ?? '');
-      $result['data']['personalInfo']['documents']['swafotoKtpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['swafotoKtpUrl'] ?? '');
-      
+      $result['data']['personalInfo']['documents']['ktpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['ktpId'] ?? '');
+      $result['data']['personalInfo']['documents']['npwpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['npwpId'] ?? '');
+      $result['data']['personalInfo']['documents']['slipGajiUrl'] = $this->getImage($result['data']['personalInfo']['documents']['slipGajiId'] ?? '');
+      $result['data']['personalInfo']['documents']['swafotoKtpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['swafotoKtpId'] ?? '');
+
       return $result['data']['personalInfo'];
     }
 

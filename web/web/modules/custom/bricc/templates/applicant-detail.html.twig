@@ -1,8 +1,18 @@
+<div class="applicant-detail--header">
+  {% if detail.documents.ktpUrl %}
+    <a class="button buttom-primary" href="{{ detail.documents.ktpUrl }}" target="_blank">Download KTP</a>
+  {% endif %}
+  {% if detail.documents.npwpUrl %}
+    <a class="button buttom-primary" href="{{ detail.documents.npwpUrl }}" target="_blank">Download NPWP</a>
+  {% endif %}
+  {% if detail.documents.swafotoKtpUrl %}
+    <a class="button buttom-primary" href="{{ detail.documents.swafotoKtpUrl }}" target="_blank">Download Selfie</a>
+  {% endif %}
+  {% if detail.documents.slipGajiUrl %}
+    <a class="button buttom-primary" href="{{ detail.documents.slipGajiUrl }}" target="_blank">Download Slip Gaji</a>
+  {% endif %}
+</div>
 <h2>{{ 'Data Pribadi'|t }}</h2>
-<a class="button buttom-primary" href="{{ detail.documents.ktpUrl }}" target="_blank">KTP</a>
-<a class="button buttom-primary" href="{{ detail.documents.npwpUrl }}" target="_blank">NPWP</a>
-<a class="button buttom-primary" href="{{ detail.documents.slipGajiUrl }}" target="_blank">SLIP GAJI</a>
-<a class="button buttom-primary" href="{{ detail.documents.swafotoKtpUrl }}" target="_blank">SWAFOTO KTP</a>
 <div class="applicant-detail--wrapper">
   <div class="applicant-detail--item">
     <h6>ID</h6>
@@ -83,5 +93,183 @@
   <div class="applicant-detail--item">
     <h6>Pendidikan Terakhir</h6>
     <p>{{ detail.edukasi }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Nama Ibu Kandung</h6>
+    <p>{{ detail.namaIbuKandung }}</p>
+  </div>
+</div>
+
+<h2>{{ 'Data Keluarga Terdekat'|t }}</h2>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>Nama Lengkap</h6>
+    <p>{{ detail.emergencyRelation.namaKontakDarurat }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Hubungan</h6>
+    <p>{{ detail.emergencyRelation.hubungan }}</p>
+  </div>
+  <div class="applicant-detail--item applicant-detail--item-alamat">
+    <h6>Alamat Rumah</h6>
+    <p>{{ [detail.emergencyRelation.alamat1,detail.emergencyRelation.alamat2,detail.emergencyRelation.alamat3] | join(' ') }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kota</h6>
+    <p>{{ detail.emergencyRelation.emergencyCity }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>No. Handphone</h6>
+    <p>{{ detail.emergencyRelation.noTelp }}</p>
+  </div>
+</div>
+
+<h2>{{ 'Data Pekerjaan'|t }}</h2>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>Nama Perusahaan</h6>
+    <p>{{ detail.jobInfo.namaPerusahaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Total Pegawai</h6>
+    <p>{{ detail.jobInfo.totalPegawai }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kategori Pekerjaan</h6>
+    <p>{{ detail.jobInfo.kategoriPekerjaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Status Pekerjaan</h6>
+    <p>{{ detail.jobInfo.statusPekerjaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Bidang Pekerjaan</h6>
+    <p>{{ detail.jobInfo.bidangPekerjaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Sub Bidang Pekerjaan</h6>
+    <p>{{ detail.jobInfo.subBidangPekerjaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Title Pekerjaan</h6>
+    <p>{{ detail.jobInfo.titelPekerjaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Lama Bekerja</h6>
+    <p>{{ detail.jobInfo.bekerjaSejak }}</p>
+  </div>
+  <div class="applicant-detail--item applicant-detail--item-alamat">
+    <h6>Alamat Perusahaan</h6>
+    <p>{{ [detail.jobInfo.alamatPerusahaan1,detail.jobInfo.alamatPerusahaan2,detail.jobInfo.alamatPerusahaan3] | join(' ') }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kota</h6>
+    <p>{{ detail.jobInfo.kotaPerusahaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kode Pos Kantor</h6>
+    <p>{{ detail.jobInfo.kodePos }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Telpon Kantor</h6>
+    <p>{{ detail.jobInfo.teleponPerusahaan }}</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Penghasilan (Per Tahun)</h6>
+    <p>{{ detail.jobInfo.penghasilanPerTahun }}</p>
+  </div>
+</div>
+
+<h2>{{ 'Data Lain'|t }}</h2>
+<h3>{{ 'Katu Kredit Yang Dimiliki'|t }}</h3>
+<h4>{{ 'Kartu Kredit 1'|t }}</h4>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>Nama Bank</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Sejak</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>No. Rekening</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Limit</h6>
+    <p>Dummy</p>
+  </div>
+</div>
+
+<h2>{{ 'Informasi Rekening BRI'|t }}</h2>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>No. Rekening 1</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>No. Rekening 2</h6>
+    <p>Dummy</p>
+  </div>
+</div>
+
+<h2>{{ 'Auto Debet'|t }}</h2>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item">
+    <h6>No. Rekening</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Sebesar</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>BRI Protection Plus</h6>
+    <p>Dummy</p>
+  </div>
+</div>
+
+<h2>{{ 'Kartu Tambahan'|t }}</h2>
+<div class="applicant-detail--wrapper">
+  <div class="applicant-detail--item applicant-detail--item-alamat">
+    <h6>Alamat Penagihan</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Nama Lengkap</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Jenis Kelamin</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Nomor Identitas Penduduk</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Kewarganegaraan</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Tempat Lahir</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Tanggal Lahir</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Hubungan</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Maksimum Limit</h6>
+    <p>Dummy</p>
+  </div>
+  <div class="applicant-detail--item">
+    <h6>Limit Rupiah</h6>
+    <p>Dummy</p>
   </div>
 </div>

@@ -166,6 +166,36 @@ class BriccController extends ControllerBase {
       $detail['statusRumah'] = $list_homestatus[$detail['statusRumah']];
     }
 
+    // Description untuk emergency relation
+    $emergency_relation = \Drupal::service('bricc.parser_remote_data')->listEmergencyRelation();
+    if (isset($emergency_relation[$detail['emergencyRelation']['hubungan']])) {
+      $detail['emergencyRelation']['hubungan'] = $emergency_relation[$detail['emergencyRelation']['hubungan']];
+    }
+
+    // Description untuk emergency relation
+    $emergency_relation = \Drupal::service('bricc.parser_remote_data')->listJobCategory();
+    if (isset($emergency_relation[$detail['jobInfo']['kategoriPekerjaan']])) {
+      $detail['jobInfo']['kategoriPekerjaan'] = $emergency_relation[$detail['jobInfo']['kategoriPekerjaan']];
+    }
+
+    // Description untuk emergency relation
+    $emergency_relation = \Drupal::service('bricc.parser_remote_data')->listJobStatus();
+    if (isset($emergency_relation[$detail['jobInfo']['statusPekerjaan']])) {
+      $detail['jobInfo']['statusPekerjaan'] = $emergency_relation[$detail['jobInfo']['statusPekerjaan']];
+    }
+
+    // Description untuk emergency relation
+    $emergency_relation = \Drupal::service('bricc.parser_remote_data')->listJobField();
+    if (isset($emergency_relation[$detail['jobInfo']['bidangPekerjaan']])) {
+      $detail['jobInfo']['bidangPekerjaan'] = $emergency_relation[$detail['jobInfo']['bidangPekerjaan']];
+    }
+
+    // Description untuk emergency relation
+    $emergency_relation = \Drupal::service('bricc.parser_remote_data')->listSubJobField();
+    if (isset($emergency_relation[$detail['jobInfo']['subBidangPekerjaan']])) {
+      $detail['jobInfo']['subBidangPekerjaan'] = $emergency_relation[$detail['jobInfo']['subBidangPekerjaan']];
+    }
+
     $build['detail_applicant'] = [
       '#theme' => 'applicant_detail',
       '#detail' => $detail,

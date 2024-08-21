@@ -84,17 +84,41 @@ class ParserRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function listCardType(): array {
-    $options['body'] = '{"query": "query { creditCardTypes { descCardType idCardType}}"}';
+    $query = <<< GRAPHQL
+      query { 
+        creditCardTypes { 
+          descCardType 
+          idCardType
+        }
+      }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
     return $this->post($this->sourceBaseUrl, $options);
   }
 
   public function listEducation() {
-    $options['body'] = '{"query":"query {\n  education {\n    education\n    educationDesc\n  }\n}"}';
+    $query = <<< GRAPHQL
+      query {
+        education {
+          education
+          educationDesc
+        }
+      }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
     return $this->post($this->sourceBaseUrl, $options);
   }
 
   public function listMaritalStatusAsOptions() {
-    $options['body'] = '{"query":"query {\n  maritalStatus{\n    maritalStatus\n    maritalStatusDesc\n  }\n}"}';
+    $query = <<< GRAPHQL
+    query {
+      maritalStatus {
+        maritalStatus
+        maritalStatusDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
     $result = $this->post($this->sourceBaseUrl, $options);
     $values = [];
     if (isset($result['data']['maritalStatus'])) {
@@ -106,12 +130,120 @@ class ParserRemoteData {
   }
 
   public function listHomeStatusAsOptions() {
-    $options['body'] = '{"query":"query {\n  homeStatus{\n    homeStatus\n    homeStatusDesc\n  }\n}"}';
+    $query = <<< GRAPHQL
+    query {
+      homeStatus {
+        homeStatus
+        homeStatusDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
     $result = $this->post($this->sourceBaseUrl, $options);
     $values = [];
     if (isset($result['data']['homeStatus'])) {
       foreach ($result['data']['homeStatus'] as $item) {
         $values[$item['homeStatus']] = $item['homeStatusDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listEmergencyRelation() {
+    $query = <<< GRAPHQL
+    query {
+      emergencyRelation {
+        emergencyRelation
+        emergencyRelationDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['emergencyRelation'])) {
+      foreach ($result['data']['emergencyRelation'] as $item) {
+        $values[$item['emergencyRelation']] = $item['emergencyRelationDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listJobCategory() {
+    $query = <<< GRAPHQL
+    query {
+      jobCategories {
+        jobCategory
+        jobCategoryDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['jobCategories'])) {
+      foreach ($result['data']['jobCategories'] as $item) {
+        $values[$item['jobCategory']] = $item['jobCategoryDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listJobStatus() {
+    $query = <<< GRAPHQL
+    query {
+      jobStatus {
+        jobStatus
+        jobStatusDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['jobStatus'])) {
+      foreach ($result['data']['jobStatus'] as $item) {
+        $values[$item['jobStatus']] = $item['jobStatusDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listJobField() {
+    $query = <<< GRAPHQL
+    query {
+      jobField {
+        jobBidangUsaha
+        jobBidangUsahaDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['jobField'])) {
+      foreach ($result['data']['jobField'] as $item) {
+        $values[$item['jobBidangUsaha']] = $item['jobBidangUsahaDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listSubJobField() {
+    $query = <<< GRAPHQL
+    query {
+      subJobField {
+        jobSubBidangUsaha
+        jobSubBidangUsahaDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['subJobField'])) {
+      foreach ($result['data']['subJobField'] as $item) {
+        $values[$item['jobSubBidangUsaha']] = $item['jobSubBidangUsahaDesc'];
       }
     }
     return $values;
