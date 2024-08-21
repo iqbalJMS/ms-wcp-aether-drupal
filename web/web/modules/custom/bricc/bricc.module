@@ -202,17 +202,22 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       ], $form);
 
       // Jenis kartu to use dropdown
-      $card_items = \Drupal::entityTypeManager()->getStorage('bricc_card_item')->loadByProperties([
-        'status' => 1,
-      ]);
-      $option_jenis_kartu = [];
-      /** @var \Drupal\bricc\Entity\BriccCardItem $card_item */
-      foreach ($card_items as $card_item) {
-        if (!$card_item->get('field_idcardtype')->isEmpty()) {
-          $key = $card_item->get('field_idcardtype')->value;
-          $label = $card_item->label();
-          $option_jenis_kartu[$key] = $label;
-        }
+      // $card_items = \Drupal::entityTypeManager()->getStorage('bricc_card_item')->loadByProperties([
+      //   'status' => 1,
+      // ]);
+      // $option_jenis_kartu = [];
+      // /** @var \Drupal\bricc\Entity\BriccCardItem $card_item */
+      // foreach ($card_items as $card_item) {
+      //   if (!$card_item->get('field_idcardtype')->isEmpty()) {
+      //     $key = $card_item->get('field_idcardtype')->value;
+      //     $label = $card_item->label();
+      //     $option_jenis_kartu[$key] = $label;
+      //   }
+      // }
+      $card_type = \Drupal::service('bricc.parser_remote_data')->listCardType();
+      $option_jenis_kartu = ['' => 'All'];
+      foreach ($card_type['data']['creditCardTypes'] as $card) {
+        $option_jenis_kartu[$card['idCardType']] = $card['descCardType'];
       }
       $form['jeniskartu']['#type'] = 'select';
       $form['jeniskartu']['#options'] = $option_jenis_kartu;

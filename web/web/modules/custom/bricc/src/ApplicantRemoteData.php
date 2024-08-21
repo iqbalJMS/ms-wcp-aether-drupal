@@ -327,9 +327,27 @@ class ApplicantRemoteData
       $start_date = $params['startdate'] ?? '';
       $end_date = $params['enddate'] ?? '';
       $jenis_kartu = $params['jeniskartu'] ?? '';
-      $qgl_str = '{"query":"query{\n  personalInfoByDate(\n    startDate: \"%s\",\n    endDate: \"%s\",\n    jenisKartu:\"%s\") {_id, namaNasabah, nik,noHp,tanggalLahir,jenisKartuKredit,isDeduped,isDukcapil,isSubmitted}}"}';
+      $qgl_str = <<< GRAPHQL
+      query {
+        personalInfoByDate (
+          startDate: "%s"
+          endDate: "%s"
+          jenisKartu:"%s"
+        ) {
+          _id
+          namaNasabah
+          nik
+          noHp
+          tanggalLahir
+          jenisKartuKredit
+          isDeduped
+          isDukcapil
+          isSubmitted
+        }
+      }
+      GRAPHQL;
       $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
-
+      $options['body'] = json_encode(['query' => $options['body']]);
       $result = $this->post($this->sourceBaseUrl, $options);
 
       if (isset($result['data']['personalInfoByDate'])) {
