@@ -11,9 +11,9 @@ echo -e "\n\n\n
 \n"
 echo "[PRE-FLIGHT] installing"
 cd /workspaces
-set -a            
-source .env
-set +a
+# set -a            
+# source .env
+# set +a
 
 #set env
 echo "[COMPOSER] set to use superuser"
