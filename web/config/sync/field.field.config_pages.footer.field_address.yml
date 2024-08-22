@@ -1,0 +1,26 @@
+uuid: f90af87c-9979-4bbb-b0e0-a114594585b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_address
+    - filter.format.full_html
+  module:
+    - text
+id: config_pages.footer.field_address
+field_name: field_address
+entity_type: config_pages
+bundle: footer
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+field_type: text_with_summary
