@@ -3,16 +3,16 @@
   <a class="button button-primary" href="#">Download Excel</a>
   <a class="button button-primary" href="#">Download PDF</a>
   {% if detail.documents.ktpUrl %}
-    <a class="button button-primary float-right" href="{{ detail.documents.ktpUrl }}" target="_blank">Download KTP</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.ktpUrl }}">Download KTP</a>
   {% endif %}
   {% if detail.documents.npwpUrl %}
-    <a class="button button-primary float-right" href="{{ detail.documents.npwpUrl }}" target="_blank">Download NPWP</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.npwpUrl }}">Download NPWP</a>
   {% endif %}
   {% if detail.documents.swafotoKtpUrl %}
-    <a class="button button-primary float-right" href="{{ detail.documents.swafotoKtpUrl }}" target="_blank">Download Selfie</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.swafotoKtpUrl }}">Download Selfie</a>
   {% endif %}
   {% if detail.documents.slipGajiUrl %}
-    <a class="button button-primary float-right" href="{{ detail.documents.slipGajiUrl }}" target="_blank">Download Slip Gaji</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.slipGajiUrl }}">Download Slip Gaji</a>
   {% endif %}
 </div>
 <h2>{{ 'Data Pribadi'|t }}</h2>

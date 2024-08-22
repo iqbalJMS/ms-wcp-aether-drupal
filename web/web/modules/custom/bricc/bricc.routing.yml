@@ -78,4 +78,4 @@ bricc.document_detail:
     _title: 'Document detail'
   requirements:
     _permission: 'access administration pages'
-    id: '[a-zA-Z0-9_-]+'
+    id: '[a-zA-Z0-9_-]*'

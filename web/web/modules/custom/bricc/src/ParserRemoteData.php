@@ -96,6 +96,18 @@ class ParserRemoteData {
     return $this->post($this->sourceBaseUrl, $options);
   }
 
+  public function formattedCardType(): array {
+    $card_type = $this->listCardType();
+    $card_type_options = [];
+    if (isset($card_type['data']['creditCardTypes'])) {
+      foreach ($card_type['data']['creditCardTypes'] as $card) {
+        $card_type_options[trim($card['idCardType'])] = $card['descCardType'];
+      }
+    }
+
+    return $card_type_options;
+  }
+
   public function listEducation() {
     $query = <<< GRAPHQL
       query {

@@ -62,6 +62,7 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
 
       if (!empty($remote_data)) {
         $event->getView()->getPager()->total_items = count($remote_data);
+        $card_type_options = \Drupal::service('bricc.parser_remote_data')->formattedCardType();
 
         // TODO pagination
         foreach ($remote_data as $item) {
@@ -112,6 +113,12 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
               'class' => $cek_class,
               'text' => $cek_submit,
             ];
+          }
+          if (isset($item['tanggalVerif'])) {
+            $item['tanggalVerif'] = date('Y-m-d H:i', strtotime($item['tanggalVerif']));
+          }
+          if (isset($card_type_options[$item['jenisKartuKredit']])) {
+            $item['jenisKartuKredit'] = $card_type_options[$item['jenisKartuKredit']];
           }
 
           $event->addResult(new ResultRow($item));

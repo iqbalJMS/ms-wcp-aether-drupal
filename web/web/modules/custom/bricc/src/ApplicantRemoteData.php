@@ -151,23 +151,6 @@ class ApplicantRemoteData
   }
 
   /**
-   * Convert image id to url.
-   *
-   * @param string $id
-   *   Image's id.
-   *
-   * @return string
-   *   The image url.
-   */
-  public function getImage(string $id): string {
-    if ($id && $this->fileServiceUrl) {
-      return $this->fileServiceUrl . '/' . $id;
-    }
-
-    return '';
-  }
-
-  /**
    * @param array $params
    *
    * @return array
@@ -180,7 +163,7 @@ class ApplicantRemoteData
     }
 
     // Filter type
-    $filter_type = $params['filter_type'] ?? 'date';
+    $filter_type = $params['filtering_type'] ?? 'date';
 
     $options = [];
 
@@ -202,6 +185,12 @@ class ApplicantRemoteData
           noHp
           tanggalLahir
           tanggalVerif
+          documents {
+            ktpId
+            npwpId
+            slipGajiId
+            swafotoKtpId
+          }
         }
       }
       GRAPHQL;
@@ -300,11 +289,6 @@ class ApplicantRemoteData
     $result = $this->postGql($options);
 
     if (isset($result['data']['personalInfo'])) {
-      $result['data']['personalInfo']['documents']['ktpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['ktpId'] ?? '');
-      $result['data']['personalInfo']['documents']['npwpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['npwpId'] ?? '');
-      $result['data']['personalInfo']['documents']['slipGajiUrl'] = $this->getImage($result['data']['personalInfo']['documents']['slipGajiId'] ?? '');
-      $result['data']['personalInfo']['documents']['swafotoKtpUrl'] = $this->getImage($result['data']['personalInfo']['documents']['swafotoKtpId'] ?? '');
-
       return $result['data']['personalInfo'];
     }
 
@@ -318,7 +302,7 @@ class ApplicantRemoteData
     }
 
     // Filter type
-    $filter_type = $params['filter_type'] ?? 'date';
+    $filter_type = $params['filtering_type'] ?? 'date';
 
     $options = [];
 
@@ -327,7 +311,7 @@ class ApplicantRemoteData
       $start_date = $params['startdate'] ?? '';
       $end_date = $params['enddate'] ?? '';
       $jenis_kartu = $params['jeniskartu'] ?? '';
-      $qgl_str = <<< GRAPHQL
+      $gql_str = <<< GRAPHQL
       query {
         personalInfoByDate (
           startDate: "%s"
@@ -335,18 +319,26 @@ class ApplicantRemoteData
           jenisKartu:"%s"
         ) {
           _id
+          tanggalVerif
           namaNasabah
           nik
           noHp
           tanggalLahir
           jenisKartuKredit
+          apregNo
           isDeduped
           isDukcapil
           isSubmitted
+          documents {
+            ktpId
+            npwpId
+            slipGajiId
+            swafotoKtpId
+          }
         }
       }
       GRAPHQL;
-      $options['body'] = sprintf($qgl_str, $start_date, $end_date, $jenis_kartu);
+      $options['body'] = sprintf($gql_str, $start_date, $end_date, $jenis_kartu);
       $options['body'] = json_encode(['query' => $options['body']]);
       $result = $this->post($this->sourceBaseUrl, $options);
 
@@ -360,8 +352,36 @@ class ApplicantRemoteData
       $phone = $params['phone'] ?? '';
       $tgllahir = $params['tgllahir'] ?? '';
 
-      $gql_str = '{"query":"query {\n\tpersonalInfosByName (\n\t\tnamaNasabah:\"%s\", noHp:\"%s\", tanggalLahir:\"%s\") {\n\t\t_id,\n\t\tnamaNasabah,\n\t\tjenisKartuKredit,\n\t\tnik,  \n\t\tnoHp,\n\t\ttanggalLahir,\n\t\tjenisKartuKredit,\n\t\tisDeduped,\n\t\tisDukcapil,\n\t\tisSubmitted\n\t}\n}"}';
+      $gql_str = <<< GRAPHQL
+      query {
+        personalInfosByName (
+          namaNasabah:"%s"
+          noHp:"%s"
+          tanggalLahir:"%s"
+        ) {
+          _id
+          tanggalVerif
+          namaNasabah
+          jenisKartuKredit
+          apregNo
+          nik
+          noHp
+          tanggalLahir
+          jenisKartuKredit
+          isDeduped
+          isDukcapil
+          isSubmitted
+          documents {
+            ktpId
+            npwpId
+            slipGajiId
+            swafotoKtpId
+          }
+        }
+      }
+      GRAPHQL;
       $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
+      $options['body'] = json_encode(['query' => $options['body']]);
       $result = $this->post($this->sourceBaseUrl, $options);
       if (isset($result['data']['personalInfosByName'])) {
         return $result['data']['personalInfosByName'];
@@ -376,65 +396,58 @@ class ApplicantRemoteData
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function documentDetail ($type, $applicantId): string {
-    $qgl_str = '{"query":"{\n  document(id:\"%s\") {\n    ktpUrl,\n    npwpUrl,\n    slipGajiUrl,\n    swafotoKtpUrl\n  }\n}"}';
-    $options['body'] = sprintf($qgl_str, $applicantId);
-    $response_doc = $this->post($this->sourceBaseUrl, $options);
+  public function documentDetail ($type, $doc_id): string {
+    // Get binary
+    $file_name = sprintf('%s--%s', $type, $doc_id);
+    $destination = 'public://' . $file_name;
 
-    if (isset($response_doc['data']['document'][$type])) {
-      $doc_id = $response_doc['data']['document'][$type];
+    $file = $this->em->getStorage('file')->loadByProperties([
+      'uri' => $destination
+    ]);
 
-      // Get binary
-      $file_name = sprintf('%s--%s--%s', $type, $applicantId, $doc_id);
-      $destination = 'public://' . $file_name;
+    if ($file) {
+      // File already exist
+      $file = reset($file);
 
-      $file = $this->em->getStorage('file')->loadByProperties([
-        'uri' => $destination
-      ]);
-      if ($file) {
-        // File already exist
-        $file = reset($file);
+      // Return the URL
+      return $file->createFileUrl();
+    }
+    else {
+      // File not exist, fetch
+      try {
+        $endpoint_url = $this->fileServiceUrl . '/' . $doc_id;
+        $response = $this->client->get($endpoint_url, [
+          'stream' => true,
+          'headers' => [
+            'x-api-key' => 'auth',
+          ],
+        ]);
 
-        // Return the URL
-        return $file->createFileUrl();
-      }
-      else {
-        // File not exist, fetch
-        try {
-          $endpoint_url = $this->fileServiceUrl . '/' . $doc_id;
-          $response = $this->client->get($endpoint_url, [
-            'stream' => true,
-            'headers' => [
-              'x-api-key' => 'auth',
-            ],
-          ]);
+        if ($response->getStatusCode() === 200) {
+          $data = $response->getBody()->getContents();
 
-          if ($response->getStatusCode() === 200) {
-            $data = $response->getBody()->getContents();
+          // Save the file data to Drupal's file system.
+          $directory = dirname($destination);
+          $this->file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+          $destination = $this->file_system->getDestinationFilename($destination, FileExists::Replace);
+          $file_uri = $this->file_system->saveData($data, $destination, FileExists::Replace);
 
-            // Save the file data to Drupal's file system.
-            $directory = dirname($destination);
-            $this->file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
-            $destination = $this->file_system->getDestinationFilename($destination, FileExists::Replace);
-            $file_uri = $this->file_system->saveData($data, $destination, FileExists::Replace);
+          if ($file_uri) {
+            // Create a file entity using the URI.
+            // Don't set status to make it marked as unmanaged.
+            $file = File::create([
+              'uri' => $file_uri,
+            ]);
+            $file->save();
 
-            if ($file_uri) {
-              // Create a file entity using the URI.
-              // Don't set status to make it marked as unmanaged.
-              $file = File::create([
-                'uri' => $file_uri,
-              ]);
-              $file->save();
+            $this->logger->info(t('File saved with ID: @fid', ['@fid' => $file->id()]));
 
-              $this->logger->info(t('File saved with ID: @fid', ['@fid' => $file->id()]));
-
-              return $file->createFileUrl();
-            }
+            return $file->createFileUrl();
           }
         }
-        catch (\Exception $e) {
-          $this->logger->error($e->getMessage());
-        }
+      }
+      catch (\Exception $e) {
+        $this->logger->error($e->getMessage());
       }
     }
 

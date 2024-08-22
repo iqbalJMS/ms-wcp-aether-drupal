@@ -232,7 +232,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: jenisKartu'
+          admin_label: 'remote: jenisKartuKredit'
           plugin_id: views_remote_data_property
           label: 'Jenis kartu'
           exclude: false
@@ -275,14 +275,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: jenisKartu
+          property_path: jenisKartuKredit
         property_6:
           id: property_6
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: appRegNo'
+          admin_label: 'remote: apregNo'
           plugin_id: views_remote_data_property
           label: AppRegNo
           exclude: false
@@ -325,7 +325,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: appRegNo
+          property_path: apregNo
         property_5:
           id: property_5
           table: bricc_applicant_remote_data
@@ -476,6 +476,56 @@ display:
           empty_zero: false
           hide_alter_empty: true
           property_path: nik
+        property_8:
+          id: property_8
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'remote: documents.ktpId'
+          plugin_id: views_remote_data_property
+          label: 'Property value'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: documents.ktpId
         nothing_1:
           id: nothing_1
           table: views
@@ -488,7 +538,304 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'ktp', 'id': property_4}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP</a>"
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'ktp', 'id': property_8}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        property_9:
+          id: property_9
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'remote: documents.swafotoKtpId'
+          plugin_id: views_remote_data_property
+          label: 'Property value'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: documents.swafotoKtpId
+        nothing_2:
+          id: nothing_2
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: 'KTP Selfie'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafotoKtp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        property_10:
+          id: property_10
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'remote: documents.npwpId'
+          plugin_id: views_remote_data_property
+          label: 'Property value'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: documents.npwpId
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: NPWP
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'npwp', 'id': property_10}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">NPWP</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        property_11:
+          id: property_11
+          table: bricc_applicant_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: 'remote: documents.slipGajiId'
+          plugin_id: views_remote_data_property
+          label: 'Property value'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: documents.slipGajiId
+        nothing_4:
+          id: nothing_4
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: 'Slip Gaji'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slipGaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
             make_link: false
             path: ''
             absolute: false
@@ -537,7 +884,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.applicant_detail', {'id': property_4} ) }}\">{{ 'Lihat Detail'|t }}</a>"
+            text: "<a class=\"button button-primary\" href=\"{{ path('bricc.applicant_detail', {'id': property_4} ) }}\">{{ 'Lihat Detail'|t }}</a>"
             make_link: false
             path: ''
             absolute: false
@@ -1412,7 +1759,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: jenisKartu'
+          admin_label: 'remote: jenisKartuKredit'
           plugin_id: views_remote_data_property
           label: 'Jenis kartu'
           exclude: false
@@ -1455,14 +1802,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: jenisKartu
+          property_path: jenisKartuKredit
         property_6:
           id: property_6
           table: bricc_applicant_remote_data
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: appRegNo'
+          admin_label: 'remote: apregNo'
           plugin_id: views_remote_data_property
           label: AppRegNo
           exclude: false
@@ -1505,7 +1852,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: appRegNo
+          property_path: apregNo
         property_5:
           id: property_5
           table: bricc_applicant_remote_data
@@ -1808,8 +2155,8 @@ display:
       display_extenders: {  }
       path: admin/bricc/applicant-process
       menu:
-        type: normal
-        title: Applicant
+        type: tab
+        title: 'Applicant  Status'
         description: ''
         weight: 0
         expanded: false

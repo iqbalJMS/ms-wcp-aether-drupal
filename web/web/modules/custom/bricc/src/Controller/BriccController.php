@@ -136,6 +136,19 @@ class BriccController extends ControllerBase {
   public function applicantDetail($id): array {
     $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
 
+    if (isset($detail['documents']['ktpId'])) {
+      $detail['documents']['ktpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('ktpId', $detail['documents']['ktpId']);
+    }
+    if (isset($detail['documents']['npwpId'])) {
+      $detail['documents']['npwpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('npwpId', $detail['documents']['npwpId']);
+    }
+    if (isset($detail['documents']['slipGajiId'])) {
+      $detail['documents']['slipGajiUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('slipGajiId', $detail['documents']['slipGajiId']);
+    }
+    if (isset($detail['documents']['swafotoKtpId'])) {
+      $detail['documents']['swafotoKtpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('swafotoKtpId', $detail['documents']['swafotoKtpId']);
+    }
+
     // Rename jenis kartu
     $remote_card_types = \Drupal::service('bricc.parser_remote_data')->listCardType();
     $card_type_options = [];
@@ -206,10 +219,10 @@ class BriccController extends ControllerBase {
 
   public function documentDetail($type, $id): array {
     $types = [
-      'ktp' => 'ktpUrl',
-      'npwp' => 'npwpUrl',
-      'slip-gaji' => 'slipGajiUrl',
-      'swafoto-ktp' => 'swafotoKtpUrl',
+      'ktp' => 'ktpId',
+      'npwp' => 'npwpId',
+      'slip-gaji' => 'slipGajiId',
+      'swafoto-ktp' => 'swafotoKtpId',
     ];
     $allowed_types = array_keys($types);
 
@@ -223,11 +236,9 @@ class BriccController extends ControllerBase {
     $document = \Drupal::service('bricc.application_remote_data')->documentDetail($types[$type], $id);
     if ($document) {
       return [
+        '#attached' => ['library' => ['bri_admin/global']],
         '#theme' => 'item_list',
         '#items' => [
-          [
-            '#markup' => 'The document',
-          ],
           [
             '#theme' => 'image',
             '#uri' => $document,
@@ -235,16 +246,16 @@ class BriccController extends ControllerBase {
             '#title' => 'Document',
           ],
           [
-          '#type' => 'link',
-          '#title' => $this->t('Download'),
-          '#url' => 'http://example.com',
-          '#attributes' => [
-            'target' => '_blank',
-            'class' => ['bri-download-document'],
+            '#type' => 'link',
+            '#title' => $this->t('Download'),
+            '#url' => Url::fromUri('internal:'.$document),
+            '#attributes' => [
+              'target' => '_blank',
+              'class' => ['bri-download-document'],
+            ],
           ],
         ],
-        ],
-        '#attributes' => ['class' => ['my-custom-page']],
+        '#attributes' => ['class' => ['no-style', 'text-center']],
       ];
     }
 
