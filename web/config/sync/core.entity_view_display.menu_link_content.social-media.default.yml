@@ -1,0 +1,28 @@
+uuid: cc034d82-f8c5-46a0-ba3b-4d198b1782f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.social-media.field_image
+    - system.menu.social-media
+id: menu_link_content.social-media.default
+targetEntityType: menu_link_content
+bundle: social-media
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

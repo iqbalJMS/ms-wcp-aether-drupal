@@ -1,0 +1,23 @@
+uuid: fec542f5-0ef8-4af0-b7be-d0ef49c774ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.header
+    - field.storage.config_pages.field_main_navigation
+id: config_pages.header.field_main_navigation
+field_name: field_main_navigation
+entity_type: config_pages
+bundle: header
+label: 'Main Navigation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 4a3e01a8-dc11-48ba-9cf4-45d0793424ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.alerts_modes.body
+    - node.type.alerts_modes
+  module:
+    - text
+    - user
+id: node.alerts_modes.default
+targetEntityType: node
+bundle: alerts_modes
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

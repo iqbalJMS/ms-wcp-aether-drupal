@@ -1,0 +1,28 @@
+uuid: c7fdad5a-4fc3-4d38-810d-60b193c09364
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.login-dropdown.field_image
+    - system.menu.login-dropdown
+id: menu_link_content.login-dropdown.default
+targetEntityType: menu_link_content
+bundle: login-dropdown
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

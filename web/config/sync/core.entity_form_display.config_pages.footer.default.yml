@@ -1,0 +1,78 @@
+uuid: 002212ee-90fa-4b3e-80b9-973d2d6c975f
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.field.config_pages.footer.field_address
+    - field.field.config_pages.footer.field_main_navigation
+    - field.field.config_pages.footer.field_notes
+    - field.field.config_pages.footer.field_top_navigation
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_footer_menu:
+      children:
+        - field_top_navigation
+        - field_main_navigation
+      label: 'Footer Menu'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: ''
+        required_fields: true
+id: config_pages.footer.default
+targetEntityType: config_pages
+bundle: footer
+mode: default
+content:
+  field_address:
+    type: text_textarea_with_summary
+    weight: 0
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_main_navigation:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_notes:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_top_navigation:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

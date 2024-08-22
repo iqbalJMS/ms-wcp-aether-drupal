@@ -28,6 +28,7 @@ settings:
       - '|'
       - insertTable
       - style
+      - drupalMedia
   plugins:
     ckeditor5_alignment:
       enabled_alignments:
