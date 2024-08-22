@@ -43,17 +43,14 @@ settings:
       accordion_item:
         weight: 5
         enabled: true
-      benefit:
-        weight: 29
-        enabled: false
-      benefit_item:
-        weight: 30
-        enabled: true
       card_comparation:
         weight: 21
         enabled: false
       card_content:
         weight: 22
+        enabled: false
+      card_cta:
+        weight: 40
         enabled: false
       card_detail:
         weight: 13
@@ -73,11 +70,20 @@ settings:
       card_slider:
         weight: 8
         enabled: false
+      content_type:
+        weight: 35
+        enabled: false
       from_library:
         weight: 3
         enabled: true
       header:
         weight: 2
+        enabled: false
+      icon_content_item:
+        weight: 49
+        enabled: false
+      icon_cta:
+        weight: 50
         enabled: false
       image_slider:
         weight: 41
@@ -85,8 +91,14 @@ settings:
       image_slider_item:
         weight: 42
         enabled: true
+      list_content_item:
+        weight: 53
+        enabled: false
       menu_list:
         weight: 43
+        enabled: false
+      multi_tab:
+        weight: 55
         enabled: false
       personalized_shortcut:
         weight: 44
@@ -100,12 +112,18 @@ settings:
       rich_text:
         weight: 47
         enabled: false
+      section:
+        weight: 60
+        enabled: false
       slider:
         weight: 32
         enabled: false
       slider_item:
         weight: 33
         enabled: true
+      staircase_cards:
+        weight: 63
+        enabled: false
       step_item:
         weight: 34
         enabled: true
@@ -114,6 +132,9 @@ settings:
         enabled: false
       subscription:
         weight: 53
+        enabled: false
+      tab_item:
+        weight: 67
         enabled: false
       two_column:
         weight: 36

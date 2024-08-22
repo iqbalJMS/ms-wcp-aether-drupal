@@ -1,0 +1,10 @@
+uuid: 1a5fefc0-331c-4067-b547-34808af5d1b6
+langcode: en
+status: true
+dependencies: {  }
+id: content_type
+label: 'Content Type'
+icon_uuid: null
+icon_default: null
+description: 'Content Type List'
+behavior_plugins: {  }

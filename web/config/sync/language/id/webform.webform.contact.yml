@@ -1,0 +1,6 @@
+title: Contact
+settings:
+  confirmation_message: 'Your message has been sent.'
+handlers:
+  email_notification:
+    label: 'Email notification'

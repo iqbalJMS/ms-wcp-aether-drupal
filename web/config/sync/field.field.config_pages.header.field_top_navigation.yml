@@ -1,0 +1,23 @@
+uuid: 45671723-e123-4765-a865-a61bb20f3f95
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.header
+    - field.storage.config_pages.field_top_navigation
+id: config_pages.header.field_top_navigation
+field_name: field_top_navigation
+entity_type: config_pages
+bundle: header
+label: 'Top Navigation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

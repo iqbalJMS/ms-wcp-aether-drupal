@@ -1,0 +1,17 @@
+uuid: 32d6d2e1-02f0-4fea-b8b3-d547f05d382c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Announcements
+type: announcement
+description: 'Announcement Content Items'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

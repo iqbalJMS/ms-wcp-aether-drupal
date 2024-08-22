@@ -1,0 +1,23 @@
+uuid: 32eba74f-536c-4971-a81f-a911fc6e171b
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_top_navigation
+id: config_pages.footer.field_top_navigation
+field_name: field_top_navigation
+entity_type: config_pages
+bundle: footer
+label: 'Contact Us'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

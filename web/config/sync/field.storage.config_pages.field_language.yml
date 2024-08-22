@@ -1,0 +1,20 @@
+uuid: f71fc2fc-c660-413e-8445-6396fe796a6b
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - system
+id: config_pages.field_language
+field_name: field_language
+entity_type: config_pages
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

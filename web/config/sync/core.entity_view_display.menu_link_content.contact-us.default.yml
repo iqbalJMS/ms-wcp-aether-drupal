@@ -1,0 +1,28 @@
+uuid: 31bedc11-a062-4176-9440-1a5b848a7338
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.contact-us.field_image
+    - system.menu.contact-us
+id: menu_link_content.contact-us.default
+targetEntityType: menu_link_content
+bundle: contact-us
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

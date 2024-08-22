@@ -45,16 +45,19 @@ module:
   pgsql: 0
   rest: 0
   rest_entity_recursive: 0
+  rest_export_nested: 0
   rest_paragraphs_recursive: 0
   restui: 0
   schemata: 0
   schemata_json_schema: 0
   serialization: 0
   system: 0
+  taxonomy: 0
   text: 0
   toolbar: 0
   update: 0
   user: 0
+  views_field_view: 0
   views_remote_data: 0
   views_ui: 0
   webform: 0

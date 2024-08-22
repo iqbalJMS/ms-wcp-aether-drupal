@@ -1,0 +1,48 @@
+uuid: 66c4c338-c35f-4a9a-842b-d64f6bd5ee71
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.field.config_pages.footer.field_address
+    - field.field.config_pages.footer.field_main_navigation
+    - field.field.config_pages.footer.field_notes
+    - field.field.config_pages.footer.field_top_navigation
+  module:
+    - text
+id: config_pages.footer.default
+targetEntityType: config_pages
+bundle: footer
+mode: default
+content:
+  field_address:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_main_navigation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_top_navigation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

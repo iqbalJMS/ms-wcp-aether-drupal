@@ -1,0 +1,39 @@
+uuid: 173afe6a-ace6-4ae4-a100-79f5511cc548
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.login-dropdown.field_image
+    - system.menu.login-dropdown
+  module:
+    - link
+    - media_library
+id: menu_link_content.login-dropdown.default
+targetEntityType: menu_link_content
+bundle: login-dropdown
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 180
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  view_mode: true
