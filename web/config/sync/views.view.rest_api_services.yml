@@ -563,8 +563,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'sites/default/files/images/{{field_image}}'
             make_link: false
             path: ''
             absolute: false
