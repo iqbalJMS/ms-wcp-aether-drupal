@@ -50,7 +50,7 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
       $params = $event->getView()->getExposedInput();
 
       // Pagination data
-      $offset = $event->getView()->getPager()->getCurrentPage();
+      $offset =  $event->getOffset();
       $limit = $event->getLimit();
       if (!empty($params['items_per_page'])) {
         $limit = (int) $params['items_per_page'];
@@ -64,64 +64,67 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
         $event->getView()->getPager()->total_items = count($remote_data);
         $card_type_options = \Drupal::service('bricc.parser_remote_data')->formattedCardType();
 
-        // TODO pagination
-        foreach ($remote_data as $item) {
-          if (isset($item['isDeduped'])) {
-            $cek_class = '';
-            $cek_deduped = 'Pending';
-            if ($item['isDeduped'] === TRUE) {
-              $cek_class = 'published';
-              $cek_deduped = 'Berhasil';
+        // Pagination
+        $end_index = $offset + $limit;
+        foreach ($remote_data as $idx => $item) {
+          if ($idx >= $offset && $idx < $end_index) {
+            if (isset($item['isDeduped'])) {
+              $cek_class = '';
+              $cek_deduped = 'Pending';
+              if ($item['isDeduped'] === TRUE) {
+                $cek_class = 'published';
+                $cek_deduped = 'Berhasil';
+              }
+              elseif ($item['isDeduped'] === FALSE) {
+                $cek_class = 'danger';
+                $cek_deduped = 'Gagal';
+              }
+              $item['status_dedup'] = [
+                'class' => $cek_class,
+                'text' => $cek_deduped,
+              ];
             }
-            elseif ($item['isDeduped'] === FALSE) {
-              $cek_class = 'danger';
-              $cek_deduped = 'Gagal';
+            if (isset($item['isDukcapil'])) {
+              $cek_class = '';
+              $cek_dukcapil = 'Pending';
+              if ($item['isDukcapil'] === TRUE) {
+                $cek_class = 'published';
+                $cek_dukcapil = 'Berhasil';
+              }
+              elseif ($item['isDukcapil'] === FALSE) {
+                $cek_class = 'danger';
+                $cek_dukcapil = 'Gagal';
+              }
+              $item['status_dukcapil'] = [
+                'class' => $cek_class,
+                'text' => $cek_dukcapil,
+              ];
             }
-            $item['status_dedup'] = [
-              'class' => $cek_class,
-              'text' => $cek_deduped,
-            ];
-          }
-          if (isset($item['isDukcapil'])) {
-            $cek_class = '';
-            $cek_dukcapil = 'Pending';
-            if ($item['isDukcapil'] === TRUE) {
-              $cek_class = 'published';
-              $cek_dukcapil = 'Berhasil';
+            if (isset($item['isSubmitted'])) {
+              $cek_class = '';
+              $cek_submit = 'Pending';
+              if ($item['isSubmitted'] === TRUE) {
+                $cek_class = 'published';
+                $cek_submit = 'Berhasil';
+              }
+              elseif ($item['isSubmitted'] === FALSE) {
+                $cek_class = 'danger';
+                $cek_submit = 'Gagal';
+              }
+              $item['status_submit'] = [
+                'class' => $cek_class,
+                'text' => $cek_submit,
+              ];
             }
-            elseif ($item['isDukcapil'] === FALSE) {
-              $cek_class = 'danger';
-              $cek_dukcapil = 'Gagal';
+            if (isset($item['tanggalPengajuan'])) {
+              $item['tanggalPengajuan'] = date('Y-m-d H:i', strtotime($item['tanggalPengajuan']));
             }
-            $item['status_dukcapil'] = [
-              'class' => $cek_class,
-              'text' => $cek_dukcapil,
-            ];
-          }
-          if (isset($item['isSubmitted'])) {
-            $cek_class = '';
-            $cek_submit = 'Pending';
-            if ($item['isSubmitted'] === TRUE) {
-              $cek_class = 'published';
-              $cek_submit = 'Berhasil';
+            if (isset($card_type_options[$item['jenisKartuKredit']])) {
+              $item['jenisKartuKredit'] = $card_type_options[$item['jenisKartuKredit']];
             }
-            elseif ($item['isSubmitted'] === FALSE) {
-              $cek_class = 'danger';
-              $cek_submit = 'Gagal';
-            }
-            $item['status_submit'] = [
-              'class' => $cek_class,
-              'text' => $cek_submit,
-            ];
-          }
-          if (isset($item['tanggalPengajuan'])) {
-            $item['tanggalPengajuan'] = date('Y-m-d H:i', strtotime($item['tanggalPengajuan']));
-          }
-          if (isset($card_type_options[$item['jenisKartuKredit']])) {
-            $item['jenisKartuKredit'] = $card_type_options[$item['jenisKartuKredit']];
-          }
 
-          $event->addResult(new ResultRow($item));
+            $event->addResult(new ResultRow($item));
+          }
         }
       }
 
