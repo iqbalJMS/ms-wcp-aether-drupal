@@ -221,8 +221,8 @@ class BriccController extends ControllerBase {
     $types = [
       'ktp' => 'ktpId',
       'npwp' => 'npwpId',
-      'slipGaji' => 'slipGajiId',
-      'swafotoKtp' => 'swafotoKtpId',
+      'slip-gaji' => 'slipGajiId',
+      'swafoto-ktp' => 'swafotoKtpId',
     ];
     $allowed_types = array_keys($types);
 
