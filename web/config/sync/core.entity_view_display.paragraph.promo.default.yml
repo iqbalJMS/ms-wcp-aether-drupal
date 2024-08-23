@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.promo.field_content
+    - field.field.paragraph.promo.field_primary_cta
     - field.field.paragraph.promo.field_promo_item
     - field.field.paragraph.promo.field_title
     - paragraphs.paragraphs_type.promo
   module:
     - entity_reference_revisions
+    - link
     - text
 id: paragraph.promo.default
 targetEntityType: paragraph
@@ -21,6 +23,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_promo_item:
     type: entity_reference_revisions_entity_view
