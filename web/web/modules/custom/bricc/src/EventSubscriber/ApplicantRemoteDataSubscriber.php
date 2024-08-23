@@ -114,8 +114,8 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
               'text' => $cek_submit,
             ];
           }
-          if (isset($item['tanggalVerif'])) {
-            $item['tanggalVerif'] = date('Y-m-d H:i', strtotime($item['tanggalVerif']));
+          if (isset($item['tanggalPengajuan'])) {
+            $item['tanggalPengajuan'] = date('Y-m-d H:i', strtotime($item['tanggalPengajuan']));
           }
           if (isset($card_type_options[$item['jenisKartuKredit']])) {
             $item['jenisKartuKredit'] = $card_type_options[$item['jenisKartuKredit']];

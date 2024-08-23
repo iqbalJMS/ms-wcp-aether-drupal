@@ -130,7 +130,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: tanggalVerif'
+          admin_label: 'remote: tanggalPengajuan'
           plugin_id: views_remote_data_property
           label: 'Tanggal submit'
           exclude: false
@@ -173,7 +173,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: tanggalVerif
+          property_path: tanggalPengajuan
         property:
           id: property
           table: bricc_applicant_remote_data
