@@ -21,9 +21,3 @@ bricc_city.add_form:
   route_name: entity.bricc_city.add_form
   appears_on:
     - entity.bricc_city.collection
-
-bricc_applicant_status.add_form:
-  title: 'Add applicant status'
-  route_name: entity.bricc_applicant_status.add_form
-  appears_on:
-    - entity.bricc_applicant_status.collection
