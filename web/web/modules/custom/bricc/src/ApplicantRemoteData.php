@@ -324,6 +324,7 @@ class ApplicantRemoteData
           nik
           noHp
           tanggalLahir
+          tanggalPengajuan
           jenisKartuKredit
           apregNo
           isDeduped
@@ -444,6 +445,9 @@ class ApplicantRemoteData
 
             return $file->createFileUrl();
           }
+        }
+        else {
+          $this->logger->error(t('Failed retrieving file from @link', ['@link' => $endpoint_url]));
         }
       }
       catch (\Exception $e) {

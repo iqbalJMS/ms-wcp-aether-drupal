@@ -221,10 +221,16 @@ class BriccController extends ControllerBase {
     $types = [
       'ktp' => 'ktpId',
       'npwp' => 'npwpId',
-      'slip-gaji' => 'slipGajiId',
-      'swafoto-ktp' => 'swafotoKtpId',
+      'slipGaji' => 'slipGajiId',
+      'swafotoKtp' => 'swafotoKtpId',
     ];
     $allowed_types = array_keys($types);
+
+    if ($id == '000') {
+      return [
+        '#markup' => '<p>Image not found</p>',
+      ];
+    }
 
     if (!in_array($type, $allowed_types)) {
       return [
@@ -236,7 +242,6 @@ class BriccController extends ControllerBase {
     $document = \Drupal::service('bricc.application_remote_data')->documentDetail($types[$type], $id);
     if ($document) {
       return [
-        '#attached' => ['library' => ['bri_admin/global']],
         '#theme' => 'item_list',
         '#items' => [
           [
