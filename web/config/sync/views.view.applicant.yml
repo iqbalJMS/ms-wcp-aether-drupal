@@ -130,7 +130,7 @@ display:
           field: property
           relationship: none
           group_type: group
-          admin_label: 'remote: tanggalVerif'
+          admin_label: 'remote: tanggalPengajuan'
           plugin_id: views_remote_data_property
           label: 'Tanggal submit'
           exclude: false
@@ -173,7 +173,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          property_path: tanggalVerif
+          property_path: tanggalPengajuan
         property:
           id: property
           table: bricc_applicant_remote_data
@@ -637,7 +637,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafotoKtp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafoto-ktp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
             make_link: false
             path: ''
             absolute: false
@@ -835,7 +835,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slipGaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slip-gaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
             make_link: false
             path: ''
             absolute: false

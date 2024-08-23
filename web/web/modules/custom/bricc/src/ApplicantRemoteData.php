@@ -319,7 +319,7 @@ class ApplicantRemoteData
           jenisKartu:"%s"
         ) {
           _id
-          tanggalVerif
+          tanggalPengajuan
           namaNasabah
           nik
           noHp
@@ -361,7 +361,7 @@ class ApplicantRemoteData
           tanggalLahir:"%s"
         ) {
           _id
-          tanggalVerif
+          tanggalPengajuan
           namaNasabah
           jenisKartuKredit
           apregNo
