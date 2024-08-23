@@ -637,7 +637,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafotoKtp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafoto-ktp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
             make_link: false
             path: ''
             absolute: false
@@ -835,7 +835,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slipGaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
+            text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slip-gaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
             make_link: false
             path: ''
             absolute: false

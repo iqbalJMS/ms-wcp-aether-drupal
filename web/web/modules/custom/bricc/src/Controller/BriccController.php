@@ -137,16 +137,16 @@ class BriccController extends ControllerBase {
     $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
 
     if (isset($detail['documents']['ktpId'])) {
-      $detail['documents']['ktpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('ktpId', $detail['documents']['ktpId']);
+      $detail['documents']['ktpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('ktp', $detail['documents']['ktpId']);
     }
     if (isset($detail['documents']['npwpId'])) {
-      $detail['documents']['npwpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('npwpId', $detail['documents']['npwpId']);
+      $detail['documents']['npwpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('npwp', $detail['documents']['npwpId']);
     }
     if (isset($detail['documents']['slipGajiId'])) {
-      $detail['documents']['slipGajiUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('slipGajiId', $detail['documents']['slipGajiId']);
+      $detail['documents']['slipGajiUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('slip-gaji', $detail['documents']['slipGajiId']);
     }
     if (isset($detail['documents']['swafotoKtpId'])) {
-      $detail['documents']['swafotoKtpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('swafotoKtpId', $detail['documents']['swafotoKtpId']);
+      $detail['documents']['swafotoKtpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('swafoto-ktp', $detail['documents']['swafotoKtpId']);
     }
 
     // Rename jenis kartu
