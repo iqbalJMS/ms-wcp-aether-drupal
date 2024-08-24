@@ -226,16 +226,26 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
         $form[$field]['#type']= 'date';
       }
 
-      $form['actions']['export'] = [
-        '#type' => 'link',
-        '#title' => t('Export'),
-        '#url' => Url::fromRoute(''),
-        '#attributes' => [
-          'class' => ['button js-form-submit form-submit'],
-        ],
-        '#weight' => 10,
-      ];
+      $export_route = 'view.applicant.data_export_1';
+      if ($form['#id'] === 'views-exposed-form-applicant-page-2') {
+        $export_route = 'view.applicant.data_export_2';
+      }
 
+      $current_request = \Drupal::service('request_stack')->getCurrentRequest();
+      $current_query_string = $current_request->query->all();
+      if (!empty($current_query_string)) {
+        $form['actions']['export'] = [
+          '#type' => 'link',
+          '#title' => t('Export'),
+          '#url' => Url::fromRoute($export_route, [], [
+            'query' => $current_query_string,
+          ]),
+          '#attributes' => [
+            'class' => ['button js-form-submit form-submit'],
+          ],
+          '#weight' => 10,
+        ];
+      }
     }
   }
   elseif ($form_id === 'bricc_card_item_add_form' || $form_id === 'bricc_card_item_edit_form') {
