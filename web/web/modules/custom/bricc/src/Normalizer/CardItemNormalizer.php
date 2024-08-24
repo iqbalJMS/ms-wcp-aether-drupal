@@ -97,6 +97,8 @@ class CardItemNormalizer extends ContentEntityNormalizer {
           $normalized['detail_link'] = [
             'path' => sprintf($str_format, $entity->id()),
             'nid' => $entity->id(),
+            'card_item_nid' => $entity->id(),
+            'card_detail_nid' => $node->id(),
             'title' => $label_detail,
           ];
         }
