@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.promo_item.field_content
+    - field.field.paragraph.promo_item.field_image
     - field.field.paragraph.promo_item.field_primary_cta
     - field.field.paragraph.promo_item.field_title
     - paragraphs.paragraphs_type.promo_item
@@ -19,6 +20,15 @@ content:
     type: text_default
     label: hidden
     settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content
