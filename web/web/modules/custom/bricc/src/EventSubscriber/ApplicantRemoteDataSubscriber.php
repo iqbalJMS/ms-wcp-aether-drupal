@@ -46,6 +46,16 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
     $base_tables = array_keys($event->getView()->getBaseTables());
     if (count(array_intersect($supported_bases, $base_tables)) > 0) {
 
+      $view = $event->getView();
+      $export_display_ids = [
+        'data_export_1',
+        'data_export_2',
+      ];
+      $is_export = FALSE;
+      if (in_array($view->current_display, $export_display_ids)) {
+        $is_export = TRUE;
+      }
+
       // Filter
       $params = $event->getView()->getExposedInput();
 
@@ -66,6 +76,12 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
 
         // Pagination
         $end_index = $offset + $limit;
+
+        if ($is_export) {
+          $offset = 0;
+          $end_index = count($remote_data);
+        }
+
         foreach ($remote_data as $idx => $item) {
           if ($idx >= $offset && $idx < $end_index) {
             if (isset($item['isDeduped'])) {

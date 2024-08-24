@@ -225,6 +225,17 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       foreach ($field_date as $field) {
         $form[$field]['#type']= 'date';
       }
+
+      $form['actions']['export'] = [
+        '#type' => 'link',
+        '#title' => t('Export'),
+        '#url' => Url::fromRoute(''),
+        '#attributes' => [
+          'class' => ['button js-form-submit form-submit'],
+        ],
+        '#weight' => 10,
+      ];
+
     }
   }
   elseif ($form_id === 'bricc_card_item_add_form' || $form_id === 'bricc_card_item_edit_form') {
