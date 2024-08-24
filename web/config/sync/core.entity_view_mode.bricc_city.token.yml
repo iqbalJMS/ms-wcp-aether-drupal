@@ -1,0 +1,11 @@
+uuid: 40391c23-3d1f-4056-9cae-427fd12769da
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_city.token
+label: Token
+description: ''
+targetEntityType: bricc_city
+cache: true

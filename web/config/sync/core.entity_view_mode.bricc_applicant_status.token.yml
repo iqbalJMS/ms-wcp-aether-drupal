@@ -1,0 +1,11 @@
+uuid: cde16940-da18-4d3c-a0a9-fc8fc013fc2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_applicant_status.token
+label: Token
+description: ''
+targetEntityType: bricc_applicant_status
+cache: true

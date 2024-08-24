@@ -1,0 +1,11 @@
+uuid: c4e9b678-51ec-4a16-8093-343f6de3a8bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_province.token
+label: Token
+description: ''
+targetEntityType: bricc_province
+cache: true

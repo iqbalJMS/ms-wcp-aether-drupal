@@ -1,0 +1,11 @@
+uuid: 48891141-9488-477f-b487-8b3349371268
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+id: bricc_card_item.token
+label: Token
+description: ''
+targetEntityType: bricc_card_item
+cache: true

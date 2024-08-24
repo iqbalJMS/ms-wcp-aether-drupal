@@ -1,0 +1,22 @@
+uuid: 1d6b6c65-daec-4207-8485-da5990cc7c80
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: card_detail_page
+label: 'Card detail page'
+type: 'canonical_entities:node'
+pattern: 'detail-cc/[node:title]'
+selection_criteria:
+  3be12f3c-2a2f-4437-a998-68ecc7098a8a:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 3be12f3c-2a2f-4437-a998-68ecc7098a8a
+    context_mapping:
+      node: node
+    bundles:
+      card_detail: card_detail
+selection_logic: and
+weight: -5
+relationships: {  }
