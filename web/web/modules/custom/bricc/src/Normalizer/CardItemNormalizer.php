@@ -95,6 +95,7 @@ class CardItemNormalizer extends ContentEntityNormalizer {
         if ($node instanceof NodeInterface) {
           $normalized['detail_link'] = [
             'path' => $node->toUrl()->toString(),
+            'nid' => $node->id(),
             'title' => $label_detail,
           ];
         }
