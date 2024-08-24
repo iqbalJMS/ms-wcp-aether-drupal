@@ -91,7 +91,7 @@ class CardItemNormalizer extends ContentEntityNormalizer {
           $label_detail = $config_bricc->get('field_view_detail_text')->value;
         }
 
-        $str_format = '/web/kartukredit/credit-card/%s';
+        $str_format = '/credit-card/%s';
         $node = reset($nodes);
         if ($node instanceof NodeInterface) {
           $normalized['detail_link'] = [
