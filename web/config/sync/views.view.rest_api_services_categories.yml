@@ -210,7 +210,7 @@ display:
           hide_alter_empty: true
           view: rest_api_services
           display: rest_export_nested_4
-          arguments: ''
+          arguments: '{{ raw_fields.tid }}'
       pager:
         type: mini
         options:
@@ -321,11 +321,14 @@ display:
         type: data_field
         options:
           field_options:
+            tid:
+              alias: category_id
+              raw_output: false
             name:
               alias: category_name
               raw_output: false
-            tid:
-              alias: category_id
+            view:
+              alias: list
               raw_output: false
       display_description: 'REST Export Service Categories'
       display_extenders: {  }
