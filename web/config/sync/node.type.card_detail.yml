@@ -1,0 +1,17 @@
+uuid: 4c4a82b0-df92-4c84-a411-a9283e290c69
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Card detail'
+type: card_detail
+description: 'Page for card detail'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

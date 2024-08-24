@@ -2,9 +2,15 @@
 
 namespace Drupal\bricc\Normalizer;
 
+use Drupal\config_pages\Entity\ConfigPages;
+use Drupal\config_pages\Entity\ConfigPagesType;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\rest_entity_recursive\Normalizer\ContentEntityNormalizer;
 
+/**
+ * NOTE This class is called CardSliderNormalizer, but it handles a lot more than
+ * normalizing CardSlider.
+ */
 class CardSliderNormalizer extends ContentEntityNormalizer {
 
   /**
@@ -19,7 +25,7 @@ class CardSliderNormalizer extends ContentEntityNormalizer {
    *
    * @var array
    */
-  protected $supportedParagraphTypes = ['card_slider', 'card_group_nav', 'card_detail'];
+  protected $supportedParagraphTypes = ['card_slider', 'card_group_nav', 'card_detail', 'card_popular'];
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface

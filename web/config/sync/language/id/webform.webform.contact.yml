@@ -1,6 +1,3 @@
-title: Contact
+title: Kontak
 settings:
-  confirmation_message: 'Your message has been sent.'
-handlers:
-  email_notification:
-    label: 'Email notification'
+  confirmation_message: 'Pesan anda sudah dikirim.'

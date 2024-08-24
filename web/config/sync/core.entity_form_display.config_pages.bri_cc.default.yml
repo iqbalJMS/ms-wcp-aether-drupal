@@ -1,0 +1,33 @@
+uuid: 88d3f839-ecf5-4689-a947-3c8435fb04a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.bri_cc
+    - field.field.config_pages.bri_cc.field_url
+    - field.field.config_pages.bri_cc.field_view_detail_text
+  module:
+    - link
+id: config_pages.bri_cc.default
+targetEntityType: config_pages
+bundle: bri_cc
+mode: default
+content:
+  field_url:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_view_detail_text:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

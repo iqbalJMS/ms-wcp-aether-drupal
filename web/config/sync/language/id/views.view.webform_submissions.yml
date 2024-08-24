@@ -1,6 +1,5 @@
 display:
   default:
-    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -22,10 +21,8 @@ display:
             offset_label: Offset
       fields:
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         created:
           label: Created
@@ -46,10 +43,8 @@ display:
         webform_submission_bulk_form:
           action_title: Action
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
           label: Sticky
@@ -61,7 +56,6 @@ display:
           label: Created
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
           label: 'IP address'
@@ -81,10 +75,8 @@ display:
         webform_submission_bulk_form:
           action_title: Action
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
           label: Sticky
@@ -96,7 +88,6 @@ display:
           label: Created
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
           label: 'IP address'
@@ -118,10 +109,8 @@ display:
     display_options:
       fields:
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
           label: Sticky
@@ -133,7 +122,6 @@ display:
           label: Created
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
           label: 'IP address'

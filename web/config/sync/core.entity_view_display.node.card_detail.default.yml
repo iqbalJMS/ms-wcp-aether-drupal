@@ -1,0 +1,40 @@
+uuid: 16285517-e744-4d01-90ce-cbebc061f6d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.card_detail.field_card_item
+    - field.field.node.card_detail.field_components
+    - node.type.card_detail
+  module:
+    - entity_reference_revisions
+    - user
+id: node.card_detail.default
+targetEntityType: node
+bundle: card_detail
+mode: default
+content:
+  field_card_item:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

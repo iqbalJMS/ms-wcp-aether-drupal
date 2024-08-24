@@ -1,0 +1,26 @@
+uuid: a1b238a1-9b84-4969-b2e9-0ca89d245a22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_card_item
+    - node.type.card_detail
+id: node.card_detail.field_card_item
+field_name: field_card_item
+entity_type: node
+bundle: card_detail
+label: 'Card item'
+description: 'Select <em>Card item</em>. 1 Card item can only have 1 <em>Card detail</em> page.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bricc_card_item'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

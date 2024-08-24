@@ -19,8 +19,8 @@ function bricc_theme(): array {
     'bricc_card_item' => ['render element' => 'elements'],
     'applicant_detail' => [
       'variables' => [
-        'detail' => NULL
-      ]
+        'detail' => NULL,
+      ],
     ],
   ];
 }
@@ -240,5 +240,41 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 //      '#required' => TRUE,
     ];
     $form['field_idcardtype']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+  }
+  elseif ($form_id === 'node_card_detail_form' || $form_id === 'node_card_detail_edit_form') {
+    $form['#validate'][] = 'bricc_card_detail_page_form_validate';
+  }
+}
+
+function bricc_card_detail_page_form_validate(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if ($form_state->hasValue('field_card_item')) {
+    $field_card_item = $form_state->getValue('field_card_item');
+    if (isset($field_card_item[0]['target_id'])) {
+      $node = $form_state->getFormObject()->getEntity();
+
+      // Check is there a card detail page with the same target_id
+      $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+        'field_card_item' => $field_card_item[0]['target_id'],
+      ]);
+
+      // Create the entity query.
+      $query = \Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
+        ->condition('type', 'card_detail')
+        ->condition('field_card_item', $field_card_item[0]['target_id']);
+
+      // If update mode
+      if (!$node->isNew()) {
+        $current_nid = $node->id();
+        $query->condition('nid', $current_nid, '<>');
+      }
+
+      // Execute the query to get the node IDs.
+      $nids = $query->execute();
+
+      if (count($nids) > 0) {
+        $form_state->setErrorByName('field_card_item', t('The are already Card detail page for this Card item.'));
+      }
+    }
   }
 }

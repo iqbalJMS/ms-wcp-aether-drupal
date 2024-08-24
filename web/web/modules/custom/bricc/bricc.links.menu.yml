@@ -63,3 +63,10 @@ entity.bricc_applicant_status.process-collection:
   description: 'List of applicant status.'
   route_name: view.applicant.page_2
   parent: system.admin_content
+
+bricc.configuration_form:
+  title: 'BRI CC Settings'
+  route_name: config_pages.bri_cc
+  description: 'Settings page for BRI CC website.'
+  parent: system.admin_config_system
+  weight: 99

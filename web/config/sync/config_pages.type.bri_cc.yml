@@ -1,0 +1,17 @@
+uuid: 53c3e8dc-e8b6-4f59-bd8a-708cf092232d
+langcode: en
+status: true
+dependencies: {  }
+id: bri_cc
+label: 'BRI CC'
+token: false
+context:
+  show_warning: true
+  group:
+    language: true
+  fallback:
+    language: en
+menu:
+  path: /admin/config/bricc
+  weight: 0
+  description: 'Settings page for BRI CC website'

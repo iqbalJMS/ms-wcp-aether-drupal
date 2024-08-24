@@ -1,0 +1,25 @@
+uuid: c033c0d9-8e1b-4f01-9bcc-a98715b58f64
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.card_detail.field_card_item
+    - field.field.node.card_detail.field_components
+    - node.type.card_detail
+  module:
+    - user
+id: node.card_detail.teaser
+targetEntityType: node
+bundle: card_detail
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_card_item: true
+  field_components: true
+  langcode: true

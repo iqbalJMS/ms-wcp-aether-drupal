@@ -1,0 +1,21 @@
+uuid: 406d8dd3-ee98-43a8-ac88-645f7c852f66
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.bri_cc
+    - field.storage.config_pages.field_view_detail_text
+id: config_pages.bri_cc.field_view_detail_text
+field_name: field_view_detail_text
+entity_type: config_pages
+bundle: bri_cc
+label: 'View detail text'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Selengkapnya
+default_value_callback: ''
+settings: {  }
+field_type: string

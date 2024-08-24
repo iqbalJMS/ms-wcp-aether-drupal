@@ -18,4 +18,9 @@ services:
     arguments: ['@entity_type.manager']
     tags:
       - { name: normalizer, priority: 10 }
+  bricc.normalizer.card_item:
+    class: Drupal\bricc\Normalizer\CardItemNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 10 }
 

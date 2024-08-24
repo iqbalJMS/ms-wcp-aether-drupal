@@ -1,0 +1,23 @@
+uuid: 63cff858-20ab-4169-b3fa-bc36a12fddfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.bri_cc
+    - field.storage.config_pages.field_url
+  module:
+    - link
+id: config_pages.bri_cc.field_url
+field_name: field_url
+entity_type: config_pages
+bundle: bri_cc
+label: 'Form Apply URL'
+description: 'URL for Form Apply page. Start with <code>/</code> (slash). Example: <code>/apply-credit-card</code>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link
