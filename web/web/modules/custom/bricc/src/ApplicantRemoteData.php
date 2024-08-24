@@ -273,8 +273,6 @@ class ApplicantRemoteData
           titelPekerjaan
           bekerjaSejak
           alamatPerusahaan1
-          alamatPerusahaan2
-          alamatPerusahaan3
           kotaPerusahaan
           kodePos
           teleponPerusahaan
