@@ -1,0 +1,24 @@
+uuid: 70b50041-bcf6-4117-bfed-155e035fbb0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.text_flipped_image
+  module:
+    - text
+id: paragraph.text_flipped_image.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: text_flipped_image
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

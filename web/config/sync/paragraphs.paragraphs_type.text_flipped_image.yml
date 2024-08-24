@@ -1,0 +1,10 @@
+uuid: 00228cd0-170c-4ae9-be6e-af75b5b7617b
+langcode: en
+status: true
+dependencies: {  }
+id: text_flipped_image
+label: 'Text flipped image'
+icon_uuid: null
+icon_default: null
+description: 'Displays flipped image with rich text'
+behavior_plugins: {  }

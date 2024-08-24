@@ -1,0 +1,42 @@
+uuid: 7f37db9f-4cfc-4915-bf82-3ae09de1ac56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_flipped_image.field_content
+    - field.field.paragraph.text_flipped_image.field_image
+    - field.field.paragraph.text_flipped_image.field_second_image
+    - paragraphs.paragraphs_type.text_flipped_image
+  module:
+    - text
+id: paragraph.text_flipped_image.default
+targetEntityType: paragraph
+bundle: text_flipped_image
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_second_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }
