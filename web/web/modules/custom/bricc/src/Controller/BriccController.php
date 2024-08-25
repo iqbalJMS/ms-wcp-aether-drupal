@@ -244,7 +244,7 @@ class BriccController extends ControllerBase {
 
         // Use Drupal's file system to get a temporary directory
         $temp_dir = \Drupal::service('file_system')->getTempDirectory();
-        $filename = $temp_dir . '/output.xlsx';
+        $filename = $temp_dir . '/output--' . time() .  '.xlsx';
 
         $writer = new Xlsx($spreadsheet);
         $writer->save($filename);
