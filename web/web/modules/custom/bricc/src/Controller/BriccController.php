@@ -241,18 +241,27 @@ class BriccController extends ControllerBase {
         $spreadsheet = $reader->loadFromString($html);
 
         // Write the spreadsheet to a temporary file
+
+        // Use Drupal's file system to get a temporary directory
+        $temp_dir = \Drupal::service('file_system')->getTempDirectory();
+        $filename = $temp_dir . '/output.xlsx';
+
         $writer = new Xlsx($spreadsheet);
-        $tempFile = tempnam(sys_get_temp_dir(), 'excel_');
-        $writer->save($tempFile);
+        $writer->save($filename);
+
+        // Clear the spreadsheet to free memory
+        $spreadsheet->disconnectWorksheets();
+        unset($spreadsheet);
 
         // Create a response object and set the headers
-        $response = new Response(file_get_contents($tempFile));
+        $response = new Response(file_get_contents($filename));
         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         $response->headers->set('Content-Disposition', 'attachment;filename="output.xlsx"');
         $response->headers->set('Cache-Control', 'max-age=0');
 
-        // Delete the temporary file
-        unlink($tempFile);
+        // NOTE temporary file will be cleaned up periodically by cron,
+        // no need manually delete.
+//        \Drupal::service('file_system')->delete($filename);
 
         return $response;
       }
