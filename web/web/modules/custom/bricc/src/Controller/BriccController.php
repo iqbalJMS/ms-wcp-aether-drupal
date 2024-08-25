@@ -9,7 +9,11 @@ use Drupal\Core\Link;
 use Drupal\Core\Menu\MenuActiveTrailInterface;
 use Drupal\Core\Url;
 use Drupal\system\SystemManager;
+use PhpOffice\PhpSpreadsheet\Reader\Html;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Returns responses for Bricc routes.
@@ -133,7 +137,7 @@ class BriccController extends ControllerBase {
     return $output;
   }
 
-  public function applicantDetail($id): array {
+  public function applicantDetail($id, $mode = 'default'): array|Response {
     $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
 
     if (isset($detail['documents']['ktpId'])) {
@@ -209,12 +213,54 @@ class BriccController extends ControllerBase {
       $detail['jobInfo']['subBidangPekerjaan'] = $emergency_relation[$detail['jobInfo']['subBidangPekerjaan']];
     }
 
-    $build['detail_applicant'] = [
-      '#theme' => 'applicant_detail',
-      '#detail' => $detail,
-    ];
+    if ($mode === 'default') {
+      $build['detail_applicant'] = [
+        '#theme' => 'applicant_detail',
+        '#detail' => $detail,
+      ];
+      return $build;
+    }
+    else {
+      $build['detail_applicant'] = [
+        '#theme' => 'applicant_detail_alt',
+        '#detail' => $detail,
+      ];
 
-    return $build;
+      if ($mode === 'pdf') {
+        $build['detail_applicant']['#is_print'] = 'yes';
+      }
+
+      /** @var \Drupal\Core\Render\RendererInterface $renderer */
+      $renderer = \Drupal::service('renderer');
+      $html = (string) $renderer->renderRoot($build['detail_applicant']);
+
+      if ($mode === 'excel') {
+        // Create a new Spreadsheet object
+        $spreadsheet = new Spreadsheet();
+        $reader = new Html();
+        $spreadsheet = $reader->loadFromString($html);
+
+        // Write the spreadsheet to a temporary file
+        $writer = new Xlsx($spreadsheet);
+        $tempFile = tempnam(sys_get_temp_dir(), 'excel_');
+        $writer->save($tempFile);
+
+        // Create a response object and set the headers
+        $response = new Response(file_get_contents($tempFile));
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', 'attachment;filename="output.xlsx"');
+        $response->headers->set('Cache-Control', 'max-age=0');
+
+        // Delete the temporary file
+        unlink($tempFile);
+
+        return $response;
+      }
+      else {
+        // PDF
+        return new Response($html);
+      }
+    }
   }
 
   public function documentDetail($type, $id): array {

@@ -63,13 +63,15 @@ entity.bricc_city.settings:
     _permission: 'administer bricc_city'
 
 bricc.applicant_detail:
-  path: '/admin/bricc/applicant/{id}'
+  path: '/admin/bricc/applicant/{id}/{mode}'
   defaults:
     _controller: '\Drupal\bricc\Controller\BriccController::applicantDetail'
     _title: 'Applicant detail'
+    mode: 'default'
   requirements:
     _permission: 'access administration pages'
     id: '[a-zA-Z0-9]+'
+    mode: '[a-zA-Z0-9]*'
 
 bricc.document_detail:
   path: '/admin/bricc/document/{type}/{id}'

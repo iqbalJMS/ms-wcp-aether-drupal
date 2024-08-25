@@ -22,6 +22,12 @@ function bricc_theme(): array {
         'detail' => NULL,
       ],
     ],
+    'applicant_detail_alt' => [
+      'variables' => [
+        'detail' => NULL,
+        'is_print' => NULL,
+      ],
+    ],
   ];
 }
 

@@ -1,7 +1,7 @@
 {{ attach_library('bri_admin/global') }}
 <div class="applicant-detail--header">
-  <a class="button button-primary" href="#">Download Excel</a>
-  <a class="button button-primary" href="#">Download PDF</a>
+  <a class="button button-primary" href="{{ url('bricc.applicant_detail', { 'id': detail._id, 'mode': 'excel' }) }}">Download Excel</a>
+  <a class="button button-primary" href="{{ url('bricc.applicant_detail', { 'id': detail._id, 'mode': 'pdf' }) }}">Download PDF</a>
   {% if detail.documents.ktpUrl %}
     <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.ktpUrl }}">Download KTP</a>
   {% endif %}
