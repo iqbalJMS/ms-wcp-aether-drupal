@@ -3172,6 +3172,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      title: 'Applicant Process'
       fields:
         property_4:
           id: property_4
@@ -4022,6 +4023,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
       defaults:
+        title: false
         fields: false
       display_description: ''
       display_extenders: {  }

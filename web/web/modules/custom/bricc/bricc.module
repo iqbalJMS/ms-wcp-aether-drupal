@@ -305,3 +305,9 @@ function bricc_card_detail_page_form_validate(array &$form, \Drupal\Core\Form\Fo
     }
   }
 }
+
+function bricc_rest_resource_alter(&$definitions): void {
+  if (!empty($definitions['rest_menu_item'])) {
+    $definitions['rest_menu_item']['uri_paths']['canonical'] = '/bricc-api/menu-items/{menu_name}';
+  }
+}

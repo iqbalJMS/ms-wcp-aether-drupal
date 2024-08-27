@@ -1,0 +1,19 @@
+uuid: 4d2d189b-3a85-49dc-acd4-8028777644cb
+langcode: en
+status: false
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - menu_link_content
+    - serialization
+id: entity.menu_link_content
+plugin_id: 'entity:menu_link_content'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - hal_json
+      - json
+    supported_auth:
+      - basic_auth

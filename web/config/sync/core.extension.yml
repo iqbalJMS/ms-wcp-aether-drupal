@@ -47,6 +47,7 @@ module:
   rest: 0
   rest_entity_recursive: 0
   rest_export_nested: 0
+  rest_menu_items: 0
   rest_paragraphs_recursive: 0
   restui: 0
   schemata: 0

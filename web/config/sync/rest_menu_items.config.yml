@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: CPhyTxolwZkdB0flQ3_umqEOUAe1zmgc9Yc3HliOsQQ
+add_fragment: 1
+base_url: ''
+output_values:
+  key: key
+  title: title
+  uri: uri
+  alias: alias
+  relative: relative
+  weight: weight
+  expanded: expanded
+  enabled: enabled
+  options: options
+  description: '0'
+  external: '0'
+  absolute: '0'
+  existing: '0'
+  uuid: '0'

@@ -1,0 +1,19 @@
+uuid: 5dfd5f85-ad20-4e00-87bd-118d7dd1f9af
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - rest_entity_recursive
+    - rest_menu_items
+    - serialization
+id: rest_menu_item
+plugin_id: rest_menu_item
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json_recursive
+      - json
+    supported_auth:
+      - basic_auth
