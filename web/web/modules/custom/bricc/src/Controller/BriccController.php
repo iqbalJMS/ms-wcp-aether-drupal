@@ -5,15 +5,20 @@ declare(strict_types=1);
 namespace Drupal\bricc\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\File\FileExists;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Menu\MenuActiveTrailInterface;
 use Drupal\Core\Url;
+use Drupal\file\Entity\File;
 use Drupal\system\SystemManager;
 use PhpOffice\PhpSpreadsheet\Reader\Html;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 /**
  * Returns responses for Bricc routes.
@@ -235,28 +240,41 @@ class BriccController extends ControllerBase {
       $html = (string) $renderer->renderRoot($build['detail_applicant']);
 
       if ($mode === 'excel') {
-        // Create a new Spreadsheet object
-        $spreadsheet = new Spreadsheet();
-        $reader = new Html();
-        $spreadsheet = $reader->loadFromString($html);
+        $fname = \Drupal\Component\Utility\Html::cleanCssIdentifier($detail['namaDiKartu']);
+        $file_name = sprintf('%s--%s', $fname, $id);
+        $destination = 'public://' . $file_name;
+        $binary = NULL;
 
-        // Write the spreadsheet to a temporary file
+        try {
+          // Create a new Spreadsheet object
+          $spreadsheet = new Spreadsheet();
+          $reader = new Html();
+          $spreadsheet = $reader->loadFromString($html);
 
-        // Use Drupal's file system to get a temporary directory
-        $temp_dir = \Drupal::service('file_system')->getTempDirectory();
-        $filename = $temp_dir . '/output--' . time() .  '.xlsx';
+          $writer = new Xlsx($spreadsheet);
+          ob_start();
+          $writer->save('php://output');
+          $spreadsheet->disconnectWorksheets();
+          $binary =  ob_get_clean();
 
-        $writer = new Xlsx($spreadsheet);
-        $writer->save($filename);
+          $directory = dirname($destination);
+          \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+          $destination = \Drupal::service('file_system')->getDestinationFilename($destination, FileExists::Replace);
+          $file_uri = \Drupal::service('file_system')->saveData($binary, $destination, FileExists::Replace);
 
-        // Clear the spreadsheet to free memory
-        $spreadsheet->disconnectWorksheets();
-        unset($spreadsheet);
+          $file = File::create([
+            'uri' => $file_uri,
+          ]);
+          $file->save();
+        }
+        catch (\Exception $e) {
+          // TODO Log error
+        }
 
-        // Create a response object and set the headers
-        $response = new Response(file_get_contents($filename));
-        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        $response->headers->set('Content-Disposition', 'attachment;filename="output.xlsx"');
+        $path = \Drupal::service('file_system')->realpath($file->getFileUri());
+
+        $response = new BinaryFileResponse($path);
+        $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $file_name);
         $response->headers->set('Cache-Control', 'max-age=0');
 
         // NOTE temporary file will be cleaned up periodically by cron,
