@@ -70,3 +70,15 @@ bricc.configuration_form:
   description: 'Settings page for BRI CC website.'
   parent: system.admin_config_system
   weight: 99
+
+bricc.admin_menu_link:
+  title: 'BRI'
+  description: 'Admin BRI'
+  parent: system.admin
+  route_name: bricc.admin
+  weight: -10
+  options:
+    attributes:
+      class:
+        - 'menu-icon-bricc'
+

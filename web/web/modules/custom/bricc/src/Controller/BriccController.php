@@ -59,12 +59,12 @@ class BriccController extends ControllerBase {
         [
           'title' => $this->t('Credit Card'),
           'url' => Url::fromRoute('bricc.admin.credit_card'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage Credit Card category, and list of Credit Card.',
         ],
         [
           'title' => $this->t('Management'),
           'url' => Url::fromRoute('bricc.admin.management'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage region, credit card applicant list, and credit card applicant process status.',
         ],
       ],
     ];
@@ -84,12 +84,12 @@ class BriccController extends ControllerBase {
         [
           'title' => $this->t('Category'),
           'url' => Url::fromRoute('entity.bricc_category.collection'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage category for categorizing Credit Card.',
         ],
         [
           'title' => $this->t('Items'),
           'url' => Url::fromRoute('entity.bricc_card_item.collection'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'List of Credit Card.',
         ],
       ],
     ];
@@ -104,17 +104,17 @@ class BriccController extends ControllerBase {
         [
           'title' => $this->t('Region'),
           'url' => Url::fromRoute('bricc.admin.management.region'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage list of region.',
         ],
         [
           'title' => $this->t('Applicant List'),
-          'url' => Url::fromRoute('entity.bricc_applicant_status.collection'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'url' => Url::fromRoute('view.applicant.page_1'),
+          'description' => 'View list of credit card applicant.',
         ],
         [
           'title' => $this->t('Applicant Status'),
           'url' => Url::fromRoute('view.applicant.page_2'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'View list of credit card applicant process status.',
         ],
       ],
     ];

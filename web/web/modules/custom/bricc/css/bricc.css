@@ -53,4 +53,9 @@ input:read-only {
   width: 100%;
 }
 
+.toolbar .toolbar-bar .toolbar-icon.toolbar-icon-bricc-admin-menu-link:before {
+  mask-image: url('../img/bri-icon.png');
+  -webkit-mask-image: url('../img/bri-icon.png');
+}
+
 
