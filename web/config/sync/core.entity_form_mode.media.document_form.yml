@@ -1,0 +1,11 @@
+uuid: 4f03f35d-de11-482b-b81e-1ff90a57ace9
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.document_form
+label: 'Document Form'
+description: ''
+targetEntityType: media
+cache: true

@@ -1,0 +1,34 @@
+uuid: 3194a3b0-df3d-44f5-9e50-db78329546e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - taxonomy
+id: document_category
+label: 'Document Category'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:name]'
+selection_criteria:
+  f809d373-a6c4-4162-982f-42ba7d817c54:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: f809d373-a6c4-4162-982f-42ba7d817c54
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      document_category: document_category
+  0025c00c-23ef-42d9-a3bf-96b5316960c9:
+    id: language
+    negate: false
+    uuid: 0025c00c-23ef-42d9-a3bf-96b5316960c9
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    langcodes:
+      en: en
+      id: id
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Language

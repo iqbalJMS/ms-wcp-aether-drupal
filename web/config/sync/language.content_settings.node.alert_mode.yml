@@ -1,16 +1,16 @@
-uuid: ac21efd9-34dc-4aec-93cc-56179240ba98
+uuid: c8bbe537-30cb-47cd-9240-d89bbe76b404
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.announcement
+    - node.type.alert_mode
   module:
     - content_translation
 third_party_settings:
   content_translation:
     enabled: true
-id: node.announcement
+id: node.alert_mode
 target_entity_type_id: node
-target_bundle: announcement
+target_bundle: alert_mode
 default_langcode: site_default
 language_alterable: false

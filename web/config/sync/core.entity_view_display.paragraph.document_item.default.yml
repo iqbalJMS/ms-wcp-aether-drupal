@@ -1,0 +1,30 @@
+uuid: c31879b6-91ea-4c89-9aad-e98231b1a51b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_item.field_document_category
+    - field.field.paragraph.document_item.field_document_library
+    - paragraphs.paragraphs_type.document_item
+id: paragraph.document_item.default
+targetEntityType: paragraph
+bundle: document_item
+mode: default
+content:
+  field_document_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_document_library:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

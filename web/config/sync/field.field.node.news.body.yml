@@ -1,9 +1,11 @@
-uuid: 924e0c62-4cbf-4ebf-ba7d-3be46cf1ecdf
+uuid: 96c0f956-447e-4642-895e-344737333374
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.full_html
+    - filter.format.webform_default
     - node.type.news
   module:
     - text
@@ -11,7 +13,7 @@ id: node.news.body
 field_name: body
 entity_type: node
 bundle: news
-label: Body
+label: Detail
 description: ''
 required: false
 translatable: true
@@ -20,5 +22,7 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: false
-  allowed_formats: {  }
+  allowed_formats:
+    - full_html
+    - webform_default
 field_type: text_with_summary

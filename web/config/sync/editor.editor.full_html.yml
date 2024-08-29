@@ -83,6 +83,12 @@ settings:
         -
           label: 'Table blue'
           element: '<table class="blue">'
+        -
+          label: 'Action Primary'
+          element: '<a class="button button--action button--primary">'
+        -
+          label: 'Action Danger'
+          element: '<a class="button button--action button--danger">'
     media_media:
       allow_view_mode_override: false
 image_upload:
