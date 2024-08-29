@@ -3,7 +3,6 @@
 namespace Drupal\brimw\Normalizer;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\paragraphs\ParagraphInterface;
 
 class SubscriptionNormalizer extends BaseParagraphNormalizer 
 {

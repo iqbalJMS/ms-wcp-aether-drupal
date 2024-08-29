@@ -3,9 +3,6 @@
 namespace Drupal\brimw\Normalizer;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Menu\Menu;
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\paragraphs\Entity\Paragraph;
 
 class PersonalizedShortcutNormalizer extends BaseParagraphNormalizer 
 {

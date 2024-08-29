@@ -9,3 +9,13 @@ services:
     arguments: ['@entity_type.manager']
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.simulation_normalizer:
+    class: Drupal\brimw\Normalizer\SimulationNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  brimw.simulation_remote_data:
+    class: Drupal\brimw\External\SimulationRemoteData
+    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
+  brimw.simulation_request:
+    class: Drupal\brimw\Requests\SimulationRequest
+    arguments: [ '@request_stack' ]

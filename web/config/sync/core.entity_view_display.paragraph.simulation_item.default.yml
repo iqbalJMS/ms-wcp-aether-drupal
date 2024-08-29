@@ -1,0 +1,62 @@
+uuid: 1b425422-8e49-45c5-9552-e221429d61da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simulation_item.field_content
+    - field.field.paragraph.simulation_item.field_primary_cta
+    - field.field.paragraph.simulation_item.field_secondary_content
+    - field.field.paragraph.simulation_item.field_simulation
+    - field.field.paragraph.simulation_item.field_title
+    - paragraphs.paragraphs_type.simulation_item
+  module:
+    - link
+    - options
+    - text
+id: paragraph.simulation_item.default
+targetEntityType: paragraph
+bundle: simulation_item
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_secondary_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_simulation:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,38 @@
+uuid: c8253159-b6af-412a-90b4-8915fa32cf1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simulation.field_paragraphs
+    - field.field.paragraph.simulation.field_primary_cta
+    - paragraphs.paragraphs_type.simulation
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.simulation.default
+targetEntityType: paragraph
+bundle: simulation
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

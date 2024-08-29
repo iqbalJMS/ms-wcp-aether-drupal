@@ -1,0 +1,10 @@
+uuid: f21f1489-81b0-4cd0-bd11-dc2fa6263e6c
+langcode: en
+status: true
+dependencies: {  }
+id: simulation
+label: Simulation
+icon_uuid: null
+icon_default: null
+description: 'Display one or many simulation'
+behavior_plugins: {  }

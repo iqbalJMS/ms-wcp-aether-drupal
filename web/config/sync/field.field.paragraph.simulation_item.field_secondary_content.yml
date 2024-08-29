@@ -1,0 +1,24 @@
+uuid: 1536f287-c8ca-40cf-8b0c-b58d3a67813b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_secondary_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.simulation_item
+  module:
+    - text
+id: paragraph.simulation_item.field_secondary_content
+field_name: field_secondary_content
+entity_type: paragraph
+bundle: simulation_item
+label: 'Terms and condition'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long
