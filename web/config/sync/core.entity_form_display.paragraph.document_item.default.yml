@@ -1,0 +1,36 @@
+uuid: f2c2136e-6356-445c-bd3e-d011cd04ebcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_item.field_document_category
+    - field.field.paragraph.document_item.field_document_library
+    - paragraphs.paragraphs_type.document_item
+id: paragraph.document_item.default
+targetEntityType: paragraph
+bundle: document_item
+mode: default
+content:
+  field_document_category:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_document_library:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

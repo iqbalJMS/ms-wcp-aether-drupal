@@ -61,6 +61,8 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+ADMIN_PASS="default"
+ADMIN_USER="gumini"
 
 install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$POSTGRES_CONNECTION_STRING --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"

@@ -1,17 +1,17 @@
-uuid: ea5c776b-5f59-4257-8a12-94ee32fdef8a
+uuid: 123502ba-0e20-4445-9c44-1c63481c041a
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.announcement.body
-    - node.type.announcement
+    - field.field.node.alert_mode.body
+    - node.type.alert_mode
   module:
     - text
     - user
-id: node.announcement.teaser
+id: node.alert_mode.teaser
 targetEntityType: node
-bundle: announcement
+bundle: alert_mode
 mode: teaser
 content:
   body:

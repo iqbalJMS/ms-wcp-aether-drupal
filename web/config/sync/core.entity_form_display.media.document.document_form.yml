@@ -1,8 +1,9 @@
-uuid: 7c2a8a52-8d0a-4f7a-ba15-525bb916d42e
+uuid: e0091ab2-7aa6-453a-abf2-2dc24132a3bf
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.media.document_form
     - field.field.media.document.field_category
     - field.field.media.document.field_media_file
     - field.field.media.document.field_media_image
@@ -12,10 +13,10 @@ dependencies:
     - file
     - image
     - path
-id: media.document.default
+id: media.document.document_form
 targetEntityType: media
 bundle: document
-mode: default
+mode: document_form
 content:
   created:
     type: datetime_timestamp

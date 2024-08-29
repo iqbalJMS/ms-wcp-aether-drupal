@@ -1,0 +1,25 @@
+uuid: 21f225ac-e352-47ec-8d99-7d803f2e8adb
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.custom_editor
+  module:
+    - ckeditor5
+format: custom_editor
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - style
+  plugins:
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Action Primary'
+          element: '<a class="button button--action button--primary">'
+        -
+          label: 'Action Danger'
+          element: '<a class="button button--action button--danger">'
+image_upload:
+  status: false

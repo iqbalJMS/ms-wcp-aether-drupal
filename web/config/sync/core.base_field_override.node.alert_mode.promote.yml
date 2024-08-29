@@ -1,13 +1,13 @@
-uuid: e467dd90-d660-4b08-af34-c71a109ea5ce
+uuid: e3e8aba8-1af8-4e30-972e-c2f33bf92335
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.announcement
-id: node.announcement.promote
+    - node.type.alert_mode
+id: node.alert_mode.promote
 field_name: promote
 entity_type: node
-bundle: announcement
+bundle: alert_mode
 label: 'Promoted to front page'
 description: ''
 required: false

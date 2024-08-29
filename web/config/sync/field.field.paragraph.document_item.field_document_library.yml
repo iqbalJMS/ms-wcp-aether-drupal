@@ -1,0 +1,23 @@
+uuid: 31553e86-0a14-4705-88c9-9c0e232d03d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_document_library
+    - paragraphs.paragraphs_type.document_item
+id: paragraph.document_item.field_document_library
+field_name: field_document_library
+entity_type: paragraph
+bundle: document_item
+label: 'Document library'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media_type'
+  handler_settings:
+    target_bundles: null
+    auto_create: true
+field_type: entity_reference

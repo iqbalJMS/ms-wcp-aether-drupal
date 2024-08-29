@@ -1,0 +1,29 @@
+uuid: 1d582108-3241-4253-9cfb-b5baee1a16c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_document_category
+    - paragraphs.paragraphs_type.document_item
+    - taxonomy.vocabulary.document_category
+id: paragraph.document_item.field_document_category
+field_name: field_document_category
+entity_type: paragraph
+bundle: document_item
+label: 'Document Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      document_category: document_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,16 +1,16 @@
-uuid: 4a3e01a8-dc11-48ba-9cf4-45d0793424ac
+uuid: 62c16772-25b3-4bc4-a971-b5a6d216983b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.alerts_modes.body
-    - node.type.alerts_modes
+    - field.field.node.alert_mode.body
+    - node.type.alert_mode
   module:
     - text
     - user
-id: node.alerts_modes.default
+id: node.alert_mode.default
 targetEntityType: node
-bundle: alerts_modes
+bundle: alert_mode
 mode: default
 content:
   body:

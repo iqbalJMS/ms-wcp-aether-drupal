@@ -1,0 +1,17 @@
+uuid: 0aa49f6e-b68b-4696-a5eb-a62e70412043
+langcode: en
+status: true
+dependencies: {  }
+name: 'Custom Editor'
+format: custom_editor
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a class="button button--action button--primary button--danger">'
+      filter_html_help: true
+      filter_html_nofollow: false
