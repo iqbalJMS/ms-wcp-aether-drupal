@@ -1,0 +1,23 @@
+uuid: fad31d38-b96b-459c-8067-03e00b2d14ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.simulation_item
+  module:
+    - link
+id: paragraph.simulation_item.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: simulation_item
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

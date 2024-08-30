@@ -1,0 +1,7 @@
+brimw.applicant_detail:
+  path: '/api/brimw/simulasi/{type}'
+  defaults:
+    _controller: '\Drupal\brimw\Controllers\SimulationController::submit'
+    _title: 'Applicant detail'
+  requirements:
+    _permission: 'access content'

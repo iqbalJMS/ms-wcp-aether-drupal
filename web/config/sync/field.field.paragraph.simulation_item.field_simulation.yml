@@ -1,0 +1,21 @@
+uuid: 60db8f77-cbea-475d-98f1-c32431eb98af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simulation
+    - paragraphs.paragraphs_type.simulation_item
+  module:
+    - options
+id: paragraph.simulation_item.field_simulation
+field_name: field_simulation
+entity_type: paragraph
+bundle: simulation_item
+label: Simulation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

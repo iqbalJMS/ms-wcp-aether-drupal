@@ -72,6 +72,12 @@ settings:
           label: 'Paragraph gray color'
           element: '<p class="text-gray">'
         -
+          label: 'Primary button'
+          element: '<a class="primary-button">'
+        -
+          label: 'Secondary button'
+          element: '<a class="secondary-button">'
+        -
           label: 'List gray color'
           element: '<li class="text-gray">'
         -

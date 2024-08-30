@@ -1,0 +1,10 @@
+uuid: 93203dca-eb55-4ef5-a63a-2435e174085c
+langcode: en
+status: true
+dependencies: {  }
+id: simulation_item
+label: 'Simulation item'
+icon_uuid: null
+icon_default: null
+description: 'Display one simulation'
+behavior_plugins: {  }

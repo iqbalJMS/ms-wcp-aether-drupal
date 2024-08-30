@@ -1,0 +1,24 @@
+uuid: cfe5e74d-ae2c-4c20-9752-5e8ea6474cfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.simulation_item
+  module:
+    - text
+id: paragraph.simulation_item.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: simulation_item
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long
