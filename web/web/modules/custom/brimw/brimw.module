@@ -1,45 +1,24 @@
 <?php
 
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 
-// /**
-//  * Implements hook_form_alter().
-//  */
-// function brimw_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-//   if (in_array($form_id, ['node_page_edit_form', 'node_page_add_form'])) {
-    
-//       $availableSimulations = \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
-//       dd($form);
-//       $form['field_simulation'] = [
-//         '#type' => 'select',
-//         '#title' => t('Card link'),
-//         '#options' => $availableSimulations,
-//         '#default_value' => $form['field_simulation']['widget'][0]['value']['#default_value'], // Set the default value if needed.
-//         '#description' => t('Connect this data with BRI Card Type'),
-//         '#weight' => 0,
-//         '#required' => TRUE,
-//       ];
-//       $form['field_simulation']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
-//     }
-  
-// }
+/**
+ * Implements hook_form_alter().
+ */
 
-// function brimw_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
-//  dd($entity_form);
-// // $entity_form['#bundle']  paragraph machine name
-//   if($entity_form['#entity_type'] == 'paragraph' && $entity_form['#bundle'] == 'simulation_item'){
-//       $availableSimulations = \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
-//       dd($form);
-//       $form['field_simulation'] = [
-//         '#type' => 'select',
-//         '#title' => t('Card link'),
-//         '#options' => $availableSimulations,
-//         '#default_value' => $form['field_simulation']['widget'][0]['value']['#default_value'], // Set the default value if needed.
-//         '#description' => t('Connect this data with BRI Card Type'),
-//         '#weight' => 0,
-//         '#required' => TRUE,
-//       ];
-//       $form['field_simulation']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
-//   }
+function brimw_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
+  if (isset($element['#paragraph_type']) && $element['#paragraph_type'] === 'simulation_item') {
+    $element['subform']['field_simulation']['widget']["#options"] = ['' => t('- Select a value -')] + \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
+  }
+}
 
-// }
+/**
+ * Implements brimw_options_select_simulation_allowed_values()
+ * This function is called in config/sync
+ */ 
+function brimw_options_select_simulation_allowed_values(FieldStorageDefinitionInterface $definition, ?FieldableEntityInterface $entity = NULL, &$cacheable = TRUE)
+{
+  return \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
+}
