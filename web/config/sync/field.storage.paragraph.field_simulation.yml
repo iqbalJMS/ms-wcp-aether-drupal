@@ -14,7 +14,7 @@ settings:
     -
       value: prefilled_in_brimw
       label: 'Prefilled in brimw'
-  allowed_values_function: 'brimw_options_select_simulation_allowed_values'
+  allowed_values_function: brimw_options_select_simulation_allowed_values
 module: options
 locked: false
 cardinality: 1

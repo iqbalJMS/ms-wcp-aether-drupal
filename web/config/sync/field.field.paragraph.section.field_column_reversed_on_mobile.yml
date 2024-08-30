@@ -1,0 +1,21 @@
+uuid: 26176f0c-4e6c-43e4-b03b-08312eb06884
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_reversed_on_mobile
+    - paragraphs.paragraphs_type.section
+id: paragraph.section.field_column_reversed_on_mobile
+field_name: field_column_reversed_on_mobile
+entity_type: paragraph
+bundle: section
+label: 'Column reversed on mobile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

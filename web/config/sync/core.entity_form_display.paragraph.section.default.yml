@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.section.field_column
     - field.field.paragraph.section.field_column_per_row
+    - field.field.paragraph.section.field_column_reversed_on_mobile
     - field.field.paragraph.section.field_container
     - field.field.paragraph.section.field_content
     - field.field.paragraph.section.field_formatted_title
@@ -51,7 +52,7 @@ mode: default
 content:
   field_column:
     type: paragraphs
-    weight: 2
+    weight: 3
     region: content
     settings:
       title: Paragraph
@@ -74,6 +75,13 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_column_reversed_on_mobile:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_container:
     type: options_select
@@ -120,7 +128,7 @@ content:
     third_party_settings: {  }
   field_primary_cta:
     type: link_default
-    weight: 3
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -133,7 +141,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
