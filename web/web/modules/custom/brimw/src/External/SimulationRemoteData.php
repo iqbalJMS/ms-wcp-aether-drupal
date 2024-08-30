@@ -92,6 +92,10 @@ class SimulationRemoteData extends BaseRemoteData
 
     $defaults['all'] = implode(',', $defaults);
 
+    if (!$defaults[$scheme]) {
+      return [];
+    }
+
     $query = <<< GRAPHQL
       query {
         getMasterData {
@@ -100,13 +104,13 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query);
+    return $this->gql($query)['data']['getMasterData'];
   }
 
   public function estimateKpr(Request $request): array
   { 
     $static = $this->getMasterData('kpr');
-    $interestRate = $static['data']['getMasterData']['kprScheme']['interestRate'] ?? 0.05;
+    $interestRate = $static['kprScheme']['interestRate'] ?? 0.05;
     $query = <<< GRAPHQL
       mutation {
         estimateKpr (input: {
@@ -126,7 +130,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateKprs(Request $request): array
   { 
     $static = $this->getMasterData('kprs');
-    $interestRate = $static['data']['getMasterData']['kprsScheme']['interestRate'] ?? 0.05;
+    $interestRate = $static['kprsScheme']['interestRate'] ?? 0.05;
     $query = <<< GRAPHQL
       mutation {
         estimateKprs (input: {
