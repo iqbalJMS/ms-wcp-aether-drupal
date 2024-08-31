@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.tab_item.field_paragraphs
+    - field.field.paragraph.tab_item.field_title
     - paragraphs.paragraphs_type.tab_item
   module:
     - entity_reference_revisions
@@ -20,5 +21,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }
