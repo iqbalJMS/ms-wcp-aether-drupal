@@ -5,16 +5,6 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_form_alter().
- */
-
-function brimw_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
-  if (isset($element['#paragraph_type']) && $element['#paragraph_type'] === 'simulation_item') {
-    $element['subform']['field_simulation']['widget']["#options"] = ['' => t('- Select a value -')] + \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
-  }
-}
-
-/**
  * Implements brimw_options_select_simulation_allowed_values()
  * This function is called in config/sync
  */ 
