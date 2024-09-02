@@ -1,0 +1,18 @@
+uuid: 16128975-1030-44df-8dd5-5bd06d063d13
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_column_reversed_on_mobile
+field_name: field_column_reversed_on_mobile
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
