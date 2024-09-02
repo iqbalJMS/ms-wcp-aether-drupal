@@ -1,0 +1,8 @@
+uuid: 31ba755d-1b27-4264-a52f-b59e7910a2d4
+langcode: en
+status: true
+dependencies: {  }
+id: footer-secondary
+label: 'Footer Secondary'
+description: 'Bottom footer menu'
+locked: false
