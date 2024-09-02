@@ -17,6 +17,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
@@ -272,16 +273,9 @@ class BriccController extends ControllerBase {
         }
 
         $path = \Drupal::service('file_system')->realpath($file->getFileUri());
+        $file_url = $file->createFileUrl();
 
-        $response = new BinaryFileResponse($path);
-        $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $file_name);
-        $response->headers->set('Cache-Control', 'max-age=0');
-
-        // NOTE temporary file will be cleaned up periodically by cron,
-        // no need manually delete.
-//        \Drupal::service('file_system')->delete($filename);
-
-        return $response;
+        return new RedirectResponse($file_url);
       }
       else {
         // PDF
