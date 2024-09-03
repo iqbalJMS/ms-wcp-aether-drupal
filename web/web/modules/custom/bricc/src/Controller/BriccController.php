@@ -242,7 +242,7 @@ class BriccController extends ControllerBase {
 
       if ($mode === 'excel') {
         $fname = \Drupal\Component\Utility\Html::cleanCssIdentifier($detail['namaDiKartu']);
-        $file_name = sprintf('%s--%s', $fname, $id);
+        $file_name = sprintf('%s--%s.xlsx', $fname, $id);
         $destination = 'public://' . $file_name;
         $binary = NULL;
 
