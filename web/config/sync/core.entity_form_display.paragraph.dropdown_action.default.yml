@@ -1,0 +1,54 @@
+uuid: 68c53734-62a3-4405-ab79-f1f30a53ae49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_action.field_menu_list
+    - field.field.paragraph.dropdown_action.field_primary_cta
+    - field.field.paragraph.dropdown_action.field_title
+    - paragraphs.paragraphs_type.dropdown_action
+  module:
+    - link
+    - paragraphs
+id: paragraph.dropdown_action.default
+targetEntityType: paragraph
+bundle: dropdown_action
+mode: default
+content:
+  field_menu_list:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_primary_cta:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 122
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

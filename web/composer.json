@@ -51,6 +51,7 @@
         "drupal/views_data_export_phpspreadsheet": "^2.0",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/views_remote_data": "^1.0",
+        "drupal/views_serialization_pager": "^1.1",
         "drupal/webform_rest": "^4.1",
         "drupal/webp": "^1.0@RC",
         "mnsami/composer-custom-directory-installer": "^2.0",

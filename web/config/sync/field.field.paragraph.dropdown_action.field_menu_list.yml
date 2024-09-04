@@ -1,0 +1,157 @@
+uuid: 51d05e70-0162-4000-bfda-e0b7c04bb7e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_list
+    - paragraphs.paragraphs_type.dropdown_action
+    - paragraphs.paragraphs_type.menu_list
+  module:
+    - entity_reference_revisions
+id: paragraph.dropdown_action.field_menu_list
+field_name: field_menu_list
+entity_type: paragraph
+bundle: dropdown_action
+label: 'Menu List'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      menu_list: menu_list
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 45
+        enabled: false
+      accordion_item:
+        weight: 46
+        enabled: false
+      card_comparation:
+        weight: 47
+        enabled: false
+      card_content:
+        weight: 48
+        enabled: false
+      card_cta:
+        weight: 49
+        enabled: false
+      card_detail:
+        weight: 50
+        enabled: false
+      card_detail_item:
+        weight: 51
+        enabled: false
+      card_featured:
+        weight: 52
+        enabled: false
+      card_group_nav:
+        weight: 53
+        enabled: false
+      card_popular:
+        weight: 54
+        enabled: false
+      card_slider:
+        weight: 55
+        enabled: false
+      content_type:
+        weight: 56
+        enabled: false
+      document_item:
+        weight: 57
+        enabled: false
+      download:
+        weight: 58
+        enabled: false
+      dropdown_action:
+        weight: 44
+        enabled: false
+      from_library:
+        weight: 59
+        enabled: false
+      header:
+        weight: 60
+        enabled: false
+      icon_content_item:
+        weight: 61
+        enabled: false
+      icon_cta:
+        weight: 62
+        enabled: false
+      image:
+        weight: 63
+        enabled: false
+      image_slider:
+        weight: 64
+        enabled: false
+      image_slider_item:
+        weight: 65
+        enabled: false
+      list_content_item:
+        weight: 66
+        enabled: false
+      menu_list:
+        weight: 67
+        enabled: true
+      multi_tab:
+        weight: 68
+        enabled: false
+      mw_accordion:
+        weight: 69
+        enabled: false
+      personalized_shortcut:
+        weight: 70
+        enabled: false
+      promo:
+        weight: 71
+        enabled: false
+      promo_item:
+        weight: 72
+        enabled: false
+      rich_text:
+        weight: 73
+        enabled: false
+      section:
+        weight: 74
+        enabled: false
+      simulation:
+        weight: 75
+        enabled: false
+      simulation_item:
+        weight: 76
+        enabled: false
+      slider:
+        weight: 77
+        enabled: false
+      slider_item:
+        weight: 78
+        enabled: false
+      staircase_cards:
+        weight: 79
+        enabled: false
+      step_item:
+        weight: 80
+        enabled: false
+      steps:
+        weight: 81
+        enabled: false
+      subscription:
+        weight: 82
+        enabled: false
+      tab_item:
+        weight: 83
+        enabled: false
+      text_flipped_image:
+        weight: 84
+        enabled: false
+      two_column:
+        weight: 85
+        enabled: false
+      video:
+        weight: 86
+        enabled: false
+field_type: entity_reference_revisions

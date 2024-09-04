@@ -12,9 +12,9 @@ dependencies:
     - user
     - views_field_view
 id: rest_api_services_categories
-label: 'Rest API Services Categories'
+label: 'Rest API Page Services Categories'
 module: views
-description: ''
+description: 'Rest API Page Services Categories'
 tag: ''
 base_table: taxonomy_term_field_data
 base_field: tid
