@@ -1,0 +1,10 @@
+uuid: 029548ca-569c-41f4-ba00-a4bde2549e23
+langcode: en
+status: true
+dependencies: {  }
+id: card_report
+label: 'Card report'
+icon_uuid: null
+icon_default: null
+description: 'Card widget display link to report PDF'
+behavior_plugins: {  }
