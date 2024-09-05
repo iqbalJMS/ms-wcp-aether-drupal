@@ -25,9 +25,9 @@ dependencies:
     - user
     - views_field_view
 id: rest_api_services
-label: 'Rest API Services'
+label: 'Rest API Page Services'
 module: views
-description: ''
+description: 'Rest API Page Services'
 tag: ''
 base_table: node_field_data
 base_field: nid
