@@ -1,0 +1,19 @@
+uuid: d692bf4a-9640-4220-bda6-7e3d03c7c496
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.dropdown_action
+id: paragraph.dropdown_action.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: dropdown_action
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+uuid: c25b1d02-0a03-4a77-9fdf-6a0acfada614
+langcode: en
+status: true
+dependencies: {  }
+id: dropdown_action
+label: 'Dropdown Action'
+icon_uuid: null
+icon_default: null
+description: 'Dropdown Action'
+behavior_plugins: {  }

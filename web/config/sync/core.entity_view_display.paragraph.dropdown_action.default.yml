@@ -1,0 +1,47 @@
+uuid: 3cdb3a33-c349-4b3f-9c26-1b03c6fee649
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_action.field_menu_list
+    - field.field.paragraph.dropdown_action.field_primary_cta
+    - field.field.paragraph.dropdown_action.field_title
+    - paragraphs.paragraphs_type.dropdown_action
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.dropdown_action.default
+targetEntityType: paragraph
+bundle: dropdown_action
+mode: default
+content:
+  field_menu_list:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }
