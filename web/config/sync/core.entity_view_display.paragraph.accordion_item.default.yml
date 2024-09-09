@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.accordion_item.field_content
+    - field.field.paragraph.accordion_item.field_paragraphs
     - field.field.paragraph.accordion_item.field_title
     - paragraphs.paragraphs_type.accordion_item
   module:
+    - entity_reference_revisions
     - text
 id: paragraph.accordion_item.default
 targetEntityType: paragraph
@@ -19,6 +21,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_title:
     type: string
