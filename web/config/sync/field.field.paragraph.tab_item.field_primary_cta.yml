@@ -1,0 +1,23 @@
+uuid: e3dd671d-f6ff-493d-94c8-d7f8172909b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - link
+id: paragraph.tab_item.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: tab_item
+label: 'View More'
+description: 'Fill this field if want to link more detail for specific tab'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

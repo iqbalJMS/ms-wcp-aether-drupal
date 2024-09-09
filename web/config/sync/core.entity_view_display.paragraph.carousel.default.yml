@@ -1,0 +1,56 @@
+uuid: 118a691c-2410-41e4-9ef2-05ecaca042ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel.field_carousel_items
+    - field.field.paragraph.carousel.field_carousel_style
+    - field.field.paragraph.carousel.field_primary_cta
+    - field.field.paragraph.carousel.field_title_custom
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.carousel.default
+targetEntityType: paragraph
+bundle: carousel
+mode: default
+content:
+  field_carousel_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_carousel_style:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title_custom:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

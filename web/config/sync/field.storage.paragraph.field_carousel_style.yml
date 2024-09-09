@@ -1,0 +1,33 @@
+uuid: aaa8d327-6abd-47f6-8dcd-a3bf71d6a8ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_carousel_style
+field_name: field_carousel_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: carousel_01
+      label: 'image, title, and summary'
+    -
+      value: carousel_02
+      label: 'image, title, and date range'
+    -
+      value: carousel_03
+      label: 'image and title'
+    -
+      value: carousel_04
+      label: 'image and title bending'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

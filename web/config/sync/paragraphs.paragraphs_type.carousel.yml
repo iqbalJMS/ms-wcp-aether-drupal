@@ -1,0 +1,12 @@
+uuid: 58204c3c-6457-462f-b8c5-b27cec419dba
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:88c66b1c-aacd-46fc-b399-51a61c75f707'
+id: carousel
+label: Carousel
+icon_uuid: 88c66b1c-aacd-46fc-b399-51a61c75f707
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAjklEQVR4nO3ZQQqAMAxE0dz/WBXPNa6ELKtOIi3/QVaCEvtdGQEAOzsjQg1zVC+ixml545XkODUttIhmbvL2uoMmnsEiN07kAZFWwsduJNJKSMtIpJWQlpFIKyEtI5FWQlpGIq2EtIxEWglpGYm0EtIyEmntnJZW/61wLLTI6HiIY0rNntjXGbVrAED87ALcMKyC0P76zwAAAABJRU5ErkJggg=='
+description: 'Carousel with multi variants, ( additonal : include in "tab item" paragraph type if using tab style )'
+behavior_plugins: {  }

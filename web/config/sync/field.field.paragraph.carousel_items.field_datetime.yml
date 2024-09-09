@@ -1,0 +1,21 @@
+uuid: 3670aa29-dd0c-484d-9a5e-95dc34f3d304
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_datetime
+    - paragraphs.paragraphs_type.carousel_items
+  module:
+    - datetime_range
+id: paragraph.carousel_items.field_datetime
+field_name: field_datetime
+entity_type: paragraph
+bundle: carousel_items
+label: Datetime
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

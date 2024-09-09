@@ -1,41 +1,35 @@
-uuid: 145d9d35-f593-4eaa-94b2-75240e62cbca
+uuid: a2112b6e-3dad-4a97-97a5-1c7b7cbfe15b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.header.field_alignment_style
-    - field.field.paragraph.header.field_content
-    - field.field.paragraph.header.field_header_style
-    - field.field.paragraph.header.field_image
-    - field.field.paragraph.header.field_primary_cta
-    - field.field.paragraph.header.field_title
-    - paragraphs.paragraphs_type.header
+    - field.field.paragraph.carousel_items.field_content
+    - field.field.paragraph.carousel_items.field_datetime
+    - field.field.paragraph.carousel_items.field_image
+    - field.field.paragraph.carousel_items.field_primary_cta
+    - field.field.paragraph.carousel_items.field_title
+    - paragraphs.paragraphs_type.carousel_items
   module:
+    - datetime_range
     - link
     - media_library
     - text
-id: paragraph.header.default
+id: paragraph.carousel_items.default
 targetEntityType: paragraph
-bundle: header
+bundle: carousel_items
 mode: default
 content:
-  field_alignment_style:
-    type: options_select
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_content:
     type: text_textarea
     weight: 1
     region: content
     settings:
-      rows: 5
+      rows: 2
       placeholder: ''
     third_party_settings: {  }
-  field_header_style:
-    type: options_select
-    weight: 4
+  field_datetime:
+    type: daterange_default
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -48,7 +42,7 @@ content:
     third_party_settings: {  }
   field_primary_cta:
     type: link_default
-    weight: 3
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -61,11 +55,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  translation:
-    weight: 6
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

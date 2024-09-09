@@ -1,0 +1,23 @@
+uuid: 0502ab56-f048-4714-b7c0-418e676d9c37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.carousel_items
+  module:
+    - link
+id: paragraph.carousel_items.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: carousel_items
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link
