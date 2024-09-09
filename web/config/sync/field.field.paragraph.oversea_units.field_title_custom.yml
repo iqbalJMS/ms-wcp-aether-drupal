@@ -1,0 +1,24 @@
+uuid: 4159d77b-0198-4775-a4ff-578257c673ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_custom
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.oversea_units
+  module:
+    - text
+id: paragraph.oversea_units.field_title_custom
+field_name: field_title_custom
+entity_type: paragraph
+bundle: oversea_units
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text

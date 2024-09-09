@@ -1,0 +1,50 @@
+uuid: 9f00d3c6-f915-4c0f-8888-a0b6dc55f2c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.oversea_unit_items.field_content
+    - field.field.paragraph.oversea_unit_items.field_image
+    - field.field.paragraph.oversea_unit_items.field_subtitle
+    - field.field.paragraph.oversea_unit_items.field_title
+    - paragraphs.paragraphs_type.oversea_unit_items
+  module:
+    - text
+id: paragraph.oversea_unit_items.default
+targetEntityType: paragraph
+bundle: oversea_unit_items
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: 1578e528-a8fb-40d2-9c5d-6e39fecb2896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.oversea_unit_items
+id: paragraph.oversea_unit_items.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: oversea_unit_items
+label: subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

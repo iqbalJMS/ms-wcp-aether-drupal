@@ -1,0 +1,24 @@
+uuid: 592d804e-fdd1-4d58-8a27-7719b685b46d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.oversea_unit_items
+  module:
+    - text
+id: paragraph.oversea_unit_items.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: oversea_unit_items
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

@@ -1,31 +1,23 @@
-uuid: 8e51559d-d199-44eb-836e-c4abfaafea49
+uuid: fff7e31e-816c-4d6a-ab7c-bdc4aad123b1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.header.field_alignment_style
-    - field.field.paragraph.header.field_content
-    - field.field.paragraph.header.field_header_style
-    - field.field.paragraph.header.field_image
-    - field.field.paragraph.header.field_primary_cta
-    - field.field.paragraph.header.field_title
-    - paragraphs.paragraphs_type.header
+    - field.field.paragraph.carousel_items.field_content
+    - field.field.paragraph.carousel_items.field_datetime
+    - field.field.paragraph.carousel_items.field_image
+    - field.field.paragraph.carousel_items.field_primary_cta
+    - field.field.paragraph.carousel_items.field_title
+    - paragraphs.paragraphs_type.carousel_items
   module:
+    - datetime_range
     - link
-    - options
     - text
-id: paragraph.header.default
+id: paragraph.carousel_items.default
 targetEntityType: paragraph
-bundle: header
+bundle: carousel_items
 mode: default
 content:
-  field_alignment_style:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
-    region: content
   field_content:
     type: text_default
     label: above
@@ -33,12 +25,16 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_header_style:
-    type: list_default
+  field_datetime:
+    type: daterange_default
     label: above
-    settings: {  }
+    settings:
+      timezone_override: ''
+      format_type: medium
+      from_to: both
+      separator: '-'
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_image:
     type: entity_reference_entity_view

@@ -1,0 +1,12 @@
+uuid: 66662d80-e065-4a14-971e-3899ff83a150
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:6e016fb3-7f97-4440-b1eb-28e5e7c92bee'
+id: oversea_unit_items
+label: 'Oversea Unit Items'
+icon_uuid: 6e016fb3-7f97-4440-b1eb-28e5e7c92bee
+icon_default: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVR4nO2XTytEURjGf5TYzhoLe3wAJYZYWtog2WhIamiSsLfwDYydhaIsZO9LWLOjlAWRyZ+jW0e9XWfMuXfm3nOvOU89dZu3M/P+et773jvglV2pDLkp/TsQl1IepF0SURmytdoCxKWUB2mXRFSGbFTbgriU8iBCPpEWSvnREvKj1UIpP1pCfrT+w2h1A13kHKQHuAOegUugDAwBHdF6dw8SJPFkeOEL4I6BsQjf5Xy0zv94g/0A5vICsmwAqAEn+vodmM0DSH8I4g2Y0bUtkcx8Hh6I1/rcKzAVqkmYhayDHOhzF0Cnob4X4Z5xCjIIvOizh3Vgdi3HzPm71qh+ngTnj+rAVATMYoRefxUfhZP4zz5hkcx2AxgrEJNbCWKbzKaufwGlKD0UDE4KJFDRIpmKrn8CS830kCSIbTIbIpmVrILYwpQFzGozII0WQBpjVhYwsUEaLYC0kinFBbFdAGkmsy5gfu6ZWEoSxBZmTcME3iGjIIHGBUy1Dsy+6GWSGDItgCRcE78VhhkGHkT9qhmQtF3VMGEIpZdEZBVS9rQYs1MDRGwQFyoKGJPPyJFGgHsDRPDZgOvmoqpPr+Rb4EZf9waVb1zJp9izMNC+AAAAAElFTkSuQmCC'
+description: ''
+behavior_plugins: {  }

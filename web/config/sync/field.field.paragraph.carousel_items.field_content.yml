@@ -1,0 +1,24 @@
+uuid: a5b0029e-188e-4b11-9cf6-8f0375317f80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.limited_html
+    - paragraphs.paragraphs_type.carousel_items
+  module:
+    - text
+id: paragraph.carousel_items.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: carousel_items
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - limited_html
+field_type: text_long

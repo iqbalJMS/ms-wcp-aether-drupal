@@ -1,0 +1,46 @@
+uuid: fc214c3e-f71a-44e8-877b-c5491a565dab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.oversea_units.field_layout
+    - field.field.paragraph.oversea_units.field_title_custom
+    - field.field.paragraph.oversea_units.field_unit_items
+    - paragraphs.paragraphs_type.oversea_units
+  module:
+    - paragraphs
+    - text
+id: paragraph.oversea_units.default
+targetEntityType: paragraph
+bundle: oversea_units
+mode: default
+content:
+  field_layout:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_title_custom:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 100
+      placeholder: ''
+    third_party_settings: {  }
+  field_unit_items:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Item
+      title_plural: Items
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: oversea_unit_items
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
