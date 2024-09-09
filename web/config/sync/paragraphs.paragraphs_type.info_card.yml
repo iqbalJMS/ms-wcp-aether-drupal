@@ -1,0 +1,10 @@
+uuid: 76cf3310-796d-4a46-b5b6-27fb6695d88e
+langcode: en
+status: true
+dependencies: {  }
+id: info_card
+label: 'Info card'
+icon_uuid: null
+icon_default: null
+description: 'Information card slider'
+behavior_plugins: {  }
