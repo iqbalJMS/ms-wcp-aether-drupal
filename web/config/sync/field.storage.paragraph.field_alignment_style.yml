@@ -1,31 +1,31 @@
-uuid: df2cfe75-9cf6-4c46-97c3-248e30255c55
+uuid: f096a566-483f-4528-81e5-bd4adab1ae4d
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_header_style
-field_name: field_header_style
+id: paragraph.field_alignment_style
+field_name: field_alignment_style
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: style_1
-      label: 'Style 1'
+      value: left
+      label: Left
     -
-      value: style_2
-      label: 'Style 2'
+      value: right
+      label: Right
     -
-      value: rounded_corneer
-      label: 'Rounded Corneer'
+      value: bottom
+      label: Bottom
     -
-      value: rectangle
-      label: Rectangle
+      value: top
+      label: Top
     -
-      value: large
-      label: Large
+      value: justify
+      label: Justify
   allowed_values_function: ''
 module: options
 locked: false

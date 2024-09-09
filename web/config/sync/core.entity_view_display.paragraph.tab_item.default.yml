@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.tab_item.field_paragraphs
+    - field.field.paragraph.tab_item.field_primary_cta
     - field.field.paragraph.tab_item.field_title
     - paragraphs.paragraphs_type.tab_item
   module:
     - entity_reference_revisions
+    - link
 id: paragraph.tab_item.default
 targetEntityType: paragraph
 bundle: tab_item
@@ -21,6 +23,18 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_title:
     type: string

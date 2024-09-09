@@ -1,17 +1,18 @@
-uuid: 190eb089-3d0d-4a3f-a19e-ed7491fca080
+uuid: ffb03ea7-b901-49cc-976f-0c0086a37433
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_paragraphs
-    - paragraphs.paragraphs_type.tab_item
+    - field.storage.paragraph.field_carousel_items
+    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.carousel_items
   module:
     - entity_reference_revisions
-id: paragraph.tab_item.field_paragraphs
-field_name: field_paragraphs
+id: paragraph.carousel.field_carousel_items
+field_name: field_carousel_items
 entity_type: paragraph
-bundle: tab_item
-label: Paragraphs
+bundle: carousel
+label: Items
 description: ''
 required: false
 translatable: false
@@ -21,48 +22,48 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      tab_item: tab_item
-    negate: 1
+      carousel_items: carousel_items
+    negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: 30
-        enabled: false
-      accordion_item:
-        weight: 31
-        enabled: false
-      card_comparation:
-        weight: 34
-        enabled: false
-      card_content:
-        weight: 35
-        enabled: false
-      card_cta:
-        weight: 51
-        enabled: false
-      card_detail:
-        weight: 36
-        enabled: false
-      card_detail_item:
-        weight: 37
-        enabled: false
-      card_featured:
-        weight: 38
-        enabled: false
-      card_group_nav:
-        weight: 39
-        enabled: false
-      card_popular:
-        weight: 40
-        enabled: false
-      card_slider:
-        weight: 41
-        enabled: false
-      carousel:
-        weight: 58
-        enabled: false
-      carousel_items:
         weight: 46
         enabled: false
+      accordion_item:
+        weight: 47
+        enabled: false
+      card_comparation:
+        weight: 48
+        enabled: false
+      card_content:
+        weight: 49
+        enabled: false
+      card_cta:
+        weight: 50
+        enabled: false
+      card_detail:
+        weight: 51
+        enabled: false
+      card_detail_item:
+        weight: 52
+        enabled: false
+      card_featured:
+        weight: 53
+        enabled: false
+      card_group_nav:
+        weight: 54
+        enabled: false
+      card_popular:
+        weight: 55
+        enabled: false
+      card_slider:
+        weight: 56
+        enabled: false
+      carousel:
+        weight: 57
+        enabled: false
+      carousel_items:
+        weight: 58
+        enabled: true
       content_type:
         weight: 59
         enabled: false
@@ -76,10 +77,10 @@ settings:
         weight: 62
         enabled: false
       from_library:
-        weight: 42
+        weight: 63
         enabled: false
       header:
-        weight: 43
+        weight: 64
         enabled: false
       icon_content_item:
         weight: 65
@@ -91,37 +92,37 @@ settings:
         weight: 67
         enabled: false
       image_slider:
-        weight: 44
+        weight: 68
         enabled: false
       image_slider_item:
-        weight: 45
+        weight: 69
         enabled: false
       list_content_item:
         weight: 70
         enabled: false
       menu_list:
-        weight: 46
+        weight: 71
         enabled: false
       multi_tab:
-        weight: 29
+        weight: 72
         enabled: false
       mw_accordion:
         weight: 73
         enabled: false
       personalized_shortcut:
-        weight: 47
+        weight: 74
         enabled: false
       promo:
-        weight: 48
+        weight: 75
         enabled: false
       promo_item:
-        weight: 49
+        weight: 76
         enabled: false
       rich_text:
-        weight: 50
+        weight: 77
         enabled: false
       section:
-        weight: 50
+        weight: 78
         enabled: false
       simulation:
         weight: 79
@@ -130,31 +131,31 @@ settings:
         weight: 80
         enabled: false
       slider:
-        weight: 51
+        weight: 81
         enabled: false
       slider_item:
-        weight: 52
+        weight: 82
         enabled: false
       staircase_cards:
         weight: 83
         enabled: false
       step_item:
-        weight: 53
+        weight: 84
         enabled: false
       steps:
-        weight: 54
+        weight: 85
         enabled: false
       subscription:
-        weight: 55
+        weight: 86
         enabled: false
       tab_item:
-        weight: 29
-        enabled: true
+        weight: 87
+        enabled: false
       text_flipped_image:
         weight: 88
         enabled: false
       two_column:
-        weight: 56
+        weight: 89
         enabled: false
       video:
         weight: 90

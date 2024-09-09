@@ -1,0 +1,21 @@
+uuid: 0de76898-3212-4b20-b48a-1b3081de4932
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_layout
+    - paragraphs.paragraphs_type.oversea_units
+  module:
+    - options
+id: paragraph.oversea_units.field_layout
+field_name: field_layout
+entity_type: paragraph
+bundle: oversea_units
+label: layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

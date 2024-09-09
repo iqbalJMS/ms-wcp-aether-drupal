@@ -1,0 +1,23 @@
+uuid: c58b39c1-1e45-405d-96c7-934ad8c52701
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment_style
+    - paragraphs.paragraphs_type.header
+  module:
+    - options
+id: paragraph.header.field_alignment_style
+field_name: field_alignment_style
+entity_type: paragraph
+bundle: header
+label: 'Alignment Style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

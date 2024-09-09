@@ -11,6 +11,8 @@ module:
   config_pages: 0
   config_split: 0
   csv_serialization: 0
+  datetime: 0
+  datetime_range: 0
   dblog: 0
   default_content_deploy: 0
   dynamic_page_cache: 0
