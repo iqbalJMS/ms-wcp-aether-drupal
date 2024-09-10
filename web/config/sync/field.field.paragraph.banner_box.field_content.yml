@@ -1,0 +1,22 @@
+uuid: 77a1acab-a315-4364-84f8-b94b8b4af4b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.banner_box
+  module:
+    - text
+id: paragraph.banner_box.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: banner_box
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

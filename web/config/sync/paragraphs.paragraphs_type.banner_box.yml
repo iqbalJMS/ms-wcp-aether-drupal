@@ -1,0 +1,10 @@
+uuid: 014672df-8f3c-4c62-bcbd-a27853c5f083
+langcode: en
+status: true
+dependencies: {  }
+id: banner_box
+label: 'Banner box'
+icon_uuid: null
+icon_default: null
+description: 'Banner box widget'
+behavior_plugins: {  }
