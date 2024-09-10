@@ -1,0 +1,18 @@
+uuid: 38a5fcca-31ad-41a6-b2cc-1e01c373d206
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.personal_profile
+id: node.personal_profile.title
+field_name: title
+entity_type: node
+bundle: personal_profile
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

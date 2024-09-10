@@ -1,0 +1,11 @@
+uuid: dc4a58c7-05f4-4179-92b4-ccde5e4218bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.personal_profile
+id: node.personal_profile
+target_entity_type_id: node
+target_bundle: personal_profile
+default_langcode: site_default
+language_alterable: false

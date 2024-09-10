@@ -1,0 +1,29 @@
+uuid: ea96300a-0620-41de-bbb9-90a36dd0e473
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pictures
+    - media.type.image
+    - node.type.personal_profile
+id: node.personal_profile.field_pictures
+field_name: field_pictures
+entity_type: node
+bundle: personal_profile
+label: Pictures
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

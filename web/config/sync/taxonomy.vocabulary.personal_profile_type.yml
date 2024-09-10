@@ -1,0 +1,9 @@
+uuid: 18bef820-2ac3-4aa7-8dcc-78354e77fdac
+langcode: en
+status: true
+dependencies: {  }
+name: 'Personal profile type'
+vid: personal_profile_type
+description: null
+weight: 0
+new_revision: false

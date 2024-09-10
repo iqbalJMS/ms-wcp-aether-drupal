@@ -1,0 +1,19 @@
+uuid: 8fbc1ea8-8f84-47f7-a333-4ff576014b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_position
+    - node.type.personal_profile
+id: node.personal_profile.field_position
+field_name: field_position
+entity_type: node
+bundle: personal_profile
+label: Position
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
