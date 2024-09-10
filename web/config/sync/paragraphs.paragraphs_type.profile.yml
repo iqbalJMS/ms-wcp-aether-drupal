@@ -1,0 +1,10 @@
+uuid: 19f93d98-8588-4401-bc0a-a26088df56c9
+langcode: en
+status: true
+dependencies: {  }
+id: profile
+label: Profile
+icon_uuid: null
+icon_default: null
+description: 'Display list of Personal profile'
+behavior_plugins: {  }

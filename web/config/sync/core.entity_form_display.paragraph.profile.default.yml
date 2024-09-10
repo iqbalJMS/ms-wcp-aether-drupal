@@ -1,0 +1,27 @@
+uuid: 4e6ee6b4-990c-4b4c-a107-7dd80a0f9ad6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.profile.field_content_list
+    - paragraphs.paragraphs_type.profile
+  module:
+    - entity_reference_revisions
+id: paragraph.profile.default
+targetEntityType: paragraph
+bundle: profile
+mode: default
+content:
+  field_content_list:
+    type: entity_reference_revisions_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
