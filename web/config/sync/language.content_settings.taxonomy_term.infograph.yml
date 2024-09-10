@@ -1,0 +1,16 @@
+uuid: a5c15c31-7248-40d2-94bb-93be5e2d11dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.infograph
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.infograph
+target_entity_type_id: taxonomy_term
+target_bundle: infograph
+default_langcode: current_interface
+language_alterable: false

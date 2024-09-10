@@ -1,0 +1,9 @@
+uuid: a9cefb2e-d154-48a2-9734-cec636398dc7
+langcode: en
+status: true
+dependencies: {  }
+name: Infograph
+vid: infograph
+description: 'Infograph Categories'
+weight: 0
+new_revision: false

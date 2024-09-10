@@ -1,0 +1,25 @@
+uuid: 089fde1a-7304-4d60-8f37-57cf808da1e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.infograph.field_categories
+    - field.field.node.infograph.field_components
+    - node.type.infograph
+  module:
+    - user
+id: node.infograph.teaser
+targetEntityType: node
+bundle: infograph
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_categories: true
+  field_components: true
+  langcode: true

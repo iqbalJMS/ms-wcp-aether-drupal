@@ -1,0 +1,29 @@
+uuid: 481433cc-d4cf-447e-a551-c577ab902060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categories
+    - node.type.infograph
+    - taxonomy.vocabulary.infograph
+id: node.infograph.field_categories
+field_name: field_categories
+entity_type: node
+bundle: infograph
+label: Categories
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      infograph: infograph
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: categories
+field_type: entity_reference

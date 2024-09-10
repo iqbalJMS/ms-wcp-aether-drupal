@@ -1,0 +1,16 @@
+uuid: 828efbd1-7938-416c-b78c-1372718e8050
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.infograph
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.infograph
+target_entity_type_id: node
+target_bundle: infograph
+default_langcode: site_default
+language_alterable: false

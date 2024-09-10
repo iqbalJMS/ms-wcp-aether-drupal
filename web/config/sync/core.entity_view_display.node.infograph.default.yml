@@ -1,0 +1,40 @@
+uuid: ca22119a-565d-443d-9aa8-4a5668b33437
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.infograph.field_categories
+    - field.field.node.infograph.field_components
+    - node.type.infograph
+  module:
+    - entity_reference_revisions
+    - user
+id: node.infograph.default
+targetEntityType: node
+bundle: infograph
+mode: default
+content:
+  field_categories:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

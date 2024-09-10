@@ -1,0 +1,17 @@
+uuid: b61bfdb3-4435-4d59-9a82-1a2c7b7d7653
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Infograph
+type: infograph
+description: 'Infograph Content Data'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true
