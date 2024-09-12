@@ -23,4 +23,6 @@ services:
     arguments: ['@entity_type.manager']
     tags:
       - { name: normalizer, priority: 10 }
-
+  bricc.menu_icon_manipulators:
+    class: Drupal\bricc\MenuIconManipulators
+    arguments: ['@entity_type.repository', '@entity_type.manager']

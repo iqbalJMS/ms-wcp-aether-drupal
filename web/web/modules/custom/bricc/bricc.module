@@ -311,3 +311,35 @@ function bricc_rest_resource_alter(&$definitions): void {
     $definitions['rest_menu_item']['uri_paths']['canonical'] = '/bricc-api/menu-items/{menu_name}';
   }
 }
+
+function bricc_rest_menu_items_output_alter(array &$menu_items) {
+  _bricc_handle_rest_menu_items_icon($menu_items);
+}
+
+function _bricc_handle_rest_menu_items_icon(&$menu_items) {
+  foreach ($menu_items as &$menu_item) {
+    if (isset($menu_item['relative'])) {
+      $parse_url_query = parse_url($menu_item['relative'], PHP_URL_QUERY);
+      $parse_url_path = parse_url($menu_item['relative'], PHP_URL_PATH);
+      $parse_str = [];
+      parse_str($parse_url_query, $parse_str);
+
+      if (isset($parse_str['icon'])) {
+        $icon = $parse_str['icon'];
+        unset($parse_str['icon']);
+        $menu_item['relative'] = $parse_url_path . '?' . http_build_query($parse_str);
+        $menu_item['icon'] = $icon;
+      }
+    }
+
+    if (isset($menu_item['below'])) {
+      _bricc_handle_rest_menu_items_icon($menu_item['below']);
+    }
+  }
+}
+
+function bricc_rest_menu_items_resource_manipulators_alter(array &$manipulators, &$menu_name) {
+  if ($menu_name === 'top-navigation') {
+    $manipulators[] = ['callable' => 'bricc.menu_icon_manipulators:loadMenuIcon'];
+  }
+}
