@@ -75,6 +75,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/core": {
+                "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
