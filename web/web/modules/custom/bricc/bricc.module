@@ -332,6 +332,14 @@ function _bricc_handle_rest_menu_items_icon(&$menu_items) {
       }
     }
 
+    // If menu item is linked to node
+    if (str_starts_with($menu_item['uri'], 'node')) {
+      $paths = explode('/', $menu_item['uri']);
+      if (isset($paths[1]) && is_numeric($paths[1])) {
+        $menu_item['nid'] = $paths[1];
+      }
+    }
+
     if (isset($menu_item['below'])) {
       _bricc_handle_rest_menu_items_icon($menu_item['below']);
     }
