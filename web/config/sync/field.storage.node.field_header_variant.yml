@@ -1,0 +1,27 @@
+uuid: 8ec0cf04-e0aa-4553-808b-72af825035c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_header_variant
+field_name: field_header_variant
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: Normal
+    -
+      value: transparent
+      label: Transparent
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

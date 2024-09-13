@@ -11,9 +11,9 @@ output_values:
   weight: weight
   expanded: expanded
   enabled: enabled
+  uuid: uuid
   options: options
   description: '0'
   external: '0'
   absolute: '0'
   existing: '0'
-  uuid: '0'

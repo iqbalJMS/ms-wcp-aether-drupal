@@ -1,0 +1,23 @@
+uuid: 4df45a43-7db4-479b-8d9a-6a5c08abc976
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_header_variant
+    - node.type.page
+  module:
+    - options
+id: node.page.field_header_variant
+field_name: field_header_variant
+entity_type: node
+bundle: page
+label: 'Header variant'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: normal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

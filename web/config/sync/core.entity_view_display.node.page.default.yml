@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_components
+    - field.field.node.page.field_header_variant
     - node.type.page
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.page.default
@@ -30,6 +32,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_header_variant:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }
