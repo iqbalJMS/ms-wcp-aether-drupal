@@ -70,8 +70,3 @@ system.admin_bricc:
   title: 'BRI CC'
   weight: -20
 
-entity.bricc_applicant_status.collection:
-  title: 'Applicant Status'
-  route_name: entity.bricc_applicant_status.collection
-  base_route: system.admin_content
-  weight: 10
