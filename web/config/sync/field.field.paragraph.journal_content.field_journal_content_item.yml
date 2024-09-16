@@ -1,29 +1,18 @@
-uuid: 57c0e6c0-c80b-4384-9968-a5744d9c5d4d
+uuid: 73ccf216-b76c-4ba2-8d3b-ebfceecb47cb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_components
-    - node.type.page
-    - paragraphs.paragraphs_type.accordion_item
-    - paragraphs.paragraphs_type.card_detail_item
-    - paragraphs.paragraphs_type.from_library
-    - paragraphs.paragraphs_type.icon_content_item
-    - paragraphs.paragraphs_type.image_slider_item
-    - paragraphs.paragraphs_type.info_card_item
+    - field.storage.paragraph.field_journal_content_item
+    - paragraphs.paragraphs_type.journal_content
     - paragraphs.paragraphs_type.journal_content_item
-    - paragraphs.paragraphs_type.list_content_item
-    - paragraphs.paragraphs_type.promo_item
-    - paragraphs.paragraphs_type.slider_item
-    - paragraphs.paragraphs_type.step_item
-    - paragraphs.paragraphs_type.tab_item
   module:
     - entity_reference_revisions
-id: node.page.field_components
-field_name: field_components
-entity_type: node
-bundle: page
-label: 'Content Components'
+id: paragraph.journal_content.field_journal_content_item
+field_name: field_journal_content_item
+entity_type: paragraph
+bundle: journal_content
+label: 'Journal Content Item'
 description: ''
 required: false
 translatable: false
@@ -33,180 +22,169 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      from_library: from_library
-      accordion_item: accordion_item
-      card_detail_item: card_detail_item
-      promo_item: promo_item
-      slider_item: slider_item
-      step_item: step_item
-      image_slider_item: image_slider_item
-      icon_content_item: icon_content_item
-      list_content_item: list_content_item
       journal_content_item: journal_content_item
-      tab_item: tab_item
-      info_card_item: info_card_item
-    negate: 1
+    negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: 6
+        weight: 55
         enabled: false
       accordion_item:
-        weight: 5
-        enabled: true
+        weight: 56
+        enabled: false
       banner_box:
-        weight: 58
+        weight: 57
         enabled: false
       banner_text:
-        weight: 59
+        weight: 58
         enabled: false
       card_comparation:
-        weight: 21
+        weight: 59
         enabled: false
       card_content:
-        weight: 22
+        weight: 60
         enabled: false
       card_cta:
-        weight: 40
+        weight: 61
         enabled: false
       card_detail:
-        weight: 13
+        weight: 62
         enabled: false
       card_detail_item:
-        weight: 10
-        enabled: true
+        weight: 63
+        enabled: false
       card_featured:
-        weight: 35
+        weight: 64
         enabled: false
       card_group_nav:
-        weight: 25
+        weight: 65
         enabled: false
       card_popular:
-        weight: 14
+        weight: 66
         enabled: false
       card_report:
-        weight: 68
+        weight: 67
         enabled: false
       card_slider:
-        weight: 8
+        weight: 68
         enabled: false
       carousel:
-        weight: 70
+        weight: 69
         enabled: false
       carousel_items:
-        weight: 71
+        weight: 70
         enabled: false
       content_type:
-        weight: 35
+        weight: 71
         enabled: false
       document_item:
-        weight: 73
+        weight: 72
         enabled: false
       download:
-        weight: 74
+        weight: 73
         enabled: false
       dropdown_action:
-        weight: 75
+        weight: 74
         enabled: false
       from_library:
-        weight: 3
-        enabled: true
+        weight: 75
+        enabled: false
       header:
-        weight: 2
+        weight: 76
         enabled: false
       icon_content_item:
-        weight: 49
-        enabled: true
+        weight: 77
+        enabled: false
       icon_cta:
-        weight: 50
+        weight: 78
         enabled: false
       image:
-        weight: 80
+        weight: 79
         enabled: false
       image_slider:
-        weight: 41
+        weight: 80
         enabled: false
       image_slider_item:
-        weight: 42
-        enabled: true
+        weight: 81
+        enabled: false
       info_card:
-        weight: 83
+        weight: 82
         enabled: false
       info_card_item:
-        weight: 84
-        enabled: true
+        weight: 83
+        enabled: false
       journal_content:
-        weight: 85
+        weight: 54
         enabled: false
       journal_content_item:
         weight: 55
         enabled: true
       list_content_item:
-        weight: 53
-        enabled: true
+        weight: 84
+        enabled: false
       menu_list:
-        weight: 43
+        weight: 85
         enabled: false
       multi_tab:
-        weight: 55
+        weight: 86
         enabled: false
       oversea_unit_items:
-        weight: 89
+        weight: 87
         enabled: false
       oversea_units:
-        weight: 90
+        weight: 88
         enabled: false
       personalized_shortcut:
-        weight: 44
+        weight: 89
         enabled: false
       profile:
-        weight: 92
+        weight: 90
         enabled: false
       promo:
-        weight: 14
+        weight: 91
         enabled: false
       promo_item:
-        weight: 31
-        enabled: true
+        weight: 92
+        enabled: false
       rich_text:
-        weight: 47
+        weight: 93
         enabled: false
       section:
-        weight: 60
+        weight: 94
         enabled: false
       simulation:
-        weight: 97
+        weight: 95
         enabled: false
       simulation_item:
-        weight: 98
+        weight: 96
         enabled: false
       slider:
-        weight: 32
+        weight: 97
         enabled: false
       slider_item:
-        weight: 33
-        enabled: true
+        weight: 98
+        enabled: false
       staircase_cards:
-        weight: 63
+        weight: 99
         enabled: false
       step_item:
-        weight: 34
-        enabled: true
+        weight: 100
+        enabled: false
       steps:
-        weight: 35
+        weight: 101
         enabled: false
       subscription:
-        weight: 53
+        weight: 102
         enabled: false
       tab_item:
-        weight: 67
-        enabled: true
+        weight: 103
+        enabled: false
       text_flipped_image:
-        weight: 106
+        weight: 104
         enabled: false
       two_column:
-        weight: 36
+        weight: 105
         enabled: false
       video:
-        weight: 108
+        weight: 106
         enabled: false
 field_type: entity_reference_revisions

@@ -1,0 +1,10 @@
+uuid: 67d7d302-2d8c-4467-844f-30ea81c8b0ff
+langcode: en
+status: true
+dependencies: {  }
+id: journal_content_item
+label: 'Journal Content Item'
+icon_uuid: null
+icon_default: null
+description: 'Journal content item. To be used in Journal Content widget.'
+behavior_plugins: {  }

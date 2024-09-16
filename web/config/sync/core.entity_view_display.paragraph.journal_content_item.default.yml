@@ -1,0 +1,45 @@
+uuid: 65cb6713-025d-459c-851c-70b2206658e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.journal_content_item.field_content
+    - field.field.paragraph.journal_content_item.field_primary_cta
+    - field.field.paragraph.journal_content_item.field_title
+    - paragraphs.paragraphs_type.journal_content_item
+  module:
+    - link
+    - text
+id: paragraph.journal_content_item.default
+targetEntityType: paragraph
+bundle: journal_content_item
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

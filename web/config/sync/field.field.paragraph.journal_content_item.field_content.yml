@@ -1,0 +1,22 @@
+uuid: 80674f99-c379-4174-95b8-f5a0d9bc92f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.journal_content_item
+  module:
+    - text
+id: paragraph.journal_content_item.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: journal_content_item
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

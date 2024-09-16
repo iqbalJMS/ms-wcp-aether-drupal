@@ -1,0 +1,23 @@
+uuid: 1e36392e-27a3-435d-9ad8-0a85668e1a1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.journal_content_item
+  module:
+    - link
+id: paragraph.journal_content_item.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: journal_content_item
+label: 'Call-to-action link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link
