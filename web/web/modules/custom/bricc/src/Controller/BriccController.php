@@ -224,7 +224,7 @@ class BriccController extends ControllerBase {
     if (isset($total_employee[$detail['jobInfo']['totalPegawai']])) {
       $id_total_pegawai = $total_employee[$detail['jobInfo']['totalPegawai']];
       if (isset($total_employee[$id_total_pegawai])) {
-        $total_employee[$detail['jobInfo']['totalPegawai']] = $total_employee[$id_total_pegawai];
+        $detail['jobInfo']['totalPegawai'] = $total_employee[$id_total_pegawai];
       }
     }
 
