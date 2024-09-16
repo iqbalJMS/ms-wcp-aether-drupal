@@ -58,4 +58,8 @@ input:read-only {
   -webkit-mask-image: url('../img/bri-icon.png');
 }
 
+ul.no-style {
+  list-style-type: none;
+}
+
 
