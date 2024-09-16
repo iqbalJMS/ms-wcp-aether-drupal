@@ -219,6 +219,15 @@ class BriccController extends ControllerBase {
       $detail['jobInfo']['subBidangPekerjaan'] = $emergency_relation[$detail['jobInfo']['subBidangPekerjaan']];
     }
 
+    // Total employee
+    $total_employee = \Drupal::service('bricc.parser_remote_data')->listTotalEmployee();
+    if (isset($total_employee[$detail['jobInfo']['totalPegawai']])) {
+      $id_total_pegawai = $total_employee[$detail['jobInfo']['totalPegawai']];
+      if (isset($total_employee[$id_total_pegawai])) {
+        $total_employee[$detail['jobInfo']['totalPegawai']] = $total_employee[$id_total_pegawai];
+      }
+    }
+
     if ($mode === 'default') {
       $build['detail_applicant'] = [
         '#theme' => 'applicant_detail',

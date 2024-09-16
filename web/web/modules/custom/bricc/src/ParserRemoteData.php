@@ -85,9 +85,9 @@ class ParserRemoteData {
    */
   public function listCardType(): array {
     $query = <<< GRAPHQL
-      query { 
-        creditCardTypes { 
-          descCardType 
+      query {
+        creditCardTypes {
+          descCardType
           idCardType
         }
       }
@@ -267,6 +267,26 @@ class ParserRemoteData {
     if (isset($result['data']['education'])) {
       foreach ($result['data']['education'] as $education) {
         $values[$education['education']] = $education['educationDesc'];
+      }
+    }
+    return $values;
+  }
+
+  public function listTotalEmployee() {
+    $query = <<< GRAPHQL
+    query {
+      totalEmployee {
+        totalEmployee
+        totalEmployeeDesc
+      }
+    }
+    GRAPHQL;
+    $options['body'] = json_encode(['query' => $query]);
+    $result = $this->post($this->sourceBaseUrl, $options);
+    $values = [];
+    if (isset($result['data']['totalEmployee'])) {
+      foreach ($result['data']['totalEmployee'] as $item) {
+        $values[$item['totalEmployee']] = $item['totalEmployeeDesc'];
       }
     }
     return $values;
