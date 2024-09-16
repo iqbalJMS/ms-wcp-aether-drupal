@@ -20,6 +20,7 @@
     "require": {
         "aws/aws-sdk-php": "^3.296",
         "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^1.7",
         "drupal/classy": "^1.0",
         "drupal/config_pages": "^2.15",
         "drupal/config_split": "^2.0",
@@ -63,6 +64,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "process-timeout": 0,
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
@@ -70,15 +72,20 @@
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": true,
-            "mnsami/composer-custom-directory-installer": true
+            "mnsami/composer-custom-directory-installer": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
     "extra": {
+        "enable-patching": true,
         "patches": {
             "drupal/core": {
                 "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch"
             }
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
         },
         "drupal-scaffold": {
             "locations": {
