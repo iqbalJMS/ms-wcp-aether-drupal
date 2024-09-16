@@ -35,7 +35,13 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     /** @var \Drupal\bricc\BriccCategoryInterface $entity */
     $row['label'] = $entity->toLink();
     $row['description'] = $entity->get('description')->value;
-    $row['card_count'] = $entity->get('card_count')->value;
+
+    $query = \Drupal::entityQuery('bricc_card_item')
+      ->accessCheck(FALSE)
+      ->condition('field_category.target_id', $entity->id());
+    $count = $query->count()->execute();
+
+    $row['card_count'] = $count;
     $row['status'] = $entity->get('status')->value ? $this->t('Active') : $this->t('Disabled');
     $username_options = [
       'label' => 'hidden',

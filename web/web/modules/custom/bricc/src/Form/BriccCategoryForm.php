@@ -13,6 +13,22 @@ use Drupal\Core\Form\FormStateInterface;
 final class BriccCategoryForm extends ContentEntityForm {
 
   /**
+   * @inheritDoc
+   */
+  public function form(array $form, FormStateInterface $form_state) {
+    $form = parent::form(
+      $form,
+      $form_state
+    );
+    $form['card_count']['#access'] = FALSE;
+    $form['status']['#access'] = FALSE;
+    $form['uid']['#access'] = FALSE;
+    $form['created']['#access'] = FALSE;
+
+    return $form;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state): int {
