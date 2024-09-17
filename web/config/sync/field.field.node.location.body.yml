@@ -1,0 +1,24 @@
+uuid: dedc2d51-1112-43cc-8893-7c76b210b91b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.location
+  module:
+    - text
+id: node.location.body
+field_name: body
+entity_type: node
+bundle: location
+label: 'Address name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -1,0 +1,9 @@
+uuid: cca5b6bc-be88-4e47-9671-26a69c8ef243
+langcode: en
+status: true
+dependencies: {  }
+name: 'Location Region'
+vid: location_region
+description: 'List of regions, used in Location that offer BRI service'
+weight: 0
+new_revision: false
