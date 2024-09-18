@@ -1,0 +1,10 @@
+uuid: a2ac46d8-d6ce-4264-b94e-16f3ab45caca
+langcode: en
+status: true
+dependencies: {  }
+id: location
+label: Location
+icon_uuid: null
+icon_default: null
+description: 'Location widget '
+behavior_plugins: {  }
