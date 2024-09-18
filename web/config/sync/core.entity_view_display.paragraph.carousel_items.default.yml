@@ -7,6 +7,8 @@ dependencies:
     - field.field.paragraph.carousel_items.field_datetime
     - field.field.paragraph.carousel_items.field_image
     - field.field.paragraph.carousel_items.field_primary_cta
+    - field.field.paragraph.carousel_items.field_simple_text
+    - field.field.paragraph.carousel_items.field_subtitle
     - field.field.paragraph.carousel_items.field_title
     - paragraphs.paragraphs_type.carousel_items
   module:
@@ -56,6 +58,22 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_simple_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_title:
     type: string
