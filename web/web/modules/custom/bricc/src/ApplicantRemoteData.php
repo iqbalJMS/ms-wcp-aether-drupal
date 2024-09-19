@@ -401,7 +401,7 @@ class ApplicantRemoteData
     $destination = 'public://' . $file_name;
 
     $file = $this->em->getStorage('file')->loadByProperties([
-      'uri' => $destination
+      'uri' => $destination,
     ]);
 
     if ($file) {
@@ -454,5 +454,32 @@ class ApplicantRemoteData
     }
 
     return '';
+  }
+
+  public function listCardItem (): array {
+    $cache_key = sprintf('bricc:%s', 'listCardItem');
+
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    try {
+      // Fetch data
+      $data = [];
+
+      $card_items = $this->em->getStorage('bricc_card_item')->loadMultiple();
+      foreach ($card_items as $card_item) {
+        if (!$card_item->get('field_idcardtype')->isEmpty()) {
+          $idcardtype = $card_item->get('field_idcardtype')->value;
+          $data[$idcardtype] = $card_item->label();
+        }
+      }
+
+      $this->cache->set($cache_key, $data);
+      return $data;
+    } catch (RequestException $e) {
+      $this->logger->warning($e->getMessage());
+    }
+
+    return [];
   }
 }

@@ -73,6 +73,7 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
       if (!empty($remote_data)) {
         $event->getView()->getPager()->total_items = count($remote_data);
         $card_type_options = \Drupal::service('bricc.parser_remote_data')->formattedCardType();
+        $card_type_brigate_link = $this->applicantRemoteData->listCardItem();
 
         // Pagination
         $end_index = $offset + $limit;
@@ -136,7 +137,12 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
               $item['tanggalPengajuan'] = date('Y-m-d H:i', strtotime($item['tanggalPengajuan']));
             }
             if (isset($card_type_options[$item['jenisKartuKredit']])) {
+              $id_card = $item['jenisKartuKredit'];
               $item['jenisKartuKredit'] = $card_type_options[$item['jenisKartuKredit']];
+              $item['jenisKartuKreditInDrupal'] = '';
+              if (isset($card_type_brigate_link[$id_card])) {
+                $item['jenisKartuKreditInDrupal'] = $card_type_brigate_link[$id_card];
+              }
             }
 
             $event->addResult(new ResultRow($item));
