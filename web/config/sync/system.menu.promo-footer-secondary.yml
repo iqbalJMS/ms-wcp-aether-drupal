@@ -1,0 +1,8 @@
+uuid: ecac802c-bd8e-49bc-9765-c26f8d31722a
+langcode: en
+status: true
+dependencies: {  }
+id: promo-footer-secondary
+label: 'PROMO Footer Secondary'
+description: 'Bottom footer menu for PROMO section'
+locked: false

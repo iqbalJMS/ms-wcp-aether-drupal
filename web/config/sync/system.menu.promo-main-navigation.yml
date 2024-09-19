@@ -1,0 +1,8 @@
+uuid: 90707f53-67c4-468a-afce-8a584497c6d6
+langcode: en
+status: true
+dependencies: {  }
+id: promo-main-navigation
+label: 'PROMO Main navigation'
+description: 'Main navigation for PROMO section'
+locked: false

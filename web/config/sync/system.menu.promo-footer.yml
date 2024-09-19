@@ -1,0 +1,8 @@
+uuid: c2385bf1-92e1-45d7-9d10-1100ffdc90cd
+langcode: en
+status: true
+dependencies: {  }
+id: promo-footer
+label: 'PROMO Footer'
+description: 'Site information links on footer of PROMO section'
+locked: false

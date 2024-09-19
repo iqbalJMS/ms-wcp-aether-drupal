@@ -1,0 +1,8 @@
+uuid: 1f4ef7c7-c48c-4d9e-a0ee-bb30373c1a91
+langcode: en
+status: true
+dependencies: {  }
+id: promo-top-navigation
+label: 'PROMO Top Navigation'
+description: 'Top navigation for PROMO section'
+locked: false

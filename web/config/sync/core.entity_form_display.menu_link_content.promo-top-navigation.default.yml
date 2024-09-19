@@ -1,0 +1,39 @@
+uuid: faf4a514-510b-4b0c-858e-ed81089e27b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.promo-top-navigation.field_image
+    - system.menu.promo-top-navigation
+  module:
+    - link
+    - media_library
+id: menu_link_content.promo-top-navigation.default
+targetEntityType: menu_link_content
+bundle: promo-top-navigation
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  view_mode: true

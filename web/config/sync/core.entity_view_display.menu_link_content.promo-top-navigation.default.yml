@@ -1,0 +1,28 @@
+uuid: 403c6977-7291-452a-b364-7a50bd000ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.promo-top-navigation.field_image
+    - system.menu.promo-top-navigation
+id: menu_link_content.promo-top-navigation.default
+targetEntityType: menu_link_content
+bundle: promo-top-navigation
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true
