@@ -145,6 +145,7 @@ class BriccController extends ControllerBase {
 
   public function applicantDetail($id, $mode = 'default'): array|Response {
     $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
+    $card_type_brigate_link = \Drupal::service('bricc.application_remote_data')->listCardItem();
 
     if (isset($detail['documents']['ktpId'])) {
       $detail['documents']['ktpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('ktp', $detail['documents']['ktpId']);
@@ -168,7 +169,11 @@ class BriccController extends ControllerBase {
       }
     }
     if (isset($card_type_options[$detail['jenisKartuKredit']])) {
-      $detail['jenisKartuKredit'] = $card_type_options[$detail['jenisKartuKredit']];
+      $idcardtype = $detail['jenisKartuKredit'];
+      $jenisKartuBrigate = $card_type_options[$idcardtype];
+      $jenisKartuDrupal = $card_type_brigate_link[$idcardtype];
+
+      $detail['jenisKartuKredit'] = sprintf('%s (%s)', $jenisKartuDrupal, $jenisKartuBrigate);
     }
 
     // Description untuk edukasi
