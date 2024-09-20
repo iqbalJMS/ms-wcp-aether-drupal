@@ -61,5 +61,13 @@ input:read-only {
 ul.no-style {
   list-style-type: none;
 }
+.item-list ul.no-style {
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+.item-list ul.no-style li {
+  list-style: none;
+  margin-left: 0;
+}
 
 
