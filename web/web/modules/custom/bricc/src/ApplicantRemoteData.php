@@ -305,6 +305,8 @@ class ApplicantRemoteData
 
     $options = [];
 
+    $nocache = TRUE;
+
     if ($filter_type == 'date') {
       // Filter by date
       $start_date = $params['startdate'] ?? '';
@@ -340,7 +342,7 @@ class ApplicantRemoteData
       GRAPHQL;
       $options['body'] = sprintf($gql_str, $start_date, $end_date, $jenis_kartu);
       $options['body'] = json_encode(['query' => $options['body']]);
-      $result = $this->post($this->sourceBaseUrl, $options);
+      $result = $this->post($this->sourceBaseUrl, $options, $nocache);
 
       if (isset($result['data']['personalInfoByDate'])) {
         return $result['data']['personalInfoByDate'];
@@ -382,11 +384,6 @@ class ApplicantRemoteData
       GRAPHQL;
       $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
       $options['body'] = json_encode(['query' => $options['body']]);
-
-      $nocache = FALSE;
-      if (isset($params['nocache'])) {
-        $nocache = $params['nocache'];
-      }
 
       $result = $this->post($this->sourceBaseUrl, $options, $nocache);
       if (isset($result['data']['personalInfosByName'])) {
