@@ -91,7 +91,7 @@ class ApplicantRemoteData
    *   The result.
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function post(string $uri, array $options = []): array
+  public function post(string $uri, array $options = [], $nocache = FALSE): array
   {
     $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
 
@@ -101,9 +101,10 @@ class ApplicantRemoteData
       ],
     ], $options);
 
-    if ($cache = $this->cache->get($cache_key)) {
+    if ($cache = $this->cache->get($cache_key) && $nocache === FALSE) {
       return $cache->data;
     }
+
     try {
       $response = $this->client->post($uri, $options);
       $data = Json::decode((string) $response->getBody());
@@ -381,7 +382,13 @@ class ApplicantRemoteData
       GRAPHQL;
       $options['body'] = sprintf($gql_str, $name, $phone, $tgllahir);
       $options['body'] = json_encode(['query' => $options['body']]);
-      $result = $this->post($this->sourceBaseUrl, $options);
+
+      $nocache = FALSE;
+      if (isset($params['nocache'])) {
+        $nocache = $params['nocache'];
+      }
+
+      $result = $this->post($this->sourceBaseUrl, $options, $nocache);
       if (isset($result['data']['personalInfosByName'])) {
         return $result['data']['personalInfosByName'];
       }

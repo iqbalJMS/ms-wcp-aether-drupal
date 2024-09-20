@@ -67,6 +67,9 @@ final class ApplicantRemoteDataSubscriber implements EventSubscriberInterface {
         unset($params['items_per_page']);
       }
 
+      // No cache for applicant list
+      $params['nocache'] = TRUE;
+
       // Fetch data
       $remote_data = $this->applicantRemoteData->listApplicantProcess($params);
 
