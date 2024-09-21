@@ -1,0 +1,21 @@
+uuid: 04d60d64-8bed-42c7-8377-26d88e637169
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.breadcrumb.field_menu
+    - paragraphs.paragraphs_type.breadcrumb
+id: paragraph.breadcrumb.default
+targetEntityType: paragraph
+bundle: breadcrumb
+mode: default
+content:
+  field_menu:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

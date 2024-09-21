@@ -19,3 +19,21 @@ services:
   brimw.simulation_request:
     class: Drupal\brimw\Requests\SimulationRequest
     arguments: [ '@request_stack' ]
+  brimw.kurs_normalizer:
+    class: Drupal\brimw\Normalizer\KursNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  brimw.kurs_remote_data:
+    class: Drupal\brimw\External\KursRemoteData
+    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
+  brimw.kurs_request:
+    class: Drupal\brimw\Requests\KursRequest
+    arguments: [ '@request_stack' ]
+  brimw.saham_normalizer:
+    class: Drupal\brimw\Normalizer\SahamNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  brimw.breadcrumb_normalizer:
+    class: Drupal\brimw\Normalizer\BreadcrumbNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }

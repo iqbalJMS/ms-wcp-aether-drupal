@@ -1,0 +1,32 @@
+uuid: 7f5e4ec1-90a8-4939-8f82-fa1c5ffc93f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.currency.field_image
+    - taxonomy.vocabulary.currency
+  module:
+    - text
+id: taxonomy_term.currency.default
+targetEntityType: taxonomy_term
+bundle: currency
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,10 @@
+uuid: 34f807f1-b6bd-45c4-9478-c3da70edfc36
+langcode: en
+status: true
+dependencies: {  }
+id: kurs
+label: Kurs
+icon_uuid: null
+icon_default: null
+description: 'Display kurs widget'
+behavior_plugins: {  }

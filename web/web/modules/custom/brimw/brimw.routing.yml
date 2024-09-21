@@ -1,7 +1,14 @@
-brimw.applicant_detail:
+brimw.calculate_simulation:
   path: '/api/brimw/simulasi/{type}'
   defaults:
     _controller: '\Drupal\brimw\Controllers\SimulationController::submit'
-    _title: 'Applicant detail'
+    _title: 'Calculate simulation'
+  requirements:
+    _permission: 'access content'
+brimw.calculate_kurs:
+  path: '/api/brimw/kurs/{type}'
+  defaults:
+    _controller: '\Drupal\brimw\Controllers\KursController::submit'
+    _title: 'Calculate kurs'
   requirements:
     _permission: 'access content'

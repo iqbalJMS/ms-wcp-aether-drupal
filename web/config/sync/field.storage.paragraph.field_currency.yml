@@ -1,0 +1,24 @@
+uuid: 7b16c345-eeb1-4516-823e-903b6e0069cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_currency
+field_name: field_currency
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Default
+  allowed_values_function: brimw_select_field_currency_allowed_values
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: adcecb0f-2e05-4667-8fb7-87893b50df0d
+langcode: en
+status: true
+dependencies: {  }
+id: breadcrumb
+label: Breadcrumb
+icon_uuid: null
+icon_default: null
+description: 'Display breadcrumb with an option to select based on which navigation'
+behavior_plugins: {  }

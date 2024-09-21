@@ -1,0 +1,11 @@
+uuid: abe7dcd4-e211-43a6-ac01-337d1ffa2673
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.currency
+id: taxonomy_term.currency
+target_entity_type_id: taxonomy_term
+target_bundle: currency
+default_langcode: site_default
+language_alterable: false

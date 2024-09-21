@@ -2,11 +2,6 @@
 
 namespace Drupal\brimw\External;
 
-use Drupal\Component\Serialization\Json;
-use Drupal\Core\Cache\CacheBackendInterface;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SimulationRemoteData extends BaseRemoteData 
