@@ -1,0 +1,21 @@
+uuid: 8d333e02-a5b3-49b1-84e2-b5817e530537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.kurs.field_currency
+    - paragraphs.paragraphs_type.kurs
+id: paragraph.kurs.default
+targetEntityType: paragraph
+bundle: kurs
+mode: default
+content:
+  field_currency:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

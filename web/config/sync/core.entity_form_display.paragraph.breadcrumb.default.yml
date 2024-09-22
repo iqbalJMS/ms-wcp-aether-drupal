@@ -1,0 +1,21 @@
+uuid: fa0cf5a6-526f-4533-882d-894614974fc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.breadcrumb.field_menu
+    - paragraphs.paragraphs_type.breadcrumb
+id: paragraph.breadcrumb.default
+targetEntityType: paragraph
+bundle: breadcrumb
+mode: default
+content:
+  field_menu:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

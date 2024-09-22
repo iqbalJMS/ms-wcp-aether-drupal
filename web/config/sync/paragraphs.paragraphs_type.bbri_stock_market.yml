@@ -1,0 +1,10 @@
+uuid: 35de02f8-1d6c-44bc-80d9-a321bcc9b141
+langcode: en
+status: true
+dependencies: {  }
+id: bbri_stock_market
+label: 'BBRI stock market'
+icon_uuid: null
+icon_default: null
+description: 'Display BBRI stock market'
+behavior_plugins: {  }

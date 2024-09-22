@@ -1,0 +1,29 @@
+uuid: f8fa30de-90ac-408b-b738-9489bacbd1a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_image
+    - media.type.image
+    - taxonomy.vocabulary.currency
+id: taxonomy_term.currency.field_image
+field_name: field_image
+entity_type: taxonomy_term
+bundle: currency
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

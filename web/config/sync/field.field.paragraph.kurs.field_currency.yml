@@ -1,0 +1,21 @@
+uuid: 17116953-5065-4db4-8ee9-11d03e2cd2e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_currency
+    - paragraphs.paragraphs_type.kurs
+  module:
+    - options
+id: paragraph.kurs.field_currency
+field_name: field_currency
+entity_type: paragraph
+bundle: kurs
+label: Currency
+description: 'Leave empty to use the default currencies'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

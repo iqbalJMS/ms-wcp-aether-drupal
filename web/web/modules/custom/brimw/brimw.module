@@ -12,3 +12,8 @@ function brimw_options_select_simulation_allowed_values(FieldStorageDefinitionIn
 {
   return \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
 }
+
+function brimw_select_field_currency_allowed_values(FieldStorageDefinitionInterface $definition, ?FieldableEntityInterface $entity = NULL, &$cacheable = TRUE)
+{
+  return array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs(), 'currency', 'currency');
+}
