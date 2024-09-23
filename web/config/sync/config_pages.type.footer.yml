@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: footer
-label: Footer
+label: 'BRI MW Footer'
 token: false
 context:
   show_warning: true

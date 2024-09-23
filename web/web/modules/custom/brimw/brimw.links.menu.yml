@@ -1,0 +1,13 @@
+brimw.configuration_form_header:
+  title: 'BRI MW Header'
+  route_name: config_pages.footer
+  description: 'Settings page for header section of BRI Main Website.'
+  parent: system.admin_config_system
+  weight: 99
+
+brimw.configuration_form_footer:
+  title: 'BRI MW Footer'
+  route_name: config_pages.footer
+  description: 'Settings page for footer section of BRI Main Website.'
+  parent: system.admin_config_system
+  weight: 99
