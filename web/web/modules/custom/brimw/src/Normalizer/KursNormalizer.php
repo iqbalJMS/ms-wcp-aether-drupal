@@ -45,6 +45,11 @@ class KursNormalizer extends BaseParagraphNormalizer
 
     }
 
+    $normalized['available_currency'] = array_merge(
+      ['IDR'],
+      array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs(), 'currency')
+    );
+
     return $normalized;
   }
 }
