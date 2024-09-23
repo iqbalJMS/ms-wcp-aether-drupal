@@ -12,3 +12,10 @@ brimw.calculate_kurs:
     _title: 'Calculate kurs'
   requirements:
     _permission: 'access content'
+brimw.location:
+  path: '/api/brimw/location/subtype'
+  defaults:
+    _title: 'Location'
+    _controller: '\Drupal\brimw\Controller\LocationController'
+  requirements:
+    _permission: 'access content'
