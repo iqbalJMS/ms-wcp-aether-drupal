@@ -1,0 +1,22 @@
+uuid: f8799529-faf0-4526-9fab-da85215f6854
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.card_grid_item
+  module:
+    - text
+id: paragraph.card_grid_item.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: card_grid_item
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

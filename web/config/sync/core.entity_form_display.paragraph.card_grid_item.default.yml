@@ -1,0 +1,44 @@
+uuid: 6d27eab3-53c7-4093-b594-2cf3c464cbd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_grid_item.field_content
+    - field.field.paragraph.card_grid_item.field_primary_cta
+    - field.field.paragraph.card_grid_item.field_title
+    - paragraphs.paragraphs_type.card_grid_item
+  module:
+    - link
+    - text
+id: paragraph.card_grid_item.default
+targetEntityType: paragraph
+bundle: card_grid_item
+mode: default
+content:
+  field_content:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_primary_cta:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,10 @@
+uuid: 55fc3975-7c34-4831-af17-3b87ee9dcfe5
+langcode: en
+status: true
+dependencies: {  }
+id: card_grid_item
+label: 'Card grid item'
+icon_uuid: null
+icon_default: null
+description: 'Item to be added to <em>Card grid</em> widget.'
+behavior_plugins: {  }
