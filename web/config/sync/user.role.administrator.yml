@@ -10,7 +10,7 @@ dependencies:
     - rest
 id: administrator
 label: Administrator
-weight: 2
+weight: -6
 is_admin: null
 permissions:
   - 'administer rest resources'

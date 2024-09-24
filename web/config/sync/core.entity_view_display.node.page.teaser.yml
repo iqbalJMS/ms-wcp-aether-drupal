@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_components
     - field.field.node.page.field_header_variant
+    - field.field.node.page.field_site_id
     - node.type.page
   module:
     - text
@@ -32,4 +33,5 @@ content:
 hidden:
   field_components: true
   field_header_variant: true
+  field_site_id: true
   langcode: true

@@ -1,0 +1,11 @@
+uuid: cd4131b1-36a6-4272-9068-cd2d366cb034
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.site_id
+id: taxonomy_term.site_id
+target_entity_type_id: taxonomy_term
+target_bundle: site_id
+default_langcode: site_default
+language_alterable: false

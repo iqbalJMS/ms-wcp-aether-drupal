@@ -1,0 +1,54 @@
+uuid: 09cbb252-369b-44d2-89f5-061055c2ce9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page
+    - taxonomy.vocabulary.categories
+    - taxonomy.vocabulary.document_category
+    - taxonomy.vocabulary.infograph
+    - taxonomy.vocabulary.personal_profile_type
+    - taxonomy.vocabulary.site_id
+  module:
+    - content_translation
+    - menu_link_content
+    - node
+    - paragraphs
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - webform
+id: admin_credit_card
+label: 'Admin Credit Card'
+weight: -8
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access own webform configuration'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access webform overview'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any page content'
+  - 'delete own page content'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert all revisions'
+  - 'revert page revisions'
+  - 'revert term revisions in site_id'
+  - 'translate any entity'
+  - 'translate categories taxonomy_term'
+  - 'translate document_category taxonomy_term'
+  - 'translate infograph taxonomy_term'
+  - 'translate menu_link_content'
+  - 'translate page node'
+  - 'translate paragraph'
+  - 'translate personal_profile_type taxonomy_term'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view term revisions in site_id'
+  - 'view the administration theme'

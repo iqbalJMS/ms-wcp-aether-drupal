@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_components
     - field.field.node.page.field_header_variant
+    - field.field.node.page.field_site_id
     - node.type.page
   module:
     - entity_reference_revisions
@@ -39,6 +40,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_site_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
     region: content
   links:
     settings: {  }

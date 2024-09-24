@@ -1,0 +1,14 @@
+uuid: 32673795-8a38-4d40-a34a-76ba9e3008e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_credit_card
+  module:
+    - user
+id: user_add_role_action.admin_credit_card
+label: 'Add the Admin Credit Card role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: admin_credit_card

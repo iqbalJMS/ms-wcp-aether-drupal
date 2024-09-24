@@ -1,0 +1,14 @@
+uuid: 1b91cdc9-87ea-4ba8-8be0-1b2b0be7758a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_main_website
+  module:
+    - user
+id: user_add_role_action.admin_main_website
+label: 'Add the Admin Main Website role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: admin_main_website

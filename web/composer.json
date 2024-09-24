@@ -44,6 +44,7 @@
         "drupal/openapi_ui_swagger": "^1.1",
         "drupal/paragraphs": "^1.17",
         "drupal/pathauto": "^1.13",
+        "drupal/permissions_by_term": "^3.1",
         "drupal/redis": "^1.7",
         "drupal/rest_entity_recursive": "^2.0@RC",
         "drupal/rest_export_nested": "^1.2",

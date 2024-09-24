@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_components
     - field.field.node.page.field_header_variant
+    - field.field.node.page.field_site_id
     - node.type.page
   module:
     - paragraphs
@@ -44,6 +45,12 @@ content:
   field_header_variant:
     type: options_select
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_site_id:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

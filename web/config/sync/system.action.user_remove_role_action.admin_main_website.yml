@@ -1,0 +1,14 @@
+uuid: 0f7c7a40-dde3-4dae-9b89-1a9bc577db30
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_main_website
+  module:
+    - user
+id: user_remove_role_action.admin_main_website
+label: 'Remove the Admin Main Website role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: admin_main_website

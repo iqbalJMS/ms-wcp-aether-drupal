@@ -1,0 +1,14 @@
+uuid: 11abbb96-0436-4350-9dbb-7e86223dd944
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_credit_card
+  module:
+    - user
+id: user_remove_role_action.admin_credit_card
+label: 'Remove the Admin Credit Card role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: admin_credit_card

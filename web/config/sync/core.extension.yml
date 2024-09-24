@@ -50,6 +50,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  permissions_by_term: 0
   pgsql: 0
   rest: 0
   rest_entity_recursive: 0
