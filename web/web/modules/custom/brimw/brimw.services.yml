@@ -37,3 +37,7 @@ services:
     class: Drupal\brimw\Normalizer\BreadcrumbNormalizer
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.form_normalizer:
+    class: Drupal\brimw\Normalizer\FormNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
