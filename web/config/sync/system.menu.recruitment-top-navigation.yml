@@ -1,0 +1,8 @@
+uuid: a89615a2-5f60-4723-baba-e6b9ecf47ed0
+langcode: en
+status: true
+dependencies: {  }
+id: recruitment-top-navigation
+label: 'RECRUITMENT Top Navigation'
+description: 'RECRUITMENT Top Navigation'
+locked: false

@@ -1,0 +1,8 @@
+uuid: 34b4c877-a96c-4f27-ba06-88d4e8de0a0e
+langcode: en
+status: true
+dependencies: {  }
+id: recruitment-main-navigation
+label: 'RECRUITMENT Main Navigation'
+description: 'RECRUITMENT Main Navigation'
+locked: false
