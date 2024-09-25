@@ -1,0 +1,14 @@
+uuid: dc8f19c1-25af-4c87-8cfd-8ce1bf56bda1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.user_main_website
+  module:
+    - user
+id: user_remove_role_action.user_main_website
+label: 'Remove the User Main Website role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: user_main_website

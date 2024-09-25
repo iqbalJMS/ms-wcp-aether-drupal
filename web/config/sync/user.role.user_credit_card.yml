@@ -1,0 +1,9 @@
+uuid: 5775b979-68f0-4b3b-8132-728704b99bb2
+langcode: en
+status: true
+dependencies: {  }
+id: user_credit_card
+label: 'User Credit Card'
+weight: -8
+is_admin: null
+permissions: {  }

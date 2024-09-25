@@ -21,7 +21,7 @@ dependencies:
     - webform
 id: admin_credit_card
 label: 'Admin Credit Card'
-weight: -8
+weight: -6
 is_admin: null
 permissions:
   - 'access administration pages'

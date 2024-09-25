@@ -1,0 +1,14 @@
+uuid: 8a795d49-83bb-4c60-896e-58bc3f01cc1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.user_credit_card
+  module:
+    - user
+id: user_add_role_action.user_credit_card
+label: 'Add the User Credit Card role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: user_credit_card

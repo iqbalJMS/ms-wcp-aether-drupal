@@ -1,0 +1,14 @@
+uuid: 664c2c3a-609c-4da8-8af8-1940f2d65b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.user_main_website
+  module:
+    - user
+id: user_add_role_action.user_main_website
+label: 'Add the User Main Website role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: user_main_website

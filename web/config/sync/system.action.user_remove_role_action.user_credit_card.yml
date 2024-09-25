@@ -1,0 +1,14 @@
+uuid: 0455b4ef-7173-4761-a4fd-f1663becd637
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.user_credit_card
+  module:
+    - user
+id: user_remove_role_action.user_credit_card
+label: 'Remove the User Credit Card role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: user_credit_card

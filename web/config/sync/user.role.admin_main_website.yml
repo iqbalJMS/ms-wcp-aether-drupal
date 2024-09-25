@@ -21,7 +21,7 @@ dependencies:
     - webform
 id: admin_main_website
 label: 'Admin Main Website'
-weight: -7
+weight: -5
 is_admin: null
 permissions:
   - 'access administration pages'
