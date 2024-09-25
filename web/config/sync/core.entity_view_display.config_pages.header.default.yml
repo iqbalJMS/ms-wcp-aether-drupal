@@ -6,6 +6,7 @@ dependencies:
     - config_pages.type.header
     - field.field.config_pages.header.field_language
     - field.field.config_pages.header.field_logo
+    - field.field.config_pages.header.field_logo_alternative
     - field.field.config_pages.header.field_main_navigation
     - field.field.config_pages.header.field_top_navigation
 id: config_pages.header.default
@@ -29,6 +30,15 @@ content:
       link: false
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_logo_alternative:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_main_navigation:
     type: entity_reference_label

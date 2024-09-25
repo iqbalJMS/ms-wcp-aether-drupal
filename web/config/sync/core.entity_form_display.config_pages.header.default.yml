@@ -6,6 +6,7 @@ dependencies:
     - config_pages.type.header
     - field.field.config_pages.header.field_language
     - field.field.config_pages.header.field_logo
+    - field.field.config_pages.header.field_logo_alternative
     - field.field.config_pages.header.field_main_navigation
     - field.field.config_pages.header.field_top_navigation
   module:
@@ -20,7 +21,7 @@ third_party_settings:
       label: Top
       region: content
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -35,7 +36,7 @@ third_party_settings:
       label: Main
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -62,6 +63,13 @@ content:
   field_logo:
     type: media_library_widget
     weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_logo_alternative:
+    type: media_library_widget
+    weight: 1
     region: content
     settings:
       media_types: {  }

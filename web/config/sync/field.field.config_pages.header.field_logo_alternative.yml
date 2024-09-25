@@ -1,17 +1,17 @@
-uuid: 496d106b-35cb-400d-8922-00c28b9712d9
+uuid: 3fb61ab4-c30d-4a2b-abaf-e6480948febf
 langcode: en
 status: true
 dependencies:
   config:
     - config_pages.type.header
-    - field.storage.config_pages.field_logo
+    - field.storage.config_pages.field_logo_alternative
     - media.type.image
-id: config_pages.header.field_logo
-field_name: field_logo
+id: config_pages.header.field_logo_alternative
+field_name: field_logo_alternative
 entity_type: config_pages
 bundle: header
-label: 'Logo (Primary)'
-description: 'Primary logo (logo with blue colour).'
+label: 'Logo (Alternative)'
+description: 'Alternative logo (logo with white colour).'
 required: false
 translatable: false
 default_value: {  }
