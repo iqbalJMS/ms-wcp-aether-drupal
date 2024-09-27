@@ -8,6 +8,8 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Drupal\user\UserInterface;
 
 /**
@@ -346,17 +348,16 @@ function bricc_rest_menu_items_output_alter(array &$menu_items) {
 
 function _bricc_handle_rest_menu_items_icon(&$menu_items) {
   foreach ($menu_items as &$menu_item) {
-    if (isset($menu_item['relative'])) {
-      $parse_url_query = parse_url($menu_item['relative'], PHP_URL_QUERY);
-      $parse_url_path = parse_url($menu_item['relative'], PHP_URL_PATH);
-      $parse_str = [];
-      parse_str($parse_url_query, $parse_str);
-
-      if (isset($parse_str['icon'])) {
-        $icon = $parse_str['icon'];
-        unset($parse_str['icon']);
-        $menu_item['relative'] = $parse_url_path . '?' . http_build_query($parse_str);
-        $menu_item['icon'] = $icon;
+    if (isset($menu_item['field_image'])) {
+      $media = Media::load($menu_item['field_image']);
+      if ($media instanceof Media) {
+        if (!$media->get('field_media_image')->isEmpty()) {
+          $file_id = $media->get('field_media_image')->target_id;
+          $file = File::load($file_id);
+          $file_uri = $file->getFileUri();
+          $url = \Drupal::service('file_url_generator')->generateString($file_uri);
+          $menu_item['icon'] = $url;
+        }
       }
     }
 
@@ -374,6 +375,3 @@ function _bricc_handle_rest_menu_items_icon(&$menu_items) {
   }
 }
 
-function bricc_rest_menu_items_resource_manipulators_alter(array &$manipulators, &$menu_name) {
-  $manipulators[] = ['callable' => 'bricc.menu_icon_manipulators:loadMenuIcon'];
-}

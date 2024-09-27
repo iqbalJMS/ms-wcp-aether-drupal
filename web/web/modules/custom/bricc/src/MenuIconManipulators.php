@@ -11,7 +11,7 @@ use Drupal\media\Entity\Media;
 use Drupal\menu_link_content\Plugin\Menu\MenuLinkContent;
 
 /**
- * @todo Add class description.
+ * @deprecated If everything related to menu icon is working, this can be removed
  */
 final class MenuIconManipulators{
 
