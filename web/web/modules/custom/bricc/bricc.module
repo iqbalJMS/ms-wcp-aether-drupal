@@ -375,7 +375,5 @@ function _bricc_handle_rest_menu_items_icon(&$menu_items) {
 }
 
 function bricc_rest_menu_items_resource_manipulators_alter(array &$manipulators, &$menu_name) {
-  if ($menu_name === 'top-navigation') {
-    $manipulators[] = ['callable' => 'bricc.menu_icon_manipulators:loadMenuIcon'];
-  }
+  $manipulators[] = ['callable' => 'bricc.menu_icon_manipulators:loadMenuIcon'];
 }
