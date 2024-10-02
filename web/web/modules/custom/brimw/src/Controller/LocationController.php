@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Drupal\brimw\Controller;
 
+use Drupal\brimw\External\LocationRemoteData;
 use Drupal\Core\Controller\ControllerBase;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Returns responses for brimw routes.
@@ -17,7 +20,7 @@ final class LocationController extends ControllerBase {
    * The controller constructor.
    */
   public function __construct(
-    private readonly ClientInterface $httpClient,
+    private readonly LocationRemoteData $locationRemoteData,
   ) {}
 
   /**
@@ -25,21 +28,34 @@ final class LocationController extends ControllerBase {
    */
   public static function create(ContainerInterface $container): self {
     return new self(
-      $container->get('http_client'),
+      $container->get('brimw.location_remote_data'),
     );
   }
 
   /**
    * Builds the response.
    */
-  public function __invoke(): array {
+  public function __invoke(Request $request, string $type): JsonResponse {
+    $result['data'] = [];
 
-    $build['content'] = [
-      '#type' => 'item',
-      '#markup' => $this->t('It works!'),
-    ];
+    if ($type === 'province') {
+      $result = $this->locationRemoteData->getAllProvinces();
+    }
+    else {
+      $result = $this->locationRemoteData->getAllLocations();
+    }
 
-    return $build;
+    return new JsonResponse([
+      'data' => $result,
+    ]);
+  }
+
+  public function listProvinces(): JsonResponse {
+    $result = $this->locationRemoteData->getAllLocations();
+
+    return new JsonResponse([
+      'data' => $result,
+    ]);
   }
 
 }
