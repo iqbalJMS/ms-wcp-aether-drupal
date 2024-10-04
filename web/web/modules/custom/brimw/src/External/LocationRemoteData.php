@@ -10,7 +10,7 @@ class LocationRemoteData extends BaseRemoteData {
     return $_ENV['LOCATION_URL'];
   }
 
-  public function getAllLocations(): array {
+  public function getAllLocations($params = []): array {
     $query = <<< GRAPHQL
       query {
         allLocations (param: {
@@ -42,9 +42,8 @@ class LocationRemoteData extends BaseRemoteData {
         }
       }
     GRAPHQL;
-
-    $result = array_column($this->gql($query)['data']['allLocations']['data'], null, 'id');
-    return array_values($result);
+    $result = $this->gql($query);
+    return $result['data']['allLocations'];
   }
 
   public function getAllProvinces(): array {
@@ -71,9 +70,37 @@ class LocationRemoteData extends BaseRemoteData {
         }
       }
     GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['allProvinces'];
+  }
 
-    $result = array_column($this->gql($query)['data']['allProvinces'], null, 'id');
-    return array_values($result);
+  public function getLocationType() {
+    // TODO Put correct query
+    $query = <<< GRAPHQL
+      query {
+        allProvinces(param:{
+          skip:0,
+          limit: 50,
+          filter: {
+            name: ""
+          }
+        }){
+          data{
+            id
+            name
+          }
+          pagination{
+            total
+            totalPages
+            currentPage
+            isPrev
+            isNext
+          }
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['allProvinces'];
   }
 
 }

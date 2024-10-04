@@ -41,6 +41,10 @@ services:
     class: Drupal\brimw\Normalizer\FormNormalizer
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.location_normalizer:
+    class: Drupal\brimw\Normalizer\LocationNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
   brimw.location_remote_data:
     class: Drupal\brimw\External\LocationRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]

@@ -1,0 +1,8 @@
+# Custom library for general purposes.
+admin:
+  version: 1.0.1
+  js:
+    js/brimw.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/drupal.dialog.ajax

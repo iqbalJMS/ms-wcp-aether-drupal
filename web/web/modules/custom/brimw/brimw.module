@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements brimw_options_select_simulation_allowed_values()
  * This function is called in config/sync
- */ 
+ */
 function brimw_options_select_simulation_allowed_values(FieldStorageDefinitionInterface $definition, ?FieldableEntityInterface $entity = NULL, &$cacheable = TRUE)
 {
   return \Drupal::service('brimw.simulation_remote_data')->getAllInstallmentSchemes();
@@ -16,4 +16,66 @@ function brimw_options_select_simulation_allowed_values(FieldStorageDefinitionIn
 function brimw_select_field_currency_allowed_values(FieldStorageDefinitionInterface $definition, ?FieldableEntityInterface $entity = NULL, &$cacheable = TRUE)
 {
   return array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs(), 'currency', 'currency');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function brimw_form_taxonomy_term_location_type_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  // Dummy location type
+  $location_type = [
+    '_none' => '- Please select a location type -',
+    '123' => 'Unit Kerja',
+    '234' => 'ATM',
+  ];
+
+  $form['select_idlocationtype'] = [
+    '#type' => 'select',
+    '#title' => t('Location type'),
+    '#options' => $location_type,
+    '#default_value' => $form['field_location_type']['widget'][0]['value']['#default_value'], // Set the default value if needed.
+    '#description' => t('Connect this data with BRI Location Type'),
+    '#weight' => 0,
+  ];
+  $form['field_location_type']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+  $form['#validate'][] = 'brimw_location_type_form_validate';
+}
+
+function brimw_location_type_form_validate(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if ($form_state->hasValue('field_location_type')) {
+    $field_locationtype = $form_state->getValue('field_location_type');
+    if (isset($field_locationtype[0]['value'])) {
+      /** @var \Drupal\taxonomy\Entity\Term $term */
+      $term = $form_state->getFormObject()->getEntity();
+
+      // Check is there a card item that already connect with this BRI card
+      $query = \Drupal::entityQuery('taxonomy_term')
+        ->accessCheck(FALSE)
+        ->condition('vid', $term->bundle(), '=')
+        ->condition('field_location_type', $field_locationtype[0]['value']);
+
+      // If update mode
+      if (!$term->isNew()) {
+        $current_tid = $term->id();
+        $query->condition('tid', $current_tid, '<>');
+      }
+
+      // Execute the query to get the node IDs.
+      $tids = $query->execute();
+
+      if (count($tids) > 0) {
+        $form_state->setErrorByName('field_location_type', t('There are already term link to this location type.'));
+      }
+    }
+  }
+}
+
+function brimw_page_attachments(array &$attachments) {
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $attachments['#attached']['library'][] = 'brimw/admin';
+  }
 }

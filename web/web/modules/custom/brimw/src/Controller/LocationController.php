@@ -34,9 +34,13 @@ final class LocationController extends ControllerBase {
 
   /**
    * Builds the response.
+   *
+   * @todo Pagination
    */
   public function __invoke(Request $request, string $type): JsonResponse {
     $result['data'] = [];
+
+    $query = $request->query->all();
 
     if ($type === 'province') {
       $result = $this->locationRemoteData->getAllProvinces();
