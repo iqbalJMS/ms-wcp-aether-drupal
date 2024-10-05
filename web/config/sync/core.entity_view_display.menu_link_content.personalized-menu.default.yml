@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.menu_link_content.personalized-menu.field_image
+    - field.field.menu_link_content.personalized-menu.field_is_fixed
     - system.menu.personalized-menu
   module:
     - bricc
@@ -23,6 +24,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_is_fixed:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   langcode: true

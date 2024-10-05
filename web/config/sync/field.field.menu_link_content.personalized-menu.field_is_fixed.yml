@@ -1,0 +1,21 @@
+uuid: ccebb161-1079-4967-bfac-65d510e62095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_is_fixed
+    - system.menu.personalized-menu
+id: menu_link_content.personalized-menu.field_is_fixed
+field_name: field_is_fixed
+entity_type: menu_link_content
+bundle: personalized-menu
+label: 'Is fixed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
