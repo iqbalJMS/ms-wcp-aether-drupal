@@ -1,0 +1,41 @@
+uuid: a7cf0d48-de0f-4bbf-982c-149b32b6fab7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.location_type.field_image
+    - field.field.taxonomy_term.location_type.field_location_type
+    - taxonomy.vocabulary.location_type
+  module:
+    - text
+id: taxonomy_term.location_type.default
+targetEntityType: taxonomy_term
+bundle: location_type
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_location_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

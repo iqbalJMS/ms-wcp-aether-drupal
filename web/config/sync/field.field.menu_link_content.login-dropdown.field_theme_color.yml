@@ -1,0 +1,21 @@
+uuid: 4730dfeb-c3c1-41bc-b7b2-879cb02b0945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_theme_color
+    - system.menu.login-dropdown
+  module:
+    - options
+id: menu_link_content.login-dropdown.field_theme_color
+field_name: field_theme_color
+entity_type: menu_link_content
+bundle: login-dropdown
+label: 'Theme color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

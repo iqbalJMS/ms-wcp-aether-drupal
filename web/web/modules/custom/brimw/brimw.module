@@ -31,6 +31,8 @@ function brimw_form_taxonomy_term_location_type_form_alter(
     '_none' => '- Please select a location type -',
     '123' => 'Unit Kerja',
     '234' => 'ATM',
+    '345' => 'BRILINK',
+    '456' => 'Weekend Banking',
   ];
 
   $form['select_idlocationtype'] = [

@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.menu_link_content.login-dropdown.field_image
+    - field.field.menu_link_content.login-dropdown.field_theme_color
     - system.menu.login-dropdown
+  module:
+    - options
 id: menu_link_content.login-dropdown.default
 targetEntityType: menu_link_content
 bundle: login-dropdown
@@ -23,6 +26,13 @@ content:
       link: false
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_theme_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   langcode: true

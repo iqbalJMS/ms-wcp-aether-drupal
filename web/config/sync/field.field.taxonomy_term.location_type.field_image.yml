@@ -1,17 +1,17 @@
-uuid: 7e04f4c3-f0d3-4a4c-adf8-f204273486bc
+uuid: 3e4cd631-48ec-4f0c-91e0-7a46a663c81a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.menu_link_content.field_image
+    - field.storage.taxonomy_term.field_image
     - media.type.image
-    - system.menu.login-dropdown
-id: menu_link_content.login-dropdown.field_image
+    - taxonomy.vocabulary.location_type
+id: taxonomy_term.location_type.field_image
 field_name: field_image
-entity_type: menu_link_content
-bundle: login-dropdown
-label: Icon
-description: 'Image must be PNG with transparent background.'
+entity_type: taxonomy_term
+bundle: location_type
+label: Image
+description: ''
 required: false
 translatable: false
 default_value: {  }
