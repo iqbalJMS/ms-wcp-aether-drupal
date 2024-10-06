@@ -1,0 +1,10 @@
+brimw.location.add_location:
+  title: 'Add location'
+  route_name: brimw.location.add
+  appears_on:
+    - view.location.page_1
+brimw.location.add_province:
+  title: 'Add province'
+  route_name: brimw.location.province.add
+  appears_on:
+    - view.location.province

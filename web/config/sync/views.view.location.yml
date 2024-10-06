@@ -534,7 +534,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="/admin/bri/location/{{ property_1 }}/edit">Edit</a>'
+            text: "<a href=\"{{ path('brimw.location.edit', {'id': property_1}) }}\">Edit</a>"
             make_link: false
             path: ''
             absolute: false
@@ -688,7 +688,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 20
+          items_per_page: 10
           total_pages: null
           id: 0
           tags:
@@ -753,6 +753,289 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/bri/location/location
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - views_remote_data
+  province:
+    id: province
+    display_title: Province
+    display_plugin: page
+    position: 2
+    display_options:
+      title: Province
+      fields:
+        property_1:
+          id: property_1
+          table: brimw_location_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_remote_data_property
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: id
+        property_2:
+          id: property_2
+          table: brimw_location_remote_data
+          field: property
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_remote_data_property
+          label: Name
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          property_path: name
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: Edit
+          plugin_id: custom
+          label: Edit
+          exclude: true
+          alter:
+            alter_text: true
+            text: "<a href=\"{{ path('brimw.location.province.edit', {'id': property_1}) }}\">Edit</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: Delete
+          plugin_id: custom
+          label: Delete
+          exclude: true
+          alter:
+            alter_text: true
+            text: '<a href="{{ path(''brimw.location.province.delete_confirm'', {id: property_1}) }}">Delete</a>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+        dropbutton:
+          id: dropbutton
+          table: views
+          field: dropbutton
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: dropbutton
+          label: Dropbutton
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: true
+          fields:
+            nothing: nothing
+            nothing_1: nothing_1
+            property_1: '0'
+            property: '0'
+            property_2: '0'
+            property_3: '0'
+            property_4: '0'
+            property_5: '0'
+            property_6: '0'
+            property_7: '0'
+            property_8: '0'
+            property_9: '0'
+      defaults:
+        title: false
+        fields: false
+      display_description: ''
+      display_extenders: {  }
+      path: admin/bri/location/province
     cache_metadata:
       max-age: -1
       contexts:

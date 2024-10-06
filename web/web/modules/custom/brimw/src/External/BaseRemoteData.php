@@ -5,9 +5,12 @@ namespace Drupal\brimw\External;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 
 class BaseRemoteData {
+
+  protected $isNoCache = FALSE;
 
   /**
    * @var string
@@ -66,6 +69,18 @@ class BaseRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function gql(string $query): array {
+    if ($this->isNoCache) {
+      $options = [
+        'headers' => [
+          'Content-Type' => 'application/json',
+        ],
+        'body' => json_encode(['query' => $query]),
+      ];
+      $response = $this->client->post($this->gqlUrl, $options);
+
+      return Json::decode((string) $response->getBody());
+    }
+
     $cache_key = sprintf('brimw:%s:%s', md5($this->gqlUrl), json_encode($query));
 
     $options = [

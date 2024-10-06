@@ -28,3 +28,40 @@ brimw.location:
     _permission: 'access content'
   options:
     type: 'province|region|location'
+
+brimw.location.edit:
+  path: '/admin/bri/location/{id}/edit'
+  defaults:
+    _title: 'Edit location'
+    _form: 'Drupal\brimw\Form\LocationForm'
+  requirements:
+    _permission: 'access location crud'
+brimw.location.add:
+  path: '/admin/bri/location/add'
+  defaults:
+    _title: 'Add location'
+    _form: 'Drupal\brimw\Form\LocationForm'
+  requirements:
+    _permission: 'access location crud'
+brimw.location.province.delete_confirm:
+  path: '/admin/bri/location/province/{id}/delete-confirm'
+  defaults:
+    _title: 'Province Delete Confirm'
+    _form: 'Drupal\brimw\Form\ProvinceDeleteConfirmForm'
+  requirements:
+    _permission: 'access location crud'
+
+brimw.location.province.add:
+  path: '/admin/bri/location/province/add'
+  defaults:
+    _title: 'Add province'
+    _form: 'Drupal\brimw\Form\ProvinceForm'
+  requirements:
+    _permission: 'access location crud'
+brimw.location.province.edit:
+  path: '/admin/bri/location/province/{id}/edit'
+  defaults:
+    _title: 'Edit province'
+    _form: 'Drupal\brimw\Form\ProvinceForm'
+  requirements:
+    _permission: 'access location crud'

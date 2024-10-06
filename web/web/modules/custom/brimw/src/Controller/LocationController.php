@@ -66,7 +66,7 @@ final class LocationController extends ControllerBase {
         ],
         [
           'title' => $this->t('Province'),
-          'url' => Url::fromRoute('view.location.page_1'),
+          'url' => Url::fromRoute('view.location.province'),
           'description' => 'Manage province.',
         ],
         [

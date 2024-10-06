@@ -43,12 +43,20 @@ final class LocationRemoteDataSubscriber implements EventSubscriberInterface {
     $base_tables = array_keys($event->getView()->getBaseTables());
     if (count(array_intersect($supported_bases, $base_tables)) > 0) {
 
+      // Check display ID
+      $display_id = $event->getView()->current_display;
+
       // Pagination data
       $params['skip'] =  $event->getOffset();
       $params['limit'] = $event->getLimit();
 
       // Fetch data
-      $remote_data = $this->locationRemoteData->getAllLocations($params);
+      if ($display_id === 'page_1') {
+        $remote_data = $this->locationRemoteData->getAllLocations($params);
+      }
+      elseif ($display_id === 'province') {
+        $remote_data = $this->locationRemoteData->getAllProvinces($params);
+      }
 
       if (!empty($remote_data)) {
         $event->getView()->getPager()->total_items = $remote_data['pagination']['total'];
