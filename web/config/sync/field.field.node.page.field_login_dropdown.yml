@@ -1,0 +1,21 @@
+uuid: cb6c0a90-6253-413b-a725-141713be9efa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_login_dropdown
+    - node.type.page
+id: node.page.field_login_dropdown
+field_name: field_login_dropdown
+entity_type: node
+bundle: page
+label: 'Enable login dropdown'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

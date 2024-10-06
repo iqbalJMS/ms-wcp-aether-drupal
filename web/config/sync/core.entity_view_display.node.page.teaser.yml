@@ -6,8 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
     - field.field.node.page.field_components
+    - field.field.node.page.field_enable_footer
     - field.field.node.page.field_header_variant
+    - field.field.node.page.field_login_dropdown
+    - field.field.node.page.field_main_menu
     - field.field.node.page.field_site_id
+    - field.field.node.page.field_top_menu
     - node.type.page
   module:
     - text
@@ -32,6 +36,10 @@ content:
     region: content
 hidden:
   field_components: true
+  field_enable_footer: true
   field_header_variant: true
+  field_login_dropdown: true
+  field_main_menu: true
   field_site_id: true
+  field_top_menu: true
   langcode: true

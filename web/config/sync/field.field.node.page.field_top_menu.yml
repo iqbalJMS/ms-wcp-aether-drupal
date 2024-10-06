@@ -1,0 +1,23 @@
+uuid: be227846-d5de-4f1e-b68a-f9859fabf1c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_top_menu
+    - node.type.page
+id: node.page.field_top_menu
+field_name: field_top_menu
+entity_type: node
+bundle: page
+label: 'Top menu'
+description: 'Select which menu will be used on Top navigation'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

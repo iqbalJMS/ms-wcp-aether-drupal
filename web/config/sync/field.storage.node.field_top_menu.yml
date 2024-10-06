@@ -1,0 +1,20 @@
+uuid: 9341c868-45cc-40b7-8ba6-38107025e4a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+id: node.field_top_menu
+field_name: field_top_menu
+entity_type: node
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
