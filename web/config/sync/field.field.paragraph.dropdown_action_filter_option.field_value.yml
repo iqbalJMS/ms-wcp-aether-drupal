@@ -1,0 +1,19 @@
+uuid: 427a3999-5b5e-44f1-948d-0f50b00c8e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_value
+    - paragraphs.paragraphs_type.dropdown_action_filter_option
+id: paragraph.dropdown_action_filter_option.field_value
+field_name: field_value
+entity_type: paragraph
+bundle: dropdown_action_filter_option
+label: value
+description: 'Use for short value option, checkbox, dropdown, or list'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: d4ab160b-1e87-4abd-9755-879cb8a9c0d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_key
+    - paragraphs.paragraphs_type.dropdown_action_source
+id: paragraph.dropdown_action_source.field_key
+field_name: field_key
+entity_type: paragraph
+bundle: dropdown_action_source
+label: key
+description: 'Fill with no whitespace, please use underscore if words more than 1'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

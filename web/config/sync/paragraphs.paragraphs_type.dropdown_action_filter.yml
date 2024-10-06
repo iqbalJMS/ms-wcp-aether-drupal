@@ -1,0 +1,10 @@
+uuid: 84c626f3-9ae0-42f0-81e0-7f68cef42cee
+langcode: en
+status: true
+dependencies: {  }
+id: dropdown_action_filter
+label: 'Dropdown Action Filter'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

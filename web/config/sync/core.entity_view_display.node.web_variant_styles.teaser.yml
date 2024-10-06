@@ -1,0 +1,23 @@
+uuid: d8cef61c-bd82-44d2-a76a-0af5fb09201b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.web_variant_styles.field_key
+    - node.type.web_variant_styles
+  module:
+    - user
+id: node.web_variant_styles.teaser
+targetEntityType: node
+bundle: web_variant_styles
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_key: true
+  langcode: true

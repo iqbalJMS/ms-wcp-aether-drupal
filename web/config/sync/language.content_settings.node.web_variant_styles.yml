@@ -1,0 +1,16 @@
+uuid: 14c78e4b-c4fd-43e1-a415-dc683936dd21
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.web_variant_styles
+target_entity_type_id: node
+target_bundle: web_variant_styles
+default_langcode: site_default
+language_alterable: true

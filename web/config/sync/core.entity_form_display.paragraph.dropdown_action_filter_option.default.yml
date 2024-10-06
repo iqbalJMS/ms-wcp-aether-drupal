@@ -1,0 +1,32 @@
+uuid: 7c0d731a-af8b-4e4b-81ed-908614027122
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_action_filter_option.field_key
+    - field.field.paragraph.dropdown_action_filter_option.field_value
+    - paragraphs.paragraphs_type.dropdown_action_filter_option
+id: paragraph.dropdown_action_filter_option.default
+targetEntityType: paragraph
+bundle: dropdown_action_filter_option
+mode: default
+content:
+  field_key:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_value:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

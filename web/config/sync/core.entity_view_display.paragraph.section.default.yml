@@ -14,6 +14,7 @@ dependencies:
     - field.field.paragraph.section.field_note
     - field.field.paragraph.section.field_primary_cta
     - field.field.paragraph.section.field_title_alignment
+    - field.field.paragraph.section.field_web_variant_styles
     - paragraphs.paragraphs_type.section
   module:
     - entity_reference_revisions
@@ -113,5 +114,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_web_variant_styles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
 hidden: {  }
