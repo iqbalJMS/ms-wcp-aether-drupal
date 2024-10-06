@@ -745,6 +745,26 @@ display:
         - user.permissions
       tags:
         - views_remote_data
+  city:
+    id: city
+    display_title: City
+    display_plugin: page
+    position: 4
+    display_options:
+      title: City
+      defaults:
+        title: false
+      display_description: ''
+      display_extenders: {  }
+      path: admin/bri/location/city
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - views_remote_data
   page_1:
     id: page_1
     display_title: Page
@@ -1036,6 +1056,26 @@ display:
       display_description: ''
       display_extenders: {  }
       path: admin/bri/location/province
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - views_remote_data
+  region:
+    id: region
+    display_title: Region
+    display_plugin: page
+    position: 3
+    display_options:
+      title: Region
+      defaults:
+        title: false
+      display_description: ''
+      display_extenders: {  }
+      path: admin/bri/location/region
     cache_metadata:
       max-age: -1
       contexts:
