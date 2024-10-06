@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.dropdown_action.field_content
+    - field.field.paragraph.dropdown_action.field_dropdown_filter
+    - field.field.paragraph.dropdown_action.field_dropdown_source
+    - field.field.paragraph.dropdown_action.field_image
     - field.field.paragraph.dropdown_action.field_menu_list
     - field.field.paragraph.dropdown_action.field_primary_cta
     - field.field.paragraph.dropdown_action.field_title
@@ -10,11 +14,46 @@ dependencies:
   module:
     - entity_reference_revisions
     - link
+    - text
 id: paragraph.dropdown_action.default
 targetEntityType: paragraph
 bundle: dropdown_action
 mode: default
 content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_dropdown_filter:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_dropdown_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_menu_list:
     type: entity_reference_revisions_entity_view
     label: above

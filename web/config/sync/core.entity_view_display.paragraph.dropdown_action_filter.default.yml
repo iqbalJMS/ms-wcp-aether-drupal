@@ -1,0 +1,33 @@
+uuid: 1b1c785e-aba7-4e3a-a846-82c1d7ced92b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_action_filter.field_content
+    - field.field.paragraph.dropdown_action_filter.field_filter
+    - paragraphs.paragraphs_type.dropdown_action_filter
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.dropdown_action_filter.default
+targetEntityType: paragraph
+bundle: dropdown_action_filter
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_filter:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

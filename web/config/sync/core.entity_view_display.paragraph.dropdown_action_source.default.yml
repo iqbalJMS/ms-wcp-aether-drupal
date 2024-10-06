@@ -1,0 +1,30 @@
+uuid: 2da88a38-787d-4452-a103-618e5537bdc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_action_source.field_key
+    - field.field.paragraph.dropdown_action_source.field_value
+    - paragraphs.paragraphs_type.dropdown_action_source
+id: paragraph.dropdown_action_source.default
+targetEntityType: paragraph
+bundle: dropdown_action_source
+mode: default
+content:
+  field_key:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_value:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

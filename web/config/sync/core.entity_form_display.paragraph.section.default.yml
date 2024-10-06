@@ -14,6 +14,7 @@ dependencies:
     - field.field.paragraph.section.field_note
     - field.field.paragraph.section.field_primary_cta
     - field.field.paragraph.section.field_title_alignment
+    - field.field.paragraph.section.field_web_variant_styles
     - paragraphs.paragraphs_type.section
   module:
     - field_group
@@ -52,7 +53,7 @@ mode: default
 content:
   field_column:
     type: paragraphs
-    weight: 3
+    weight: 4
     region: content
     settings:
       title: Paragraph
@@ -72,13 +73,13 @@ content:
     third_party_settings: {  }
   field_column_per_row:
     type: options_select
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_column_reversed_on_mobile:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true
@@ -114,13 +115,13 @@ content:
     third_party_settings: {  }
   field_margin_left:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_note:
     type: text_textarea
-    weight: 9
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -128,7 +129,7 @@ content:
     third_party_settings: {  }
   field_primary_cta:
     type: link_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
@@ -140,8 +141,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_web_variant_styles:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,22 @@
+uuid: c64ff6d7-a68d-4e8b-bcde-706cc8c66f77
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+id: node.web_variant_styles.promote
+field_name: promote
+entity_type: node
+bundle: web_variant_styles
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

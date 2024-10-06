@@ -1,0 +1,29 @@
+uuid: f3824baf-5cb5-4eb5-a066-17abb680d00e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.web_variant_styles.field_key
+    - node.type.web_variant_styles
+  module:
+    - user
+id: node.web_variant_styles.default
+targetEntityType: node
+bundle: web_variant_styles
+mode: default
+content:
+  field_key:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

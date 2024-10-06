@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.header.field_image
     - field.field.paragraph.header.field_primary_cta
     - field.field.paragraph.header.field_title
+    - field.field.paragraph.header.field_web_variant_styles
     - paragraphs.paragraphs_type.header
   module:
     - link
@@ -68,5 +69,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_web_variant_styles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
 hidden: {  }
