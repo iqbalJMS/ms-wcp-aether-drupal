@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.slider.field_slider_items
+    - field.field.paragraph.slider.field_slider_variant
     - paragraphs.paragraphs_type.slider
   module:
     - entity_reference_revisions
+    - options
 id: paragraph.slider.default
 targetEntityType: paragraph
 bundle: slider
@@ -20,5 +22,12 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_slider_variant:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }
