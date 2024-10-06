@@ -896,6 +896,9 @@ $databases['default']['default'] = array(
 $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
 
+// TODO remove this
+$settings['trusted_host_patterns'][] = '^localhost$';
+
 // $settings['mongodb'] = [
 //   'clients' => [
 //     // Client alias => connection constructor parameters.
