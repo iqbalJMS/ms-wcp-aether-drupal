@@ -11,11 +11,14 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function getAllLocations($params = []): array {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+
     $query = <<< GRAPHQL
       query {
         allLocations (param: {
-          skip: 0
-          limit: 10
+          skip: $skip
+          limit: $limit
           filter: {
             search: ""
           }

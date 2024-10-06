@@ -48,3 +48,9 @@ services:
   brimw.location_remote_data:
     class: Drupal\brimw\External\LocationRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
+
+  brimw.event_subscriber:
+    class: Drupal\brimw\EventSubscriber\LocationRemoteDataSubscriber
+    arguments: ['@brimw.location_remote_data']
+    tags:
+      - { name: event_subscriber }

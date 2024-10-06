@@ -6,6 +6,7 @@ namespace Drupal\brimw\Controller;
 
 use Drupal\brimw\External\LocationRemoteData;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -37,7 +38,7 @@ final class LocationController extends ControllerBase {
    *
    * @todo Pagination
    */
-  public function __invoke(Request $request, string $type): JsonResponse {
+  public function location(Request $request, string $type): JsonResponse {
     $result['data'] = [];
 
     $query = $request->query->all();
@@ -52,6 +53,36 @@ final class LocationController extends ControllerBase {
     return new JsonResponse([
       'data' => $result,
     ]);
+  }
+
+  public function admin() {
+    $output = [
+      '#theme' => 'admin_block_content',
+      '#content' => [
+        [
+          'title' => $this->t('Location'),
+          'url' => Url::fromRoute('view.location.page_1'),
+          'description' => 'List of all location.',
+        ],
+        [
+          'title' => $this->t('Province'),
+          'url' => Url::fromRoute('view.location.page_1'),
+          'description' => 'Manage province.',
+        ],
+        [
+          'title' => $this->t('Region'),
+          'url' => Url::fromRoute('view.location.page_1'),
+          'description' => 'Manage region.',
+        ],
+        [
+          'title' => $this->t('City'),
+          'url' => Url::fromRoute('view.location.page_1'),
+          'description' => 'Manage cities.',
+        ],
+      ],
+    ];
+
+    return $output;
   }
 
   public function listProvinces(): JsonResponse {

@@ -1,0 +1,5 @@
+system.bri_location:
+  route_name: brimw.location.admin
+  base_route: system.admin
+  title: 'BRI Location'
+  weight: -20

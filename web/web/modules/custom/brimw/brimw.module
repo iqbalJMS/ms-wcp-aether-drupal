@@ -81,3 +81,19 @@ function brimw_page_attachments(array &$attachments) {
     $attachments['#attached']['library'][] = 'brimw/admin';
   }
 }
+
+
+/**
+ * Implements hook_views_data().
+ */
+function brimw_views_data() {
+  $data = [];
+
+  $data['brimw_location_remote_data']['table']['group'] = 'brimw_location_remote_data';
+  $data['brimw_location_remote_data']['table']['base'] = [
+    'title' => 'BRI Location remote data',
+    'query_id' => 'views_remote_data_query',
+  ];
+
+  return $data;
+}
