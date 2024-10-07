@@ -39,7 +39,15 @@ class PersonalizedShortcutNormalizer extends BaseParagraphNormalizer
     $personalizedMenus = $this->em->getStorage('menu_link_content')
                                   ->loadByProperties(['menu_name' => 'personalized-menu']);
 
-    usort($personalizedMenus, fn ($a, $b) => $a->weight->value > $b->weight->value);
+    usort($personalizedMenus, function ($_a, $_b) {
+      $a = $_a->weight->value;
+      $b = $_b->weight->value;
+
+      if ($a == $b) {
+        return 0;
+      }
+      return ($a < $b) ? -1 : 1;
+    });
 
     if ($personalizedMenus) {
       $normalized['personalized_menu'] = $this->serializer->normalize($personalizedMenus, 'json_recursive');
