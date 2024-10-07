@@ -1,4 +1,4 @@
-uuid: c1623b19-3352-4a5c-833a-7ccc836c70d8
+uuid: 95d403c6-2ca8-477b-b321-49c0f96714ae
 langcode: en
 status: true
 dependencies:
@@ -6,12 +6,13 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'Web Variant Styles'
 type: web_variant_styles
-description: 'Web Variant Styles'
+description: null
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: false
+display_submitted: true

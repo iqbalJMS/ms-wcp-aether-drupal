@@ -1,15 +1,15 @@
-uuid: d1c32f04-82c7-4add-9cc6-8caa58aef274
+uuid: cc39d914-94b9-4adb-a794-cdf8bca3820e
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_web_variant_styles
     - node.type.web_variant_styles
-    - paragraphs.paragraphs_type.section
-id: paragraph.section.field_web_variant_styles
+    - paragraphs.paragraphs_type.multi_tab
+id: paragraph.multi_tab.field_web_variant_styles
 field_name: field_web_variant_styles
 entity_type: paragraph
-bundle: section
+bundle: multi_tab
 label: 'Web Variant Styles'
 description: ''
 required: false
