@@ -897,7 +897,10 @@ $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
 
 // TODO remove this
-$settings['trusted_host_patterns'][] = '^localhost$';
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^admin-bri-corpsite\.dev-kjt\.id$'
+];
 
 // $settings['mongodb'] = [
 //   'clients' => [
