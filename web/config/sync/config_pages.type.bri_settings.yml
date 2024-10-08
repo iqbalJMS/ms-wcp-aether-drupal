@@ -1,0 +1,17 @@
+uuid: a08a644d-e2c2-4c32-bf4c-9d38a248b4ee
+langcode: en
+status: true
+dependencies: {  }
+id: bri_settings
+label: 'BRI Settings'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/bri
+  weight: 0
+  description: 'Settings page for BRI in general'

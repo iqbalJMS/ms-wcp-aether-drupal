@@ -1,0 +1,33 @@
+uuid: 03fb8708-0c63-4dc9-ab36-dfb2fadee36a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.setting_frontpage.field_content_list
+    - field.field.paragraph.setting_frontpage.field_site_id
+    - paragraphs.paragraphs_type.setting_frontpage
+  module:
+    - entity_reference_revisions
+id: paragraph.setting_frontpage.default
+targetEntityType: paragraph
+bundle: setting_frontpage
+mode: default
+content:
+  field_content_list:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_site_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,29 @@
+uuid: ea4d2e8e-28d4-4ae1-a81a-ee12560bf095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_site_id
+    - paragraphs.paragraphs_type.setting_frontpage
+    - taxonomy.vocabulary.site_id
+id: paragraph.setting_frontpage.field_site_id
+field_name: field_site_id
+entity_type: paragraph
+bundle: setting_frontpage
+label: 'Site ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      site_id: site_id
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

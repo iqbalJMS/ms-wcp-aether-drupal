@@ -1,0 +1,22 @@
+uuid: d25419f9-c4b0-4feb-835d-4ac4d1a33bf7
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - config_pages
+    - rest_entity_recursive
+    - serialization
+    - user
+id: entity.config_pages
+plugin_id: 'entity:config_pages'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json_recursive
+    - json
+  authentication:
+    - basic_auth
+    - cookie

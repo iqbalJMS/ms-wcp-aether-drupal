@@ -1,16 +1,16 @@
-uuid: 0987a4e3-e333-4427-8d42-eb23b5ac2884
+uuid: 40d1e2f8-0ad3-4985-966e-8772eade8dc5
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - paragraphs
-id: paragraph.field_web_variant_styles
-field_name: field_web_variant_styles
+    - taxonomy
+id: paragraph.field_site_id
+field_name: field_site_id
 entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: node
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

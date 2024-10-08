@@ -11,3 +11,11 @@ brimw.configuration_form_footer:
   description: 'Settings page for footer section of BRI Main Website.'
   parent: system.admin_config_system
   weight: 99
+
+brimw.configuration_form_bri:
+  title: 'BRI Settings'
+  route_name: config_pages.bri_settings
+  description: 'Settings page for BRI in general.'
+  parent: system.admin_config_system
+  weight: 99
+

@@ -1,0 +1,34 @@
+uuid: 37cf9a4c-0968-4480-8f70-7e1c361683a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.setting_frontpage.field_content_list
+    - field.field.paragraph.setting_frontpage.field_site_id
+    - paragraphs.paragraphs_type.setting_frontpage
+  module:
+    - entity_reference_revisions
+id: paragraph.setting_frontpage.default
+targetEntityType: paragraph
+bundle: setting_frontpage
+mode: default
+content:
+  field_content_list:
+    type: entity_reference_revisions_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_site_id:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

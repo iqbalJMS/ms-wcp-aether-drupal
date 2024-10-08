@@ -1,0 +1,10 @@
+uuid: 3a27e074-6e22-4798-a486-603970de7f52
+langcode: en
+status: true
+dependencies: {  }
+id: setting_frontpage
+label: 'Setting: Frontpage'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
