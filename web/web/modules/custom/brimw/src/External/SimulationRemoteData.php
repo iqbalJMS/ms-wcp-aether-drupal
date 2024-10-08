@@ -79,7 +79,7 @@ class SimulationRemoteData extends BaseRemoteData
             downPaymentPercentage
             termRateSchemes {
               installmentTerm
-              interstRate
+              interestRate
             }
           }
           GRAPHQL,
