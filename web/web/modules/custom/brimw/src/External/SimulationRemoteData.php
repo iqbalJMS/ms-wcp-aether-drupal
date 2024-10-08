@@ -105,13 +105,11 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateKpr(Request $request): array
   { 
     $static = $this->getMasterData('kpr');
-    $interestRate = $static['kprScheme']['interestRate'] ?? 0.05;
     $query = <<< GRAPHQL
       mutation {
         estimateKpr (input: {
           installmentAmount: {$request->get('installmentAmount')}
           installmentTerm: {$request->get('installmentTerm')}
-          interestRate: {$interestRate}
         }
         ) {
           monthlyInstallment
@@ -125,13 +123,11 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateKprs(Request $request): array
   { 
     $static = $this->getMasterData('kprs');
-    $interestRate = $static['kprsScheme']['interestRate'] ?? 0.05;
     $query = <<< GRAPHQL
       mutation {
         estimateKprs (input: {
           installmentAmount: {$request->get('installmentAmount')}
           installmentTerm: {$request->get('installmentTerm')}
-          interestRate: {$interestRate}
         }
         ) {
           monthlyInstallment
