@@ -61,7 +61,7 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
-install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$POSTGRES_CONNECTION_STRING --site-name="BRI Microsite Kartu Kredit" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
+install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$POSTGRES_CONNECTION_STRING --site-name="BRI Drupal Admin/Service" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
     echo "[DRUPAL] already had database, skip database proccess"
@@ -81,14 +81,15 @@ echo -e "\n\n\n
 =========================================================
 |                                                       |
 |                                                       |
-|                  [DRUPAL] admin access                |
+|                  [DRUPAL] env values                  |
 |                                                       |
 |                                                       |
 =========================================================
 
-config username and password as follow :
+config env as follow :
 u : $ADMIN_USER
 p : $ADMIN_PASS
+s : $POSTGRES_CONNECTION_STRING
 \n"
 
 echo -e "\n\n\n
