@@ -9,7 +9,7 @@ RUN apt-get install bash
 RUN apt-get install -y software-properties-common curl zip unzip wget
 RUN apt-get install ca-certificates apt-transport-https software-properties-common lsb-release -y \
     && add-apt-repository ppa:ondrej/php -y \
-    && apt-get update -y \
+    # && apt-get update -y \
     && apt-get install git php8.3 \
     php8.3-dev \
     php8.3-cli \
@@ -27,7 +27,7 @@ RUN apt-get install ca-certificates apt-transport-https software-properties-comm
     php8.3-bcmath \
     php8.3-pgsql \
     php8.3-opcache \
-    php-imagick \
+    php8.3-imagick \
     imagemagick \
     webp \ 
     php8.3-xmlrpc -y

@@ -85,9 +85,6 @@
         "patches": {
             "drupal/core": {
                 "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch"
-            },
-            "drupal/rest_menu_items": {
-                "3039979 - Menu Items Extras fields also returned by the API": "https://www.drupal.org/files/issues/2024-07-04/3039979-support-menu-items-extra-modified-reroll.patch"
             }
         },
         "patchLevel": {
