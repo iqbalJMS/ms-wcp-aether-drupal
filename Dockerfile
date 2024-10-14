@@ -27,6 +27,7 @@ RUN apt-get install ca-certificates apt-transport-https software-properties-comm
     php8.3-bcmath \
     php8.3-pgsql \
     php8.3-opcache \
+    php8.3-intl \
     php8.3-imagick \
     imagemagick \
     webp \ 

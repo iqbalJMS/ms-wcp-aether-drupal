@@ -50,7 +50,7 @@ fi
 # check permission on /workspaces/web if it's root change to www-data:www-data
 # force to set www-data
 echo "[DRUPAL] changing permission on /workspaces/web"
-chown -R www-data:www-data /workspaces/web
+sudo chown -R www-data:www-data /workspaces/web
 
 echo -e "\n\n\n
 =========================================================
