@@ -61,6 +61,10 @@ echo -e "\n\n\n
 |                                                       |
 =========================================================
 \n"
+POSTGRES_CONNECTION_STRING=pgsql://postgres:P@ssw0rd@10.213.224.211:5432/postgres
+ADMIN_USER=gumini
+ADMIN_PASS=qytEUr9yM39NeBk
+
 install_error_message=$(/workspaces/web/vendor/bin/drush site-install minimal --db-url=$POSTGRES_CONNECTION_STRING --site-name="BRI Drupal Admin/Service" --account-name=$ADMIN_USER --account-pass=$ADMIN_PASS --config-dir=/workspaces/web/config/sync --existing-config -y 2>&1)
 substring="AlreadyInstalledException"
 if [[ "$install_error_message" == *"$substring"* ]]; then
