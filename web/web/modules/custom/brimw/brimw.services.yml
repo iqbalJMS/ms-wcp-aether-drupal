@@ -54,3 +54,7 @@ services:
     arguments: ['@brimw.location_remote_data']
     tags:
       - { name: event_subscriber }
+
+  brimw.rbac_helper:
+    class: Drupal\brimw\Service\RbacHelper
+    arguments: ['@entity_type.manager', '@cache.data', '@current_user', '@bricc.logger.channel']

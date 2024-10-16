@@ -3,6 +3,8 @@
 use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements brimw_options_select_simulation_allowed_values()
@@ -96,4 +98,21 @@ function brimw_views_data() {
   ];
 
   return $data;
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function brimw_views_query_alter(
+  ViewExecutable $view,
+  QueryPluginBase $query
+) {
+  if ($view->id() == 'content') {
+    $site_id = \Drupal::service('brimw.rbac_helper')->getSiteIdByRole();
+    if (!is_null($site_id)) {
+      if ($query instanceof Drupal\views\Plugin\views\query\Sql) {
+        $query->addWhere(1, 'taxonomy_term_field_data_node__field_site_id.tid', $site_id, '=');
+      }
+    }
+  }
 }
