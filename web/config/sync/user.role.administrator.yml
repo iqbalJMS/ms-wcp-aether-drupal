@@ -11,7 +11,7 @@ dependencies:
 id: administrator
 label: Administrator
 weight: -4
-is_admin: null
+is_admin: true
 permissions:
   - 'administer rest resources'
   - 'use text format full_html'

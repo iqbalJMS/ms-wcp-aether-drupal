@@ -4,17 +4,35 @@ status: true
 dependencies:
   config:
     - node.type.page
+    - system.menu.contact-us
+    - system.menu.footer
+    - system.menu.footer-secondary
+    - system.menu.login-dropdown
+    - system.menu.main
+    - system.menu.promo-footer
+    - system.menu.promo-footer-secondary
+    - system.menu.promo-main-navigation
+    - system.menu.promo-top-navigation
+    - system.menu.recruitment-footer
+    - system.menu.recruitment-footer-secondary
+    - system.menu.recruitment-main-navigation
+    - system.menu.recruitment-top-navigation
+    - system.menu.search
+    - system.menu.social-media
+    - system.menu.top-navigation
     - taxonomy.vocabulary.categories
     - taxonomy.vocabulary.document_category
     - taxonomy.vocabulary.infograph
     - taxonomy.vocabulary.personal_profile_type
     - taxonomy.vocabulary.site_id
   module:
+    - brimw
     - content_translation
     - menu_link_content
     - node
     - paragraphs
     - path
+    - simple_menu_permissions
     - system
     - taxonomy
     - toolbar
@@ -26,16 +44,63 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access location crud'
   - 'access own webform configuration'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access webform overview'
+  - 'add new links to contact-us menu'
+  - 'add new links to footer menu'
+  - 'add new links to footer-secondary menu'
+  - 'add new links to login-dropdown menu'
+  - 'add new links to main menu'
+  - 'add new links to promo-footer menu'
+  - 'add new links to promo-footer-secondary menu'
+  - 'add new links to promo-main-navigation menu'
+  - 'add new links to promo-top-navigation menu'
+  - 'add new links to recruitment-footer menu'
+  - 'add new links to recruitment-footer-secondary menu'
+  - 'add new links to recruitment-main-navigation menu'
+  - 'add new links to recruitment-top-navigation menu'
+  - 'add new links to social-media menu'
+  - 'add new links to top-navigation menu'
+  - 'administer menu'
   - 'create page content'
   - 'create url aliases'
   - 'delete any page content'
   - 'delete own page content'
   - 'edit any page content'
+  - 'edit contact-us menu'
+  - 'edit footer menu'
+  - 'edit footer-secondary menu'
+  - 'edit links in contact-us menu'
+  - 'edit links in footer menu'
+  - 'edit links in footer-secondary menu'
+  - 'edit links in login-dropdown menu'
+  - 'edit links in main menu'
+  - 'edit links in promo-footer menu'
+  - 'edit links in promo-footer-secondary menu'
+  - 'edit links in promo-main-navigation menu'
+  - 'edit links in promo-top-navigation menu'
+  - 'edit links in recruitment-footer menu'
+  - 'edit links in recruitment-footer-secondary menu'
+  - 'edit links in recruitment-main-navigation menu'
+  - 'edit links in recruitment-top-navigation menu'
+  - 'edit links in social-media menu'
+  - 'edit links in top-navigation menu'
+  - 'edit login-dropdown menu'
+  - 'edit main menu'
   - 'edit own page content'
+  - 'edit promo-footer menu'
+  - 'edit promo-footer-secondary menu'
+  - 'edit promo-main-navigation menu'
+  - 'edit promo-top-navigation menu'
+  - 'edit recruitment-footer menu'
+  - 'edit recruitment-footer-secondary menu'
+  - 'edit recruitment-main-navigation menu'
+  - 'edit recruitment-top-navigation menu'
+  - 'edit social-media menu'
+  - 'edit top-navigation menu'
   - 'revert all revisions'
   - 'revert page revisions'
   - 'revert term revisions in site_id'
@@ -48,7 +113,23 @@ permissions:
   - 'translate paragraph'
   - 'translate personal_profile_type taxonomy_term'
   - 'view all revisions'
+  - 'view contact-us menu in menu list'
+  - 'view footer menu in menu list'
+  - 'view footer-secondary menu in menu list'
+  - 'view login-dropdown menu in menu list'
+  - 'view main menu in menu list'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view promo-footer menu in menu list'
+  - 'view promo-footer-secondary menu in menu list'
+  - 'view promo-main-navigation menu in menu list'
+  - 'view promo-top-navigation menu in menu list'
+  - 'view recruitment-footer menu in menu list'
+  - 'view recruitment-footer-secondary menu in menu list'
+  - 'view recruitment-main-navigation menu in menu list'
+  - 'view recruitment-top-navigation menu in menu list'
+  - 'view search menu in menu list'
+  - 'view social-media menu in menu list'
   - 'view term revisions in site_id'
   - 'view the administration theme'
+  - 'view top-navigation menu in menu list'
