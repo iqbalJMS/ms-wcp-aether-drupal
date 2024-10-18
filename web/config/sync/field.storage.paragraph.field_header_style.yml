@@ -19,7 +19,7 @@ settings:
       label: 'Style 2'
     -
       value: rounded_corneer
-      label: 'Rounded Corneer'
+      label: 'Rounded Corner'
     -
       value: rectangle
       label: Rectangle
