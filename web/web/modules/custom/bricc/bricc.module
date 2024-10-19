@@ -349,7 +349,12 @@ function bricc_rest_menu_items_output_alter(array &$menu_items) {
 function _bricc_handle_rest_menu_items_icon(&$menu_items) {
   foreach ($menu_items as &$menu_item) {
     if (isset($menu_item['field_image'])) {
-      $media = Media::load($menu_item['field_image']);
+      $media = $menu_item['field_image'];
+
+      if (!$media instanceof Media) {
+        $media = Media::load($menu_item['field_image']);  
+      }
+
       if ($media instanceof Media) {
         if (!$media->get('field_media_image')->isEmpty()) {
           $file_id = $media->get('field_media_image')->target_id;

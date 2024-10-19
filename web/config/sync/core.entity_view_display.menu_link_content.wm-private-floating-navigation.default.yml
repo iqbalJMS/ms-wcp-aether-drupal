@@ -1,0 +1,28 @@
+uuid: d70d4b3b-bd84-41d3-9cce-30094b00fb98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wm-private-floating-navigation.field_image
+    - system.menu.wm-private-floating-navigation
+id: menu_link_content.wm-private-floating-navigation.default
+targetEntityType: menu_link_content
+bundle: wm-private-floating-navigation
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

@@ -70,7 +70,7 @@ final class RbacHelper {
   public function getSiteIdByRole() {
     $siteIdRoles = $this->getAllSiteIdRoles();
     foreach ($siteIdRoles as $siteIdRole) {
-      if ($this->currentUser->hasRole($siteIdRole['role'])) {
+      if ($this->currentUser->hasRole($siteIdRole['role'] ?: '')) {
         return $siteIdRole['id'];
       }
     }
