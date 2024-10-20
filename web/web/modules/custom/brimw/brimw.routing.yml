@@ -65,3 +65,19 @@ brimw.location.province.edit:
     _form: 'Drupal\brimw\Form\ProvinceForm'
   requirements:
     _permission: 'access location crud'
+
+brimw.location.city.add:
+  path: '/admin/bri/location/city/add'
+  defaults:
+    _title: 'City'
+    _form: 'Drupal\brimw\Form\CityForm'
+  requirements:
+    _permission: 'access location crud'
+
+brimw.location.category.add:
+  path: '/admin/bri/location/category/add'
+  defaults:
+    _title: 'Add location category'
+    _form: 'Drupal\brimw\Form\LocationCategoryForm'
+  requirements:
+    _permission: 'access location crud'

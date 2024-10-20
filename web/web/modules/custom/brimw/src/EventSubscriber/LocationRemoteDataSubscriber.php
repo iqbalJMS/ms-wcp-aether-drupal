@@ -57,6 +57,15 @@ final class LocationRemoteDataSubscriber implements EventSubscriberInterface {
       elseif ($display_id === 'province') {
         $remote_data = $this->locationRemoteData->getAllProvinces($params);
       }
+      elseif ($display_id === 'category') {
+        $remote_data = $this->locationRemoteData->getAllLocationCategory($params);
+      }
+      elseif ($display_id === 'type') {
+        $remote_data = $this->locationRemoteData->getAllLocationType($params);
+      }
+      elseif ($display_id === 'city') {
+        $remote_data = $this->locationRemoteData->getAllCities($params);
+      }
 
       if (!empty($remote_data)) {
         $event->getView()->getPager()->total_items = $remote_data['pagination']['total'];

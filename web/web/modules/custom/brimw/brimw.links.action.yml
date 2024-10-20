@@ -8,3 +8,13 @@ brimw.location.add_province:
   route_name: brimw.location.province.add
   appears_on:
     - view.location.province
+brimw.location.add_city:
+  title: 'Add city'
+  route_name: brimw.location.city.add
+  appears_on:
+    - view.location.city
+brimw.location.add_category:
+  title: 'Add category'
+  route_name: brimw.location.category.add
+  appears_on:
+    - view.location.category

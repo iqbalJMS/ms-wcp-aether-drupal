@@ -127,7 +127,7 @@ class LocationRemoteData extends BaseRemoteData {
     return $this->gql($query);
   }
 
-  public function getLocationType() {
+  public function getAllLocationType() {
     // TODO Put correct query
     $query = <<< GRAPHQL
       query {
@@ -156,14 +156,139 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['allProvinces'];
   }
 
+  public function getAllLocationCategory($params) {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+
+    $query = <<< GRAPHQL
+      query {
+        allCategories(param:{
+          skip:$skip,
+          limit: $limit,
+          filter: {
+            name: ""
+          }
+        }){
+          data{
+            id
+            name
+          }
+          pagination{
+            total
+            totalPages
+            currentPage
+            isPrev
+            isNext
+          }
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['allCategories'];
+  }
+
+  public function createCategory($type_id, $name) {
+    $query = <<< GRAPHQL
+      mutation {
+        createCategory(input: {
+          name: "$name"
+          type_id: "$type_id"
+        }) {
+          id
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['createCategory']['id'];
+  }
+
+  public function getCategory($id) {
+    return [];
+  }
+
   /**
    * @param $data
    *
    * @return bool
    * @todo Implementation
    */
-  public function addLocation($data): bool {
-    return TRUE;
+  public function createLocation($data): bool {
+    extract($data);
+
+    $query = <<< GRAPHQL
+      mutation {
+        createLocation(
+          name: "$name"
+          address: "$address"
+          lat: "$latitude"
+          long: "$longitude"
+        ) {
+          id
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['createProvince']['id'];
   }
 
+  public function getAllCities($params) {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+
+    $query = <<< GRAPHQL
+      query {
+        allCitys(param:{
+          skip:$skip,
+          limit: $limit,
+          filter: {
+            name: ""
+          }
+        }){
+          data{
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+          pagination{
+            total
+            totalPages
+            currentPage
+            isPrev
+            isNext
+          }
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['allCitys'];
+  }
+
+  public function createCity($id_province, $name): string {
+    $query = <<< GRAPHQL
+      mutation {
+        createCity(id_province: "$id_province", name: "$name") {
+          id
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['createCity']['id'];
+  }
+
+  public function getCity($id) {
+    $query = <<< GRAPHQL
+      query {
+        getByIdCity (id: "$id") {
+          id
+          name
+          province
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['getByIdCity'];
+  }
 }

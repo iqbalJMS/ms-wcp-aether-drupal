@@ -83,14 +83,22 @@ final class LocationForm extends FormBase {
         'mid' => '',
         'name' => '',
         'address' => '',
+        'province' => '',
+        'city' => '',
+        'zip' => '',
         'phone' => '',
         'service' => '',
         'category' => '',
-        'tipe' => '',
+        'type' => '',
         'lat' => '',
         'long' => '',
       ];
     }
+
+    $category_options = [];
+    $type_options = [];
+    $province_options = [];
+    $city_options = [];
 
     $form['mid'] = [
       '#type' => 'textfield',
@@ -103,6 +111,29 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Name'),
       '#default_value' => $data['name'],
+      '#required' => TRUE,
+    ];
+
+    $form['province'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Province'),
+      '#default_value' => $data['province'],
+      '#options' => $province_options,
+      '#required' => TRUE,
+    ];
+
+    $form['city'] = [
+      '#type' => 'select',
+      '#title' => $this->t('City'),
+      '#default_value' => $data['city'],
+      '#options' => $city_options,
+      '#required' => TRUE,
+    ];
+
+    $form['zip'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('ZIP code'),
+      '#default_value' => $data['zip'],
       '#required' => TRUE,
     ];
 
@@ -127,17 +158,19 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['category'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Category'),
-      '#default_value' => $data['category'],
+    $form['type'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Type'),
+      '#default_value' => $data['type'],
+      '#options' => $type_options,
       '#required' => TRUE,
     ];
 
-    $form['tipe'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Type'),
-      '#default_value' => $data['tipe'],
+    $form['category'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Category'),
+      '#default_value' => $data['category'],
+      '#options' => $category_options,
       '#required' => TRUE,
     ];
 
@@ -200,7 +233,7 @@ final class LocationForm extends FormBase {
       \Drupal::messenger()->addMessage($this->t('Location edit not implemented.'));
     } else {
       // Adding: Insert new location data.
-      $new_id = $this->locationRemoteData->addLocation($values);
+      $new_id = $this->locationRemoteData->createLocation($values);
       \Drupal::messenger()->addMessage($this->t('Location added successfully with ID: @id', ['@id' => $new_id]));
     }
   }
