@@ -1,0 +1,19 @@
+uuid: 8c416962-ec47-43e3-8c5f-f7ccf7f37108
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - node.type.outlet
+id: node.outlet.field_text
+field_name: field_text
+entity_type: node
+bundle: outlet
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

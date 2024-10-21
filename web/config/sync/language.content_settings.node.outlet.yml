@@ -1,0 +1,11 @@
+uuid: 3b8a7a9e-89cc-497d-9e44-bd7b911eef8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.outlet
+id: node.outlet
+target_entity_type_id: node
+target_bundle: outlet
+default_langcode: site_default
+language_alterable: false

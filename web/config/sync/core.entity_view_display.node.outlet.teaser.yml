@@ -1,0 +1,31 @@
+uuid: 8bda8430-8041-4098-bcb9-0dae4d63bf94
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.outlet.field_address
+    - field.field.node.outlet.field_icon
+    - field.field.node.outlet.field_link
+    - field.field.node.outlet.field_telephone
+    - field.field.node.outlet.field_text
+    - node.type.outlet
+  module:
+    - user
+id: node.outlet.teaser
+targetEntityType: node
+bundle: outlet
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_icon: true
+  field_link: true
+  field_telephone: true
+  field_text: true
+  langcode: true

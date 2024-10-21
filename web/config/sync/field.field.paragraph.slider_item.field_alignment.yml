@@ -1,0 +1,21 @@
+uuid: c73c1a67-c66b-4be5-89da-494c4d5d787d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment
+    - paragraphs.paragraphs_type.slider_item
+  module:
+    - options
+id: paragraph.slider_item.field_alignment
+field_name: field_alignment
+entity_type: paragraph
+bundle: slider_item
+label: Alignment
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
