@@ -1,0 +1,31 @@
+promo:  
+  path: '/admin/promo'  
+  defaults:  
+   _controller: '\Drupal\bribe\Controller\PromoController::promo'  
+   _title: 'Promo'  
+  requirements:  
+   _permission: 'administer bribe'  
+  
+bribe.add_promo:  
+  path: '/admin/promo/add'  
+  defaults:  
+   _controller: '\Drupal\bribe\Controller\PromoController::addPromo'  
+   _title: 'Add Promo'  
+  requirements:  
+   _permission: 'administer bribe'  
+  
+bribe.update_promo:  
+  path: '/admin/promo/{id}/update'  
+  defaults:  
+   _controller: '\Drupal\bribe\Controller\PromoController::updatePromo'  
+   _title: 'Update Promo'  
+  requirements:  
+   _permission: 'administer bribe'  
+  
+bribe.delete_promo:  
+  path: '/admin/promo/{id}/delete'  
+  defaults:  
+   _controller: '\Drupal\bribe\Controller\PromoController::deletePromo'  
+   _title: 'Delete Promo'  
+  requirements:  
+   _permission: 'administer bribe'
