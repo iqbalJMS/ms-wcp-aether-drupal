@@ -1,0 +1,19 @@
+uuid: 8df0a7e9-f015-42f4-9632-7c780d4debb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.text_flipped_image
+id: paragraph.text_flipped_image.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: text_flipped_image
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

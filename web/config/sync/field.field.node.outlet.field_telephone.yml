@@ -1,0 +1,21 @@
+uuid: b49d150e-73e7-40d1-b155-a6a1bde0e2ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telephone
+    - node.type.outlet
+  module:
+    - telephone
+id: node.outlet.field_telephone
+field_name: field_telephone
+entity_type: node
+bundle: outlet
+label: Telephone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

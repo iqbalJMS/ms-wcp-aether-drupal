@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\Core\DependencyInjection\ContainerBuilder;  
+use Symfony\Component\DependencyInjection\Reference;  
+use Drupal\Core\Extension\ModuleHandler;  
+  
+/**  
+ * @file  
+ * Contains \Drupal\bribe\bribe.  
+ */  
+  
+class bribe extends ModuleHandler {  
+  public function build(ContainerBuilder $container) {  
+   $container->register('bribe.service', 'Drupal\bribe\Service\BribeService')  
+    ->addArgument(new Reference('http_client'));  
+  }  
+}

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.slider_item.field_alignment
     - field.field.paragraph.slider_item.field_content
     - field.field.paragraph.slider_item.field_image
     - field.field.paragraph.slider_item.field_primary_cta
@@ -10,12 +11,20 @@ dependencies:
     - paragraphs.paragraphs_type.slider_item
   module:
     - link
+    - options
     - text
 id: paragraph.slider_item.default
 targetEntityType: paragraph
 bundle: slider_item
 mode: default
 content:
+  field_alignment:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
   field_content:
     type: text_default
     label: hidden
