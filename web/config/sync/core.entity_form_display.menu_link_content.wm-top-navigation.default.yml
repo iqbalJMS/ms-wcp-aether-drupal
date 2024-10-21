@@ -1,0 +1,45 @@
+uuid: 61881c6b-7b88-43f7-8914-fa6ea74a016a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wm-top-navigation.field_image
+    - system.menu.wm-top-navigation
+  module:
+    - link
+    - media_library
+    - menu_item_extras
+id: menu_link_content.wm-top-navigation.default
+targetEntityType: menu_link_content
+bundle: wm-top-navigation
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    type: menu_item_extras_view_mode_selector_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

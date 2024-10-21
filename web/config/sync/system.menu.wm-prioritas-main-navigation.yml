@@ -1,0 +1,8 @@
+uuid: 0c7b43ea-a97d-4dfb-a68d-163c66a32df7
+langcode: en
+status: true
+dependencies: {  }
+id: wm-prioritas-main-navigation
+label: 'WM PRIORITAS Main Navigation'
+description: 'Main navigation for Wealth Management Prioritas'
+locked: false

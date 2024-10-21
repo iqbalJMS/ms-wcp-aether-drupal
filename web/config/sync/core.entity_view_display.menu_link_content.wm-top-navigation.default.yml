@@ -1,0 +1,28 @@
+uuid: 0ac472a7-60ff-4b89-8cbe-4aae94877303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wm-top-navigation.field_image
+    - system.menu.wm-top-navigation
+id: menu_link_content.wm-top-navigation.default
+targetEntityType: menu_link_content
+bundle: wm-top-navigation
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

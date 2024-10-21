@@ -1,0 +1,8 @@
+uuid: c2257635-8c43-4b1c-bdc9-095d27b7f9a1
+langcode: en
+status: true
+dependencies: {  }
+id: wm-private-main-navigation
+label: 'WM PRIVATE Main Navigation'
+description: 'Main navigation for Wealth Management Private'
+locked: false
