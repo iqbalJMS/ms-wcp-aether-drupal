@@ -1,0 +1,8 @@
+uuid: 55b34dbe-9cb9-4190-9a68-107f569731d9
+langcode: en
+status: true
+dependencies: {  }
+id: wm-floating-navigation
+label: 'WEALTH MANAGEMENT floating navigation'
+description: ''
+locked: false

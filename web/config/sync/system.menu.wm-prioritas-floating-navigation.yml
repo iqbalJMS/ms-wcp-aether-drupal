@@ -1,0 +1,8 @@
+uuid: 380faa33-78a8-46cf-b1a1-7c8836716550
+langcode: en
+status: true
+dependencies: {  }
+id: wm-prioritas-floating-navigation
+label: 'WEALTH MANAGEMENT Prioritas floating navigation'
+description: ''
+locked: false

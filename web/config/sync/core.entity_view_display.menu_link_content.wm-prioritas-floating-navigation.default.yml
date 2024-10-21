@@ -1,0 +1,28 @@
+uuid: 32ed0433-0490-4a10-bb3a-8c275dcab7e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wm-prioritas-floating-navigation.field_image
+    - system.menu.wm-prioritas-floating-navigation
+id: menu_link_content.wm-prioritas-floating-navigation.default
+targetEntityType: menu_link_content
+bundle: wm-prioritas-floating-navigation
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true
