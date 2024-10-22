@@ -1,0 +1,8 @@
+uuid: 9af8e53f-d47d-4e09-93c3-33e23607cc5a
+langcode: en
+status: true
+dependencies: {  }
+id: wm-middle-footer
+label: 'WEALTH MANAGEMENT Middle footer'
+description: ''
+locked: false
