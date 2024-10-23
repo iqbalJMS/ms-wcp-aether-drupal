@@ -101,7 +101,8 @@ class BaseRemoteData {
       return $data;
     } catch (RequestException $e) {
       $this->logger->warning($e->getMessage());
-      return [];
+      $data = Json::decode((string) $e->getResponse()->getBody()->__toString());
+      return $data ?? ['error' => [['message' => "Server error"]]];
     }
   }
 }

@@ -3,12 +3,17 @@
 namespace Drupal\brimw\External;
 
 use Symfony\Component\HttpFoundation\Request;
+use Drupal;
 
 class SimulationRemoteData extends BaseRemoteData 
 {
   protected function gqlUrl(): string
   {
     return $_ENV['SIMULATION_URL'];
+  }
+
+  public function error($response) {
+    return Drupal::service('brimw.simulation_request')->finalizeValidation(['error' => $response['errors'][0]['message'] ?? 'Server error']);
   }
 
   public function getAllInstallmentSchemes(): array
@@ -117,7 +122,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateKpr'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateKpr'] ?? $this->error($response);
   }
 
   public function estimateKprs(Request $request): array
@@ -135,12 +142,53 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateKprs'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateKprs'] ?? $this->error($response);
   }
 
-  // estimateBritamaRencana
+  public function estimateBritamaRencana(Request $request): array
+  {
+    $static = $this->getMasterData('kprs');
+    $query = <<< GRAPHQL
+      mutation {
+        estimateBritamaRencana (input: {
+          month: {$request->get('month')}
+          amount: {$request->get('amount')}
+          premiAsuransi: {$request->get('premiAsuransi')}
+        }) {
+          bungaSaldoBritamaRencana
+          saldoTanpaBunga
+          bunga
+          totalInvestasiBritamaRencana
+        }
+      }
+    GRAPHQL;
 
-  // estimateBriguna
+    $response = $this->gql($query);
+
+    return $response['data']['estimateBritamaRencana'] ?? $this->error($response);
+  }
+
+  public function estimateBriguna(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      mutation {
+        estimateBriguna ({$request->get('inputType')}: {
+          salary: {$request->get('salary')}
+          installmentTerm: {$request->get('installmentTerm')}
+          InterestRate: {$request->get('interestRate')}
+        }
+        ) {
+          monthlyInstallment
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateBriguna'] ?? $this->error($response);
+  }
 
   public function estimateBrigunaKarya(Request $request): array
   {
@@ -149,7 +197,7 @@ class SimulationRemoteData extends BaseRemoteData
         estimateBrigunaKarya (input: {
           salary: {$request->get('salary')}
           installmentTerm: {$request->get('installmentTerm')}
-          interestRate: {$request->get('interestRate')}
+          InterestRate: {$request->get('interestRate')}
         }
         ) {
           monthlyInstallment
@@ -157,7 +205,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateBrigunaKarya'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateBrigunaKarya'] ?? $this->error($response);
   }
 
   public function estimateBrigunaPurna(Request $request): array
@@ -167,7 +217,7 @@ class SimulationRemoteData extends BaseRemoteData
         estimateBrigunaPurna (input: {
           salary: {$request->get('salary')}
           installmentTerm: {$request->get('installmentTerm')}
-          interestRate: {$request->get('interestRate')}
+          InterestRate: {$request->get('interestRate')}
         }
         ) {
           monthlyInstallment
@@ -175,7 +225,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateBrigunaPurna'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateBrigunaPurna'] ?? $this->error($response);
   }
 
   public function estimateDeposito(Request $request): array
@@ -194,7 +246,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateDeposito'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateDeposito'] ?? $this->error($response);
   }
 
   public function estimateDepositoValas(Request $request): array
@@ -213,7 +267,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateDepositoValas'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateDepositoValas'] ?? $this->error($response);
   }
 
   public function estimateDepositoBusiness(Request $request): array
@@ -232,10 +288,30 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateDepositoBusiness'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateDepositoBusiness'] ?? $this->error($response);
   }
 
-  // estimateInvestmentDPLK
+  public function estimateInitialInvestment(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      mutation {
+        estimateInitialInvestment (input: {
+          targetInvestmentValue: {$request->get('targetInvestmentValue')}
+          duration: {$request->get('duration')}
+        }
+        ) {
+          oneTimeInvestmentRequired
+          periodicInvestmentRequired
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateInitialInvestment'] ?? $this->error($response);
+  }
 
   public function estimateInvestment(Request $request): array
   {
@@ -253,6 +329,35 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['estimateInvestment'] ?? [];
+    $response = $this->gql($query);
+
+    return $response['data']['estimateInvestment'] ?? $this->error($response);
+  }
+
+  public function estimateVehicleInstallment(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      mutation {
+        estimateVehicleInstallment (input: {
+          vehiclePrice: {$request->get('vehiclePrice')}
+          installmentTerm: {$request->get('installmentTerm')}
+          vehicleStatus: {$request->get('vehicleStatus')}
+        }) {
+          vehiclePrice
+          downPaymentAmount
+          principalDebt
+          interestRate
+          principalInstallment
+          interestInstallmentPerMonth
+          totalInstallmentPerMonth
+          administrationFee
+          totalPayment
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateVehicleInstallment'] ?? $this->error($response);
   }
 }

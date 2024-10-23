@@ -16,15 +16,16 @@ class SimulationRequest extends BaseRequest
     private $availableTypes = [
         'estimateKpr',
         'estimateKprs',
-        // 'estimateBritamaRencana',
-        // 'estimateBriguna',
+        'estimateBritamaRencana',
+        'estimateBriguna',
         'estimateBrigunaKarya',
         'estimateBrigunaPurna',
         'estimateDeposito',
         'estimateDepositoValas',
         'estimateDepositoBusiness',
-        // 'estimateInvestmentDPLK',
         'estimateInvestment',
+        'estimateInitialInvestment',
+        'estimateVehicleInstallment',
     ];
       
     public function validateType(string $type)
@@ -51,12 +52,10 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'installmentAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ),
             $this->rules(
                 'installmentTerm',
                 new NotBlank, 
-                new Range(min: 1, max: 20),
             )
         ));
     }
@@ -67,14 +66,53 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'installmentAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ), 
             $this->rules(
                 'installmentTerm',
                 new NotBlank, 
-                new Range(min: 1, max: 15),
             )
         ));
+    }
+
+    protected function validateEstimateBritamaRencana(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge(
+            $this->rules(
+                'month',
+                new NotBlank, 
+            ), 
+            $this->rules(
+                'amount',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'premiAsuransi',
+                new NotBlank,
+            ),
+        ));
+    }
+    
+    protected function validateEstimateBriguna(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge(
+            $this->rules(
+                'inputType',
+                new NotBlank,
+            ), 
+            $this->rules(
+                'salary',
+                new NotBlank, 
+            ), 
+            $this->rules(
+                'installmentTerm',
+                new NotBlank, 
+            ), 
+            $this->rules(
+                'interestRate',
+                new NotBlank,
+            ),
+        ));
+
     }
     
     protected function validateEstimateBrigunaKarya(array $errors = [])
@@ -83,17 +121,14 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'salary',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ), 
             $this->rules(
                 'installmentTerm',
                 new NotBlank, 
-                new Range(min: 1, max: 15),
             ), 
             $this->rules(
                 'interestRate',
-                new NotBlank, 
-                new Range(min: 0.01 / 100, max: 25 / 100),
+                new NotBlank,
             ),
         ));
 
@@ -105,17 +140,14 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'salary',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ),
             $this->rules(
                 'installmentTerm',
                 new NotBlank, 
-                new Range(min: 1, max: 15),
             ),
             $this->rules(
                 'interestRate',
-                new NotBlank, 
-                new Range(min: 0.01 / 100, max: 25 / 100),
+                new NotBlank,
             ),
         ));
     }
@@ -126,15 +158,10 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'depositAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ), 
             $this->rules(
                 'termInMonths',
                 new NotBlank, 
-                new Choice([
-                    "1", "3", "6", 
-                    "12", "24", "36",
-                ]),
             ),
         ));
     }
@@ -145,15 +172,10 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'depositAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ), 
             $this->rules(
                 'termInMonths',
                 new NotBlank, 
-                new Choice([
-                    "1", "3", "6", 
-                    "12", "24", "36",
-                ]),
             ),
         ));
     }
@@ -164,15 +186,10 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'depositAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ), 
             $this->rules(
                 'termInMonths',
                 new NotBlank, 
-                new Choice([
-                    "1", "3", "6", 
-                    "12", "24", "36",
-                ]),
             ),
         ));
     }
@@ -183,17 +200,46 @@ class SimulationRequest extends BaseRequest
             $this->rules(
                 'investmentAmount',
                 new NotBlank, 
-                new Range(min: 1, max: 100 * 1000 * 1000),
             ),
             $this->rules(
                 'interestRate',
-                new NotBlank, 
-                new Range(min: 0.01 / 100, max: 100 / 100),
+                new NotBlank,
             ),
             $this->rules(
                 'duration',
                 new NotBlank, 
-                new Range(min: 1, max: 120),
+            ),
+        ));
+    }
+    
+    protected function validateEstimateInitialInvestment(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge( 
+            $this->rules(
+                'targetInvestmentValue',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'duration',
+                new NotBlank, 
+            ),
+        ));
+    }
+    
+    protected function validateEstimateVehicleInstallment(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge( 
+            $this->rules(
+                'vehiclePrice',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'installmentTerm',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'vehicleStatus',
+                new NotBlank, 
             ),
         ));
     }
