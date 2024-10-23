@@ -111,13 +111,14 @@ class SimulationRemoteData extends BaseRemoteData
   { 
     $static = $this->getMasterData('kpr');
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateKpr (input: {
           installmentAmount: {$request->get('installmentAmount')}
           installmentTerm: {$request->get('installmentTerm')}
         }
         ) {
           monthlyInstallment
+          interestRate
         }
       }
     GRAPHQL;
@@ -131,13 +132,14 @@ class SimulationRemoteData extends BaseRemoteData
   { 
     $static = $this->getMasterData('kprs');
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateKprs (input: {
           installmentAmount: {$request->get('installmentAmount')}
           installmentTerm: {$request->get('installmentTerm')}
         }
         ) {
           monthlyInstallment
+          interestRate  
         }
       }
     GRAPHQL;
@@ -151,7 +153,7 @@ class SimulationRemoteData extends BaseRemoteData
   {
     $static = $this->getMasterData('kprs');
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateBritamaRencana (input: {
           month: {$request->get('month')}
           amount: {$request->get('amount')}
@@ -161,6 +163,8 @@ class SimulationRemoteData extends BaseRemoteData
           saldoTanpaBunga
           bunga
           totalInvestasiBritamaRencana
+          interestRate
+          asurancePremium
         }
       }
     GRAPHQL;
@@ -173,14 +177,21 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateBriguna(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
-        estimateBriguna ({$request->get('inputType')}: {
-          salary: {$request->get('salary')}
-          installmentTerm: {$request->get('installmentTerm')}
-          InterestRate: {$request->get('interestRate')}
-        }
+      query {
+        estimateBriguna (
+          karyaInput: {
+            salary: {$request->get('karyaSalary')}
+            installmentTerm: {$request->get('karyaInstallmentTerm')}
+            InterestRate: {$request->get('karyaInterestRate')}
+          }
+          purnaInput: {
+            salary: {$request->get('purnaSalary')}
+            installmentTerm: {$request->get('purnaInstallmentTerm')}
+            InterestRate: {$request->get('purnaInterestRate')}
+          }
         ) {
           monthlyInstallment
+          interestRate
         }
       }
     GRAPHQL;
@@ -193,7 +204,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateBrigunaKarya(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateBrigunaKarya (input: {
           salary: {$request->get('salary')}
           installmentTerm: {$request->get('installmentTerm')}
@@ -201,6 +212,7 @@ class SimulationRemoteData extends BaseRemoteData
         }
         ) {
           monthlyInstallment
+          interestRate
         }
       }
     GRAPHQL;
@@ -213,7 +225,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateBrigunaPurna(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateBrigunaPurna (input: {
           salary: {$request->get('salary')}
           installmentTerm: {$request->get('installmentTerm')}
@@ -221,6 +233,7 @@ class SimulationRemoteData extends BaseRemoteData
         }
         ) {
           monthlyInstallment
+          interestRate
         }
       }
     GRAPHQL;
@@ -233,7 +246,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateDeposito(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateDeposito (input: {
           termInMonths: {$request->get('termInMonths')}
           depositAmount: {$request->get('depositAmount')}
@@ -242,6 +255,7 @@ class SimulationRemoteData extends BaseRemoteData
           totalInterest
           totalDeposit
           totalDepositWithInterest
+          rate
         }
       }
     GRAPHQL;
@@ -254,7 +268,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateDepositoValas(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateDepositoValas (input: {
           termInMonths: {$request->get('termInMonths')}
           depositAmount: {$request->get('depositAmount')}
@@ -263,6 +277,7 @@ class SimulationRemoteData extends BaseRemoteData
           totalInterest
           totalDeposit
           totalDepositWithInterest
+          rate
         }
       }
     GRAPHQL;
@@ -275,7 +290,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateDepositoBusiness(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateDepositoBusiness (input: {
           termInMonths: {$request->get('termInMonths')}
           depositAmount: {$request->get('depositAmount')}
@@ -284,6 +299,7 @@ class SimulationRemoteData extends BaseRemoteData
           totalInterest
           totalDeposit
           totalDepositWithInterest
+          rate
         }
       }
     GRAPHQL;
@@ -296,7 +312,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateInitialInvestment(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateInitialInvestment (input: {
           targetInvestmentValue: {$request->get('targetInvestmentValue')}
           duration: {$request->get('duration')}
@@ -316,7 +332,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateInvestment(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateInvestment (input: {
           investmentAmount: {$request->get('investmentAmount')}
           duration: {$request->get('duration')}
@@ -337,7 +353,7 @@ class SimulationRemoteData extends BaseRemoteData
   public function estimateVehicleInstallment(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         estimateVehicleInstallment (input: {
           vehiclePrice: {$request->get('vehiclePrice')}
           installmentTerm: {$request->get('installmentTerm')}
@@ -359,5 +375,42 @@ class SimulationRemoteData extends BaseRemoteData
     $response = $this->gql($query);
 
     return $response['data']['estimateVehicleInstallment'] ?? $this->error($response);
+  }
+
+  public function estimateObligasi(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      query {
+        estimateObligasi (input: {
+          amount: {$request->get('amount')}
+          term: {$request->get('term')}
+          couponRate: {$request->get('couponRate')}
+        }) {
+          estimatedYield
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateObligasi'] ?? $this->error($response);
+  }
+
+  public function estimateReksadana(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      query {
+        estimateReksadana (input: {
+          amount: {$request->get('amount')}
+          investmentType: {$request->get('investmentType')}
+        }) {
+          estimatedYield
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateReksadana'] ?? $this->error($response);
   }
 }
