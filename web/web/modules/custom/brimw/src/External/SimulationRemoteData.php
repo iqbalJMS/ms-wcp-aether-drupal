@@ -368,6 +368,7 @@ class SimulationRemoteData extends BaseRemoteData
           totalInstallmentPerMonth
           administrationFee
           totalPayment
+          provisionFee
         }
       }
     GRAPHQL;
