@@ -26,6 +26,8 @@ class SimulationRequest extends BaseRequest
         'estimateInvestment',
         'estimateInitialInvestment',
         'estimateVehicleInstallment',
+        'estimateObligasi',
+        'estimateReksadana',
     ];
       
     public function validateType(string $type)
@@ -95,22 +97,12 @@ class SimulationRequest extends BaseRequest
     protected function validateEstimateBriguna(array $errors = [])
     {
         return $this->finalizeValidation(array_merge(
-            $this->rules(
-                'inputType',
-                new NotBlank,
-            ), 
-            $this->rules(
-                'salary',
-                new NotBlank, 
-            ), 
-            $this->rules(
-                'installmentTerm',
-                new NotBlank, 
-            ), 
-            $this->rules(
-                'interestRate',
-                new NotBlank,
-            ),
+            $this->rules('karyaSalary', new NotBlank),
+            $this->rules('karyaInstallmentTerm', new NotBlank),
+            $this->rules('karyaInterestRate', new NotBlank),
+            $this->rules('purnaSalary', new NotBlank),
+            $this->rules('purnaInstallmentTerm', new NotBlank),
+            $this->rules('purnaInterestRate', new NotBlank),
         ));
 
     }
@@ -239,6 +231,38 @@ class SimulationRequest extends BaseRequest
             ),
             $this->rules(
                 'vehicleStatus',
+                new NotBlank, 
+            ),
+        ));
+    }
+    
+    protected function validateEstimateObligasi(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge( 
+            $this->rules(
+                'amount',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'term',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'couponRate',
+                new NotBlank, 
+            ),
+        ));
+    }
+    
+    protected function validateEstimateReksadana(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge( 
+            $this->rules(
+                'amount',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'investmentType',
                 new NotBlank, 
             ),
         ));
