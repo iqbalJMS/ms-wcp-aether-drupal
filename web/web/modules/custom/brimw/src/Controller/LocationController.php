@@ -76,9 +76,10 @@ final class LocationController extends ControllerBase {
         ],
         [
           'title' => $this->t('Type'),
-          'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
-            'taxonomy_vocabulary' => 'location_type'
-          ]),
+          'url' => Url::fromRoute('view.location.type'),
+//          'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
+//            'taxonomy_vocabulary' => 'location_type'
+//          ]),
           'description' => 'Manage location type.',
         ],
         [

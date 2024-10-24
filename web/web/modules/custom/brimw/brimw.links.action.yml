@@ -18,3 +18,8 @@ brimw.location.add_category:
   route_name: brimw.location.category.add
   appears_on:
     - view.location.category
+brimw.location.add_type:
+  title: 'Add type'
+  route_name: brimw.location.type.add
+  appears_on:
+    - view.location.type

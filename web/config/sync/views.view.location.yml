@@ -728,6 +728,55 @@ display:
       filters: {  }
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            property_1: property_1
+            property_2: property_2
+            nothing: nothing
+            nothing_1: nothing_1
+            dropbutton: dropbutton
+          default: '-1'
+          info:
+            property_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            property_2:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_1:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dropbutton:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: true
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -1800,7 +1849,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<a href=\"{{ path('brimw.location.edit', {'id': property_1}) }}\">Edit</a>"
+            text: "<a href=\"{{ path('brimw.location.type.edit', {'id': property_1}) }}\">Edit</a>"
             make_link: false
             path: ''
             absolute: false
@@ -1894,7 +1943,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: dropbutton
-          label: Dropbutton
+          label: Operations
           exclude: false
           alter:
             alter_text: false
@@ -1940,15 +1989,7 @@ display:
             nothing: nothing
             nothing_1: nothing_1
             property_1: '0'
-            property: '0'
             property_2: '0'
-            property_3: '0'
-            property_4: '0'
-            property_5: '0'
-            property_6: '0'
-            property_7: '0'
-            property_8: '0'
-            property_9: '0'
       defaults:
         title: false
         fields: false

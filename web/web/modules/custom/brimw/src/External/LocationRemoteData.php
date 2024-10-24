@@ -127,13 +127,15 @@ class LocationRemoteData extends BaseRemoteData {
     return $this->gql($query);
   }
 
-  public function getAllLocationType() {
-    // TODO Put correct query
+  public function getAllLocationType($params) {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+
     $query = <<< GRAPHQL
       query {
-        allProvinces(param:{
-          skip:0,
-          limit: 50,
+        getAllTypes(input:{
+          skip:$skip,
+          limit: $limit,
           filter: {
             name: ""
           }
@@ -153,7 +155,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allProvinces'];
+    return $result['data']['getAllTypes'];
   }
 
   public function getAllLocationCategory($params) {
@@ -200,6 +202,19 @@ class LocationRemoteData extends BaseRemoteData {
     GRAPHQL;
     $result = $this->gql($query);
     return $result['data']['createCategory']['id'];
+  }
+
+
+  public function createType($name) {
+    $query = <<< GRAPHQL
+      mutation {
+        createType(name: "$name") {
+          id
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['createType']['id'];
   }
 
   public function getCategory($id) {
@@ -290,5 +305,28 @@ class LocationRemoteData extends BaseRemoteData {
     GRAPHQL;
     $result = $this->gql($query);
     return $result['data']['getByIdCity'];
+  }
+
+  public function getType($id) {
+    $query = <<< GRAPHQL
+      query {
+        getByIdType(id: "$id") {
+          id
+          name
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['getByIdType'];
+  }
+
+  public function updateType($id, $name) {
+    $query = <<< GRAPHQL
+      mutation {
+        updateType (id: "$id", name: "$name")
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['updateType'];
   }
 }
