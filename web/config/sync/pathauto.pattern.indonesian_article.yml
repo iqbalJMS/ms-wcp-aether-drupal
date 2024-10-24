@@ -1,0 +1,33 @@
+uuid: 98f60490-f3de-4e9a-9cb9-c092fe857126
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: indonesian_article
+label: 'Indonesian article'
+type: 'canonical_entities:node'
+pattern: '[node:field_site_id:0]/-/[node:title]'
+selection_criteria:
+  13e5dcf7-34ef-4439-9eca-2398cd0ab096:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 13e5dcf7-34ef-4439-9eca-2398cd0ab096
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+  7f21399f-1b21-472f-b122-49dd40d5881b:
+    id: language
+    negate: false
+    uuid: 7f21399f-1b21-472f-b122-49dd40d5881b
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      id: id
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
