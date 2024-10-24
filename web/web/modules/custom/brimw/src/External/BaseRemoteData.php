@@ -20,22 +20,22 @@ class BaseRemoteData {
   /**
    * @var \GuzzleHttp\Client
    */
-  private Client $client;
+  protected Client $client;
 
   /**
    * @var \Drupal\Core\Cache\CacheBackendInterface
    */
-  private CacheBackendInterface $cache;
+  protected CacheBackendInterface $cache;
 
   /**
    * @var string
    */
-  private string $cacheDuration;
+  protected string $cacheDuration;
 
   /**
    * @var \Psr\Log\LoggerInterface
    */
-  private LoggerInterface $logger;
+  protected LoggerInterface $logger;
 
   /**
    * Constructs a new object.

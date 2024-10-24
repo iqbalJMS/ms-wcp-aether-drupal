@@ -61,12 +61,8 @@ final class LocationForm extends FormBase {
 
     if ($this->locationId) {
       // Edit mode
-      $data = [];
-      $form['message'] = [
-        '#markup' => 'Pending implementation'
-      ];
 
-      return $form;
+      $data = $this->locationRemoteData->getLocation($this->locationId);
 
       $form['id'] = [
         '#type' => 'textfield',
@@ -83,8 +79,14 @@ final class LocationForm extends FormBase {
         'mid' => '',
         'name' => '',
         'address' => '',
-        'province' => '',
-        'city' => '',
+        'province' => [
+          'id' => '',
+          'name' => '',
+        ],
+        'city' => [
+          'id' => '',
+          'name' => '',
+        ],
         'zip' => '',
         'phone' => '',
         'service' => '',
@@ -94,11 +96,6 @@ final class LocationForm extends FormBase {
         'long' => '',
       ];
     }
-
-    $category_options = [];
-    $type_options = [];
-    $province_options = [];
-    $city_options = [];
 
     $form['mid'] = [
       '#type' => 'textfield',
@@ -114,15 +111,27 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['province'] = [
+    $all_provinces = $this->locationRemoteData->getAllProvinces([
+      'skip' => 0,
+      'limit' => 99,
+    ]);
+    $province_options = array_column($all_provinces['data'], 'name', 'id');
+
+    $form['id_province'] = [
       '#type' => 'select',
       '#title' => $this->t('Province'),
-      '#default_value' => $data['province'],
+      '#default_value' => $data['province']['id'],
       '#options' => $province_options,
       '#required' => TRUE,
     ];
 
-    $form['city'] = [
+    $all_cities = $this->locationRemoteData->getAllCities([
+      'skip' => 0,
+      'limit' => 99,
+    ]);
+    $city_options = array_column($all_cities['data'], 'name', 'id');
+
+    $form['id_city'] = [
       '#type' => 'select',
       '#title' => $this->t('City'),
       '#default_value' => $data['city'],
@@ -158,6 +167,7 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
+    $type_options = $this->locationRemoteData->getTypeOptions();
     $form['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
@@ -166,6 +176,7 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
+    $category_options = $this->locationRemoteData->getCategoryOptions();
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),

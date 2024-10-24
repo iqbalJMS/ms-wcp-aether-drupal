@@ -116,3 +116,54 @@ function brimw_views_query_alter(
     }
   }
 }
+
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ *
+ * @link [https://drupal.stackexchange.com/a/317870/3813] Description and discussion
+ */
+function brimw_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
+  if (!isset($element['#paragraph_type'])) {
+    return;
+  }
+  $delta = $context['delta'];
+  $paragraphBundle = $element['#paragraph_type'];
+
+  /** @var \Drupal\field\Entity\FieldConfig $fieldDefinition */
+  $fieldDefinition = $context['items']->getFieldDefinition();
+  $contentFieldName = $fieldDefinition->getName();
+
+  // @see \Drupal\paragraphs\Plugin\Field\FieldWidget\ParagraphsWidget::formElement()
+  $widgetState = \Drupal\Core\Field\WidgetBase::getWidgetState($element['#field_parents'], $contentFieldName, $form_state);
+
+  // If this is an empty paragraph, do nothing.
+  if (!isset($widgetState['paragraphs'][$delta])) {
+    return;
+  }
+
+  // Don't act on Paragraph previews.
+  if (!\Drupal\Core\Render\Element::children($element['subform'])) {
+    return;
+  }
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $widgetState['paragraphs'][$delta]['entity'];
+
+  $functionName = 'brimw_paragraph__' . $paragraphBundle . '__form_alter';
+  if (function_exists($functionName)) {
+    $functionName($element['subform'], $element, $form_state, $context, $delta, $paragraph);
+  }
+}
+
+/**
+ * Implements pseudo hook hook_paragraph__BUNDLE__form_alter().
+ */
+function brimw_paragraph__location__form_alter(array &$subform, array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context, int $delta, \Drupal\paragraphs\Entity\Paragraph $paragraph):void {
+  $type_options = \Drupal::service('brimw.location_remote_data')->getTypeOptions();
+  $subform['type_ids'] = [
+    '#type' => 'checkboxes',
+    '#title' => t('Location types'),
+    '#descrition' => t('Location types to display'),
+    '#options' => $type_options,
+  ];
+}

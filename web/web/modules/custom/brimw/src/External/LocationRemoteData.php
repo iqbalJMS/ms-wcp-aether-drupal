@@ -2,11 +2,16 @@
 
 namespace Drupal\brimw\External;
 
+use Drupal\Component\Serialization\Json;
+use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal;
 
 class LocationRemoteData extends BaseRemoteData {
   protected $isNoCache = TRUE;
+
+  public const string CACHEKEY_CATEGORY_OPTIONS = 'category_options';
+  public const string CACHEKEY_TYPE_OPTIONS = 'type_options';
 
   protected function gqlUrl(): string {
     return $_ENV['LOCATION_URL'];
@@ -189,6 +194,48 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['allCategories'];
   }
 
+  public function getCategoryOptions() {
+    $cache_key = self::CACHEKEY_CATEGORY_OPTIONS;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $categories = $this->getAllLocationCategory([
+          'skip' => 0,
+          'limit' => 99,
+        ]);
+        $category_options = array_column($categories['data'], 'name', 'id');
+        $this->cache->set($cache_key, $category_options, strtotime($this->cacheDuration));
+        return $category_options;
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
+  }
+
+  public function getTypeOptions() {
+    $cache_key = self::CACHEKEY_TYPE_OPTIONS;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $types = $this->getAllLocationType([
+          'skip' => 0,
+          'limit' => 99,
+        ]);
+        $type_options = array_column($types['data'], 'name', 'id');
+        $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
+        return $type_options;
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
+  }
+
   public function createCategory($type_id, $name) {
     $query = <<< GRAPHQL
       mutation {
@@ -201,9 +248,9 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
+    $this->cache->delete(self::CACHEKEY_CATEGORY_OPTIONS);
     return $result['data']['createCategory']['id'];
   }
-
 
   public function createType($name) {
     $query = <<< GRAPHQL
@@ -214,11 +261,34 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
+    $this->cache->delete(self::CACHEKEY_TYPE_OPTIONS);
     return $result['data']['createType']['id'];
   }
 
   public function getCategory($id) {
-    return [];
+    $query = <<< GRAPHQL
+      query {
+        getByIdCategory (id: "$id") {
+          id
+          name
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['getByIdCategory'];
+  }
+
+  public function updateCategory($id, $name, $type_id) {
+    // TODO mutation update category
+    return TRUE;
+    $query = <<< GRAPHQL
+      mutation {
+        updateType (id: "$id", name: "$name")
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    $this->cache->delete(self::CACHEKEY_CATEGORY_OPTIONS);
+    return $result['data']['updateType'];
   }
 
   /**
@@ -232,18 +302,31 @@ class LocationRemoteData extends BaseRemoteData {
 
     $query = <<< GRAPHQL
       mutation {
-        createLocation(
+        createLocation(data: {
           name: "$name"
           address: "$address"
-          lat: "$latitude"
-          long: "$longitude"
-        ) {
+          lat: $lat
+          long: $long
+          area: {
+            id_city: "$id_city"
+            id_province: "$id_province"
+            zip: "$zip"
+          }
+          data: {
+            category: "$category"
+            mid: "$mid"
+            phone: "$phone"
+            service: "$service"
+            tid: "$tid"
+            tipe: "$tipe"
+          }
+        }) {
           id
         }
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['createProvince']['id'];
+    return $result['data']['createLocation']['id'];
   }
 
   public function getAllCities($params) {
@@ -299,12 +382,40 @@ class LocationRemoteData extends BaseRemoteData {
         getByIdCity (id: "$id") {
           id
           name
-          province
+          province {
+            id
+            name
+          }
         }
       }
     GRAPHQL;
     $result = $this->gql($query);
     return $result['data']['getByIdCity'];
+  }
+
+  public function updateCity($id, $name, $province_id) {
+    $query = <<< GRAPHQL
+      mutation {
+        updateCity (
+          id: "$id",
+          data: {
+            id_province: "$province_id"
+            name: "$name"
+          })
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['updateCity'];
+  }
+
+  public function deleteCity($id) {
+    $query = <<< GRAPHQL
+      mutation {
+        deleteCity (id: "$id")
+      }
+    GRAPHQL;
+
+    return $this->gql($query);
   }
 
   public function getType($id) {
@@ -327,6 +438,28 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
+    $this->cache->delete(self::CACHEKEY_TYPE_OPTIONS);
     return $result['data']['updateType'];
+  }
+
+  public function getLocation($id) {
+    $query = <<< GRAPHQL
+      query {
+        getLocationById (id: "$id") {
+          address
+          category
+          id
+          lat
+          long
+          mid
+          name
+          phone
+          service
+          tipe
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['getByIdCategory'];
   }
 }

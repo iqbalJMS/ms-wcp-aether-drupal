@@ -44,7 +44,7 @@ brimw.location.add:
   requirements:
     _permission: 'access location crud'
 brimw.location.province.delete_confirm:
-  path: '/admin/bri/location/province/{id}/delete-confirm'
+  path: '/admin/bri/location/province/{id}/delete'
   defaults:
     _title: 'Province Delete Confirm'
     _form: 'Drupal\brimw\Form\ProvinceDeleteConfirmForm'
@@ -74,10 +74,34 @@ brimw.location.city.add:
   requirements:
     _permission: 'access location crud'
 
+brimw.location.city.edit:
+  path: '/admin/bri/location/city/{id}/edit'
+  defaults:
+    _title: 'Edit City'
+    _form: 'Drupal\brimw\Form\CityForm'
+  requirements:
+    _permission: 'access location crud'
+
+brimw.location.city.delete:
+  path: '/admin/bri/location/city/{id}/delete'
+  defaults:
+    _title: 'Confirm delete City'
+    _form: 'Drupal\brimw\Form\CityDeleteConfirmForm'
+  requirements:
+    _permission: 'access location crud'
+
 brimw.location.category.add:
   path: '/admin/bri/location/category/add'
   defaults:
     _title: 'Add location category'
+    _form: 'Drupal\brimw\Form\LocationCategoryForm'
+  requirements:
+    _permission: 'access location crud'
+
+brimw.location.category.edit:
+  path: '/admin/bri/location/category/{id}/edit'
+  defaults:
+    _title: 'Edit location category'
     _form: 'Drupal\brimw\Form\LocationCategoryForm'
   requirements:
     _permission: 'access location crud'

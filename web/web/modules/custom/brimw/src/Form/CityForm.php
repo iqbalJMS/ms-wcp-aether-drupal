@@ -65,6 +65,7 @@ final class CityForm extends FormBase {
       $form['id'] = [
         '#type' => 'textfield',
         '#title' => $this->t('ID'),
+        '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
         '#required' => TRUE,
         '#attributes' => ['readonly' => 'readonly'], // Make the ID field read-only.
@@ -141,8 +142,18 @@ final class CityForm extends FormBase {
 
     if ($this->cityId) {
       // Editing: Update existing location data.
-      // TODO Edit city
-      \Drupal::messenger()->addMessage($this->t('City edit not implemented.'));
+      try {
+        $updated = $this->locationRemoteData->updateCity($this->cityId, $values['name'], $values['id_province']);
+        if ($updated === TRUE) {
+          \Drupal::messenger()->addMessage($this->t('City has been updated.'));
+        }
+        else {
+          \Drupal::messenger()->addError($this->t('City has NOT been updated.'));
+        }
+      }
+      catch (\Exception $e) {
+        \Drupal::messenger()->addMessage($this->t('Cannot update city. Error: @error', ['error' => $e->getMessage()]));
+      }
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createCity($values['id_province'], $values['name']);

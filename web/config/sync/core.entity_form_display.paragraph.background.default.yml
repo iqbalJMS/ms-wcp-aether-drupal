@@ -1,0 +1,44 @@
+uuid: 2459d97b-e2fe-4b19-bbff-938278feeab7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.background.field_image
+    - field.field.paragraph.background.field_paragraphs
+    - paragraphs.paragraphs_type.background
+  module:
+    - media_library
+    - paragraphs
+id: paragraph.background.default
+targetEntityType: paragraph
+bundle: background
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 4
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_paragraphs:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

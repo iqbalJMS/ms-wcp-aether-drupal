@@ -1,0 +1,10 @@
+uuid: 9ace0213-b80a-48a1-8a8a-e09dcfffb714
+langcode: en
+status: true
+dependencies: {  }
+id: background
+label: Background
+icon_uuid: null
+icon_default: null
+description: 'Background widget'
+behavior_plugins: {  }

@@ -81,22 +81,14 @@ final class LocationCategoryForm extends FormBase {
       ];
     }
 
-    // Define the vocabulary ID.
-    $vocabulary_id = 'location_type';
-
-    // Load all terms from the specified vocabulary.
-    $terms = \Drupal::entityQuery('taxonomy_term')
-      ->accessCheck(FALSE)
-      ->condition('vid', $vocabulary_id)
-      ->execute();
-
-    // Load term entities based on the query results.
-    $terms_loaded = Term::loadMultiple($terms);
+    $location_types_data = $this->locationRemoteData->getAllLocationType([
+      'limit' => 999
+    ]);
 
     // Iterate over the terms and retrieve their IDs and names.
     $location_types = [];
-    foreach ($terms_loaded as $term) {
-      $location_types[$term->id()] = $term->getName();
+    foreach ($location_types_data['data'] as $type) {
+      $location_types[$type['id']] = $type['name'];
     }
 
     $form['type'] = [
@@ -154,6 +146,19 @@ final class LocationCategoryForm extends FormBase {
       // Editing: Update existing location data.
       // TODO Edit category
       \Drupal::messenger()->addMessage($this->t('Category edit not implemented.'));
+      try {
+        $update_status = $this->locationRemoteData->updateCategory($this->categoryId, $values['name'], $values['type']);
+        if ($update_status) {
+          \Drupal::messenger()->addMessage($this->t('Category updated successfully'));
+        }
+        else {
+          \Drupal::messenger()->addWarning($this->t('Unable to update Location category'));
+        }
+      }
+      catch (\Exception $e) {
+        \Drupal::messenger()->addWarning($this->t('Unable to update Location category. Error: @error', ['@error' => $e->getMessage()]));
+      }
+
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createCategory($values['type'], $values['name']);
