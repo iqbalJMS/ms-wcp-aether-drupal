@@ -1,0 +1,19 @@
+uuid: 1d4b60d3-66d9-490d-a27c-3a5db5460aeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_company_name
+id: config_pages.wealth_management_footer.field_company_name
+field_name: field_company_name
+entity_type: config_pages
+bundle: wealth_management_footer
+label: 'Company Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

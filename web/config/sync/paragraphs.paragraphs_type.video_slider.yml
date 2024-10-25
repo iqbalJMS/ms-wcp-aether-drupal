@@ -1,0 +1,10 @@
+uuid: e2f41c9d-a08a-42b2-82b6-7cf9905e1e30
+langcode: en
+status: true
+dependencies: {  }
+id: video_slider
+label: 'Video Slider'
+icon_uuid: null
+icon_default: null
+description: 'Silder for video and remote video embeded'
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+uuid: 4b418abb-b46e-459f-a75d-c4f6d4193101
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - media
+id: config_pages.field_company_address_icon
+field_name: field_company_address_icon
+entity_type: config_pages
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

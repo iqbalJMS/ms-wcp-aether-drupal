@@ -1,0 +1,29 @@
+uuid: ae6d7d49-d376-4313-bed2-23f1db7519ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_image
+    - media.type.image
+    - system.menu.wealth-management-login-dropdown
+id: menu_link_content.wealth-management-login-dropdown.field_image
+field_name: field_image
+entity_type: menu_link_content
+bundle: wealth-management-login-dropdown
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

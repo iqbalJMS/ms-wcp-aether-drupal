@@ -1,11 +1,10 @@
-promo:  
+bribe.promo:  
   path: '/admin/promo'  
   defaults:  
-   _controller: '\Drupal\bribe\Controller\PromoController::promo'  
-   _title: 'Promo'  
+   _controller: '\Drupal\bribe\Controller\PromoController::promo'
+   _title: 'Promo Data List'
   requirements:  
    _permission: 'administer bribe'  
-  
 bribe.add_promo:  
   path: '/admin/promo/add'  
   defaults:  

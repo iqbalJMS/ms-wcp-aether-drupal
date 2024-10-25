@@ -1,0 +1,20 @@
+uuid: e1920471-5e3a-4de3-b82c-0cb1618315f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - system
+id: config_pages.field_social_media
+field_name: field_social_media
+entity_type: config_pages
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

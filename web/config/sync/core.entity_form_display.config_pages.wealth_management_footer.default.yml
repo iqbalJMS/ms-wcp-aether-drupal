@@ -1,0 +1,141 @@
+uuid: 07369f84-2b1e-4713-9f03-868e0e174da2
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.field.config_pages.wealth_management_footer.field_company_address
+    - field.field.config_pages.wealth_management_footer.field_company_address_icon
+    - field.field.config_pages.wealth_management_footer.field_company_name
+    - field.field.config_pages.wealth_management_footer.field_contact_us
+    - field.field.config_pages.wealth_management_footer.field_copyright
+    - field.field.config_pages.wealth_management_footer.field_multiple_logo
+    - field.field.config_pages.wealth_management_footer.field_secondary_menu
+    - field.field.config_pages.wealth_management_footer.field_social_media
+  module:
+    - field_group
+    - media_library
+third_party_settings:
+  field_group:
+    group_head_office_bri:
+      children:
+        - field_company_name
+        - field_company_address_icon
+        - field_company_address
+      label: 'Head Office BRI'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: head_office_bri
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_contact_us:
+      children:
+        - field_contact_us
+      label: 'Contact Us'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: contact_us
+        label_as_html: false
+        description: ''
+        required_fields: true
+    group_registered_and_supervised:
+      children:
+        - field_multiple_logo
+      label: 'Registered and Supervised by'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: registered_n_supervised_by
+        label_as_html: false
+        description: ''
+        required_fields: true
+id: config_pages.wealth_management_footer.default
+targetEntityType: config_pages
+bundle: wealth_management_footer
+mode: default
+content:
+  field_company_address:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_company_address_icon:
+    type: media_library_widget
+    weight: 4
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_company_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_us:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_copyright:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_multiple_logo:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_secondary_menu:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_social_media:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

@@ -1,0 +1,26 @@
+uuid: 29475200-422d-4f23-9f95-10cfddf77574
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_secondary_menu
+    - system.menu.wealth-management-footer-seconda
+id: config_pages.wealth_management_footer.field_secondary_menu
+field_name: field_secondary_menu
+entity_type: config_pages
+bundle: wealth_management_footer
+label: 'Secondary Footer Menu'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 113249a2-1f2d-4c19-a348-332e6dbba271
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

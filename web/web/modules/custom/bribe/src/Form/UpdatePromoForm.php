@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
   
 class UpdatePromoForm extends FormBase {  
   public function getFormId() {  
-   return 'update_promo_form';  
+   return 'update_promo_dialog';  
   }  
   
   public function buildForm(array $form, FormStateInterface $form_state, $id = NULL) {  
@@ -71,7 +71,7 @@ class UpdatePromoForm extends FormBase {
     '#type' => 'textarea',  
     '#title' => 'Sub Category IDs',  
     '#required' => TRUE,  
-    '#default_value' => $promo['subCategory']['_id'],  
+    // '#default_value' => $promo['subCategory']['_id'],  
    ];  
   
    $form['termsAndConditions'] = [  

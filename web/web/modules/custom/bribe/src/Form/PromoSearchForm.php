@@ -11,13 +11,17 @@ class PromoSearchForm extends FormBase {
   }  
   
   public function buildForm(array $form, FormStateInterface $form_state) {  
-   $form['category'] = [  
+   $form['container'] = [
+    '#type' => 'fieldset',
+    '#attributes' => [
+        'class' => ['container-inline', 'views-exposed-form'],
+    ],
+   ];
+   $form['container']['category'] = [  
     '#type' => 'textfield',  
-    '#title' => 'Category',  
-    '#placeholder' => 'Search by category',  
+    '#placeholder' => 'Search by Title, Category, Sub Catogry, And Location',  
    ];  
-  
-   $form['submit'] = [  
+   $form['container']['submit'] = [  
     '#type' => 'submit',  
     '#value' => 'Search',  
    ];  
@@ -29,6 +33,6 @@ class PromoSearchForm extends FormBase {
    $category = $form_state->getValue('category');  
    $data = \Drupal::service('bribe.service')->getData($category);  
    // Update the table with the search results  
-   $form_state->setRedirect('promo', ['data' => $data]);  
+   $form_state->setRedirect('bribe.promo', ['data' => $data]);  
   }  
 }

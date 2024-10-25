@@ -1,0 +1,8 @@
+uuid: 113249a2-1f2d-4c19-a348-332e6dbba271
+langcode: en
+status: true
+dependencies: {  }
+id: wealth-management-footer-seconda
+label: 'WEALTH MANAGEMENT Footer Secondary'
+description: 'WEALTH MANAGEMENT Footer Secondary'
+locked: false

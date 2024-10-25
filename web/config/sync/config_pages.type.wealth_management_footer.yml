@@ -1,0 +1,17 @@
+uuid: 9bcee164-8c7f-42aa-91d5-a22e6e3d6111
+langcode: en
+status: true
+dependencies: {  }
+id: wealth_management_footer
+label: 'WEALTH MANAGEMENT Footer'
+token: false
+context:
+  show_warning: true
+  group:
+    language: true
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''
