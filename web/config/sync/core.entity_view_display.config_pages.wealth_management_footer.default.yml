@@ -1,0 +1,84 @@
+uuid: d08a0b38-8fbe-4857-9f5c-7cd693eda554
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.field.config_pages.wealth_management_footer.field_company_address
+    - field.field.config_pages.wealth_management_footer.field_company_address_icon
+    - field.field.config_pages.wealth_management_footer.field_company_name
+    - field.field.config_pages.wealth_management_footer.field_contact_us
+    - field.field.config_pages.wealth_management_footer.field_copyright
+    - field.field.config_pages.wealth_management_footer.field_multiple_logo
+    - field.field.config_pages.wealth_management_footer.field_secondary_menu
+    - field.field.config_pages.wealth_management_footer.field_social_media
+id: config_pages.wealth_management_footer.default
+targetEntityType: config_pages
+bundle: wealth_management_footer
+mode: default
+content:
+  field_company_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_company_address_icon:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_company_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_contact_us:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_copyright:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_multiple_logo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_secondary_menu:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_social_media:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }

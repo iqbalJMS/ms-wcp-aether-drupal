@@ -1,0 +1,26 @@
+uuid: faf88776-eb94-494b-a2fb-c4ac43bad8e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_contact_us
+    - system.menu.wealth-management-footer-contact
+id: config_pages.wealth_management_footer.field_contact_us
+field_name: field_contact_us
+entity_type: config_pages
+bundle: wealth_management_footer
+label: 'Contact Us'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 625973c6-f135-4212-8b65-a3e0e5d371e3
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

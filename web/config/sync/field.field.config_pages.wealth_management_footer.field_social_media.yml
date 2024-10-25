@@ -1,0 +1,26 @@
+uuid: 51807f5b-c08f-4d97-935e-dc0212f23243
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_social_media
+    - system.menu.wealth-management-social-media
+id: config_pages.wealth_management_footer.field_social_media
+field_name: field_social_media
+entity_type: config_pages
+bundle: wealth_management_footer
+label: 'Social Media'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 6313f194-83ec-4a1b-bbbc-b612844004bd
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

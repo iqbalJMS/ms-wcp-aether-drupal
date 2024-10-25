@@ -1,0 +1,8 @@
+uuid: 6313f194-83ec-4a1b-bbbc-b612844004bd
+langcode: en
+status: true
+dependencies: {  }
+id: wealth-management-social-media
+label: 'WEALTH MANAGEMENT Social Media'
+description: 'WEALTH MANAGEMENT Social Media'
+locked: false

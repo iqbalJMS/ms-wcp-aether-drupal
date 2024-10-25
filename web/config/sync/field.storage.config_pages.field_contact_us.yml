@@ -1,0 +1,20 @@
+uuid: 3306a473-cafe-487b-bb9c-cacd4d75db56
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - system
+id: config_pages.field_contact_us
+field_name: field_contact_us
+entity_type: config_pages
+type: entity_reference
+settings:
+  target_type: menu
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

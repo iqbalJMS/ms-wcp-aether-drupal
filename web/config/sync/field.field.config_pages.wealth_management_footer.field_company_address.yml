@@ -1,0 +1,19 @@
+uuid: d4456244-a0d0-4292-aad4-c900d3700886
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_company_address
+id: config_pages.wealth_management_footer.field_company_address
+field_name: field_company_address
+entity_type: config_pages
+bundle: wealth_management_footer
+label: 'Company Address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

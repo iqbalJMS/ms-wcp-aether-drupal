@@ -15,74 +15,85 @@ class BribeService implements BribeServiceInterface {
   
   public function __construct(Client $client) {  
    $this->client = $client;  
-   $this->promoServiceUrl = $_ENV('PROMO_SERVICE_URL');
+   $this->promoServiceUrl = $_ENV['PROMO_SERVICE_URL'];
   }  
   
   public function getData($category = NULL) {  
    $url = $this->promoServiceUrl;  
    $query = '';  
   
-   if ($category) {  
-    $query = 'query {  
-      searchPromoByCategory (category: "' . $category . '", limit: 10, offset: 0) {  
-       category {  
-        name  
-        _id  
-       }  
-       endDate  
-       _id  
-       imagePromoUrl  
-       lokasiPromo  
-       micrositeOwner {  
-        _id  
-        name  
-       }  
-       promoTitle  
-       startDate  
-       subCategory {  
-        name  
-        _id  
-       }  
-       termsAndConditions  
-      }  
-    }';  
+   if($category) {  
+    $query = <<< GRAPHQL
+        query {  
+            searchPromoByCategory (category: "' . $category . '", limit: 10, offset: 0) {  
+            category {  
+                name  
+                _id  
+            }  
+            endDate  
+            _id  
+            imagePromoUrl  
+            lokasiPromo  
+            micrositeOwner {  
+                _id  
+                name  
+            }  
+            promoTitle  
+            startDate  
+            subCategory {  
+                name  
+                _id  
+            }  
+            termsAndConditions  
+            }  
+        }
+    GRAPHQL;  
    } else {  
-    $query = 'query {  
-      sortPromoByTitleAlphabet(limit: 10, offset: 0) {  
-       category {  
-        name  
-        _id  
-       }  
-       endDate  
-       _id  
-       imagePromoUrl  
-       lokasiPromo  
-       micrositeOwner {  
-        _id  
-        name  
-       }  
-       promoTitle  
-       startDate  
-       subCategory {  
-        name  
-        _id  
-       }  
-       termsAndConditions  
-      }  
-    }';  
+    $query = <<< GRAPHQL
+        query {  
+            sortPromoByTitleAlphabet(limit: 10, offset: 0) {  
+            category {  
+                name  
+                _id  
+            }  
+            endDate  
+            _id  
+            imagePromoUrl  
+            lokasiPromo  
+            micrositeOwner {  
+                _id  
+                name  
+            }  
+            promoTitle  
+            startDate  
+            subCategory {  
+                name  
+                _id  
+            }  
+            termsAndConditions  
+            }  
+        }
+    GRAPHQL ;  
    }  
   
    try {  
     $response = $this->client->post($url, [  
-      'json' => ['query' => $query],  
+      'headers' => [
+          'Content-Type' => 'application/json',
+        ],
+      'body' => json_encode(['query' => $query]),  
     ]);  
-  
-    $data = json_decode($response->getBody()->getContents(), TRUE);  
-    if ($category) {  
-      return $data['data']['searchPromoByCategory'];  
-    } else {  
-      return $data['data']['sortPromoByTitleAlphabet'];  
-    }  
+
+    $data = json_decode($response->getBody()->getContents(), TRUE);
+    if(isset($data['data']) && $data['data'] != null) {
+      if ($category) {  
+        return $data['data']['searchPromoByCategory'];  
+      } else {  
+        return $data['data']['sortPromoByTitleAlphabet'];  
+      } 
+    } else {
+      return [];
+    }
    } catch (RequestException $e) {  
     \Drupal::logger('bribe')->error('Error retrieving data from external API: @error', ['@error' => $e->getMessage()]);  
     return [];  

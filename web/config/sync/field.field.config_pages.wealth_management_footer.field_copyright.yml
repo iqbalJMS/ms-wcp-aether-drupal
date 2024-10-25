@@ -1,0 +1,19 @@
+uuid: c91b4bac-05d8-4593-8c6e-cd29341543c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_footer
+    - field.storage.config_pages.field_copyright
+id: config_pages.wealth_management_footer.field_copyright
+field_name: field_copyright
+entity_type: config_pages
+bundle: wealth_management_footer
+label: Copyright
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

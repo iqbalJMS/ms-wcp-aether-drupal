@@ -11,58 +11,81 @@ class AddPromoForm extends FormBase {
   }  
   
   public function buildForm(array $form, FormStateInterface $form_state) {  
+  
+   $form['promoTitle'] = [  
+    '#type' => 'textfield',  
+    '#title' => 'Promo Title',  
+    '#required' => TRUE,
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
+   ];
+   
    $form['categoryIds'] = [  
     '#type' => 'textfield',  
     '#title' => 'Category IDs',  
     '#required' => TRUE,  
-   ];  
-  
-   $form['endDate'] = [  
-    '#type' => 'date',  
-    '#title' => 'End Date',  
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
+   ]; 
+
+   $form['subCategoryIds'] = [  
+    '#type' => 'textfield',  
+    '#title' => 'Sub Category IDs',  
     '#required' => TRUE,  
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
    ];  
   
    $form['imagePromoUrl'] = [  
     '#type' => 'textfield',  
     '#title' => 'Image Promo URL',  
-    '#required' => TRUE,  
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
    ];  
   
    $form['lokasiPromo'] = [  
-    '#type' => 'textarea',  
+    '#type' => 'textfield',  
     '#title' => 'Lokasi Promo',  
     '#required' => TRUE,  
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
    ];  
   
    $form['micrositeOwnerIds'] = [  
     '#type' => 'textfield',  
     '#title' => 'Microsite Owner IDs',  
     '#required' => TRUE,  
-   ];  
-  
-   $form['promoTitle'] = [  
-    '#type' => 'textfield',  
-    '#title' => 'Promo Title',  
-    '#required' => TRUE,  
-   ];  
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
+   ];
   
    $form['startDate'] = [  
     '#type' => 'date',  
     '#title' => 'Start Date',  
-    '#required' => TRUE,  
+    '#attributes' => [
+      'style' => 'min-width: 100%;'
+    ],
    ];  
-  
-   $form['subCategoryIds'] = [  
-    '#type' => 'textarea',  
-    '#title' => 'Sub Category IDs',  
-    '#required' => TRUE,  
+   $form['endDate'] = [  
+    '#type' => 'date',  
+    '#title' => 'End Date',
+    '#attributes' => [
+      'style' => 'min-width: 100%;'
+    ],
    ];  
   
    $form['termsAndConditions'] = [  
     '#type' => 'textarea',  
-    '#title' => 'Terms and Conditions',  
-    '#required' => TRUE,  
+    '#title' => 'Terms and Conditions', 
+    '#attributes' => [
+      'style' => 'width: 100%;'
+    ],
    ];  
   
    $form['submit'] = [  

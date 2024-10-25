@@ -1,0 +1,28 @@
+uuid: 88fa1256-7f54-43a8-95cf-8e2c663b47a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wealth-management-social-media.field_image
+    - system.menu.wealth-management-social-media
+id: menu_link_content.wealth-management-social-media.default
+targetEntityType: menu_link_content
+bundle: wealth-management-social-media
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

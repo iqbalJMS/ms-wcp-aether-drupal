@@ -1,0 +1,21 @@
+uuid: 9e075429-b6cf-44d4-815b-311fbdeac7e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_theme_color
+    - system.menu.wealth-management-login-dropdown
+  module:
+    - options
+id: menu_link_content.wealth-management-login-dropdown.field_theme_color
+field_name: field_theme_color
+entity_type: menu_link_content
+bundle: wealth-management-login-dropdown
+label: 'Theme color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

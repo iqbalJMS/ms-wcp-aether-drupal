@@ -1,0 +1,19 @@
+uuid: f8dc54c6-82ef-4032-b3ce-1402fb408e21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.video_slider
+id: paragraph.video_slider.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: video_slider
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,28 @@
+uuid: 8b57ebf7-240a-4487-bf38-3c1add85aa42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wealth-management-footer-contact.field_image
+    - system.menu.wealth-management-footer-contact
+id: menu_link_content.wealth-management-footer-contact.default
+targetEntityType: menu_link_content
+bundle: wealth-management-footer-contact
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true

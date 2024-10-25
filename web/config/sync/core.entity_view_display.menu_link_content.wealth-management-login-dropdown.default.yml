@@ -1,0 +1,38 @@
+uuid: 5bb4dc0a-0a47-40f6-bf1f-d73ba05d4d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.wealth-management-login-dropdown.field_image
+    - field.field.menu_link_content.wealth-management-login-dropdown.field_theme_color
+    - system.menu.wealth-management-login-dropdown
+  module:
+    - options
+id: menu_link_content.wealth-management-login-dropdown.default
+targetEntityType: menu_link_content
+bundle: wealth-management-login-dropdown
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_theme_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  langcode: true

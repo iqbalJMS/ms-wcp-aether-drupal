@@ -1,7 +1,8 @@
 {% extends "block.html.twig" %}  
   
-{% block content %}  
-  <h1>Promo</h1>  
-  {{ form(form) }}  
-  {{ table(table) }}  
+{% block content %}
+  {{ title }}
+  {{data.form}}
+  {{data.table}}
+  {{ attach_library('bribe/bribe.promo') }} 
 {% endblock %}
