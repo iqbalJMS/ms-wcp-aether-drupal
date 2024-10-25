@@ -1,0 +1,20 @@
+uuid: cea29508-ca70-4b5e-92db-93b369c92ff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.iframe.field_script
+    - paragraphs.paragraphs_type.iframe
+id: paragraph.iframe.default
+targetEntityType: paragraph
+bundle: iframe
+mode: default
+content:
+  field_script:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: 1ddb82da-1cc5-4ec9-9754-08c28edc599d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_script
+    - paragraphs.paragraphs_type.iframe
+id: paragraph.iframe.field_script
+field_name: field_script
+entity_type: paragraph
+bundle: iframe
+label: Script
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
