@@ -58,7 +58,7 @@ class BriLocationWidget extends WidgetBase implements ContainerFactoryPluginInte
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state): array {
     $default_value = '';
     if (!empty($items[$delta]->location_id)) {
-      $default_value = sprintf('%s (%d)', $items[$delta]->location_name, $items[$delta]->location_id);
+      $default_value = sprintf('%s (%s)', $items[$delta]->location_name, $items[$delta]->location_id);
     }
 
     $element['data'] = [

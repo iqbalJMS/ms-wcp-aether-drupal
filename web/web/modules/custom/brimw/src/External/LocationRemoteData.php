@@ -538,6 +538,15 @@ class LocationRemoteData extends BaseRemoteData {
   public function validateLocationId($id) {
     return TRUE;
   }
+  /**
+   * @param $id
+   *
+   * @return true
+   * @todo Implement location Type ID validation
+   */
+  public function validateLocationTypeId($id) {
+    return TRUE;
+  }
 
   public function getLocationsOptions() {
     $cache_key = self::CACHEKEY_LOCATION_OPTIONS;

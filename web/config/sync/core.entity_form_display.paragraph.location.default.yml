@@ -3,20 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.location.field_location_type_ids
+    - field.field.paragraph.location.field_bri_location_type
     - paragraphs.paragraphs_type.location
+  module:
+    - brimw
 id: paragraph.location.default
 targetEntityType: paragraph
 bundle: location
 mode: default
 content:
-  field_location_type_ids:
-    type: string_textfield
+  field_bri_location_type:
+    type: brimw_location_type_widget
     weight: 0
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true

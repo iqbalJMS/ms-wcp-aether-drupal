@@ -78,10 +78,14 @@ final class LocationController extends ControllerBase {
         [
           'title' => $this->t('Type'),
           'url' => Url::fromRoute('view.location.type'),
-//          'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
-//            'taxonomy_vocabulary' => 'location_type'
-//          ]),
           'description' => 'Manage location type.',
+        ],
+        [
+          'title' => $this->t('Type icon'),
+          'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
+            'taxonomy_vocabulary' => 'location_type'
+          ]),
+          'description' => 'Manage icon for location type.',
         ],
         [
           'title' => $this->t('Category'),
@@ -127,6 +131,32 @@ final class LocationController extends ControllerBase {
       $results[] = [
         'value' => sprintf('%s (%s)', $location_name, $location_id),
         'label' => sprintf('%s (%s)', $location_name, $location_id),
+      ];
+    }
+
+    return new JsonResponse($results);
+  }
+
+  public function autocompleteLocationType(Request $request) {
+    $results = [];
+    $input = $request->query->get('q');
+
+    if (!$input) {
+      return new JsonResponse($results);
+    }
+
+    $input = Xss::filter($input);
+
+    $all_types = $this->locationRemoteData->getTypeOptions();
+
+    $filtered_types = array_filter($all_types, function($type_name) use ($input) {
+      return stripos($type_name, $input) > -1;
+    });
+
+    foreach ($filtered_types as $type_id => $type_name) {
+      $results[] = [
+        'value' => sprintf('%s (%s)', $type_name, $type_id),
+        'label' => sprintf('%s (%s)', $type_name, $type_id),
       ];
     }
 

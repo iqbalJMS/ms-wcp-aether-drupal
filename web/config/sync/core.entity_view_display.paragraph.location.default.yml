@@ -3,18 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.location.field_location_type_ids
+    - field.field.paragraph.location.field_bri_location_type
     - paragraphs.paragraphs_type.location
+  module:
+    - brimw
 id: paragraph.location.default
 targetEntityType: paragraph
 bundle: location
 mode: default
 content:
-  field_location_type_ids:
-    type: string
+  field_bri_location_type:
+    type: brimw_location_type_formatter
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content

@@ -1,0 +1,19 @@
+uuid: 6c4e8d30-3280-4bdc-8c52-c5f2bebc880e
+langcode: en
+status: true
+dependencies:
+  module:
+    - brimw
+    - paragraphs
+id: paragraph.field_bri_location_type
+field_name: field_bri_location_type
+entity_type: paragraph
+type: brimw_locationtype
+settings: {  }
+module: brimw
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

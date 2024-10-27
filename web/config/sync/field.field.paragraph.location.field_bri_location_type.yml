@@ -1,0 +1,21 @@
+uuid: 75f803d4-688a-4559-9624-1ff2cc7fbedb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bri_location_type
+    - paragraphs.paragraphs_type.location
+  module:
+    - brimw
+id: paragraph.location.field_bri_location_type
+field_name: field_bri_location_type
+entity_type: paragraph
+bundle: location
+label: 'Location type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: brimw_locationtype

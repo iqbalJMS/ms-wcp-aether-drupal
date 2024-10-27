@@ -135,3 +135,9 @@ brimw.location.autocomplete:
     _controller: '\Drupal\brimw\Controller\LocationController::autocompleteLocation'
   requirements:
     _permission: 'access location crud'
+brimw.location.type.autocomplete:
+  path: '/admin/bri/location/type/autocomplete'
+  defaults:
+    _controller: '\Drupal\brimw\Controller\LocationController::autocompleteLocationType'
+  requirements:
+    _permission: 'access location crud'
