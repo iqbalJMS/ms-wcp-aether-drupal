@@ -1,0 +1,21 @@
+uuid: 0fa802ac-61b8-4178-8205-160435e4953d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.location.field_location_type_ids
+    - paragraphs.paragraphs_type.location
+id: paragraph.location.default
+targetEntityType: paragraph
+bundle: location
+mode: default
+content:
+  field_location_type_ids:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

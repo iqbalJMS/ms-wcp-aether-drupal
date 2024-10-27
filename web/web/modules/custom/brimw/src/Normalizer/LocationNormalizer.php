@@ -11,7 +11,9 @@ class LocationNormalizer extends BaseParagraphNormalizer {
    *
    * @var array
    */
-  protected $supportedParagraphType = 'location';
+  protected $supportedParagraphType = [
+    'location', 'map'
+  ];
 
   /**
    * @inheritDoc
@@ -62,6 +64,14 @@ class LocationNormalizer extends BaseParagraphNormalizer {
       }
 
       $normalized['location_types'] = $location_types;
+    }
+    elseif ($entity->bundle() === 'map') {
+      if ($entity->hasField('field_bri_location')) {
+        if (!$entity->get('field_bri_location')->isEmpty()) {
+          $values = $entity->get('field_bri_location')->first()->getValue();
+          $normalized['location_detail'] = \Drupal::service('brimw.location_remote_data')->getLocation($values['location_id']);
+        }
+      }
     }
 
     return $normalized;

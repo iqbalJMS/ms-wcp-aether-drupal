@@ -12,6 +12,8 @@ class LocationRemoteData extends BaseRemoteData {
 
   public const string CACHEKEY_CATEGORY_OPTIONS = 'category_options';
   public const string CACHEKEY_TYPE_OPTIONS = 'type_options';
+  public const string CACHEKEY_LOCATION_OPTIONS = 'location_options';
+  public const string CACHEKEY_LOCATION_PREFIX = 'LocationRemoteData_getLocation_';
 
   protected function gqlUrl(): string {
     return $_ENV['LOCATION_URL'];
@@ -443,7 +445,13 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function getLocation($id) {
-    $query = <<< GRAPHQL
+    $cache_key = self::CACHEKEY_LOCATION_PREFIX . $id;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $query = <<< GRAPHQL
       query {
         getLocationById (id: "$id") {
           id
@@ -468,8 +476,14 @@ class LocationRemoteData extends BaseRemoteData {
         }
       }
     GRAPHQL;
-    $result = $this->gql($query);
-    return $result['data']['getLocationById'];
+        $result = $this->gql($query);
+        $this->cache->set($cache_key, $result['data']['getLocationById'], strtotime($this->cacheDuration));
+        return $result['data']['getLocationById'];
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
   }
 
   public function updateLocation($id, $new_location_data) {
@@ -513,5 +527,36 @@ class LocationRemoteData extends BaseRemoteData {
     GRAPHQL;
 
     return $this->gql($query);
+  }
+
+  /**
+   * @param $id
+   *
+   * @return true
+   * @todo Implement locatin ID validation
+   */
+  public function validateLocationId($id) {
+    return TRUE;
+  }
+
+  public function getLocationsOptions() {
+    $cache_key = self::CACHEKEY_LOCATION_OPTIONS;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $types = $this->getAllLocations([
+          'skip' => 0,
+          'limit' => 99999,
+        ]);
+        $type_options = array_column($types['data'], 'name', 'id');
+        $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
+        return $type_options;
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
   }
 }

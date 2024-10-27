@@ -3,20 +3,29 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.map.field_value
+    - field.field.paragraph.map.field_bri_location
+    - field.field.paragraph.map.field_image
     - paragraphs.paragraphs_type.map
+  module:
+    - brimw
+    - media_library
 id: paragraph.map.default
 targetEntityType: paragraph
 bundle: map
 mode: default
 content:
-  field_value:
-    type: string_textfield
-    weight: 1
+  field_bri_location:
+    type: brimw_bri_location_widget
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 4
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
 hidden:
   created: true

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\brimw\Controller;
 
 use Drupal\brimw\External\LocationRemoteData;
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Psr\Http\Client\ClientInterface;
@@ -104,6 +105,32 @@ final class LocationController extends ControllerBase {
     return new JsonResponse([
       'data' => $result,
     ]);
+  }
+
+  public function autocompleteLocation(Request $request) {
+    $results = [];
+    $input = $request->query->get('q');
+
+    if (!$input) {
+      return new JsonResponse($results);
+    }
+
+    $input = Xss::filter($input);
+
+    $all_locations = $this->locationRemoteData->getLocationsOptions();
+
+    $filtered_locations = array_filter($all_locations, function($location) use ($input) {
+      return stripos($location, $input) > -1;
+    });
+
+    foreach ($filtered_locations as $location_id => $location_name) {
+      $results[] = [
+        'value' => sprintf('%s (%s)', $location_name, $location_id),
+        'label' => sprintf('%s (%s)', $location_name, $location_id),
+      ];
+    }
+
+    return new JsonResponse($results);
   }
 
 }

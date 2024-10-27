@@ -1,0 +1,23 @@
+uuid: abd2894e-8e02-4b1d-b388-10680481c60c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.location.field_location_type_ids
+    - paragraphs.paragraphs_type.location
+id: paragraph.location.default
+targetEntityType: paragraph
+bundle: location
+mode: default
+content:
+  field_location_type_ids:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

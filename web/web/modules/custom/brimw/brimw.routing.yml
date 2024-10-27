@@ -129,3 +129,9 @@ brimw.location.delete:
     _form: 'Drupal\brimw\Form\LocationDeleteConfirmForm'
   requirements:
     _permission: 'access location crud'
+brimw.location.autocomplete:
+  path: '/admin/bri/location/autocomplete'
+  defaults:
+    _controller: '\Drupal\brimw\Controller\LocationController::autocompleteLocation'
+  requirements:
+    _permission: 'access location crud'

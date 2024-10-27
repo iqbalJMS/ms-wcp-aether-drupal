@@ -3,19 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.map.field_value
+    - field.field.paragraph.map.field_bri_location
+    - field.field.paragraph.map.field_image
     - paragraphs.paragraphs_type.map
+  module:
+    - brimw
 id: paragraph.map.default
 targetEntityType: paragraph
 bundle: map
 mode: default
 content:
-  field_value:
-    type: string
+  field_bri_location:
+    type: brimw_bri_location_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden: {  }
