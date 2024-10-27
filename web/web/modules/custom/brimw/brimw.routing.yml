@@ -121,3 +121,11 @@ brimw.location.type.edit:
     _form: 'Drupal\brimw\Form\LocationTypeForm'
   requirements:
     _permission: 'access location crud'
+
+brimw.location.delete:
+  path: '/admin/bri/location/{id}/delete'
+  defaults:
+    _title: 'Confirm delete Location'
+    _form: 'Drupal\brimw\Form\LocationDeleteConfirmForm'
+  requirements:
+    _permission: 'access location crud'

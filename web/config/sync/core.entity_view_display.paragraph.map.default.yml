@@ -1,0 +1,21 @@
+uuid: c7cbfb03-d067-4aa5-8168-381b57f0a1e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map.field_value
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.default
+targetEntityType: paragraph
+bundle: map
+mode: default
+content:
+  field_value:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

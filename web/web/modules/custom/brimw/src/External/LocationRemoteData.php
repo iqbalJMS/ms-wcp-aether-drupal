@@ -446,20 +446,72 @@ class LocationRemoteData extends BaseRemoteData {
     $query = <<< GRAPHQL
       query {
         getLocationById (id: "$id") {
-          address
-          category
           id
+          name
+          address
           lat
           long
-          mid
-          name
-          phone
-          service
-          tipe
+          data {
+            category
+            mid
+            tid
+            service
+            phone
+            tipe
+          }
+          area {
+            _id
+            key
+            value
+            zip
+          }
         }
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdCategory'];
+    return $result['data']['getLocationById'];
+  }
+
+  public function updateLocation($id, $new_location_data) {
+    extract($new_location_data);
+
+    $query = <<< GRAPHQL
+      mutation {
+        updateLocation(
+          id: "$id",
+          data: {
+            name: "$name"
+            address: "$address"
+            lat: $lat
+            long: $long
+            area: {
+              id_city: "$id_city"
+              id_province: "$id_province"
+              zip: "$zip"
+            }
+            data: {
+              category: "$category"
+              mid: "$mid"
+              phone: "$phone"
+              service: "$service"
+              tid: "$tid"
+              tipe: "$type"
+            }
+          }
+        )
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['updateLocation'];
+  }
+
+  public function deleteLocation($id) {
+    $query = <<< GRAPHQL
+      mutation {
+        deleteLocation (id: "$id")
+      }
+    GRAPHQL;
+
+    return $this->gql($query);
   }
 }

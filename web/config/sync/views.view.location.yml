@@ -583,7 +583,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="/admin/bri/location/{{ property_1 }}/delete">Delete</a>'
+            text: "<a href=\"{{ path('brimw.location.delete', {'id': property_1}) }}\">Delete</a>"
             make_link: false
             path: ''
             absolute: false

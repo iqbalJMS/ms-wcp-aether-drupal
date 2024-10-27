@@ -64,9 +64,24 @@ final class LocationForm extends FormBase {
 
       $data = $this->locationRemoteData->getLocation($this->locationId);
 
+      // Area
+      if (isset($data['area']) && is_array($data['area'])) {
+        foreach ($data['area'] as $area) {
+          if ($area['key'] === 'city') {
+            $data['zip'] = $area['zip'];
+          }
+
+          $data[$area['key']] = [
+            'id' => $area['_id'],
+            'name' => $area['value'],
+          ];
+        }
+      }
+
       $form['id'] = [
         '#type' => 'textfield',
         '#title' => $this->t('ID'),
+        '#title' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
         '#required' => TRUE,
         '#attributes' => ['readonly' => 'readonly'], // Make the ID field read-only.
@@ -76,9 +91,19 @@ final class LocationForm extends FormBase {
       // Add mode
       $data = [
         'id' => '',
-        'mid' => '',
         'name' => '',
         'address' => '',
+        'lat' => '',
+        'long' => '',
+        'zip' => '',
+        'data' => [
+          'category' => '',
+          'mid' => '',
+          'tid' => '',
+          'service' => '',
+          'phone' => '',
+          'tipe' => '',
+        ],
         'province' => [
           'id' => '',
           'name' => '',
@@ -87,20 +112,27 @@ final class LocationForm extends FormBase {
           'id' => '',
           'name' => '',
         ],
-        'zip' => '',
-        'phone' => '',
-        'service' => '',
-        'category' => '',
-        'type' => '',
-        'lat' => '',
-        'long' => '',
+        'area' => [
+          [
+            '_id' => '',
+            'key' => '',
+            'value' => '',
+            'zip' => '',
+          ],
+          [
+            '_id' => '',
+            'key' => '',
+            'value' => '',
+            'zip' => '',
+          ],
+        ],
       ];
     }
 
     $form['mid'] = [
       '#type' => 'textfield',
       '#title' => $this->t('MID'),
-      '#default_value' => $data['mid'],
+      '#default_value' => $data['data']['mid'],
       '#required' => TRUE,
     ];
 
@@ -121,7 +153,7 @@ final class LocationForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Province'),
       '#default_value' => $data['province']['id'],
-      '#options' => $province_options,
+      '#options' => ['' => '-None -'] + $province_options,
       '#required' => TRUE,
     ];
 
@@ -135,7 +167,7 @@ final class LocationForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('City'),
       '#default_value' => $data['city'],
-      '#options' => $city_options,
+      '#options' => ['' => '-None -'] + $city_options,
       '#required' => TRUE,
     ];
 
@@ -156,14 +188,14 @@ final class LocationForm extends FormBase {
     $form['phone'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Phone'),
-      '#default_value' => $data['phone'],
+      '#default_value' => $data['data']['phone'],
       '#required' => TRUE,
     ];
 
     $form['service'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Service'),
-      '#default_value' => $data['service'],
+      '#default_value' => $data['data']['service'],
       '#required' => TRUE,
     ];
 
@@ -171,8 +203,8 @@ final class LocationForm extends FormBase {
     $form['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#default_value' => $data['type'],
-      '#options' => $type_options,
+      '#default_value' => $data['data']['tipe'],
+      '#options' => ['' => '-None -'] + $type_options,
       '#required' => TRUE,
     ];
 
@@ -180,8 +212,8 @@ final class LocationForm extends FormBase {
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
-      '#default_value' => $data['category'],
-      '#options' => $category_options,
+      '#default_value' => $data['data']['category'],
+      '#options' => ['' => '-None -'] + $category_options,
       '#required' => TRUE,
     ];
 
@@ -237,11 +269,14 @@ final class LocationForm extends FormBase {
 
     // Get the form values.
     $values = $form_state->getValues();
+    if (!isset($values['tid'])) {
+      $values['tid'] = '';
+    }
 
     if ($this->locationId) {
       // Editing: Update existing location data.
-      // TODO Edit location
-      \Drupal::messenger()->addMessage($this->t('Location edit not implemented.'));
+      $location_data = [];
+      $update_status = $this->locationRemoteData->updateLocation($this->locationId, $values);
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createLocation($values);
