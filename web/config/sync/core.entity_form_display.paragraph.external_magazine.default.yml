@@ -1,0 +1,21 @@
+uuid: 668cde8e-0435-46e3-8063-92ba408bcd5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_magazine.field_display
+    - paragraphs.paragraphs_type.external_magazine
+id: paragraph.external_magazine.default
+targetEntityType: paragraph
+bundle: external_magazine
+mode: default
+content:
+  field_display:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

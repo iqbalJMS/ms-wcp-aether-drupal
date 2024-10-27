@@ -1,0 +1,11 @@
+uuid: 09a2eb60-d244-4d70-828e-be0fa3915e87
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.magazine_category
+id: taxonomy_term.magazine_category
+target_entity_type_id: taxonomy_term
+target_bundle: magazine_category
+default_langcode: site_default
+language_alterable: false

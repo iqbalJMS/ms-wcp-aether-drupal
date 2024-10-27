@@ -1,0 +1,9 @@
+uuid: 47bcf7e9-3086-4ec3-af06-8d15f761eb57
+langcode: en
+status: true
+dependencies: {  }
+name: 'Magazine Category'
+vid: magazine_category
+description: 'Category for Magazine content'
+weight: 0
+new_revision: false

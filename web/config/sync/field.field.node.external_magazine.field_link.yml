@@ -1,0 +1,23 @@
+uuid: dbb938bd-248f-43e3-91e9-584e380b6252
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.external_magazine
+  module:
+    - link
+id: node.external_magazine.field_link
+field_name: field_link
+entity_type: node
+bundle: external_magazine
+label: 'Link Magazine'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

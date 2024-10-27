@@ -1,0 +1,22 @@
+uuid: 0b571fbc-7514-4a0c-99ae-9bd65d1caddd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_magazine.field_display
+    - paragraphs.paragraphs_type.external_magazine
+  module:
+    - options
+id: paragraph.external_magazine.default
+targetEntityType: paragraph
+bundle: external_magazine
+mode: default
+content:
+  field_display:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

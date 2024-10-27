@@ -1,0 +1,10 @@
+uuid: 61eebcc8-23ac-4891-bbf0-4f343c38f899
+langcode: en
+status: true
+dependencies: {  }
+id: external_magazine
+label: 'External Magazine'
+icon_uuid: null
+icon_default: null
+description: 'Display list of external magazine'
+behavior_plugins: {  }
