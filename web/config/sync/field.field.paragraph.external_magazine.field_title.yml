@@ -1,0 +1,19 @@
+uuid: dd4fad83-d584-495b-b9eb-e0483c4908f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.external_magazine
+id: paragraph.external_magazine.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: external_magazine
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

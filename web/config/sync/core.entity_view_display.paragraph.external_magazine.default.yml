@@ -3,20 +3,38 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.external_magazine.field_content
     - field.field.paragraph.external_magazine.field_display
+    - field.field.paragraph.external_magazine.field_title
     - paragraphs.paragraphs_type.external_magazine
   module:
     - options
+    - text
 id: paragraph.external_magazine.default
 targetEntityType: paragraph
 bundle: external_magazine
 mode: default
 content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_display:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }
