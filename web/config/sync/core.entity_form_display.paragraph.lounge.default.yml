@@ -1,0 +1,35 @@
+uuid: ba0ef589-dada-473e-a88c-540fa2363966
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lounge.field_paragraphs
+    - paragraphs.paragraphs_type.lounge
+  module:
+    - paragraphs
+id: paragraph.lounge.default
+targetEntityType: paragraph
+bundle: lounge
+mode: default
+content:
+  field_paragraphs:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

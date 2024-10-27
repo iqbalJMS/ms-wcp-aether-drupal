@@ -1,0 +1,24 @@
+uuid: d402b1fb-b2c4-4d82-87ee-8eeb559ea3c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.lounge.field_paragraphs
+    - paragraphs.paragraphs_type.lounge
+  module:
+    - entity_reference_revisions
+id: paragraph.lounge.default
+targetEntityType: paragraph
+bundle: lounge
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
