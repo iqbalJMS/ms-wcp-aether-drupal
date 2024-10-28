@@ -1,0 +1,10 @@
+uuid: b839fe4d-6b21-4933-b6d6-2b65241c4295
+langcode: en
+status: true
+dependencies: {  }
+id: article_listing
+label: 'Article listing'
+icon_uuid: null
+icon_default: null
+description: 'Display article listing'
+behavior_plugins: {  }
