@@ -1,0 +1,23 @@
+uuid: 8360d696-2a98-4ba4-9eb0-e8b3784220eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.benefit_item
+  module:
+    - link
+id: paragraph.benefit_item.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: benefit_item
+label: 'Call-to-action link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

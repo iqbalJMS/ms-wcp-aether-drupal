@@ -1,0 +1,10 @@
+uuid: af7b7fb9-0717-4336-a242-02827d10834a
+langcode: en
+status: true
+dependencies: {  }
+id: benefit_list
+label: 'Benefit list'
+icon_uuid: null
+icon_default: null
+description: 'Display list of benefit item'
+behavior_plugins: {  }
