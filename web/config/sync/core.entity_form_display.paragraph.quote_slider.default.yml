@@ -1,0 +1,53 @@
+uuid: 51ac1379-6b6a-457d-b1d4-dbc71dc57904
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote_slider.field_image
+    - field.field.paragraph.quote_slider.field_quote
+    - field.field.paragraph.quote_slider.field_title
+    - paragraphs.paragraphs_type.quote_slider
+  module:
+    - media_library
+    - paragraphs
+id: paragraph.quote_slider.default
+targetEntityType: paragraph
+bundle: quote_slider
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_quote:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
