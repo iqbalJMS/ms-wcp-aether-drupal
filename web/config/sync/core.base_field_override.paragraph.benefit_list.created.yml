@@ -1,19 +1,18 @@
-uuid: 4274d3cf-be4f-411c-8c7e-bdf725c8ef26
+uuid: 9a91eb61-1199-452f-a111-8987b8438dd7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.benefit_list
-id: paragraph.benefit_list.field_title
-field_name: field_title
+id: paragraph.benefit_list.created
+field_name: created
 entity_type: paragraph
 bundle: benefit_list
-label: Title
-description: ''
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: created
