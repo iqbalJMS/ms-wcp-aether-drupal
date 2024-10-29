@@ -1,0 +1,22 @@
+uuid: 5e02a883-a639-41f0-8015-7d4e320678f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - paragraphs.paragraphs_type.video
+  module:
+    - text
+id: paragraph.video.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: video
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -3,15 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.video.field_content
     - field.field.paragraph.video.field_image
     - field.field.paragraph.video.field_title
     - field.field.paragraph.video.field_video
     - paragraphs.paragraphs_type.video
+  module:
+    - text
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
 mode: default
 content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: above
