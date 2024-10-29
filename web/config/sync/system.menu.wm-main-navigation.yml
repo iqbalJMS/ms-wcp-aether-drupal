@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: wm-main-navigation
-label: 'WM Main Navigation'
+label: 'WEALTH MANAGEMENT Main Navigation'
 description: 'Main navigation for Wealth Management website'
 locked: false
