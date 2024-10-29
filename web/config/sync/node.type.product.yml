@@ -1,0 +1,17 @@
+uuid: fb8687ce-9642-459f-8198-fd19c9d6f9bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Product
+type: product
+description: 'For all content product inside Wealth Management, BRI Prioritas and BRI Private'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

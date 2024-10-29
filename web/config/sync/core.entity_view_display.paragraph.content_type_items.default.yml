@@ -1,0 +1,31 @@
+uuid: 07ae7001-955c-4a7a-888c-a5c8a2396774
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_type_items.field_content
+    - field.field.paragraph.content_type_items.field_title
+    - paragraphs.paragraphs_type.content_type_items
+  module:
+    - text
+id: paragraph.content_type_items.default
+targetEntityType: paragraph
+bundle: content_type_items
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

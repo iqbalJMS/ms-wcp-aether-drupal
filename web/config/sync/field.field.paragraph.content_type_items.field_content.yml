@@ -1,0 +1,26 @@
+uuid: 46a944b8-a9fe-412c-af9f-d5e2b96327a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.full_html
+    - filter.format.full_template
+    - paragraphs.paragraphs_type.content_type_items
+  module:
+    - text
+id: paragraph.content_type_items.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: content_type_items
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - full_template
+field_type: text_long

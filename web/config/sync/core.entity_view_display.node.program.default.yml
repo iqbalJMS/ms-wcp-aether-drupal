@@ -1,0 +1,50 @@
+uuid: cde8b475-958a-45c5-b4e4-bdd9dd27cb1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.program.field_image
+    - field.field.node.program.field_items
+    - field.field.node.program.field_summary
+    - node.type.program
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.program.default
+targetEntityType: node
+bundle: program
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

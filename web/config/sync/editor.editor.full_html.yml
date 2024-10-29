@@ -95,6 +95,36 @@ settings:
         -
           label: 'Action Danger'
           element: '<a class="button button--action button--danger">'
+        -
+          label: 'Paragraph Gold color'
+          element: '<p class="text-gold">'
+        -
+          label: 'H2 Gold color'
+          element: '<h2 class="text-gold">'
+        -
+          label: 'H3 Gold color'
+          element: '<h3 class="text-gold">'
+        -
+          label: 'H4 Gold color'
+          element: '<h4 class="text-gold">'
+        -
+          label: 'H5 Gold color'
+          element: '<h5 class="text-gold">'
+        -
+          label: 'H6 Gold color'
+          element: '<h6 class="text-gold">'
+        -
+          label: 'Order List Gold'
+          element: '<ol class="gold">'
+        -
+          label: 'Order List Blue'
+          element: '<ol class="blue">'
+        -
+          label: 'List Item Star Gold'
+          element: '<li class="star gold">'
+        -
+          label: 'List Item Star Blue'
+          element: '<li class="star blue">'
     media_media:
       allow_view_mode_override: false
 image_upload:

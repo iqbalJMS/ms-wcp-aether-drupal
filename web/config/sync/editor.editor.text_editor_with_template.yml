@@ -1,0 +1,106 @@
+uuid: 0e913a8e-0ad2-437e-9340-d90ad414e71f
+langcode: en
+status: false
+dependencies:
+  config:
+    - filter.format.text_editor_with_template
+  module:
+    - ckeditor5
+format: text_editor_with_template
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+      - underline
+      - horizontalLine
+      - style
+      - indent
+      - bulletedList
+      - numberedList
+      - outdent
+      - sourceEditing
+      - codeBlock
+      - code
+      - insertTable
+      - textPartLanguage
+      - drupalMedia
+      - '|'
+      - showBlocks
+      - template
+  plugins:
+    ckeditor5_codeBlock:
+      languages:
+        -
+          label: 'Plain text'
+          language: plaintext
+        -
+          label: C
+          language: c
+        -
+          label: 'C#'
+          language: cs
+        -
+          label: C++
+          language: cpp
+        -
+          label: CSS
+          language: css
+        -
+          label: Diff
+          language: diff
+        -
+          label: HTML
+          language: html
+        -
+          label: Java
+          language: java
+        -
+          label: JavaScript
+          language: javascript
+        -
+          label: PHP
+          language: php
+        -
+          label: Python
+          language: python
+        -
+          label: Ruby
+          language: ruby
+        -
+          label: TypeScript
+          language: typescript
+        -
+          label: XML
+          language: xml
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_language:
+      language_list: site_configured
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Link Button Primary'
+          element: '<a class="button button--primary">'
+    ckeditor5_template_template:
+      file_path: /modules/contrib/ckeditor5_template/template/ckeditor5_template.json.example
+      custom_toolbar_text: Template
+      show_toolbar_text: 1
+    media_media:
+      allow_view_mode_override: false
+image_upload:
+  status: false

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_template
     - filter.format.limited_html
     - filter.format.webform_default
     - rest.resource.webform_rest_submit
@@ -21,6 +22,7 @@ is_admin: false
 permissions:
   - 'access content'
   - 'restful post webform_rest_submit'
+  - 'use text format full_template'
   - 'use text format limited_html'
   - 'use text format webform_default'
   - 'view bricc_card_item'

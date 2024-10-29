@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_template
     - node.type.page
     - taxonomy.vocabulary.categories
     - taxonomy.vocabulary.document_category
@@ -11,6 +12,7 @@ dependencies:
     - taxonomy.vocabulary.site_id
   module:
     - content_translation
+    - filter
     - menu_link_content
     - node
     - paragraphs
@@ -47,6 +49,7 @@ permissions:
   - 'translate page node'
   - 'translate paragraph'
   - 'translate personal_profile_type taxonomy_term'
+  - 'use text format full_template'
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view page revisions'

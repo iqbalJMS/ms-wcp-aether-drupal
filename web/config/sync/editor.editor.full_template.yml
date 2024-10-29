@@ -1,0 +1,66 @@
+uuid: 10fb3e04-bb19-4907-be54-95eed0f34b7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_template
+  module:
+    - ckeditor5
+format: full_template
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - style
+      - heading
+      - undo
+      - redo
+      - bold
+      - underline
+      - italic
+      - drupalMedia
+      - bulletedList
+      - numberedList
+      - alignment
+      - indent
+      - outdent
+      - blockQuote
+      - link
+      - insertTable
+      - sourceEditing
+      - showBlocks
+      - template
+  plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Button Primary'
+          element: '<a class="button button--primary">'
+    ckeditor5_template_template:
+      file_path: /modules/contrib/ckeditor5_template/template/ckeditor5_template.json.example
+      custom_toolbar_text: Template
+      show_toolbar_text: 0
+    media_media:
+      allow_view_mode_override: false
+image_upload:
+  status: false

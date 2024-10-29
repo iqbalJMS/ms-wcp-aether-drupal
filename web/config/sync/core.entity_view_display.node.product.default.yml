@@ -1,0 +1,50 @@
+uuid: 53cd280b-64ad-4e35-a2c2-8cbfb9c32b70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product.field_image
+    - field.field.node.product.field_items
+    - field.field.node.product.field_summary
+    - node.type.product
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.product.default
+targetEntityType: node
+bundle: product
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

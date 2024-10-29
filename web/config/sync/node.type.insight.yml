@@ -1,0 +1,17 @@
+uuid: e7d163cb-6703-456f-b398-bf6bb4065a99
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Insight
+type: insight
+description: 'For all content insight inside Wealth Management, BRI Prioritas and BRI Private'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true
