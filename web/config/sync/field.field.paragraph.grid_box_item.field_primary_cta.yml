@@ -1,0 +1,23 @@
+uuid: 959b11f5-edc5-4e99-9e07-f45b2576b072
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_primary_cta
+    - paragraphs.paragraphs_type.grid_box_item
+  module:
+    - link
+id: paragraph.grid_box_item.field_primary_cta
+field_name: field_primary_cta
+entity_type: paragraph
+bundle: grid_box_item
+label: 'Call-to-action link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

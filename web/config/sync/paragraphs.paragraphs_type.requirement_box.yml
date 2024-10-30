@@ -1,0 +1,10 @@
+uuid: 05c5af83-7463-4699-85ec-911d4ed0707b
+langcode: en
+status: true
+dependencies: {  }
+id: requirement_box
+label: 'Requirement Box'
+icon_uuid: null
+icon_default: null
+description: 'Requirement Box'
+behavior_plugins: {  }

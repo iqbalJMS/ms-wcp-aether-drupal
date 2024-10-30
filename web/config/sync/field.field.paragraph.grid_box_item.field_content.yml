@@ -1,0 +1,24 @@
+uuid: d76361a5-ddbb-4231-8590-94a8a5c3a6bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.grid_box_item
+  module:
+    - text
+id: paragraph.grid_box_item.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: grid_box_item
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

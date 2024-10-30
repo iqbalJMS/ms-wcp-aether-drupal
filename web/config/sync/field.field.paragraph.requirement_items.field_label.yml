@@ -1,0 +1,19 @@
+uuid: ea1933ca-19af-43a5-9ad3-39e7e29ad235
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.requirement_items
+id: paragraph.requirement_items.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: requirement_items
+label: label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

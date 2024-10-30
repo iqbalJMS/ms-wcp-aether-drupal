@@ -1,0 +1,10 @@
+uuid: c8188b6d-bad9-4d7d-aca7-af93c878783e
+langcode: en
+status: true
+dependencies: {  }
+id: grid_box
+label: 'Grid Box'
+icon_uuid: null
+icon_default: null
+description: 'Grid Box'
+behavior_plugins: {  }

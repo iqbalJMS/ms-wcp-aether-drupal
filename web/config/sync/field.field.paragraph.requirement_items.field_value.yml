@@ -1,0 +1,19 @@
+uuid: dc776c96-77df-479c-8b9b-93f3182376e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_value
+    - paragraphs.paragraphs_type.requirement_items
+id: paragraph.requirement_items.field_value
+field_name: field_value
+entity_type: paragraph
+bundle: requirement_items
+label: value
+description: 'Use for short value option, checkbox, dropdown, or list'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
