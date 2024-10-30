@@ -28,6 +28,7 @@ class SimulationRequest extends BaseRequest
         'estimateVehicleInstallment',
         'estimateObligasi',
         'estimateReksadana',
+        'estimateKreditInvestasi',
     ];
       
     public function validateType(string $type)
@@ -263,6 +264,24 @@ class SimulationRequest extends BaseRequest
             ),
             $this->rules(
                 'investmentType',
+                new NotBlank, 
+            ),
+        ));
+    }
+    
+    protected function validateEstimateKreditInvestasi(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge( 
+            $this->rules(
+                'installmentTerm',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'installment',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'InterestRate',
                 new NotBlank, 
             ),
         ));
