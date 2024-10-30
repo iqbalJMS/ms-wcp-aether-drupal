@@ -414,4 +414,24 @@ class SimulationRemoteData extends BaseRemoteData
 
     return $response['data']['estimateReksadana'] ?? $this->error($response);
   }
+
+  public function estimateKreditInvestasi(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      query {
+        estimateKreditInvestasi (input: {
+          installmentTerm: {$request->get('installmentTerm')}
+          installment: {$request->get('installment')}
+          InterestRate: {$request->get('InterestRate')}
+        }) {
+          monthlyPrincipalInstallment
+          interest
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateKreditInvestasi'] ?? $this->error($response);
+  }
 }
