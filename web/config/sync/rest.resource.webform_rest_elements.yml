@@ -1,0 +1,22 @@
+uuid: e006d45b-7b58-4e19-a847-5222784e9e95
+langcode: en
+status: false
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - rest_entity_recursive
+    - serialization
+    - webform_rest
+id: webform_rest_elements
+plugin_id: webform_rest_elements
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - hal_json
+    - json_recursive
+    - json
+  authentication:
+    - basic_auth
