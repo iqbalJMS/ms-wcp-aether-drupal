@@ -1,0 +1,31 @@
+uuid: b1997407-eddf-41c4-8679-1fbcfe9fc7ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_header
+    - field.field.config_pages.wealth_management_header.field_logo
+    - field.field.config_pages.wealth_management_header.field_logo_alternative
+  module:
+    - media_library
+id: config_pages.wealth_management_header.default
+targetEntityType: config_pages
+bundle: wealth_management_header
+mode: default
+content:
+  field_logo:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_logo_alternative:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  label: true

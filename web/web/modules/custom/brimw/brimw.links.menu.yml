@@ -19,3 +19,30 @@ brimw.configuration_form_bri:
   parent: system.admin_config_system
   weight: 99
 
+brimw.configuration_form_wm_header:
+  title: 'WEALTH MANAGEMENT Header'
+  route_name: config_pages.wealth_management_header
+  description: 'Settings page for Wealth Management Header.'
+  parent: system.admin_config_system
+  weight: 99
+
+brimw.configuration_form_wm_footer:
+  title: 'WEALTH MANAGEMENT Footer'
+  route_name: config_pages.wealth_management_footer
+  description: 'Settings page for Wealth Management Footer.'
+  parent: system.admin_config_system
+  weight: 99
+
+brimw.configuration_form_wm_private:
+  title: 'WEALTH MANAGEMENT Private'
+  route_name: config_pages.wealth_management_private
+  description: 'Settings page for Wealth Management Private.'
+  parent: system.admin_config_system
+  weight: 99
+
+brimw.configuration_form_wm_prioritas:
+  title: 'WEALTH MANAGEMENT Prioritas'
+  route_name: config_pages.wealth_management_prioritas
+  description: 'Settings page for Wealth Management Prioritas.'
+  parent: system.admin_config_system
+  weight: 99

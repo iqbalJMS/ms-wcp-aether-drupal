@@ -1,0 +1,31 @@
+uuid: c205fe18-e240-45be-98e5-c1a6b2d378a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_prioritas
+    - field.field.config_pages.wealth_management_prioritas.field_logo
+    - field.field.config_pages.wealth_management_prioritas.field_logo_alternative
+  module:
+    - media_library
+id: config_pages.wealth_management_prioritas.default
+targetEntityType: config_pages
+bundle: wealth_management_prioritas
+mode: default
+content:
+  field_logo:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_logo_alternative:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  label: true

@@ -1,0 +1,29 @@
+uuid: 85a8c8ba-02ad-4609-acf5-ca2bbac01d93
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_prioritas
+    - field.storage.config_pages.field_logo
+    - media.type.image
+id: config_pages.wealth_management_prioritas.field_logo
+field_name: field_logo
+entity_type: config_pages
+bundle: wealth_management_prioritas
+label: 'Logo (Primary)'
+description: 'Primary logo (logo with colour).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

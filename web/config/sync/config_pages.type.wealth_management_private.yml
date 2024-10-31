@@ -1,0 +1,17 @@
+uuid: 7c05e5e8-6175-434a-a2c8-38c99be32f84
+langcode: en
+status: true
+dependencies: {  }
+id: wealth_management_private
+label: 'WEALTH MANAGEMENT Private'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/bri/wm-private
+  weight: 0
+  description: 'Settings page for Wealth Management Private'

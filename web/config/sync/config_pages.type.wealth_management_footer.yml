@@ -12,6 +12,6 @@ context:
   fallback:
     language: ''
 menu:
-  path: ''
+  path: /admin/config/bri/wm-footer
   weight: 0
-  description: ''
+  description: 'Settings page for Wealth Management footer'

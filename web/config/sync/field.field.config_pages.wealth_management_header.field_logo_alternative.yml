@@ -1,0 +1,29 @@
+uuid: bd16468f-f6a4-41cd-a289-bacf51df6e72
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_header
+    - field.storage.config_pages.field_logo_alternative
+    - media.type.image
+id: config_pages.wealth_management_header.field_logo_alternative
+field_name: field_logo_alternative
+entity_type: config_pages
+bundle: wealth_management_header
+label: 'Logo (Alternative)'
+description: 'Alternative logo (logo with white colour).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

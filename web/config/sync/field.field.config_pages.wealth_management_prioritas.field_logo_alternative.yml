@@ -1,0 +1,29 @@
+uuid: 078579a1-44a3-4cc9-ba15-8e3b76dc5d9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_prioritas
+    - field.storage.config_pages.field_logo_alternative
+    - media.type.image
+id: config_pages.wealth_management_prioritas.field_logo_alternative
+field_name: field_logo_alternative
+entity_type: config_pages
+bundle: wealth_management_prioritas
+label: 'Logo (Alternative)'
+description: 'Alternative logo (logo with white colour).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

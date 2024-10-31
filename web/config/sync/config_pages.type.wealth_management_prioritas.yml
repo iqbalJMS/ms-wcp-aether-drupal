@@ -1,0 +1,17 @@
+uuid: 19f11305-e757-4e4b-be50-e7563f3cd9ff
+langcode: en
+status: true
+dependencies: {  }
+id: wealth_management_prioritas
+label: 'WEALTH MANAGEMENT Prioritas'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/bri/wm-prioritas
+  weight: 0
+  description: 'Settings page for Wealth Management Prioritas'

@@ -1,0 +1,31 @@
+uuid: d897f65d-7bca-4b8f-8b97-304a314bc7b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_private
+    - field.field.config_pages.wealth_management_private.field_logo
+    - field.field.config_pages.wealth_management_private.field_logo_alternative
+  module:
+    - media_library
+id: config_pages.wealth_management_private.default
+targetEntityType: config_pages
+bundle: wealth_management_private
+mode: default
+content:
+  field_logo:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_logo_alternative:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  label: true

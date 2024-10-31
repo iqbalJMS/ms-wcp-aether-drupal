@@ -1,0 +1,17 @@
+uuid: ca36815c-9b31-43d3-9e8c-86c830e60b07
+langcode: en
+status: true
+dependencies: {  }
+id: wealth_management_header
+label: 'WEALTH MANAGEMENT Header'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/bri/wm-header
+  weight: 0
+  description: 'Settings page for Wealth Management'

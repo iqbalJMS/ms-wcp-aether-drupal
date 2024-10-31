@@ -1,0 +1,32 @@
+uuid: febb26a9-3162-4104-92d1-67e2636766b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_prioritas
+    - field.field.config_pages.wealth_management_prioritas.field_logo
+    - field.field.config_pages.wealth_management_prioritas.field_logo_alternative
+id: config_pages.wealth_management_prioritas.default
+targetEntityType: config_pages
+bundle: wealth_management_prioritas
+mode: default
+content:
+  field_logo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_logo_alternative:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }

@@ -1,0 +1,32 @@
+uuid: 3bbd12a9-71f5-4339-8371-cea40642d844
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.wealth_management_private
+    - field.field.config_pages.wealth_management_private.field_logo
+    - field.field.config_pages.wealth_management_private.field_logo_alternative
+id: config_pages.wealth_management_private.default
+targetEntityType: config_pages
+bundle: wealth_management_private
+mode: default
+content:
+  field_logo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_logo_alternative:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }
