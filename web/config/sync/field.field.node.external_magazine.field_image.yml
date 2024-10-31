@@ -1,0 +1,29 @@
+uuid: 8bd455d5-b622-4843-b169-632414acbaca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - media.type.image
+    - node.type.external_magazine
+id: node.external_magazine.field_image
+field_name: field_image
+entity_type: node
+bundle: external_magazine
+label: Thumbnail
+description: 'Used in listing and body image in article detail.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -20,6 +20,18 @@ settings:
     -
       value: with_blue_hover
       label: 'With blue hover'
+    -
+      value: brown_theme
+      label: 'Brown theme'
+    -
+      value: with_dark_hover
+      label: 'With dark hover'
+    -
+      value: with_dark_hover_alternative_1
+      label: 'With dark hover - alternative 1'
+    -
+      value: icon_card
+      label: 'Icon card'
   allowed_values_function: ''
 module: options
 locked: false

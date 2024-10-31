@@ -12,6 +12,8 @@ class LocationRemoteData extends BaseRemoteData {
 
   public const string CACHEKEY_CATEGORY_OPTIONS = 'category_options';
   public const string CACHEKEY_TYPE_OPTIONS = 'type_options';
+  public const string CACHEKEY_LOCATION_OPTIONS = 'location_options';
+  public const string CACHEKEY_LOCATION_PREFIX = 'LocationRemoteData_getLocation_';
 
   protected function gqlUrl(): string {
     return $_ENV['LOCATION_URL'];
@@ -443,23 +445,127 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function getLocation($id) {
-    $query = <<< GRAPHQL
+    $cache_key = self::CACHEKEY_LOCATION_PREFIX . $id;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $query = <<< GRAPHQL
       query {
         getLocationById (id: "$id") {
-          address
-          category
           id
+          name
+          address
           lat
           long
-          mid
-          name
-          phone
-          service
-          tipe
+          data {
+            category
+            mid
+            tid
+            service
+            phone
+            tipe
+          }
+          area {
+            _id
+            key
+            value
+            zip
+          }
         }
       }
     GRAPHQL;
+        $result = $this->gql($query);
+        $this->cache->set($cache_key, $result['data']['getLocationById'], strtotime($this->cacheDuration));
+        return $result['data']['getLocationById'];
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
+  }
+
+  public function updateLocation($id, $new_location_data) {
+    extract($new_location_data);
+
+    $query = <<< GRAPHQL
+      mutation {
+        updateLocation(
+          id: "$id",
+          data: {
+            name: "$name"
+            address: "$address"
+            lat: $lat
+            long: $long
+            area: {
+              id_city: "$id_city"
+              id_province: "$id_province"
+              zip: "$zip"
+            }
+            data: {
+              category: "$category"
+              mid: "$mid"
+              phone: "$phone"
+              service: "$service"
+              tid: "$tid"
+              tipe: "$type"
+            }
+          }
+        )
+      }
+    GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdCategory'];
+    return $result['data']['updateLocation'];
+  }
+
+  public function deleteLocation($id) {
+    $query = <<< GRAPHQL
+      mutation {
+        deleteLocation (id: "$id")
+      }
+    GRAPHQL;
+
+    return $this->gql($query);
+  }
+
+  /**
+   * @param $id
+   *
+   * @return true
+   * @todo Implement locatin ID validation
+   */
+  public function validateLocationId($id) {
+    return TRUE;
+  }
+  /**
+   * @param $id
+   *
+   * @return true
+   * @todo Implement location Type ID validation
+   */
+  public function validateLocationTypeId($id) {
+    return TRUE;
+  }
+
+  public function getLocationsOptions() {
+    $cache_key = self::CACHEKEY_LOCATION_OPTIONS;
+    if ($cache = $this->cache->get($cache_key)) {
+      return $cache->data;
+    }
+    else {
+      try {
+        $types = $this->getAllLocations([
+          'skip' => 0,
+          'limit' => 99999,
+        ]);
+        $type_options = array_column($types['data'], 'name', 'id');
+        $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
+        return $type_options;
+      } catch (RequestException $e) {
+        $this->logger->warning($e->getMessage());
+        return [];
+      }
+    }
   }
 }

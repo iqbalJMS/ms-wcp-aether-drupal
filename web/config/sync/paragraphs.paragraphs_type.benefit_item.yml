@@ -1,0 +1,10 @@
+uuid: 59abed42-8daf-479e-b689-f73b7da0eb28
+langcode: en
+status: true
+dependencies: {  }
+id: benefit_item
+label: 'Benefit item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

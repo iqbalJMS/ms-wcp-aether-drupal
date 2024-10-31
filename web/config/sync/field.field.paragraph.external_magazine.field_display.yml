@@ -1,0 +1,23 @@
+uuid: 0c5629b7-26cb-4c3e-b107-613b030a0cc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display
+    - paragraphs.paragraphs_type.external_magazine
+  module:
+    - options
+id: paragraph.external_magazine.field_display
+field_name: field_display
+entity_type: paragraph
+bundle: external_magazine
+label: Display
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: last_4_magazines
+default_value_callback: ''
+settings: {  }
+field_type: list_string

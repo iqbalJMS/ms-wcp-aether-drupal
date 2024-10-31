@@ -1,0 +1,57 @@
+uuid: 58906bf5-cfb3-4bb1-86e2-0a0f28b74188
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote_item.field_content
+    - field.field.paragraph.quote_item.field_image
+    - field.field.paragraph.quote_item.field_subtitle
+    - field.field.paragraph.quote_item.field_title
+    - paragraphs.paragraphs_type.quote_item
+  module:
+    - media_library
+    - text
+id: paragraph.quote_item.default
+targetEntityType: paragraph
+bundle: quote_item
+mode: default
+content:
+  field_content:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,22 @@
+uuid: db17ab02-c2ae-47f4-9069-4802825fba57
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.benefit_list
+id: paragraph.benefit_list.status
+field_name: status
+entity_type: paragraph
+bundle: benefit_list
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

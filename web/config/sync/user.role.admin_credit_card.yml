@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.full_template
     - node.type.page
+    - node.type.services
     - taxonomy.vocabulary.categories
     - taxonomy.vocabulary.document_category
     - taxonomy.vocabulary.infograph
@@ -33,13 +34,18 @@ permissions:
   - 'access toolbar'
   - 'access webform overview'
   - 'create page content'
+  - 'create services content'
   - 'create url aliases'
   - 'delete any page content'
   - 'delete own page content'
+  - 'delete own services content'
   - 'edit any page content'
+  - 'edit any services content'
   - 'edit own page content'
+  - 'edit own services content'
   - 'revert all revisions'
   - 'revert page revisions'
+  - 'revert services revisions'
   - 'revert term revisions in site_id'
   - 'translate any entity'
   - 'translate categories taxonomy_term'
@@ -50,8 +56,10 @@ permissions:
   - 'translate paragraph'
   - 'translate personal_profile_type taxonomy_term'
   - 'use text format full_template'
+  - 'translate services node'
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view services revisions'
   - 'view term revisions in site_id'
   - 'view the administration theme'

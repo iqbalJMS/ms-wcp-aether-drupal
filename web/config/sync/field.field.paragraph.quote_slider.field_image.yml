@@ -1,0 +1,29 @@
+uuid: 4851be92-ed51-409e-958a-75c5b8ceb194
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.quote_slider
+id: paragraph.quote_slider.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: quote_slider
+label: 'Background image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

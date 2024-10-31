@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: wm-prioritas-main-navigation
-label: 'WM PRIORITAS Main Navigation'
+label: 'WEALTH MANAGEMENT PRIORITAS Main Navigation'
 description: 'Main navigation for Wealth Management Prioritas'
 locked: false

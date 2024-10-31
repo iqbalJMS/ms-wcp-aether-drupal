@@ -11,7 +11,9 @@ class LocationNormalizer extends BaseParagraphNormalizer {
    *
    * @var array
    */
-  protected $supportedParagraphType = 'location';
+  protected $supportedParagraphType = [
+    'location', 'map'
+  ];
 
   /**
    * @inheritDoc
@@ -28,40 +30,54 @@ class LocationNormalizer extends BaseParagraphNormalizer {
     );
 
     if ($entity->bundle() === 'location') {
-      // Get location type
-      $vocabulary_id = 'location_type';
-      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
-        'vid' => $vocabulary_id,
-      ]);
+      // Location Type detail from location service
+      if ($entity->hasField('field_bri_location_type')) {
+        if (!$entity->get('field_bri_location_type')->isEmpty()) {
+          $values = $entity->get('field_bri_location_type')->getValue();
+          $location_type_details = [];
+          $type_ids = [];
+          foreach ($values as $value) {
+            $type_ids = $value['type_id'];
+            $location_type_details[] = \Drupal::service('brimw.location_remote_data')->getType($value['type_id']);
+          }
+          $normalized['location_type_details'] = $location_type_details;
 
-      // Get image and label
-      $location_types = [];
-      foreach ($terms as $term) {
-        // Example: Get term name and ID.
-        $type_item['name'] = $term->getName();
-        $type_item['term_id'] = $term->id();
-
-        if (!$term->get('field_location_type')->isEmpty()) {
-          $type_item['type_id'] = $term->get('field_location_type')->value;
-        }
-
-        if ($term->hasField('field_image')) {
-          if (!$term->get('field_image')->isEmpty()) {
-            $media_image = $term->get('field_image')->referencedEntities()[0];
-            if ($media_image instanceof Media) {
-              if (!$media_image->get('field_media_image')->isEmpty()) {
-                /** @var \Drupal\file\Entity\File $file_image */
-                $file_image = $media_image->get('field_media_image')->referencedEntities()[0];
-                $type_item['icon'] = $file_image->createFileUrl();
+          // Fetch icon
+          $query = \Drupal::entityQuery('taxonomy_term')
+            ->accessCheck(FALSE)
+            ->condition('vid', 'location_type', '=')
+            ->condition('field_bri_location_type.type_id', $type_ids, 'IN');
+          $term_ids = $tids = $query->execute();
+          $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($term_ids);
+          $terms_normalized = $this->serializer->normalize($terms, 'json_recursive');
+          $term_images = [];
+          foreach ($terms_normalized as $term_item_normalized) {
+            if (isset($term_item_normalized['field_bri_location_type'][0]['type_id'])) {
+              if (isset($term_item_normalized['field_image'][0]['field_media_image'][0]['uri'][0]['url'])) {
+                $term_images[$term_item_normalized['field_bri_location_type'][0]['type_id']] =
+                  $term_item_normalized['field_image'][0]['field_media_image'][0]['uri'][0]['url'];
               }
             }
           }
+
+          foreach ($normalized['location_type_details'] as &$type_item) {
+            if (isset($term_images[$type_item['id']])) {
+              $type_item['image_url'] = $term_images[$type_item['id']];
+            }
+          }
+
+
+
         }
-
-        $location_types[] = $type_item;
       }
-
-      $normalized['location_types'] = $location_types;
+    }
+    elseif ($entity->bundle() === 'map') {
+      if ($entity->hasField('field_bri_location')) {
+        if (!$entity->get('field_bri_location')->isEmpty()) {
+          $values = $entity->get('field_bri_location')->first()->getValue();
+          $normalized['location_detail'] = \Drupal::service('brimw.location_remote_data')->getLocation($values['location_id']);
+        }
+      }
     }
 
     return $normalized;

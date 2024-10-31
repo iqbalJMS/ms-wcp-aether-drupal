@@ -2,8 +2,8 @@ uuid: 1b763aee-3bd8-4bbe-a394-11e7181fec17
 langcode: en
 status: true
 dependencies: {  }
-name: 'Location type'
+name: 'Location type icon'
 vid: location_type
-description: 'Location type for a location that offer a service'
+description: 'Location type icon'
 weight: 0
 new_revision: false

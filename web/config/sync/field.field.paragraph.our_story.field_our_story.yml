@@ -1,0 +1,29 @@
+uuid: e9bdec93-fd48-475d-8f25-074768b71c7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_our_story
+    - node.type.our_story
+    - paragraphs.paragraphs_type.our_story
+id: paragraph.our_story.field_our_story
+field_name: field_our_story
+entity_type: paragraph
+bundle: our_story
+label: 'Our story'
+description: 'Select <em>Our Story</em> content to display'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      our_story: our_story
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

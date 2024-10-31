@@ -1,0 +1,27 @@
+uuid: 4c94550e-cda0-4184-b35d-a57fc1375d78
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_display
+field_name: field_display
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: last_4_magazines
+      label: 'Last 4 magazines'
+    -
+      value: all
+      label: All
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

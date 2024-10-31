@@ -28,39 +28,31 @@ function brimw_form_taxonomy_term_location_type_form_alter(
   \Drupal\Core\Form\FormStateInterface $form_state,
   $form_id
 ) {
-  // Dummy location type
-  $location_type = [
-    '_none' => '- Please select a location type -',
-    '123' => 'Unit Kerja',
-    '234' => 'ATM',
-    '345' => 'BRILINK',
-    '456' => 'Weekend Banking',
-  ];
-
-  $form['select_idlocationtype'] = [
-    '#type' => 'select',
-    '#title' => t('Location type'),
-    '#options' => $location_type,
-    '#default_value' => $form['field_location_type']['widget'][0]['value']['#default_value'], // Set the default value if needed.
-    '#description' => t('Connect this data with BRI Location Type'),
-    '#weight' => 0,
-  ];
-  $form['field_location_type']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
   $form['#validate'][] = 'brimw_location_type_form_validate';
 }
 
 function brimw_location_type_form_validate(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  if ($form_state->hasValue('field_location_type')) {
-    $field_locationtype = $form_state->getValue('field_location_type');
-    if (isset($field_locationtype[0]['value'])) {
+  if ($form_state->hasValue('field_bri_location_type')) {
+    $field_locationtype = $form_state->getValue('field_bri_location_type'); // example: 0.data = Type B (671a013f605279a6c3febe21)
+
+    if (isset($field_locationtype[0]['data'])) {
       /** @var \Drupal\taxonomy\Entity\Term $term */
       $term = $form_state->getFormObject()->getEntity();
+
+      // Take "label (entity id)", match the ID from inside the parentheses.
+      // @see \Drupal\Core\Entity\Element\EntityAutocomplete::extractEntityIdFromAutocompleteInput
+      $type_id = '';
+      $type_name = '';
+      if (preg_match('/(.+\\s)\\(([^\\)]+)\\)/', $field_locationtype[0]['data'], $matches)) {
+        $type_name = trim($matches[1]);
+        $type_id = trim($matches[2]);
+      }
 
       // Check is there a card item that already connect with this BRI card
       $query = \Drupal::entityQuery('taxonomy_term')
         ->accessCheck(FALSE)
         ->condition('vid', $term->bundle(), '=')
-        ->condition('field_location_type', $field_locationtype[0]['value']);
+        ->condition('field_bri_location_type.type_id', $type_id);
 
       // If update mode
       if (!$term->isNew()) {
@@ -72,7 +64,7 @@ function brimw_location_type_form_validate(array &$form, \Drupal\Core\Form\FormS
       $tids = $query->execute();
 
       if (count($tids) > 0) {
-        $form_state->setErrorByName('field_location_type', t('There are already term link to this location type.'));
+        $form_state->setErrorByName('field_bri_location_type', t('There are already term link to this location type.'));
       }
     }
   }
@@ -159,11 +151,11 @@ function brimw_field_widget_single_element_form_alter(&$element, FormStateInterf
  * Implements pseudo hook hook_paragraph__BUNDLE__form_alter().
  */
 function brimw_paragraph__location__form_alter(array &$subform, array &$element, \Drupal\Core\Form\FormStateInterface $form_state, array $context, int $delta, \Drupal\paragraphs\Entity\Paragraph $paragraph):void {
-  $type_options = \Drupal::service('brimw.location_remote_data')->getTypeOptions();
-  $subform['type_ids'] = [
-    '#type' => 'checkboxes',
-    '#title' => t('Location types'),
-    '#descrition' => t('Location types to display'),
-    '#options' => $type_options,
-  ];
+//  $type_options = \Drupal::service('brimw.location_remote_data')->getTypeOptions();
+//  $subform['type_ids'] = [
+//    '#type' => 'checkboxes',
+//    '#title' => t('Location types'),
+//    '#descrition' => t('Location types to display'),
+//    '#options' => $type_options,
+//  ];
 }

@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: wm-private-main-navigation
-label: 'WM PRIVATE Main Navigation'
+label: 'WEALTH MANAGEMENT PRIVATE Main Navigation'
 description: 'Main navigation for Wealth Management Private'
 locked: false

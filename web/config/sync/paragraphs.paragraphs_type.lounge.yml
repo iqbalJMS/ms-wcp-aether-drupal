@@ -1,0 +1,10 @@
+uuid: 05217825-751f-476a-be3a-ddb8a3af3c9c
+langcode: en
+status: true
+dependencies: {  }
+id: lounge
+label: Lounge
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

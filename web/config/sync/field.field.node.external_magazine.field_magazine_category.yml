@@ -1,0 +1,29 @@
+uuid: c92bd7e6-1451-47d6-a735-f473b0426dde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_magazine_category
+    - node.type.external_magazine
+    - taxonomy.vocabulary.magazine_category
+id: node.external_magazine.field_magazine_category
+field_name: field_magazine_category
+entity_type: node
+bundle: external_magazine
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      magazine_category: magazine_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

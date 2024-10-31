@@ -1,0 +1,17 @@
+uuid: ac8844cd-296a-4b59-903f-03f48ed11d0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'External Magazine'
+type: external_magazine
+description: 'The various choices of magazines'
+help: "Example: <em>Rossa, Indonesia's Pride</em>, <em>Happy Salma, The Happiest Happy</em>."
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,20 @@
+uuid: 6534ab06-364d-4bde-9c12-274d97572d2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.field_our_story
+field_name: field_our_story
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

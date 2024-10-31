@@ -1,0 +1,10 @@
+uuid: 00898f90-2325-45e9-a1f6-dbb2cea0bf3c
+langcode: en
+status: true
+dependencies: {  }
+id: map
+label: Map
+icon_uuid: null
+icon_default: null
+description: 'Display single map location'
+behavior_plugins: {  }

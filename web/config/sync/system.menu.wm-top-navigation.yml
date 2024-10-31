@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: wm-top-navigation
-label: 'WM Top Navigation'
+label: 'WEALTH MANAGEMENT Top Navigation'
 description: 'Top navigation for Wealth Management'
 locked: false

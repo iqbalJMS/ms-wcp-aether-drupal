@@ -5,7 +5,7 @@ namespace Drupal\brimw\Normalizer;
 use Drupal\paragraphs\ParagraphInterface;
 use Drupal\rest_entity_recursive\Normalizer\ContentEntityNormalizer;
 
-class BaseParagraphNormalizer extends ContentEntityNormalizer 
+class BaseParagraphNormalizer extends ContentEntityNormalizer
 {
 
   /**
@@ -30,7 +30,11 @@ class BaseParagraphNormalizer extends ContentEntityNormalizer
     ?string $format = NULL,
     array $context = []
   ): bool {
-    return parent::supportsNormalization($data, $format) 
+    if (is_array($this->supportedParagraphType)) {
+      return parent::supportsNormalization($data, $format)
+        && in_array($data->bundle(), $this->supportedParagraphType);
+    }
+    return parent::supportsNormalization($data, $format)
             && $data->bundle() === $this->supportedParagraphType;
   }
 }

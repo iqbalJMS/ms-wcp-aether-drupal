@@ -1,0 +1,253 @@
+uuid: 0dbc7915-3d3c-4218-8dbe-e4b908314995
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote
+    - paragraphs.paragraphs_type.quote_item
+    - paragraphs.paragraphs_type.quote_slider
+  module:
+    - entity_reference_revisions
+id: paragraph.quote_slider.field_quote
+field_name: field_quote
+entity_type: paragraph
+bundle: quote_slider
+label: Quote
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      quote_item: quote_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 77
+        enabled: false
+      accordion_item:
+        weight: 78
+        enabled: false
+      article_listing:
+        weight: 79
+        enabled: false
+      background:
+        weight: 80
+        enabled: false
+      banner_box:
+        weight: 81
+        enabled: false
+      banner_text:
+        weight: 82
+        enabled: false
+      bbri_stock_market:
+        weight: 83
+        enabled: false
+      breadcrumb:
+        weight: 84
+        enabled: false
+      card_comparation:
+        weight: 85
+        enabled: false
+      card_content:
+        weight: 86
+        enabled: false
+      card_cta:
+        weight: 87
+        enabled: false
+      card_detail:
+        weight: 88
+        enabled: false
+      card_detail_item:
+        weight: 89
+        enabled: false
+      card_featured:
+        weight: 90
+        enabled: false
+      card_grid:
+        weight: 91
+        enabled: false
+      card_grid_item:
+        weight: 92
+        enabled: false
+      card_group_nav:
+        weight: 93
+        enabled: false
+      card_popular:
+        weight: 94
+        enabled: false
+      card_report:
+        weight: 95
+        enabled: false
+      card_slider:
+        weight: 96
+        enabled: false
+      carousel:
+        weight: 97
+        enabled: false
+      carousel_items:
+        weight: 98
+        enabled: false
+      content_type:
+        weight: 99
+        enabled: false
+      document_item:
+        weight: 100
+        enabled: false
+      download:
+        weight: 101
+        enabled: false
+      dropdown_action:
+        weight: 102
+        enabled: false
+      dropdown_action_filter:
+        weight: 103
+        enabled: false
+      dropdown_action_filter_option:
+        weight: 104
+        enabled: false
+      dropdown_action_source:
+        weight: 105
+        enabled: false
+      external_magazine:
+        weight: 106
+        enabled: false
+      form:
+        weight: 107
+        enabled: false
+      from_library:
+        weight: 108
+        enabled: false
+      header:
+        weight: 109
+        enabled: false
+      icon_content_item:
+        weight: 110
+        enabled: false
+      icon_cta:
+        weight: 111
+        enabled: false
+      iframe:
+        weight: 112
+        enabled: false
+      image:
+        weight: 113
+        enabled: false
+      image_slider:
+        weight: 114
+        enabled: false
+      image_slider_item:
+        weight: 115
+        enabled: false
+      info_card:
+        weight: 116
+        enabled: false
+      info_card_item:
+        weight: 117
+        enabled: false
+      journal_content:
+        weight: 118
+        enabled: false
+      journal_content_item:
+        weight: 119
+        enabled: false
+      kurs:
+        weight: 120
+        enabled: false
+      list_content_item:
+        weight: 121
+        enabled: false
+      location:
+        weight: 122
+        enabled: false
+      lounge:
+        weight: 123
+        enabled: false
+      map:
+        weight: 124
+        enabled: false
+      menu_list:
+        weight: 125
+        enabled: false
+      multi_tab:
+        weight: 126
+        enabled: false
+      our_story:
+        weight: 127
+        enabled: false
+      oversea_unit_items:
+        weight: 128
+        enabled: false
+      oversea_units:
+        weight: 129
+        enabled: false
+      personalized_shortcut:
+        weight: 130
+        enabled: false
+      profile:
+        weight: 131
+        enabled: false
+      promo:
+        weight: 132
+        enabled: false
+      promo_item:
+        weight: 133
+        enabled: false
+      quote_item:
+        weight: 76
+        enabled: true
+      quote_slider:
+        weight: 134
+        enabled: false
+      rich_text:
+        weight: 135
+        enabled: false
+      section:
+        weight: 136
+        enabled: false
+      setting_frontpage:
+        weight: 137
+        enabled: false
+      simulation:
+        weight: 138
+        enabled: false
+      simulation_item:
+        weight: 139
+        enabled: false
+      slider:
+        weight: 140
+        enabled: false
+      slider_item:
+        weight: 141
+        enabled: false
+      staircase_cards:
+        weight: 142
+        enabled: false
+      step_item:
+        weight: 143
+        enabled: false
+      steps:
+        weight: 144
+        enabled: false
+      subscription:
+        weight: 145
+        enabled: false
+      tab_item:
+        weight: 146
+        enabled: false
+      text_flipped_image:
+        weight: 147
+        enabled: false
+      two_column:
+        weight: 148
+        enabled: false
+      video:
+        weight: 149
+        enabled: false
+      video_slider:
+        weight: 150
+        enabled: false
+field_type: entity_reference_revisions

@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.location_type.field_bri_location_type
     - field.field.taxonomy_term.location_type.field_image
-    - field.field.taxonomy_term.location_type.field_location_type
     - taxonomy.vocabulary.location_type
   module:
+    - brimw
     - text
 id: taxonomy_term.location_type.default
 targetEntityType: taxonomy_term
@@ -20,6 +21,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_bri_location_type:
+    type: brimw_location_type_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: above
@@ -28,14 +36,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_location_type:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
     region: content
 hidden:
   langcode: true

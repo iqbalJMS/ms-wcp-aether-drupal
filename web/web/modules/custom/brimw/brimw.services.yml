@@ -49,6 +49,10 @@ services:
     class: Drupal\brimw\Normalizer\SectionNormalizer
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.external_magazine_normalizer:
+    class: Drupal\brimw\Normalizer\ExternalMagazineNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
   brimw.location_remote_data:
     class: Drupal\brimw\External\LocationRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]

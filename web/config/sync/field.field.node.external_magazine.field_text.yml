@@ -1,0 +1,19 @@
+uuid: 5d26828a-d505-49b2-9602-d8a2474220bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text
+    - node.type.external_magazine
+id: node.external_magazine.field_text
+field_name: field_text
+entity_type: node
+bundle: external_magazine
+label: Edisi
+description: 'Example: <em>Edisi 20, 2021</em>, <em>Edisi 22, 2023</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

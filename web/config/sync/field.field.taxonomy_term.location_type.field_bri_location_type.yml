@@ -1,0 +1,21 @@
+uuid: c7658a96-d6c9-43aa-8d7b-b4b7a95565fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_bri_location_type
+    - taxonomy.vocabulary.location_type
+  module:
+    - brimw
+id: taxonomy_term.location_type.field_bri_location_type
+field_name: field_bri_location_type
+entity_type: taxonomy_term
+bundle: location_type
+label: 'BRI Location Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: brimw_locationtype
