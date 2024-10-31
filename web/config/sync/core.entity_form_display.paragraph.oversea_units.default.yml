@@ -37,7 +37,7 @@ content:
       title: Item
       title_plural: Items
       edit_mode: open
-      add_mode: dropdown
+      add_mode: modal
       form_display_mode: default
       default_paragraph_type: oversea_unit_items
     third_party_settings: {  }
