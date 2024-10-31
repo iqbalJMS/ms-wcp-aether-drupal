@@ -1,0 +1,26 @@
+uuid: 4eccb14a-ea56-460d-a9e5-7b9c90bf45ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - filter.format.full_html
+    - node.type.insight
+  module:
+    - text
+id: node.insight.field_summary
+field_name: field_summary
+entity_type: node
+bundle: insight
+label: Summary
+description: 'Field to show summary on card list in content ( Product, Insight, Program )'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - full_html
+field_type: text_with_summary

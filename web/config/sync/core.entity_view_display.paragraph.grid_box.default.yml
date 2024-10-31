@@ -1,24 +1,26 @@
-uuid: 80c835a3-fc1c-4d27-aeb2-25b683a1e544
+uuid: 78307437-1907-4dd5-9f62-0890492f6afe
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.image.field_image
-    - field.field.paragraph.image.field_web_variant_styles
-    - paragraphs.paragraphs_type.image
-id: paragraph.image.default
+    - field.field.paragraph.grid_box.field_items
+    - field.field.paragraph.grid_box.field_web_variant_styles
+    - paragraphs.paragraphs_type.grid_box
+  module:
+    - entity_reference_revisions
+id: paragraph.grid_box.default
 targetEntityType: paragraph
-bundle: image
+bundle: grid_box
 mode: default
 content:
-  field_image:
-    type: entity_reference_entity_view
+  field_items:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 12
     region: content
   field_web_variant_styles:
     type: entity_reference_label

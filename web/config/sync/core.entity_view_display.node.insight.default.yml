@@ -1,0 +1,50 @@
+uuid: 7f97ea54-6d54-4f07-beba-9452d3d17566
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.insight.field_image
+    - field.field.node.insight.field_items
+    - field.field.node.insight.field_summary
+    - node.type.insight
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.insight.default
+targetEntityType: node
+bundle: insight
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_summary:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

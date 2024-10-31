@@ -1,0 +1,10 @@
+uuid: 668ab006-eeca-446a-b7c2-6439d94cefb9
+langcode: en
+status: true
+dependencies: {  }
+id: content_type_items
+label: 'Content Type Item (s)'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

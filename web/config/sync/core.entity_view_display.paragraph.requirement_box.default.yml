@@ -1,0 +1,33 @@
+uuid: d764df50-2d67-4a72-8a93-28fa1f1a06e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.requirement_box.field_requirement_items
+    - field.field.paragraph.requirement_box.field_web_variant_styles
+    - paragraphs.paragraphs_type.requirement_box
+  module:
+    - entity_reference_revisions
+id: paragraph.requirement_box.default
+targetEntityType: paragraph
+bundle: requirement_box
+mode: default
+content:
+  field_requirement_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_web_variant_styles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+hidden: {  }

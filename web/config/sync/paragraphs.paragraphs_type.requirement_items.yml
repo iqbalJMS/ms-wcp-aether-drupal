@@ -1,0 +1,10 @@
+uuid: a7f2b949-5902-4413-92a5-21a12f68862e
+langcode: en
+status: true
+dependencies: {  }
+id: requirement_items
+label: 'Requirement Items'
+icon_uuid: null
+icon_default: null
+description: 'Requirement Items'
+behavior_plugins: {  }

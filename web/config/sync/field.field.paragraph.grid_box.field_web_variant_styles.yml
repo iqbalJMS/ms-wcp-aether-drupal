@@ -1,0 +1,29 @@
+uuid: fab59677-7885-4bcc-a7a7-b4a2d974889a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_web_variant_styles
+    - node.type.web_variant_styles
+    - paragraphs.paragraphs_type.grid_box
+id: paragraph.grid_box.field_web_variant_styles
+field_name: field_web_variant_styles
+entity_type: paragraph
+bundle: grid_box
+label: 'Web Variant Styles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      web_variant_styles: web_variant_styles
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

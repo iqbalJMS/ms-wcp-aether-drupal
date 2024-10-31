@@ -1,5 +1,5 @@
 
-name: "BRI Backend"
+name: "BRI Backend Integration"
 type: module
 description: "Custom module for retrieving data adn CRUD from BRI BE Service"
 package: Custom

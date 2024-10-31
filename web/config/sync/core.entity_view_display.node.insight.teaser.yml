@@ -1,0 +1,27 @@
+uuid: 2a99d4f7-980e-4e6b-8152-934bfac7e2f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.insight.field_image
+    - field.field.node.insight.field_items
+    - field.field.node.insight.field_summary
+    - node.type.insight
+  module:
+    - user
+id: node.insight.teaser
+targetEntityType: node
+bundle: insight
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_image: true
+  field_items: true
+  field_summary: true
+  langcode: true

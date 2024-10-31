@@ -1,9 +1,14 @@
 uuid: c1d8a48f-4254-4d32-82f7-75ce01841a25
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_template
+  module:
+    - filter
 id: user_main_website
 label: 'User Main Website'
 weight: -7
 is_admin: null
-permissions: {  }
+permissions:
+  - 'use text format full_template'

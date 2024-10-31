@@ -1,0 +1,32 @@
+uuid: c2f7dacb-733d-4fd1-aa24-70390893b90f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.requirement_items.field_label
+    - field.field.paragraph.requirement_items.field_value
+    - paragraphs.paragraphs_type.requirement_items
+id: paragraph.requirement_items.default
+targetEntityType: paragraph
+bundle: requirement_items
+mode: default
+content:
+  field_label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_value:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

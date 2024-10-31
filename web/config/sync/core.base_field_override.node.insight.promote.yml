@@ -1,0 +1,22 @@
+uuid: 5595b080-0d77-4d15-8950-d2d3c0727c5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.insight
+id: node.insight.promote
+field_name: promote
+entity_type: node
+bundle: insight
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
