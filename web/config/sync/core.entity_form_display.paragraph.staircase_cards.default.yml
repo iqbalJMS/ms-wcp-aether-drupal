@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.staircase_cards.field_cards
+    - field.field.paragraph.staircase_cards.field_title
+    - field.field.paragraph.staircase_cards.field_web_variant_styles
     - paragraphs.paragraphs_type.staircase_cards
   module:
     - paragraphs
@@ -14,7 +16,7 @@ mode: default
 content:
   field_cards:
     type: paragraphs
-    weight: 0
+    weight: 2
     region: content
     settings:
       title: Paragraph
@@ -29,6 +31,24 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_web_variant_styles:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

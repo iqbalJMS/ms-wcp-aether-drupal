@@ -1,0 +1,19 @@
+uuid: c24e73ca-29dd-4b20-b5c8-cc7de8eabeec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.staircase_cards
+id: paragraph.staircase_cards.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: staircase_cards
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

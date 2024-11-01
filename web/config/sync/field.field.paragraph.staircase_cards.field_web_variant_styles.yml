@@ -1,0 +1,29 @@
+uuid: e98c979c-dd46-4883-a422-20edcef5bbad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_web_variant_styles
+    - node.type.web_variant_styles
+    - paragraphs.paragraphs_type.staircase_cards
+id: paragraph.staircase_cards.field_web_variant_styles
+field_name: field_web_variant_styles
+entity_type: paragraph
+bundle: staircase_cards
+label: 'Web Variant Styles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      web_variant_styles: web_variant_styles
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
