@@ -1,5 +1,39 @@
 _core:
   default_config_hash: CPhyTxolwZkdB0flQ3_umqEOUAe1zmgc9Yc3HliOsQQ
+allowed_menus:
+  account: account
+  admin: admin
+  contact-us: contact-us
+  footer: footer
+  footer-secondary: footer-secondary
+  language: language
+  login-dropdown: login-dropdown
+  main: main
+  personalized-menu: personalized-menu
+  promo-footer: promo-footer
+  promo-footer-secondary: promo-footer-secondary
+  promo-main-navigation: promo-main-navigation
+  promo-top-navigation: promo-top-navigation
+  recruitment-footer: recruitment-footer
+  recruitment-footer-secondary: recruitment-footer-secondary
+  recruitment-main-navigation: recruitment-main-navigation
+  recruitment-top-navigation: recruitment-top-navigation
+  search: search
+  social-media: social-media
+  tools: tools
+  top-navigation: top-navigation
+  wealth-management-footer-contact: wealth-management-footer-contact
+  wealth-management-footer-seconda: wealth-management-footer-seconda
+  wealth-management-login-dropdown: wealth-management-login-dropdown
+  wealth-management-social-media: wealth-management-social-media
+  wm-floating-navigation: wm-floating-navigation
+  wm-main-navigation: wm-main-navigation
+  wm-middle-footer: wm-middle-footer
+  wm-prioritas-floating-navigation: wm-prioritas-floating-navigation
+  wm-prioritas-main-navigation: wm-prioritas-main-navigation
+  wm-private-floating-navigation: wm-private-floating-navigation
+  wm-private-main-navigation: wm-private-main-navigation
+  wm-top-navigation: wm-top-navigation
 add_fragment: 1
 base_url: ''
 output_values:

@@ -12,6 +12,7 @@ dependencies:
     - taxonomy.vocabulary.personal_profile_type
     - taxonomy.vocabulary.site_id
   module:
+    - bricc
     - content_translation
     - filter
     - menu_link_content
@@ -33,17 +34,31 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access webform overview'
-  - 'create page content'
+  - 'administer bricc_applicant_status'
+  - 'administer bricc_card_item'
+  - 'administer bricc_category'
+  - 'administer bricc_city'
+  - 'administer bricc_province'
+  - 'create bricc_card_item'
+  - 'create bricc_city'
+  - 'create bricc_province'
   - 'create services content'
   - 'create url aliases'
-  - 'delete any page content'
-  - 'delete own page content'
+  - 'delete any services content'
+  - 'delete bricc_card_item'
+  - 'delete bricc_card_item revision'
+  - 'delete bricc_city'
+  - 'delete bricc_province'
   - 'delete own services content'
   - 'edit any page content'
   - 'edit any services content'
+  - 'edit bricc_card_item'
+  - 'edit bricc_city'
+  - 'edit bricc_province'
   - 'edit own page content'
   - 'edit own services content'
   - 'revert all revisions'
+  - 'revert bricc_card_item revision'
   - 'revert page revisions'
   - 'revert services revisions'
   - 'revert term revisions in site_id'
@@ -58,6 +73,7 @@ permissions:
   - 'translate services node'
   - 'use text format full_template'
   - 'view all revisions'
+  - 'view bricc_card_item revision'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view services revisions'
