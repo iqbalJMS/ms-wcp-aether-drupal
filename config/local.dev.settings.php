@@ -902,6 +902,12 @@ $settings['trusted_host_patterns'] = [
   '^admin-bri-corpsite\.dev-kjt\.id$'
 ];
 
+// Disable cache
+// NOTE This affect performance
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+
 // $settings['mongodb'] = [
 //   'clients' => [
 //     // Client alias => connection constructor parameters.
