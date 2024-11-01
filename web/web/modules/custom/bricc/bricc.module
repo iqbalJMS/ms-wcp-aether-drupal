@@ -154,6 +154,7 @@ function bricc_page_attachments(array &$attachments) {
  */
 function bricc_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
   $form['#submit'][] = 'bricc_user_login_submit';
+  $form['#attached']['library'][] = 'bricc/login';
 }
 
 /**
@@ -352,7 +353,7 @@ function _bricc_handle_rest_menu_items_icon(&$menu_items) {
       $media = $menu_item['field_image'];
 
       if (!$media instanceof Media) {
-        $media = Media::load($menu_item['field_image']);  
+        $media = Media::load($menu_item['field_image']);
       }
 
       if ($media instanceof Media) {

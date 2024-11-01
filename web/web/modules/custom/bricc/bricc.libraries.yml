@@ -10,3 +10,8 @@ admin:
   dependencies:
     - core/drupalSettings
     - core/drupal.dialog.ajax
+login:
+  version: 1.0.0
+  css:
+    theme:
+      css/login.css: {}

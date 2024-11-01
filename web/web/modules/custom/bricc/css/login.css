@@ -1,0 +1,4 @@
+.user-login-form [data-drupal-selector="edit-more-links"] {
+  display: none;
+  visibility: hidden;
+}
