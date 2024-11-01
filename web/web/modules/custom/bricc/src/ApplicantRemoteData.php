@@ -93,7 +93,7 @@ class ApplicantRemoteData
    */
   public function post(string $uri, array $options = [], $nocache = FALSE): array
   {
-    $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
+    $cache_key = sprintf('bricc:%s:%s', md5($uri), md5(json_encode($options)));
 
     $options = array_merge([
       'headers' => [
@@ -101,16 +101,22 @@ class ApplicantRemoteData
       ],
     ], $options);
 
-    if ($cache = $this->cache->get($cache_key) && $nocache === FALSE) {
-      return $cache->data;
+    if ($nocache === FALSE) {
+      if ($cache = $this->cache->get($cache_key)) {
+        return $cache->data;
+      }
     }
 
     try {
       $response = $this->client->post($uri, $options);
       $data = Json::decode((string) $response->getBody());
-      $this->cache->set($cache_key, $data);
+
+      if ($nocache === FALSE) {
+        $this->cache->set($cache_key, $data);
+      }
+
       return $data;
-    } catch (RequestException $e) {
+    } catch (\Exception $e) {
       $this->logger->warning($e->getMessage());
       return [];
     }
@@ -294,6 +300,13 @@ class ApplicantRemoteData
     return [];
   }
 
+  /**
+   * @param array $params
+   *
+   * @return array
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   * @todo Query document
+   */
   public function listApplicantProcess(array $params = []): array {
     // If no params, return empty first.
     if (empty($params)) {
@@ -315,9 +328,9 @@ class ApplicantRemoteData
       $gql_str = <<< GRAPHQL
       query {
         personalInfoByDate (
-          startDate: "%s"
-          endDate: "%s"
-          jenisKartu:"%s"
+          startDate: "$start_date"
+          endDate: "$end_date"
+          jenisKartu:"$jenis_kartu"
         ) {
           _id
           tanggalPengajuan
@@ -331,18 +344,11 @@ class ApplicantRemoteData
           isDeduped
           isDukcapil
           isSubmitted
-          documents {
-            ktpId
-            npwpId
-            slipGajiId
-            swafotoKtpId
-          }
         }
       }
       GRAPHQL;
-      $options['body'] = sprintf($gql_str, $start_date, $end_date, $jenis_kartu);
-      $options['body'] = json_encode(['query' => $options['body']]);
-      $result = $this->post($this->sourceBaseUrl, $options, $nocache);
+      $options['body'] = json_encode(['query' => $gql_str]);
+      $result = $this->post($this->sourceBaseUrl, $options, TRUE);
 
       if (isset($result['data']['personalInfoByDate'])) {
         return $result['data']['personalInfoByDate'];
