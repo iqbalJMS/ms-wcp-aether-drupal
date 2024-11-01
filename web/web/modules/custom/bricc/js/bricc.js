@@ -59,4 +59,16 @@
         });
     }
   }
+
+  Drupal.behaviors.briccIndex = {
+    attach: function (context, settings) {
+      once('briccIndex', 'body.admin_credit_card', context)
+        .forEach(function (element) {
+          if (window.location.pathname === '/admin/bricc') {
+            $('.block-local-tasks-block').addClass('hidden');
+          }
+          $('.menu-item__system-admin_structure').hide();
+        });
+    }
+  }
 })(jQuery, Drupal, drupalSettings);

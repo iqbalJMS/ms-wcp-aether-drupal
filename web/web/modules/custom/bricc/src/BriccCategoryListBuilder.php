@@ -19,7 +19,7 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     $header['label'] = $this->t('Title');
     $header['description'] = $this->t('Description');
     $header['card_count'] = $this->t('Card Count');
-    $header['status'] = $this->t('Active');
+//    $header['status'] = $this->t('Active');
     $header['created'] = [
       'data' => $this->t('Created'),
       'field' => 'created',
@@ -42,7 +42,7 @@ final class BriccCategoryListBuilder extends EntityListBuilder {
     $count = $query->count()->execute();
 
     $row['card_count'] = $count;
-    $row['status'] = $entity->get('status')->value ? $this->t('Active') : $this->t('Disabled');
+//    $row['status'] = $entity->get('status')->value ? $this->t('Active') : $this->t('Disabled');
     $username_options = [
       'label' => 'hidden',
       'settings' => ['link' => $entity->get('uid')->entity->isAuthenticated()],

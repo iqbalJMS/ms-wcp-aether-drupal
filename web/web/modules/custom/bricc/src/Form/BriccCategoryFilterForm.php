@@ -37,17 +37,17 @@ final class BriccCategoryFilterForm extends FormBase {
       '#title' => $this->t('Category title'),
       '#default_value' => $request->get('label') ?? '',
     ];
-
-    $form['filter']['status'] = [
-      '#type' => 'select',
-      '#title' => 'Status',
-      '#options' => [
-        '' => '- Any -',
-        'active' => 'Active',
-        'inactive' => 'Inactive',
-      ],
-      '#default_value' => $request->get('status') ?? '',
-    ];
+//
+//    $form['filter']['status'] = [
+//      '#type' => 'select',
+//      '#title' => 'Status',
+//      '#options' => [
+//        '' => '- Any -',
+//        'active' => 'Active',
+//        'inactive' => 'Inactive',
+//      ],
+//      '#default_value' => $request->get('status') ?? '',
+//    ];
 
     $form['filter']['wrapper'] = [
       '#type' => 'container',
@@ -97,10 +97,10 @@ final class BriccCategoryFilterForm extends FormBase {
       $query['label'] = $label;
     }
 
-    $status = $form_state->getValue('status') ?? '';
-    if (!empty($status)) {
-      $query['status'] = $status;
-    }
+//    $status = $form_state->getValue('status') ?? '';
+//    if (!empty($status)) {
+//      $query['status'] = $status;
+//    }
 
     $form_state->setRedirect('entity.bricc_category.collection', $query);
   }
