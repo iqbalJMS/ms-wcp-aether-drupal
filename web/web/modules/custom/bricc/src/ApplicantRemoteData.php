@@ -344,6 +344,12 @@ class ApplicantRemoteData
           isDeduped
           isDukcapil
           isSubmitted
+          documents {
+            ktpId
+            npwpId
+            slipGajiId
+            swafotoKtpId
+          }
         }
       }
       GRAPHQL;
