@@ -113,7 +113,7 @@ class BriccController extends ControllerBase {
           'description' => 'View list of credit card applicant.',
         ],
         [
-          'title' => $this->t('Applicant Status'),
+          'title' => $this->t('Applicant Process'),
           'url' => Url::fromRoute('view.applicant.page_2'),
           'description' => 'View list of credit card applicant process status.',
         ],
