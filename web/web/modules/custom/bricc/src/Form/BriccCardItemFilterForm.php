@@ -38,16 +38,16 @@ final class BriccCardItemFilterForm extends FormBase {
       '#default_value' => $request->get('label') ?? '',
     ];
 
-    $form['filter']['status'] = [
-      '#type' => 'select',
-      '#title' => 'Status',
-      '#options' => [
-        '' => '- Any -',
-        'active' => 'Active',
-        'inactive' => 'Inactive',
-      ],
-      '#default_value' => $request->get('status') ?? '',
-    ];
+//    $form['filter']['status'] = [
+//      '#type' => 'select',
+//      '#title' => 'Status',
+//      '#options' => [
+//        '' => '- Any -',
+//        'active' => 'Active',
+//        'inactive' => 'Inactive',
+//      ],
+//      '#default_value' => $request->get('status') ?? '',
+//    ];
 
     $form['filter']['wrapper'] = [
       '#type' => 'container',

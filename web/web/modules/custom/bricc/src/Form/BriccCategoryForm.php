@@ -21,7 +21,6 @@ final class BriccCategoryForm extends ContentEntityForm {
       $form_state
     );
     $form['card_count']['#access'] = FALSE;
-//    $form['status']['#access'] = FALSE;
     $form['uid']['#access'] = FALSE;
     $form['created']['#access'] = FALSE;
     $form['status']['#access'] = FALSE;
