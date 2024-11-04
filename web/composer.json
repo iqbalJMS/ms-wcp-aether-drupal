@@ -53,6 +53,7 @@
         "drupal/rest_export_nested": "^1.2",
         "drupal/rest_menu_items": "^3.0",
         "drupal/restui": "^1.22",
+        "drupal/session_limit": "^2.0",
         "drupal/simple_menu_permissions": "^3.0",
         "drupal/tailwindcss": "^5.0@alpha",
         "drupal/views_data_export": "^1.4",
