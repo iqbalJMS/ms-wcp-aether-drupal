@@ -2,7 +2,7 @@ _core:
   default_config_hash: AYzO3As74ToqCVUg-p2E0OfkOkc76I7OPR0-JK_e4hs
 session_limit_max: 1
 session_limit_masquerade_ignore: false
-session_limit_behaviour: 0
+session_limit_behaviour: 1
 session_limit_logged_out_message_severity: warning
 session_limit_admin_inclusion: 0
 session_limit_roles:
