@@ -65,7 +65,7 @@ entity.bricc_city.collection:
   weight: 10
 
 system.admin_bricc:
-  route_name: bricc.admin
+  route_name: bricc.admin_bricc
   base_route: system.admin
   title: 'BRI CC'
   weight: -20

@@ -1,7 +1,15 @@
 bricc.admin:
-  path: '/admin/bricc'
+  path: '/admin/bri'
   defaults:
     _controller: '\Drupal\bricc\Controller\BriccController::build'
+    _title: 'Admin BRI'
+  requirements:
+    _permission: 'access administration pages'
+
+bricc.admin_bricc:
+  path: '/admin/bricc'
+  defaults:
+    _controller: '\Drupal\bricc\Controller\BriccController::buildBricc'
     _title: 'Admin CC'
   requirements:
     _permission: 'access administration pages'

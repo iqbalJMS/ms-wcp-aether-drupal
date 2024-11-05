@@ -53,7 +53,17 @@ class BriccController extends ControllerBase {
   /**
    * Builds the response.
    */
-  public function build(): array {
+  public function build(): RedirectResponse {
+    $roles = $this->currentUser()->getRoles();
+    if (in_array('admin_credit_card', $roles)) {
+      return $this->redirect('bricc.admin_bricc');
+    }
+    else {
+      return $this->redirect('brimw.location.admin');
+    }
+  }
+
+  public function buildBricc() {
     $output = [
       '#theme' => 'admin_block_content',
       '#content' => [

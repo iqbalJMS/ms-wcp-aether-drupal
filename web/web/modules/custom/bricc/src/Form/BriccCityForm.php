@@ -44,4 +44,19 @@ final class BriccCityForm extends ContentEntityForm {
     return $result;
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function form(array $form, FormStateInterface $form_state) {
+    $form = parent::form(
+      $form,
+      $form_state
+    );
+    $form['uid']['#access'] = FALSE;
+    $form['created']['#access'] = FALSE;
+    $form['status']['#access'] = FALSE;
+
+    return $form;
+  }
+
 }

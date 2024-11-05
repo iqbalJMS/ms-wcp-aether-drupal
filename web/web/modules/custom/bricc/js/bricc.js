@@ -62,12 +62,22 @@
 
   Drupal.behaviors.briccIndex = {
     attach: function (context, settings) {
-      once('briccIndex', 'body.admin_credit_card', context)
+      const paths = [
+        '/admin/bricc',
+        '/admin/bri/location',
+      ];
+      const roles = [
+        'admin_main_website',
+        'admin_credit_card',
+      ];
+      once('briccIndex', 'body.authenticated', context)
         .forEach(function (element) {
-          if (window.location.pathname === '/admin/bricc') {
+          const currentPath = window.location.pathname;
+          const hasRoleClass = roles.some(role => $('body').hasClass(role));
+          if (paths.includes(currentPath) && hasRoleClass) {
             $('.block-local-tasks-block').addClass('hidden');
+            $('.menu-item__system-admin_structure').hide();
           }
-          $('.menu-item__system-admin_structure').hide();
         });
     }
   }
