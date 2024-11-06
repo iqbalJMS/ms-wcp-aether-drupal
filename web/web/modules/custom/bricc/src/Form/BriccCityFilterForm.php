@@ -86,11 +86,11 @@ final class BriccCityFilterForm extends FormBase {
       $query['label'] = $label;
     }
 
-    $form_state->setRedirect('entity.bricc_province.collection', $query);
+    $form_state->setRedirect('entity.bricc_city.collection', $query);
   }
 
   public function resetForm(array $form, FormStateInterface &$form_state): void {
-    $form_state->setRedirect('entity.bricc_province.collection');
+    $form_state->setRedirect('entity.bricc_city.collection');
   }
 
 
