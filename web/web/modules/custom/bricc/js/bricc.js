@@ -78,6 +78,9 @@
             $('.block-local-tasks-block').addClass('hidden');
             $('.menu-item__system-admin_structure').hide();
           }
+          else if (hasRoleClass) {
+            $('.menu-item__system-admin_structure').hide();
+          }
         });
     }
   }
