@@ -20,10 +20,10 @@ echo "[NGINX] we're not using nginx anymore, moving to native FPM"
 # dont copy if exit
 #================================================================================
 #                                                                               #
-#  if [ ! -f /etc/nginx/sites-available/drupal ]; then                          #
+#  if [ ! -f /etc/nginx/sites-available/drupal.conf ]; then                     #
 #      echo "copying nginx config"                                              #
-#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal      #
-#      ln -s /etc/nginx/sites-available/drupal /etc/nginx/sites-enabled/        #
+#      cp /workspaces/config/drupal.conf /etc/nginx/sites-available/drupal.conf #
+#      ln -s /etc/nginx/sites-available/drupal.conf /etc/nginx/sites-enabled/   #
 #  fi                                                                           #
 #================================================================================
 
