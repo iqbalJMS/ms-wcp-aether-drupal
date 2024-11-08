@@ -1,0 +1,21 @@
+uuid: 1cd57668-9446-420f-9a87-5d7eb8a1b974
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_telephone
+    - paragraphs.paragraphs_type.oversea_unit_items
+  module:
+    - telephone
+id: paragraph.oversea_unit_items.field_telephone
+field_name: field_telephone
+entity_type: paragraph
+bundle: oversea_unit_items
+label: Telephone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

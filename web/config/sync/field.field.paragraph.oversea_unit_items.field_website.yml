@@ -1,0 +1,23 @@
+uuid: d3aca64e-55f2-4fc3-b1eb-98d36c0ffbce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_website
+    - paragraphs.paragraphs_type.oversea_unit_items
+  module:
+    - link
+id: paragraph.oversea_unit_items.field_website
+field_name: field_website
+entity_type: paragraph
+bundle: oversea_unit_items
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

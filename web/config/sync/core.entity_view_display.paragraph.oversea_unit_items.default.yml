@@ -4,11 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.oversea_unit_items.field_content
+    - field.field.paragraph.oversea_unit_items.field_faximile
     - field.field.paragraph.oversea_unit_items.field_image
     - field.field.paragraph.oversea_unit_items.field_subtitle
+    - field.field.paragraph.oversea_unit_items.field_telephone
     - field.field.paragraph.oversea_unit_items.field_title
+    - field.field.paragraph.oversea_unit_items.field_website
     - paragraphs.paragraphs_type.oversea_unit_items
   module:
+    - link
     - text
 id: paragraph.oversea_unit_items.default
 targetEntityType: paragraph
@@ -21,6 +25,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_faximile:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -39,6 +50,13 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_telephone:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_title:
     type: string
     label: above
@@ -46,5 +64,17 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden: {  }

@@ -4,13 +4,39 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.oversea_unit_items.field_content
+    - field.field.paragraph.oversea_unit_items.field_faximile
     - field.field.paragraph.oversea_unit_items.field_image
     - field.field.paragraph.oversea_unit_items.field_subtitle
+    - field.field.paragraph.oversea_unit_items.field_telephone
     - field.field.paragraph.oversea_unit_items.field_title
+    - field.field.paragraph.oversea_unit_items.field_website
     - paragraphs.paragraphs_type.oversea_unit_items
   module:
+    - field_group
+    - link
     - media_library
+    - telephone
     - text
+third_party_settings:
+  field_group:
+    group_contact_detail:
+      children:
+        - field_telephone
+        - field_faximile
+        - field_website
+      label: 'Contact Detail'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: true
 id: paragraph.oversea_unit_items.default
 targetEntityType: paragraph
 bundle: oversea_unit_items
@@ -22,6 +48,13 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_faximile:
+    type: telephone_default
+    weight: 6
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_image:
@@ -39,6 +72,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_telephone:
+    type: telephone_default
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_title:
     type: string_textfield
     weight: 0
@@ -46,6 +86,14 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_website:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true
