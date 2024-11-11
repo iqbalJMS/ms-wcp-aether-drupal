@@ -1,0 +1,18 @@
+uuid: f50fb9d9-2abc-49fe-848b-c779f097090b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_location
+id: node.promo_location.title
+field_name: title
+entity_type: node
+bundle: promo_location
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,4 +1,0 @@
-services:  
-  bribe.service:  
-   class: Drupal\bribe\Service\BribeService  
-   arguments: ['@http_client']

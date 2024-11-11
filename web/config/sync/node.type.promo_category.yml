@@ -1,0 +1,17 @@
+uuid: aaf005a4-5500-4942-8da5-7c2109921310
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Promo Category'
+type: promo_category
+description: 'Promo Category'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

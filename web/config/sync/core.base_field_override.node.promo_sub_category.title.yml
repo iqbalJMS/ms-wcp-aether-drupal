@@ -1,0 +1,18 @@
+uuid: 413c40ab-d34b-458f-872d-387ad3134d19
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+id: node.promo_sub_category.title
+field_name: title
+entity_type: node
+bundle: promo_sub_category
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

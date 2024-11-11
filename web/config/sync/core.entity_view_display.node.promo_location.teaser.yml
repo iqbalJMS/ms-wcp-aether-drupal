@@ -1,0 +1,21 @@
+uuid: 5fd47cd3-d768-4a3e-bc72-f2a8a3e3a759
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.promo_location
+  module:
+    - user
+id: node.promo_location.teaser
+targetEntityType: node
+bundle: promo_location
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

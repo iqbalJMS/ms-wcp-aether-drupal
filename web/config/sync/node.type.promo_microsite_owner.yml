@@ -1,0 +1,17 @@
+uuid: d96c305c-e2e6-4d08-9a73-ed27135f0831
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Promo Microsite Owner'
+type: promo_microsite_owner
+description: 'Promo Microsite Owner'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

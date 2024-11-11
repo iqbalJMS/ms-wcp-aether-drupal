@@ -1,0 +1,21 @@
+uuid: 571cb6ed-eb2e-4eaf-8a9c-f284bd3cd587
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.promo_sub_category
+  module:
+    - user
+id: node.promo_sub_category.teaser
+targetEntityType: node
+bundle: promo_sub_category
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

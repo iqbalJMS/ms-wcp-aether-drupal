@@ -1,0 +1,29 @@
+uuid: dffec599-c0be-4693-9f0a-28b8678f0445
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promo_location
+    - node.type.promo
+    - node.type.promo_location
+id: node.promo.field_promo_location
+field_name: field_promo_location
+entity_type: node
+bundle: promo
+label: 'Promo Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      promo_location: promo_location
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

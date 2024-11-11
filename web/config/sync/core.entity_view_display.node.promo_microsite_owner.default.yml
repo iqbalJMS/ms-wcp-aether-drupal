@@ -1,0 +1,20 @@
+uuid: 6bac12aa-2764-452b-88ae-4f16d6a59946
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+  module:
+    - user
+id: node.promo_microsite_owner.default
+targetEntityType: node
+bundle: promo_microsite_owner
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

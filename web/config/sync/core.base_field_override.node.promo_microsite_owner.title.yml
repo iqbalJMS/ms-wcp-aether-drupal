@@ -1,0 +1,18 @@
+uuid: 8d16d27c-75fb-4009-b0c1-c912f2905440
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+id: node.promo_microsite_owner.title
+field_name: title
+entity_type: node
+bundle: promo_microsite_owner
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

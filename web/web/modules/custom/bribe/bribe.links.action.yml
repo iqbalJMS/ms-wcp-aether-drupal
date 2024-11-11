@@ -1,13 +1,7 @@
 bribe.add_promo:
   title: 'Add New Promo'
-  route_name: bribe.add_promo
+  route_name: node.add
+  route_parameters:
+    node_type: promo
   appears_on:  
     - bribe.promo
-  weight: 0
-  options:
-    attributes:
-      class:
-        - use-ajax
-        - dialog-link
-      data-dialog-type: 'modal'
-      data-dialog-options: '{"width": 800, "height": "auto"}'

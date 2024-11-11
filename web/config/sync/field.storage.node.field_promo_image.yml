@@ -1,0 +1,20 @@
+uuid: 635662af-4215-48b3-86f2-b58be242644c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_promo_image
+field_name: field_promo_image
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

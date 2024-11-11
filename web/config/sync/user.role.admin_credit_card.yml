@@ -32,6 +32,7 @@ permissions:
   - 'access content overview'
   - 'access own webform configuration'
   - 'access site in maintenance mode'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access webform overview'
   - 'administer bricc_applicant_status'

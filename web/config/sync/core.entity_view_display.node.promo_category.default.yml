@@ -1,0 +1,29 @@
+uuid: 0a5b0c10-aeef-4508-b94f-2934008ee5d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.promo_category.field_promo_sub_category
+    - node.type.promo_category
+  module:
+    - user
+id: node.promo_category.default
+targetEntityType: node
+bundle: promo_category
+mode: default
+content:
+  field_promo_sub_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
