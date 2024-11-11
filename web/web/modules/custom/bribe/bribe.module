@@ -1,24 +1,23 @@
 <?php
 
-function bribe_theme($existing, $type, $theme, $path)
-{
-    \Drupal::logger('bribe')->debug('hook_theme called');
-    return [
-        'promo' => [
-            'variables' => ['data' => NULL],
-        ],
-        'default' => [
-            'variables' => ['data' => NULL],
-        ]
-    ];
-}
+/**  
+ * @file  
+ * My custom module.  
+ */  
+  
+ use Drupal\views\ViewExecutable;  
+ use Drupal\views\Plugin\views\display\DisplayPluginBase;  
+ use Drupal\Core\Url; 
 
-function promo_menu_local_tasks_alter(&$local_actions) {
-    \Drupal::logger('bribe')->debug('hook_menu_local_actions_alter called');  
-    $local_actions['promo'] = [  
-        'route_name' => 'bribe.add_promo',  
-        'title' => 'Add Promo',  
-        'appears_on' => ['promo'],  
-       ]; 
-       \Drupal::logger('bribe')->debug('Local actions: @local_actions', ['@local_actions' => $local_actions]);
-  }
+// function bribe_theme($existing, $type, $theme, $path)
+// {
+//     \Drupal::logger('bribe')->debug('hook_theme called');
+//     return [
+//         'promo' => [
+//             'variables' => ['data' => NULL],
+//         ],
+//         'default' => [
+//             'variables' => ['data' => NULL],
+//         ]
+//     ];
+// }

@@ -1,0 +1,40 @@
+uuid: 1410ed01-5aef-4101-83be-88e0f4b198ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_location
+  module:
+    - path
+id: node.promo_location.default
+targetEntityType: node
+bundle: promo_location
+mode: default
+content:
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 2
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  promote: true
+  sticky: true
+  uid: true

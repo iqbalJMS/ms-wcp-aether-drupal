@@ -1,0 +1,37 @@
+uuid: ef1fe19b-c982-4b9f-9c9e-67f04cffb024
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.promo.field_promo_category
+    - field.field.node.promo.field_promo_end_date
+    - field.field.node.promo.field_promo_image
+    - field.field.node.promo.field_promo_location
+    - field.field.node.promo.field_promo_microsite_owner
+    - field.field.node.promo.field_promo_start_date
+    - field.field.node.promo.field_promo_sub_category
+    - field.field.node.promo.field_term_and_condition
+    - node.type.promo
+  module:
+    - user
+id: node.promo.teaser
+targetEntityType: node
+bundle: promo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_promo_category: true
+  field_promo_end_date: true
+  field_promo_image: true
+  field_promo_location: true
+  field_promo_microsite_owner: true
+  field_promo_start_date: true
+  field_promo_sub_category: true
+  field_term_and_condition: true
+  langcode: true

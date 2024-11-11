@@ -1,0 +1,17 @@
+uuid: 704f3955-1141-4937-8764-e0fd7226a82c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Promo Location'
+type: promo_location
+description: 'Promo Location'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

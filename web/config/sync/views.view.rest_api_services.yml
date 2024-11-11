@@ -821,7 +821,7 @@ display:
           plugin_id: language
           operator: in
           value:
-            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -902,12 +902,12 @@ display:
           plugin_id: standard
           required: false
       display_description: 'Services Header'
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: api/page/services/header
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
         - url
@@ -1357,7 +1357,7 @@ display:
           plugin_id: language
           operator: in
           value:
-            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -1434,7 +1434,7 @@ display:
           plugin_id: standard
           required: false
       display_description: 'Page Services'
-      rendering_language: '***LANGUAGE_language_content***'
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: api/pages/services
     cache_metadata:
@@ -1752,7 +1752,7 @@ display:
           plugin_id: language
           operator: in
           value:
-            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -1813,12 +1813,12 @@ display:
         filter_groups: false
       relationships: {  }
       display_description: 'Service Detail'
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: page/services/detail/%
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
         - url
@@ -2020,12 +2020,12 @@ display:
         fields: false
         arguments: false
       display_description: 'Services List'
+      rendering_language: '***LANGUAGE_language_content***'
       display_extenders: {  }
       path: api/page/services/list
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
         - url

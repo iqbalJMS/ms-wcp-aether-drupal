@@ -1,0 +1,23 @@
+uuid: d5d83fd5-8acf-4831-aafb-098cd7e7ea86
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.promo_category.field_promo_sub_category
+    - node.type.promo_category
+  module:
+    - user
+id: node.promo_category.teaser
+targetEntityType: node
+bundle: promo_category
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_promo_sub_category: true
+  langcode: true

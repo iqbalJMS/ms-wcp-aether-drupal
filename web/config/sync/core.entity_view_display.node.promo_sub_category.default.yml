@@ -1,0 +1,20 @@
+uuid: f0b77531-5685-47ec-8c83-13eda861b537
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+  module:
+    - user
+id: node.promo_sub_category.default
+targetEntityType: node
+bundle: promo_sub_category
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

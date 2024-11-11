@@ -1,0 +1,51 @@
+uuid: 5e68b907-ea40-4152-90df-2edced43f6d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.promo_category.field_promo_sub_category
+    - node.type.promo_category
+  module:
+    - path
+id: node.promo_category.default
+targetEntityType: node
+bundle: promo_category
+mode: default
+content:
+  field_promo_sub_category:
+    type: entity_reference_autocomplete_tags
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  promote: true
+  sticky: true
+  uid: true

@@ -4,6 +4,7 @@ module:
   basic_auth: 0
   block: 0
   breakpoint: 0
+  bribe: 0
   bricc: 0
   brimw: 0
   ckeditor5: 0

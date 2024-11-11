@@ -1,0 +1,21 @@
+uuid: 8463f7f7-3e47-4d15-b23d-8e213ccde726
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.promo_microsite_owner
+  module:
+    - user
+id: node.promo_microsite_owner.teaser
+targetEntityType: node
+bundle: promo_microsite_owner
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

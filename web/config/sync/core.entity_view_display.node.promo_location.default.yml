@@ -1,0 +1,20 @@
+uuid: d3852c4f-44fc-4297-8ce0-51be251bf7ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_location
+  module:
+    - user
+id: node.promo_location.default
+targetEntityType: node
+bundle: promo_location
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

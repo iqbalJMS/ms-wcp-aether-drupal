@@ -1,0 +1,29 @@
+uuid: c7024460-083a-4585-b1b2-0d5c3343603c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promo_sub_category
+    - node.type.promo_category
+    - node.type.promo_sub_category
+id: node.promo_category.field_promo_sub_category
+field_name: field_promo_sub_category
+entity_type: node
+bundle: promo_category
+label: 'Promo Sub Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      promo_sub_category: promo_sub_category
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

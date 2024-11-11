@@ -1,0 +1,24 @@
+uuid: 363e61e8-8b59-4620-92e4-2104a705d9ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promo_end_date
+    - node.type.promo
+  module:
+    - datetime
+id: node.promo.field_promo_end_date
+field_name: field_promo_end_date
+entity_type: node
+bundle: promo
+label: 'Promo End Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

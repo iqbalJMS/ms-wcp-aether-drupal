@@ -1,0 +1,11 @@
+uuid: 0a80f3e3-4d6c-440f-bb68-d91c01ec05ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+id: node.promo_sub_category
+target_entity_type_id: node
+target_bundle: promo_sub_category
+default_langcode: und
+language_alterable: false
