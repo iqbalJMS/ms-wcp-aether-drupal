@@ -103,8 +103,8 @@ function brimw_views_query_alter(
     $site_id = \Drupal::service('brimw.rbac_helper')->getSiteIdByRole();
     if (!is_null($site_id)) {
       if ($query instanceof Drupal\views\Plugin\views\query\Sql) {
-        $query->addWhere(1, 'type', ['page', 'services'], 'IN');
-         $query->addWhereExpression(1, "(node_field_data.type <> 'page' OR taxonomy_term_field_data_node__field_site_id.tid = :site_id)", [':site_id' => $site_id]);
+        $query->addWhere(1, 'type', ['page', 'services', 'card_detail'], 'IN');
+        $query->addWhereExpression(1, "(node_field_data.type <> 'page' OR node_field_data.type <> 'card_detail' OR taxonomy_term_field_data_node__field_site_id.tid = :site_id)", [':site_id' => $site_id]);
       }
     }
   }
