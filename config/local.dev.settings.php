@@ -895,6 +895,7 @@ $databases['default']['default'] = array(
 
 $settings['config_sync_directory'] = '../config/sync';
 $config_directories['sync'] = '../config/sync';
+$settings['state_cache'] = TRUE;
 
 // TODO remove this
 $settings['trusted_host_patterns'] = [

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\bricc\Form;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -38,6 +39,10 @@ final class BriccCardItemForm extends ContentEntityForm {
       default:
         throw new \LogicException('Could not save the entity.');
     }
+
+    $entity = $this->getEntity();
+    $cache_tags = $entity->getCacheTags();
+    Cache::invalidateTags($cache_tags);
 
     $form_state->setRedirectUrl($this->entity->toUrl());
 
