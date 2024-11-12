@@ -412,61 +412,60 @@ class ApplicantRemoteData
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function documentDetail ($type, $doc_id): string {
-    // Get binary
-    $file_name = sprintf('%s--%s', $type, $doc_id);
-    $destination = 'public://' . $file_name;
+    try {
+      $endpoint_url = $this->fileServiceUrl . '/' . $doc_id;
+      $response = $this->client->get($endpoint_url, [
+        'stream' => true,
+        'headers' => [
+          'x-api-key' => 'auth',
+        ],
+      ]);
 
-    $file = $this->em->getStorage('file')->loadByProperties([
-      'uri' => $destination,
-    ]);
-
-    if ($file) {
-      // File already exist
-      $file = reset($file);
-
-      // Return the URL
-      return $file->createFileUrl();
-    }
-    else {
-      // File not exist, fetch
-      try {
-        $endpoint_url = $this->fileServiceUrl . '/' . $doc_id;
-        $response = $this->client->get($endpoint_url, [
-          'stream' => true,
-          'headers' => [
-            'x-api-key' => 'auth',
-          ],
-        ]);
-
-        if ($response->getStatusCode() === 200) {
-          $data = $response->getBody()->getContents();
-
-          // Save the file data to Drupal's file system.
-          $directory = dirname($destination);
-          $this->file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
-          $destination = $this->file_system->getDestinationFilename($destination, FileExists::Replace);
-          $file_uri = $this->file_system->saveData($data, $destination, FileExists::Replace);
-
-          if ($file_uri) {
-            // Create a file entity using the URI.
-            // Don't set status to make it marked as unmanaged.
-            $file = File::create([
-              'uri' => $file_uri,
-            ]);
-            $file->save();
-
-            $this->logger->info(t('File saved with ID: @fid', ['@fid' => $file->id()]));
-
-            return $file->createFileUrl();
+      if ($response->getStatusCode() === 200) {
+        // File name
+        $filename = $doc_id;
+        $content_disposition = $response->getHeader('Content-Disposition');
+        if ($content_disposition) {
+          foreach ($content_disposition as $disposition) {
+            $parts = explode(';', $disposition);
+            foreach ($parts as $part) {
+              if (str_contains($part, 'filename')) {
+                $kv = parse_ini_string($part);
+                $filename = $kv['filename'];
+              }
+            }
           }
         }
-        else {
-          $this->logger->error(t('Failed retrieving file from @link', ['@link' => $endpoint_url]));
+
+        $destination = 'public://' . sprintf('%s--%s', $type, $filename);
+
+        $data = $response->getBody()->getContents();
+
+        // Save the file data to Drupal's file system.
+        $directory = dirname($destination);
+        $this->file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+        $destination = $this->file_system->getDestinationFilename($destination, FileExists::Replace);
+        $file_uri = $this->file_system->saveData($data, $destination, FileExists::Replace);
+
+        if ($file_uri) {
+          // Create a file entity using the URI.
+          // Don't set status to make it marked as unmanaged.
+          $file = File::create([
+            'uri' => $file_uri,
+          ]);
+          $file->save();
+
+          $this->logger->info(t('File saved with ID: @fid', ['@fid' => $file->id()]));
+
+          return $file->createFileUrl();
         }
       }
-      catch (\Exception $e) {
-        $this->logger->error($e->getMessage());
+      else {
+        $this->logger->error(t('Failed retrieving file from @link', ['@link' => $endpoint_url]));
       }
+    }
+    catch (\Exception $e) {
+      $this->logger->error($e->getMessage());
     }
 
     return '';
