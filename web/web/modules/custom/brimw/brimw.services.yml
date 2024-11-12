@@ -19,6 +19,12 @@ services:
   brimw.simulation_request:
     class: Drupal\brimw\Requests\SimulationRequest
     arguments: [ '@request_stack' ]
+  brimw.search_remote_data:
+    class: Drupal\brimw\External\SearchRemoteData
+    arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
+  brimw.search_request:
+    class: Drupal\brimw\Requests\SearchRequest
+    arguments: [ '@request_stack' ]
   brimw.kurs_normalizer:
     class: Drupal\brimw\Normalizer\KursNormalizer
     tags:
