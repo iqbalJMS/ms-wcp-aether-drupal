@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Drupal\bricc\Form;
 
+use Drupal\config_pages\Entity\ConfigPages;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Form controller for the card item entity edit forms.
@@ -43,6 +45,20 @@ final class BriccCardItemForm extends ContentEntityForm {
     $entity = $this->getEntity();
     $cache_tags = $entity->getCacheTags();
     Cache::invalidateTags($cache_tags);
+
+    $nid = 3;
+    $config_bricc = ConfigPages::config('bri_cc');
+    if ($config_bricc instanceof ConfigPages) {
+      if (!$config_bricc->get('field_id_jenis_kartu_kredit')->isEmpty()) {
+        $nid = $config_bricc->get('field_id_jenis_kartu_kredit')->value;
+      }
+    }
+
+    $node = Node::load($nid);
+    if ($node) {
+      // Invalidate the cache for this specific node.
+      Cache::invalidateTags($node->getCacheTags());
+    }
 
     $form_state->setRedirectUrl($this->entity->toUrl());
 

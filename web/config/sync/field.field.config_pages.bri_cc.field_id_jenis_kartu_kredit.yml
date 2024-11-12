@@ -1,0 +1,19 @@
+uuid: b46c27d2-ffee-4329-8410-c03d0b9e622c
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.bri_cc
+    - field.storage.config_pages.field_id_jenis_kartu_kredit
+id: config_pages.bri_cc.field_id_jenis_kartu_kredit
+field_name: field_id_jenis_kartu_kredit
+entity_type: config_pages
+bundle: bri_cc
+label: 'ID Jenis Kartu Kredit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
