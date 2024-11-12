@@ -53,13 +53,6 @@ class SearchRemoteData extends BaseRemoteData
             service_url
             category
           }
-          pagination {
-            total
-            totalPages
-            currentPage
-            isPrev
-            isNext
-          }
         }
       }
     GRAPHQL;
