@@ -83,6 +83,7 @@ permissions:
   - 'use text format limited_html'
   - 'view all revisions'
   - 'view bricc_card_item revision'
+  - 'view card detail on list'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view services revisions'
