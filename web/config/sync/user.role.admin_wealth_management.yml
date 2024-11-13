@@ -1,0 +1,136 @@
+uuid: 35a9affd-b5de-4825-a2e4-49b6da1fb6ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.custom_editor
+    - filter.format.full_html
+    - filter.format.full_template
+    - filter.format.limited_html
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.page
+    - system.menu.wealth-management-footer-contact
+    - system.menu.wealth-management-footer-seconda
+    - system.menu.wealth-management-login-dropdown
+    - system.menu.wealth-management-social-media
+    - system.menu.wm-floating-navigation
+    - system.menu.wm-main-navigation
+    - system.menu.wm-middle-footer
+    - system.menu.wm-prioritas-floating-navigation
+    - system.menu.wm-prioritas-main-navigation
+    - system.menu.wm-private-floating-navigation
+    - system.menu.wm-private-main-navigation
+    - system.menu.wm-top-navigation
+    - taxonomy.vocabulary.article_category
+    - taxonomy.vocabulary.categories
+    - taxonomy.vocabulary.document_category
+    - taxonomy.vocabulary.infograph
+    - taxonomy.vocabulary.personal_profile_type
+  module:
+    - brimw
+    - content_translation
+    - filter
+    - media
+    - menu_link_content
+    - node
+    - paragraphs
+    - path
+    - simple_menu_permissions
+    - system
+    - toolbar
+    - webform
+id: admin_wealth_management
+label: 'Admin Wealth Management'
+weight: -4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access location crud'
+  - 'access media overview'
+  - 'access own webform configuration'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access webform overview'
+  - 'add new links to wealth-management-footer-contact menu'
+  - 'add new links to wealth-management-footer-seconda menu'
+  - 'add new links to wealth-management-login-dropdown menu'
+  - 'add new links to wealth-management-social-media menu'
+  - 'add new links to wm-floating-navigation menu'
+  - 'add new links to wm-main-navigation menu'
+  - 'add new links to wm-middle-footer menu'
+  - 'add new links to wm-prioritas-floating-navigation menu'
+  - 'add new links to wm-prioritas-main-navigation menu'
+  - 'add new links to wm-private-floating-navigation menu'
+  - 'add new links to wm-private-main-navigation menu'
+  - 'add new links to wm-top-navigation menu'
+  - 'administer menu'
+  - 'create document media'
+  - 'create image media'
+  - 'create media'
+  - 'create page content'
+  - 'create remote_video media'
+  - 'create url aliases'
+  - 'delete any page content'
+  - 'delete media'
+  - 'delete own document media'
+  - 'delete own image media'
+  - 'delete own page content'
+  - 'delete own remote_video media'
+  - 'edit any page content'
+  - 'edit links in wealth-management-footer-contact menu'
+  - 'edit links in wealth-management-footer-seconda menu'
+  - 'edit links in wealth-management-login-dropdown menu'
+  - 'edit links in wealth-management-social-media menu'
+  - 'edit links in wm-floating-navigation menu'
+  - 'edit links in wm-main-navigation menu'
+  - 'edit links in wm-middle-footer menu'
+  - 'edit links in wm-prioritas-floating-navigation menu'
+  - 'edit links in wm-prioritas-main-navigation menu'
+  - 'edit links in wm-private-floating-navigation menu'
+  - 'edit links in wm-private-main-navigation menu'
+  - 'edit links in wm-top-navigation menu'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'edit own page content'
+  - 'edit own remote_video media'
+  - 'edit wealth-management-footer-contact menu'
+  - 'edit wealth-management-footer-seconda menu'
+  - 'edit wealth-management-login-dropdown menu'
+  - 'edit wealth-management-social-media menu'
+  - 'edit wm-floating-navigation menu'
+  - 'edit wm-main-navigation menu'
+  - 'edit wm-middle-footer menu'
+  - 'edit wm-prioritas-floating-navigation menu'
+  - 'edit wm-prioritas-main-navigation menu'
+  - 'edit wm-private-floating-navigation menu'
+  - 'edit wm-private-main-navigation menu'
+  - 'edit wm-top-navigation menu'
+  - 'revert all revisions'
+  - 'revert page revisions'
+  - 'translate any entity'
+  - 'translate article_category taxonomy_term'
+  - 'translate categories taxonomy_term'
+  - 'translate document_category taxonomy_term'
+  - 'translate infograph taxonomy_term'
+  - 'translate menu_link_content'
+  - 'translate page node'
+  - 'translate paragraph'
+  - 'translate personal_profile_type taxonomy_term'
+  - 'update media'
+  - 'use text format custom_editor'
+  - 'use text format full_html'
+  - 'use text format full_template'
+  - 'use text format limited_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view the administration theme'

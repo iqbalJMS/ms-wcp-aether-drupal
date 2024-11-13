@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: api_user
 label: 'API User'
-weight: -3
+weight: -2
 is_admin: null
 permissions: {  }
