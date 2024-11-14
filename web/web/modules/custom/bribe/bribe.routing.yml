@@ -3,4 +3,28 @@ bribe.promo:
   defaults:
    _title: 'Promo Data'
   requirements:
-    _permission: 'create promo content'
+    _permission: 'access promo crud'
+bribe.promo_category:
+  path: '/admin/promo/category'
+  defaults:
+    _title: 'Promo Category'
+  requirements:
+    _permission: 'access promo crud'
+bribe.promo_subcategory:
+  path: '/admin/promo/sub-category'
+  defaults:
+    _title: 'Promo Sub Category'
+  requirements:
+    _permission: 'access promo crud'
+bribe.promo_location:
+  path: '/admin/promo/location'
+  defaults:
+    _title: 'Promo Location'
+  requirements:
+    _permission: 'access promo crud'
+bribe.promo_microsite:
+  path: '/admin/promo/microsite'
+  defaults:
+    _title: 'Promo Microsite'
+  requirements:
+    _permission: 'access promo crud'

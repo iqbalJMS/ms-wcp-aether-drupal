@@ -1,7 +1,37 @@
 bribe.add_promo:
-  title: 'Add New Promo'
+  title: 'Add Promo'
   route_name: node.add
   route_parameters:
     node_type: promo
   appears_on:  
     - bribe.promo
+  parent:
+    - bribe.promo
+bribe.add_promo_category:
+  title: 'Add Promo Category'
+  route_name: node.add
+  route_parameters:
+    node_type: promo_category
+  appears_on:  
+    - bribe.promo_category
+bribe.add_promo_subcategory:
+  title: 'Add Promo Sub Category'
+  route_name: node.add
+  route_parameters:
+    node_type: promo_sub_category
+  appears_on:  
+    - bribe.promo_subcategory
+bribe.add_promo_location:
+  title: 'Add Promo Location'
+  route_name: node.add
+  route_parameters:
+    node_type: promo_location
+  appears_on:  
+    - bribe.promo_location
+bribe.add_promo_microsite:
+  title: 'Add Promo Microsite'
+  route_name: node.add
+  route_parameters:
+    node_type: promo_microsite_owner
+  appears_on:  
+    - bribe.promo_microsite

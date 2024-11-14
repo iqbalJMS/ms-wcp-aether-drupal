@@ -1,6 +1,5 @@
-bribe.promo:  
+promo:  
   version: 1.x
-  dependencies:  
-   - core/drupal.ajax  
-   - core/drupal.dialog.ajax
-   - core/jquery.form
+  css:
+    theme:
+      css/bribe.css: {}
