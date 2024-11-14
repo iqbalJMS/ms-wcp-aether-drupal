@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.promo_microsite_owner.field_microsite_id
     - node.type.promo_microsite_owner
   module:
     - user
@@ -18,4 +19,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_microsite_id: true
   langcode: true

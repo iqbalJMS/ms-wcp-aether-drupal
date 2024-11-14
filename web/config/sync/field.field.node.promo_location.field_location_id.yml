@@ -1,0 +1,19 @@
+uuid: a687edcd-9ff3-4fb3-b741-641df1029009
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_id
+    - node.type.promo_location
+id: node.promo_location.field_location_id
+field_name: field_location_id
+entity_type: node
+bundle: promo_location
+label: 'Location ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

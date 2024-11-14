@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.promo_category.field_category_id
     - field.field.node.promo_category.field_promo_sub_category
     - node.type.promo_category
   module:
@@ -45,6 +46,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_category_id: true
   langcode: true
   promote: true
   sticky: true

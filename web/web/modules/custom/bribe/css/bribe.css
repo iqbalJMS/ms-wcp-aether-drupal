@@ -1,0 +1,4 @@
+.bribe-promo-menu-icon:before {
+    mask-image: url('../images/promo-icon-menu.png') !important;
+    -webkit-mask-image: url('../images/promo-icon-menu.png') !important;
+}

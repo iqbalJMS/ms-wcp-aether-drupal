@@ -3,11 +3,11 @@
 /**  
  * @file  
  * My custom module.  
- */  
-  
- use Drupal\views\ViewExecutable;  
- use Drupal\views\Plugin\views\display\DisplayPluginBase;  
- use Drupal\Core\Url; 
+ */
+
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\display\DisplayPluginBase;
+use Drupal\Core\Url;
 
 // function bribe_theme($existing, $type, $theme, $path)
 // {
@@ -21,3 +21,17 @@
 //         ]
 //     ];
 // }
+
+function bribe_page_attachments(array &$attachments)
+{
+    $attachments['#attached']['library'][] = 'bribe/promo';
+}
+
+function bribe_menu_active_trail_alter(array &$active_trail, $menu_name, RouteMatchInterface $route_match)
+{
+    // Check if we are on the add promo page.
+    if ($route_match->getRouteName() === 'node.add' && $route_match->getParameter('node_type') === 'promo') {
+        // Add the promo menu link to the active trail.
+        $active_trail[] = 'admin/promo';
+    }
+}

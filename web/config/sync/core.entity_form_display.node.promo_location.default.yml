@@ -3,23 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.promo_location.field_location_id
     - node.type.promo_location
-  module:
-    - path
 id: node.promo_location.default
 targetEntityType: node
 bundle: promo_location
 mode: default
 content:
-  path:
-    type: path
-    weight: 1
+  field_location_id:
+    type: string_textfield
+    weight: 2
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 2
+    weight: 1
     region: content
     settings:
       display_label: true
@@ -35,6 +36,7 @@ content:
 hidden:
   created: true
   langcode: true
+  path: true
   promote: true
   sticky: true
   uid: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.promo.field_promo_category
     - field.field.node.promo.field_promo_end_date
+    - field.field.node.promo.field_promo_id
     - field.field.node.promo.field_promo_image
     - field.field.node.promo.field_promo_location
     - field.field.node.promo.field_promo_microsite_owner
@@ -133,6 +134,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_promo_id: true
   langcode: true
   promote: true
   sticky: true

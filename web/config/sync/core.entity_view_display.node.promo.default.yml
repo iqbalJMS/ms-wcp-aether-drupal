@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.promo.field_promo_category
     - field.field.node.promo.field_promo_end_date
+    - field.field.node.promo.field_promo_id
     - field.field.node.promo.field_promo_image
     - field.field.node.promo.field_promo_location
     - field.field.node.promo.field_promo_microsite_owner
@@ -37,6 +38,14 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_promo_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
     region: content
   field_promo_image:
     type: entity_reference_entity_view

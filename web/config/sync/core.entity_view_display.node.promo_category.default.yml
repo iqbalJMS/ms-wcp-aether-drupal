@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.promo_category.field_category_id
     - field.field.node.promo_category.field_promo_sub_category
     - node.type.promo_category
   module:
@@ -12,6 +13,14 @@ targetEntityType: node
 bundle: promo_category
 mode: default
 content:
+  field_category_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
   field_promo_sub_category:
     type: entity_reference_label
     label: above

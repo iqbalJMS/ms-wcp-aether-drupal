@@ -1,0 +1,13 @@
+bribe.admin_promo:
+  parent: system.admin
+  route_name: bribe.promo
+  title: 'Promo'
+  weight: -9
+  options:
+    attributes:
+      class:
+        - 'bribe-promo-menu-icon'
+    library:
+      - bribe/promo
+    access:
+      - 'role:administrator'

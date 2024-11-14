@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.promo_category.field_category_id
     - field.field.node.promo_category.field_promo_sub_category
     - node.type.promo_category
   module:
@@ -19,5 +20,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_category_id: true
   field_promo_sub_category: true
   langcode: true
