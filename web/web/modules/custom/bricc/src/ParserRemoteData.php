@@ -98,7 +98,7 @@ class ParserRemoteData {
 
   public function formattedCardType($exclude = []): array {
     $card_type = $this->listCardType();
-    $card_type_options = [];
+    $card_type_options = ['' => '- Select Card Type -'];
     if (isset($card_type['data']['creditCardTypes'])) {
       foreach ($card_type['data']['creditCardTypes'] as $card) {
         $id_card_type = trim($card['idCardType']);
