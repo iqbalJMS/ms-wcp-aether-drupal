@@ -47,3 +47,7 @@ create bricc_city:
 administer bricc_applicant_status:
   title: 'Administer applicant status'
   restrict access: true
+
+view card detail on list:
+  title: 'View Card Detail on List'
+  description: 'Allow user to see Card Detail content on content list'

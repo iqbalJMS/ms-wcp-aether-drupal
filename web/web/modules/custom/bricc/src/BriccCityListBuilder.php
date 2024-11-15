@@ -49,4 +49,20 @@ final class BriccCityListBuilder extends EntityListBuilder {
     return $build;
   }
 
+  protected function getEntityIds() {
+    $query = \Drupal::entityQuery($this->entityTypeId);
+    $request = \Drupal::request();
+
+    $label = $request->get('label') ?? '';
+    if (!empty($label)) {
+      $query->condition('label', $label, 'CONTAINS');
+    }
+
+    if ($this->limit) {
+      $query->pager($this->limit);
+    }
+
+    return $query->accessCheck()->execute();
+  }
+
 }

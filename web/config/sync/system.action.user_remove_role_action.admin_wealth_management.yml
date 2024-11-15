@@ -1,0 +1,14 @@
+uuid: d552ce53-dee8-4a9c-85b4-2571cc84f368
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_wealth_management
+  module:
+    - user
+id: user_remove_role_action.admin_wealth_management
+label: 'Remove the Admin Wealth Management role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: admin_wealth_management

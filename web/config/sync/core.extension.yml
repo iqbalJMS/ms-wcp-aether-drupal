@@ -1,6 +1,7 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
+  autologout: 0
   basic_auth: 0
   block: 0
   breakpoint: 0
@@ -36,6 +37,7 @@ module:
   jquery_ui: 0
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
+  js_cookie: 0
   language: 0
   link: 0
   locale: 0

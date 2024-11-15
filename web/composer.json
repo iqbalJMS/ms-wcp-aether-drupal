@@ -21,6 +21,7 @@
         "aws/aws-sdk-php": "^3.296",
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "^1.7",
+        "drupal/autologout": "^2.0",
         "drupal/ckeditor5_template": "^1.0",
         "drupal/ckeditor_templates_ui": "^2.0@alpha",
         "drupal/classy": "^1.0",

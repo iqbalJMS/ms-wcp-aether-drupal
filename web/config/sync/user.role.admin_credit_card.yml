@@ -3,7 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.custom_editor
+    - filter.format.full_html
     - filter.format.full_template
+    - filter.format.limited_html
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.card_detail
     - node.type.page
     - node.type.services
     - taxonomy.vocabulary.categories
@@ -15,6 +22,7 @@ dependencies:
     - bricc
     - content_translation
     - filter
+    - media
     - menu_link_content
     - node
     - paragraphs
@@ -30,6 +38,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access media overview'
   - 'access own webform configuration'
   - 'access site in maintenance mode'
   - 'access taxonomy overview'
@@ -43,28 +52,53 @@ permissions:
   - 'create bricc_card_item'
   - 'create bricc_city'
   - 'create bricc_province'
+  - 'create card_detail content'
+  - 'create document media'
+  - 'create image media'
+  - 'create media'
+  - 'create remote_video media'
   - 'create services content'
+  - 'create terms in categories'
   - 'create url aliases'
+  - 'delete any card_detail content'
+  - 'delete any media'
   - 'delete any services content'
   - 'delete bricc_card_item'
   - 'delete bricc_card_item revision'
   - 'delete bricc_city'
   - 'delete bricc_province'
+  - 'delete card_detail revisions'
+  - 'delete media'
+  - 'delete own card_detail content'
+  - 'delete own document media'
+  - 'delete own image media'
+  - 'delete own remote_video media'
   - 'delete own services content'
   - 'delete services revisions'
+  - 'delete term revisions in categories'
+  - 'delete terms in categories'
+  - 'edit any card_detail content'
   - 'edit any page content'
   - 'edit any services content'
   - 'edit bricc_card_item'
   - 'edit bricc_city'
   - 'edit bricc_province'
+  - 'edit own card_detail content'
+  - 'edit own document media'
+  - 'edit own image media'
   - 'edit own page content'
+  - 'edit own remote_video media'
   - 'edit own services content'
+  - 'edit terms in categories'
   - 'revert all revisions'
   - 'revert bricc_card_item revision'
+  - 'revert card_detail revisions'
   - 'revert page revisions'
   - 'revert services revisions'
+  - 'revert term revisions in categories'
   - 'revert term revisions in site_id'
   - 'translate any entity'
+  - 'translate card_detail node'
   - 'translate categories taxonomy_term'
   - 'translate document_category taxonomy_term'
   - 'translate editable entities'
@@ -74,11 +108,24 @@ permissions:
   - 'translate paragraph'
   - 'translate personal_profile_type taxonomy_term'
   - 'translate services node'
+  - 'update media'
+  - 'use text format custom_editor'
+  - 'use text format full_html'
   - 'use text format full_template'
+  - 'use text format limited_html'
+  - 'view all media revisions'
   - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
   - 'view bricc_card_item revision'
+  - 'view card detail on list'
+  - 'view card_detail revisions'
+  - 'view media'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view page revisions'
   - 'view services revisions'
+  - 'view term revisions in categories'
   - 'view term revisions in site_id'
   - 'view the administration theme'

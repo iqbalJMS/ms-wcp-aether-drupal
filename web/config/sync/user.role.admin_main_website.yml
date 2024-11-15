@@ -3,7 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.custom_editor
+    - filter.format.full_html
     - filter.format.full_template
+    - filter.format.limited_html
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
     - node.type.page
     - node.type.promo
     - node.type.promo_category
@@ -36,6 +42,7 @@ dependencies:
     - brimw
     - content_translation
     - filter
+    - media
     - menu_link_content
     - node
     - paragraphs
@@ -53,6 +60,7 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access location crud'
+  - 'access media overview'
   - 'access own webform configuration'
   - 'access promo crud'
   - 'access site in maintenance mode'
@@ -74,6 +82,9 @@ permissions:
   - 'add new links to social-media menu'
   - 'add new links to top-navigation menu'
   - 'administer menu'
+  - 'create document media'
+  - 'create image media'
+  - 'create media'
   - 'create page content'
   - 'create promo content'
   - 'create promo_category content'
@@ -124,6 +135,8 @@ permissions:
   - 'edit links in top-navigation menu'
   - 'edit login-dropdown menu'
   - 'edit main menu'
+  - 'edit own document media'
+  - 'edit own image media'
   - 'edit own page content'
   - 'edit own promo content'
   - 'edit own promo_category content'
@@ -156,14 +169,23 @@ permissions:
   - 'translate page node'
   - 'translate paragraph'
   - 'translate personal_profile_type taxonomy_term'
+  - 'update media'
+  - 'use text format custom_editor'
+  - 'use text format full_html'
   - 'use text format full_template'
+  - 'use text format limited_html'
+  - 'view all media revisions'
   - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any remote_video media revisions'
   - 'view contact-us menu in menu list'
   - 'view footer menu in menu list'
   - 'view footer-secondary menu in menu list'
   - 'view login-dropdown menu in menu list'
   - 'view main menu in menu list'
+  - 'view media'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view page revisions'
   - 'view promo revisions'
   - 'view promo-footer menu in menu list'

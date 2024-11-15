@@ -102,9 +102,34 @@ function brimw_views_query_alter(
   if ($view->id() == 'content') {
     $site_id = \Drupal::service('brimw.rbac_helper')->getSiteIdByRole();
     if (!is_null($site_id)) {
+      // Starter condition
+      $allowed_node_type = ['page', 'services'];
+      $where_expression = [
+        "node_field_data.type <> 'page'",
+      ];
+
+      // Check condition
+      if (\Drupal::currentUser()->hasPermission('view card detail on list')) {
+        $allowed_node_type[] = 'card_detail';
+        $where_expression[] = "node_field_data.type <> 'card_detail'";
+      }
+
+      // Additional condition
+      $additional_where_expression = [
+        "taxonomy_term_field_data_node__field_site_id.tid = :site_id"
+      ];
+
+      $newarray = array_merge($where_expression, $additional_where_expression);
+
+      // Create string for where expression
+      $where_expression_str = "(" . implode(' OR ', $newarray) . ")";
+
       if ($query instanceof Drupal\views\Plugin\views\query\Sql) {
-        $query->addWhere(1, 'type', ['page', 'services'], 'IN');
-         $query->addWhereExpression(1, "(node_field_data.type <> 'page' OR taxonomy_term_field_data_node__field_site_id.tid = :site_id)", [':site_id' => $site_id]);
+        $query->addWhere(1, 'type', $allowed_node_type, 'IN');
+        $query->addWhereExpression(1, "(node_field_data.type <> 'page' OR taxonomy_term_field_data_node__field_site_id.tid = :site_id)", [':site_id' => $site_id]);
+
+//        $query->addWhere(1, 'type', ['page', 'services', 'card_detail'], 'IN');
+//        $query->addWhereExpression(1, "(node_field_data.type <> 'page' OR node_field_data.type <> 'card_detail' OR taxonomy_term_field_data_node__field_site_id.tid = :site_id)", [':site_id' => $site_id]);
       }
     }
   }

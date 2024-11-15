@@ -12,6 +12,13 @@ brimw.calculate_kurs:
     _title: 'Calculate kurs'
   requirements:
     _permission: 'access content'
+brimw.search:
+  path: '/api/brimw/search'
+  defaults:
+    _controller: '\Drupal\brimw\Controllers\SearchController::index'
+    _title: 'Search content'
+  requirements:
+    _permission: 'access content'
 brimw.location.admin:
   path: '/admin/bri/location'
   defaults:

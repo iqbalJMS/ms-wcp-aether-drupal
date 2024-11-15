@@ -1,0 +1,14 @@
+uuid: de4dc1ac-b79b-410d-b04c-12506bdf0549
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.admin_wealth_management
+  module:
+    - user
+id: user_add_role_action.admin_wealth_management
+label: 'Add the Admin Wealth Management role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: admin_wealth_management
