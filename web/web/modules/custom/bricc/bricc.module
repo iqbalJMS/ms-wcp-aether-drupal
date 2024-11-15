@@ -5,6 +5,7 @@
  * Primary module hooks for bricc module.
  */
 
+use Drupal\bricc\Entity\BriccCardItem;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
@@ -258,8 +259,39 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     }
   }
   elseif ($form_id === 'bricc_card_item_add_form' || $form_id === 'bricc_card_item_edit_form') {
+    $query = \Drupal::entityTypeManager()->getStorage('bricc_card_item')->getQuery();
+    $entity_ids = $query->accessCheck(FALSE)->execute();
+    $exclude = [];
+    if (!empty($entity_ids)) {
+      // Load the entities based on the IDs found.
+      $entities = BriccCardItem::loadMultiple($entity_ids);
+      foreach ($entities as $entity) {
+        // Get the card_link field value.
+        if (!$entity->get('field_idcardtype')->isEmpty()) {
+          $exclude[] = $entity->get('field_idcardtype')->value;
+        }
+      }
+    }
+
+    // If this is edit form, remove current value from exclude
+    if ($form_id === 'bricc_card_item_edit_form') {
+      $bricc_card_item = $form_state->getFormObject()->getEntity();
+      if ($bricc_card_item instanceof BriccCardItem) {
+        if ($bricc_card_item->hasField('field_idcardtype')) {
+          if (!$bricc_card_item->get('field_idcardtype')->isEmpty()) {
+            $field_idcardtype = $bricc_card_item->get('field_idcardtype')->value;
+            $key = array_search($field_idcardtype, $exclude);
+            if ($key !== FALSE) {
+              unset($exclude[$key]);
+            }
+          }
+        }
+      }
+    }
+
     // Card type
-    $card_type_options = \Drupal::service('bricc.parser_remote_data')->formattedCardType();
+    $card_type_options = \Drupal::service('bricc.parser_remote_data')->formattedCardType($exclude);
+
     $form['select_idcardtype'] = [
       '#type' => 'select',
       '#title' => t('Card link'),
