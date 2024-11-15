@@ -5,6 +5,11 @@ dependencies:
   config:
     - filter.format.full_template
     - node.type.page
+    - node.type.promo
+    - node.type.promo_category
+    - node.type.promo_location
+    - node.type.promo_microsite_owner
+    - node.type.promo_sub_category
     - system.menu.contact-us
     - system.menu.footer
     - system.menu.footer-secondary
@@ -27,6 +32,7 @@ dependencies:
     - taxonomy.vocabulary.personal_profile_type
     - taxonomy.vocabulary.site_id
   module:
+    - bribe
     - brimw
     - content_translation
     - filter
@@ -48,6 +54,7 @@ permissions:
   - 'access content overview'
   - 'access location crud'
   - 'access own webform configuration'
+  - 'access promo crud'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access webform overview'
@@ -68,10 +75,35 @@ permissions:
   - 'add new links to top-navigation menu'
   - 'administer menu'
   - 'create page content'
+  - 'create promo content'
+  - 'create promo_category content'
+  - 'create promo_location content'
+  - 'create promo_microsite_owner content'
+  - 'create promo_sub_category content'
   - 'create url aliases'
   - 'delete any page content'
+  - 'delete any promo content'
+  - 'delete any promo_category content'
+  - 'delete any promo_location content'
+  - 'delete any promo_microsite_owner content'
+  - 'delete any promo_sub_category content'
   - 'delete own page content'
+  - 'delete own promo content'
+  - 'delete own promo_category content'
+  - 'delete own promo_location content'
+  - 'delete own promo_microsite_owner content'
+  - 'delete own promo_sub_category content'
+  - 'delete promo revisions'
+  - 'delete promo_category revisions'
+  - 'delete promo_location revisions'
+  - 'delete promo_microsite_owner revisions'
+  - 'delete promo_sub_category revisions'
   - 'edit any page content'
+  - 'edit any promo content'
+  - 'edit any promo_category content'
+  - 'edit any promo_location content'
+  - 'edit any promo_microsite_owner content'
+  - 'edit any promo_sub_category content'
   - 'edit contact-us menu'
   - 'edit footer menu'
   - 'edit footer-secondary menu'
@@ -93,6 +125,11 @@ permissions:
   - 'edit login-dropdown menu'
   - 'edit main menu'
   - 'edit own page content'
+  - 'edit own promo content'
+  - 'edit own promo_category content'
+  - 'edit own promo_location content'
+  - 'edit own promo_microsite_owner content'
+  - 'edit own promo_sub_category content'
   - 'edit promo-footer menu'
   - 'edit promo-footer-secondary menu'
   - 'edit promo-main-navigation menu'
@@ -105,6 +142,11 @@ permissions:
   - 'edit top-navigation menu'
   - 'revert all revisions'
   - 'revert page revisions'
+  - 'revert promo revisions'
+  - 'revert promo_category revisions'
+  - 'revert promo_location revisions'
+  - 'revert promo_microsite_owner revisions'
+  - 'revert promo_sub_category revisions'
   - 'revert term revisions in site_id'
   - 'translate any entity'
   - 'translate categories taxonomy_term'
@@ -123,10 +165,15 @@ permissions:
   - 'view main menu in menu list'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view promo revisions'
   - 'view promo-footer menu in menu list'
   - 'view promo-footer-secondary menu in menu list'
   - 'view promo-main-navigation menu in menu list'
   - 'view promo-top-navigation menu in menu list'
+  - 'view promo_category revisions'
+  - 'view promo_location revisions'
+  - 'view promo_microsite_owner revisions'
+  - 'view promo_sub_category revisions'
   - 'view recruitment-footer menu in menu list'
   - 'view recruitment-footer-secondary menu in menu list'
   - 'view recruitment-main-navigation menu in menu list'
