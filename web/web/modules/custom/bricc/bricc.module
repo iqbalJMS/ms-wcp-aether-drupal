@@ -6,11 +6,14 @@
  */
 
 use Drupal\bricc\Entity\BriccCardItem;
+use Drupal\config_pages\Entity\ConfigPages;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
 use Drupal\user\UserInterface;
 
 /**
@@ -306,6 +309,28 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   }
   elseif ($form_id === 'node_card_detail_form' || $form_id === 'node_card_detail_edit_form') {
     $form['#validate'][] = 'bricc_card_detail_page_form_validate';
+
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = '_bricc_card_item_submit';
+      }
+    }
+  }
+}
+
+function _bricc_card_item_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $nid = 3;
+  $config_bricc = ConfigPages::config('bri_cc');
+  if ($config_bricc instanceof ConfigPages) {
+    if (!$config_bricc->get('field_id_jenis_kartu_kredit')->isEmpty()) {
+      $nid = $config_bricc->get('field_id_jenis_kartu_kredit')->value;
+    }
+  }
+
+  $node = Node::load($nid);
+  if ($node) {
+    // Invalidate the cache for this specific node.
+    Cache::invalidateTags($node->getCacheTags());
   }
 }
 
