@@ -1,0 +1,19 @@
+services:
+  bribe.promo:
+    class: Drupal\bribe\Service\PromoService
+    arguments: ['@logger.factory', '@messenger']
+  bribe.promo.category:
+    class: Drupal\bribe\Service\PromoCategoryService
+    arguments: ['@logger.factory', '@messenger']
+  bribe.promo.sub_category:
+    class: Drupal\bribe\Service\PromoSubCategoryService
+    arguments: ['@logger.factory', '@messenger']
+  bribe.promo.location:
+    class: Drupal\bribe\Service\PromoLocationService
+    arguments: ['@logger.factory', '@messenger']
+  bribe.promo.microsite:
+    class: Drupal\bribe\Service\PromoMicrositeService
+    arguments: ['@bribe.promo.remote']
+  bribe.promo.remote:
+    class: Drupal\bribe\Service\RemoteService
+    arguments: ['@http_client']

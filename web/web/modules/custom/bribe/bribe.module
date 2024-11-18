@@ -2,12 +2,18 @@
 
 /**  
  * @file  
- * My custom module.  
+ * Bri Backend Integration.  
  */
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
 
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\display\DisplayPluginBase;
-use Drupal\Core\Url;
+use Drupal\bribe\Controller\PromoSubCategoryController;
+use Drupal\bribe\Controller\PromoCategoryController;
+use Drupal\bribe\Controller\PromoController;
+use Drupal\bribe\Controller\PromoLocationController;
+use Drupal\bribe\Controller\PromoMicrositeController;
+
+use Drupal\Core\Form\FormStateInterface;
 
 // function bribe_theme($existing, $type, $theme, $path)
 // {
@@ -26,7 +32,6 @@ function bribe_page_attachments(array &$attachments)
 {
     $attachments['#attached']['library'][] = 'bribe/promo';
 }
-
 function bribe_menu_active_trail_alter(array &$active_trail, $menu_name, RouteMatchInterface $route_match)
 {
     // Check if we are on the add promo page.
@@ -35,3 +40,108 @@ function bribe_menu_active_trail_alter(array &$active_trail, $menu_name, RouteMa
         $active_trail[] = 'admin/promo';
     }
 }
+
+// function bribe_entity_presave(EntityInterface $entity)
+// {   
+//     switch ($entity->getEntityTypeId()) {
+//         case 'node':
+//                 switch ($entity->bundle()) {
+//                     case 'promo':
+//                             $promo = new PromoController(\Drupal::service('bribe.promo'));
+//                             if($entity->isNew()) {
+//                                 $promo->remoteCreate($entity);
+//                             } else {
+//                                 $promo->remoteUpdate($entity);
+//                             }
+//                         break;
+//                     case 'promo_category':
+//                             $promoCategory = new PromoCategoryController(\Drupal::service('bribe.promo.category'));
+//                             if($entity->isNew()) {
+//                                 $promoCategory->remoteCreate($entity);
+//                             } else {
+//                                 $promoCategory->remoteUpdate($entity);
+//                             }
+//                             break;
+//                     case 'promo_sub_category':
+//                             $promoSubCategory = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
+//                             if($entity->isNew()) {
+//                                 $promoSubCategory->remoteCreate($entity);
+//                             } else {
+//                                 $promoSubCategory->remoteUpdate($entity);
+//                             }
+//                         break;
+//                     case 'promo_location':
+//                             $promoSubCategory = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
+//                             if($entity->isNew()) {
+//                                 $promoSubCategory->remoteCreate($entity);
+//                             } else {
+//                                 $promoSubCategory->remoteUpdate($entity);
+//                             }
+//                         break;
+//                     case 'promo_microsite_owner':
+//                             $promoMicrosite = new PromoMicrositeController(\Drupal::service('bribe.promo.microsite'));
+//                             if($entity->isNew()) {
+//                                 $promoMicrosite->remoteCreate($entity);
+//                                 \Drupal::messenger()->addError("Dipaksa Error Create");
+//                                 throw new \Drupal\Core\Entity\EntityStorageException('Save operation aborted due to validation errors.');
+//                                 try {
+//                                     //code...
+//                                 } catch (\Throwable $th) {
+//                                     //throw $th;
+//                                 }
+//                             } else {
+//                                 $promoMicrosite->remoteCreate($entity);
+//                                 \Drupal::messenger()->addError("Dipaksa Error Create");
+//                             }
+//                         break;
+//                 }
+//             break;
+//     }
+// }
+
+// function bribe_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//     // var_dump($form_id);
+//     // $form['#validate'][] = 'bribe_promo_validation';
+
+//     switch ($form_id) {
+//         case 'node_promo_form':
+//             # code...
+//             break;
+//         case 'node_promo_edit_form':
+//             # code...
+//             break;
+//         case 'node_promo_microsite_owner_form':
+//             # code...
+//             break;
+//         case 'node_promo_microsite_owner_edit_form':
+//             # code...
+//             break;
+//         case 'node_promo_location_form':
+//             # code...
+//             break;
+//         case 'node_promo_location_edit_form':
+//             # code...
+//             break;
+//         case 'node_promo_sub_category_form':
+//             # code...
+//             break;
+//         case 'node_promo_sub_category_edit_form':
+//             # code...
+//             break;
+//         case 'node_promo_category_form':
+//             # code...
+//             break;
+//         case 'node_promo_category_edit_form':
+//             # code...
+//             break;
+//         default:
+//             # code...
+//             break;
+//     }
+// }
+
+//   function bribe_promo_validation($form, FormStateInterface $form_state) {
+//     $form_state->setError($form,'The value entered is not valid.');
+//   }
+
+  

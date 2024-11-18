@@ -2,33 +2,35 @@
 
 namespace Drupal\bribe\Service;
 
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
 class RemoteService
 {
     /**  
-     * @var \GuzzleHttp\ClientInterface  
+     * @var \GuzzleHttp\Client  
      */
-    protected $httpClient;
+    protected Client $httpClient;
 
     private $promoServiceUrl;
 
-    public function __construct(ClientInterface $http_client)
+    public function __construct(Client $httpClient)
     {
-        $this->httpClient = $http_client;
+        $this->httpClient = $httpClient;
         $this->promoServiceUrl = $_ENV['PROMO_SERVICE_URL'];
+    }
+    public function list($data)
+    {
+        return $this->request('query',$data);
+    }
+    public function read($data)
+    {
+        return $this->request('query', $data);
     }
     public function create($data)
     {
         return $this->request('mutation', $data);
     }
-
-    public function read($data)
-    {
-        return $this->request('query', ['id' => $data]);
-    }
-
     public function update($data)
     {
         return $this->request('mutation', $data);
@@ -36,20 +38,20 @@ class RemoteService
 
     public function delete($data)
     {
-        return $this->request('mutation', ['id' => $data]);
+        return $this->request('mutation', $data);
     }
 
     protected function request($type, $data)
     {
-        $query = $this->buildQuery($type, $data);
+        $reqData = $this->buildQuery($type, $data);
 
         try {
             $response = $this->httpClient->post($this->promoServiceUrl, [
-                'json' => ['query' => $query],
+                'json' => ['query' => $reqData],
             ]);
             return json_decode($response->getBody(), true);
         } catch (RequestException $e) {
-            return NULL;
+            return $e;
         }
     }
 
@@ -58,9 +60,9 @@ class RemoteService
         // Build your GraphQL query based on the type and data provided.
         // This is a simplified example; you will need to adjust it based on your API's requirements.
         if ($type === 'mutation') {
-            return sprintf('mutation { createItem(input: %s) { id } }', json_encode($data));
+            return sprintf($data['schema'], json_encode($data['data']));
         } elseif ($type === 'query') {
-            return sprintf('query { item(id: "%s") { id name } }', $data['id']);
+            return sprintf($data['schema'], $data['data']);
         }
         return '';
     }
