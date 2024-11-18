@@ -84,4 +84,21 @@
         });
     }
   }
+
+  Drupal.behaviors.briCardGroupNav = {
+    attach(context, settings) {
+      const nodeForm = once('cardGroupNav', '.node-form', context)
+      nodeForm.forEach(function (element) {
+        const paragraphLabels = element.querySelectorAll('.paragraph-type-label');
+        paragraphLabels.forEach(function (elem) {
+          const label = elem.textContent;
+          if (label === 'Card group nav') {
+            const labelWrap= elem.closest('.paragraph-top');
+            const editButton = labelWrap.querySelector('.paragraphs-icon-button-edit')
+            editButton.classList.add('bri-hidden');
+          }
+        });
+      });
+    }
+  }
 })(jQuery, Drupal, drupalSettings);

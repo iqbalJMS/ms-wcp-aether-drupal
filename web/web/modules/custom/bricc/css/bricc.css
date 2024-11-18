@@ -70,4 +70,8 @@ ul.no-style {
   margin-left: 0;
 }
 
+.bri-hidden {
+  display: none;
+  visibility: hidden;
+}
 
