@@ -6,6 +6,7 @@
  */
 
 use Drupal\bricc\Entity\BriccCardItem;
+use Drupal\bricc\Entity\BriccCategory;
 use Drupal\config_pages\Entity\ConfigPages;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
@@ -448,4 +449,25 @@ function bricc_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = $role_classes;
   }
 
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function bricc_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'bricc_card_item') {
+    $cache_tags = $entity->getCacheTags();
+
+    if ($entity->hasField('field_category')) {
+      if (!$entity->get('field_category')->isEmpty()) {
+        $field_category = $entity->get('field_category')->referencedEntities()[0];
+        if ($field_category instanceof BriccCategory) {
+          $category_cache_tags = $field_category->getCacheTags();
+          $cache_tags = array_merge($category_cache_tags, $cache_tags);
+        }
+      }
+    }
+
+    \Drupal::service('cache_tags.invalidator')->invalidateTags($cache_tags);
+  }
 }
