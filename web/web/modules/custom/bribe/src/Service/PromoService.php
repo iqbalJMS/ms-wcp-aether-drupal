@@ -7,17 +7,11 @@ use GuzzleHttp\Exception\RequestException;
 
 class PromoService
 {
-    /**  
-     * @var \GuzzleHttp\Client  
-     */
-    protected $client;
+    private $remote;
 
-    private $promoServiceUrl;
-
-    public function __construct(Client $client)
+    public function __construct(RemoteService $remote)
     {
-        $this->client = $client;
-        $this->promoServiceUrl = $_ENV['PROMO_SERVICE_URL'];
+        $this->remote = $remote;
     }
 
     public function promoDetail($id)
@@ -56,7 +50,15 @@ class PromoService
             }
         GQL;
 
-        return $query;
+        $setData = array(
+            'data' => array($id),
+            'schema' => $query
+        );
+
+
+        $getDetail = $this->remote->read($setData);
+
+        return $getDetail;
     }
 
     public function promoCreate($data)
@@ -64,23 +66,16 @@ class PromoService
         $mutation = <<<GQL
             mutation {
                 createPromo(createPromoInput: {
-                    categoryIds: "66ffa8cca29b4179f4b3141e"
-                    endDate: "2024-12-31T23:59:59.000Z"
-                    imagePromoUrl:"https://example.com/promo.jpg"
-                    lokasiPromo: [
-                        "New York",
-                        "San Francisco"
-                    ]
-                    micrositeOwnerIds: "66ffa8d0a29b4179f4b31421"
-                    promoTitle: "Promo baru"
-                    startDate: "2024-12-31T23:59:59.000Z"
-                    subCategoryIds: [
-                        "elec1",
-                        "elec2"
-                    ]
-                    termsAndConditions: "Valid for selected items only"
-                    }
-                ) {
+                        categoryIds: "%s"
+                        endDate: "%s"
+                        imagePromoUrl: "%s"
+                        lokasiPromo: [%s]
+                        micrositeOwnerIds: "%s"
+                        promoTitle: "%s"
+                        startDate: "%s"
+                        subCategoryIds: [%s]
+                        termsAndConditions: "%s"
+                    }) {
                     _id
                     category {
                         _id
@@ -104,7 +99,14 @@ class PromoService
             }
         GQL;
 
-        return $mutation;
+        $setData = array(
+            'data' => array($data['nid'], $data['title']),
+            'schema' => $mutation
+        );
+
+        $getCreate = $this->remote->create($setData);
+
+        return $getCreate;
     }
 
     public function promoUpdate($data)
@@ -112,24 +114,17 @@ class PromoService
         $mutation = <<<GQL
             mutation {
                 updatePromo(updatePromoInput: {
-                id: "670e5781e7d1be9e5502c548",
-                categoryIds: "asdasdasdsad"
-                endDate: "2024-12-31T23:59:59.000Z"
-                imagePromoUrl:"https://asdsadasdas///asd/sad/"
-                lokasiPromo: [
-                    "New York",
-                    "San Francisco"
-                ]
-                micrositeOwnerIds: "66ffa8d0a29b4179asdf4b31421"
-                promoTitle: "Promo baru"
-                startDate: "2024-12-31T23:59:59.000Z"
-                subCategoryIds: [
-                    "asdasdsd",
-                    "asdsad"
-                ]
-                termsAndConditions: "Valid for selected items only update error lgasdasd"
-                }
-                ){
+                        id: "%s"
+                        categoryIds: "%s"
+                        endDate: "%s"
+                        imagePromoUrl: "%s"
+                        lokasiPromo: [%s]
+                        micrositeOwnerIds: "%s"
+                        promoTitle: "%s"
+                        startDate: "%s"
+                        subCategoryIds: [%s]
+                        termsAndConditions: "%s"
+                    }) {
                     _id
                     category {
                         _id
@@ -153,7 +148,14 @@ class PromoService
             }
         GQL;
 
-        return $mutation;
+        $setData = array(
+            'data' => array($data['nid'], $data['title']),
+            'schema' => $mutation
+        );
+
+        $getUpdate = $this->remote->update($setData);
+
+        return $getUpdate;
     }
 
     public function promoDelete($id)
@@ -164,6 +166,8 @@ class PromoService
             }
         GQL;
 
-        return $mutation;
+        $getDelete = $this->remote->delete($id);
+
+        return $getDelete;
     }
 }
