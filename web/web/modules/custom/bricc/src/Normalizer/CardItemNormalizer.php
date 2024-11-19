@@ -68,13 +68,12 @@ class CardItemNormalizer extends ContentEntityNormalizer {
           $card_id = $entity->get('field_idcardtype')->value;
         }
 
-        $current_language_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+//        $current_language_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
         // Add query string credit card and language
         $apply_url = Url::fromUri($field_url['uri'], [
           'query' => [
             'card_id' => $card_id,
-            'lang' => $current_language_code,
           ]
         ]);
         $normalized['apply_link'] = [
