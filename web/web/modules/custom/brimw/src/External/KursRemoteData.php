@@ -101,12 +101,15 @@ class KursRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       mutation {
-        postBuyRateCounterCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postBuyRateCounterCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
@@ -117,12 +120,15 @@ class KursRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       mutation {
-        postBuyRateeRateCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postBuyRateeRateCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
@@ -133,12 +139,15 @@ class KursRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       mutation {
-        postSellRateCounterCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postSellRateCounterCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
@@ -149,12 +158,15 @@ class KursRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       mutation {
-        postSellRateeRateCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postSellRateeRateCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
