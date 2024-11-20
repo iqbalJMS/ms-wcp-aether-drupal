@@ -93,7 +93,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['getStock'];
+    return $this->gql($query)['data']['getStock'] ?: [];
   }
 
 
@@ -113,7 +113,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postBuyRateeRateCalculator(Request $request): array
@@ -132,7 +132,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postSellRateCounterCalculator(Request $request): array
@@ -151,7 +151,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postSellRateeRateCalculator(Request $request): array
@@ -170,6 +170,6 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 }
