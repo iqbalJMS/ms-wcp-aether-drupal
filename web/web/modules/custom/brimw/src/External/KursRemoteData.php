@@ -27,7 +27,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    $result = array_column($this->gql($query)['data']['getKurs'], null, 'currency');
+    $result = array_column($this->gql($query)['data']['getKurs'] ?? [], null, 'currency');
     
     $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('currency');
 
