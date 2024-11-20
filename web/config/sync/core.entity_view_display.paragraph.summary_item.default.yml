@@ -1,0 +1,39 @@
+uuid: de0e9f4f-8642-4585-9486-c7af1680939d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.summary_item.field_image
+    - field.field.paragraph.summary_item.field_script
+    - field.field.paragraph.summary_item.field_title
+    - paragraphs.paragraphs_type.summary_item
+id: paragraph.summary_item.default
+targetEntityType: paragraph
+bundle: summary_item
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_script:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

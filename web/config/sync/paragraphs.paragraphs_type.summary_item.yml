@@ -1,0 +1,10 @@
+uuid: 64e05d8e-203d-47cb-bbb7-1a91ccbefc10
+langcode: en
+status: true
+dependencies: {  }
+id: summary_item
+label: 'Summary item'
+icon_uuid: null
+icon_default: null
+description: 'Only used in card item'
+behavior_plugins: {  }

@@ -1,0 +1,22 @@
+uuid: ce85a145-0706-48e4-973f-52e3742d5689
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.bricc_card_item.field_able_to_apply
+  module:
+    - bricc
+id: bricc_card_item.bricc_card_item.field_able_to_apply
+field_name: field_able_to_apply
+entity_type: bricc_card_item
+bundle: bricc_card_item
+label: 'Able to Apply'
+description: 'Allow this credit card to be applied, or to be compared'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

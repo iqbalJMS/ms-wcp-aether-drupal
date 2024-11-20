@@ -1,0 +1,19 @@
+uuid: 7dce423d-4ea2-4d86-b98c-710229e8e87a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_script
+    - paragraphs.paragraphs_type.summary_item
+id: paragraph.summary_item.field_script
+field_name: field_script
+entity_type: paragraph
+bundle: summary_item
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
