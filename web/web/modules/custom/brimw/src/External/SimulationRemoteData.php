@@ -27,7 +27,7 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return array_column($this->gql($query)['data']['getAllInstallmentSchemes'], 'name', 'type') ?: [];
+    return array_column($this->gql($query)['data']['getAllInstallmentSchemes'] ?? [], 'name', 'type') ?: [];
   }
 
   public function getMasterData($scheme = 'all'): array
