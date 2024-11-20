@@ -71,15 +71,25 @@ class CardItemNormalizer extends ContentEntityNormalizer {
 //        $current_language_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
         // Add query string credit card and language
-        $apply_url = Url::fromUri($field_url['uri'], [
-          'query' => [
-            'card_id' => $card_id,
-          ]
-        ]);
-        $normalized['apply_link'] = [
-          'path' => $apply_url->toString(),
-          'title' => $field_url['title'],
-        ];
+        $able_to_apply = FALSE;
+        if ($entity->hasField('field_able_to_apply')) {
+          if (!$entity->get('field_able_to_apply')->isEmpty()) {
+            $able_to_apply = (boolean) $entity->get('field_able_to_apply')->value;
+          }
+        }
+        $normalized['able_to_apply'] = $able_to_apply;
+
+        if ($able_to_apply) {
+          $apply_url = Url::fromUri($field_url['uri'], [
+            'query' => [
+              'card_id' => $card_id,
+            ]
+          ]);
+          $normalized['apply_link'] = [
+            'path' => $apply_url->toString(),
+            'title' => $field_url['title'],
+          ];
+        }
 
         // Selengkapnya
         $nodes = $this->em->getStorage('node')->loadByProperties([
