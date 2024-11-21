@@ -23,6 +23,7 @@ class KursRemoteData extends BaseRemoteData
           isShow
           sellRateCounter
           sellRateERate
+          timeUpdated
         }
       }
     GRAPHQL;
