@@ -133,7 +133,7 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('MID'),
       '#default_value' => $data['data']['mid'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['name'] = [
@@ -175,7 +175,7 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('ZIP code'),
       '#default_value' => $data['zip'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['address'] = [
@@ -189,14 +189,14 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Phone'),
       '#default_value' => $data['data']['phone'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['service'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Service'),
       '#default_value' => $data['data']['service'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $type_options = $this->locationRemoteData->getTypeOptions();
@@ -214,7 +214,7 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('Category'),
       '#default_value' => $data['data']['category'],
       '#options' => ['' => '-None -'] + $category_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['lat'] = [
@@ -271,6 +271,25 @@ final class LocationForm extends FormBase {
     $values = $form_state->getValues();
     if (!isset($values['tid'])) {
       $values['tid'] = '';
+    }
+    $empty_string_value = [
+      'mid',
+      'tid',
+      'category',
+      'service',
+      'phone',
+      'zip',
+    ];
+    foreach ($empty_string_value as $formkey) {
+      if (!isset($values[$formkey])) {
+        $values[$formkey] = "";
+      }
+    }
+
+    $values['url_maps'] = '';
+    if (isset($values['lat']) && isset($values['long'])) {
+      // Format: https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
+      $values['url_maps'] = 'https://www.google.com/maps/search/?api=1&query=' . $values['lat'] . '&' . $values['long'];
     }
 
     if ($this->locationId) {
