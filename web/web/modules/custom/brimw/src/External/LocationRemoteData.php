@@ -511,6 +511,7 @@ class LocationRemoteData extends BaseRemoteData {
               service: "$service"
               tid: "$tid"
               tipe: "$type"
+              urlMaps: "$url_maps"
             }
           }
         )
