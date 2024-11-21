@@ -175,7 +175,7 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('City'),
       '#default_value' => $data['city'],
       '#options' => ['' => '-None -'] + $city_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['zip'] = [
@@ -286,6 +286,9 @@ final class LocationForm extends FormBase {
       'service',
       'phone',
       'zip',
+      'lat',
+      'long',
+      'id_city',
     ];
     foreach ($empty_string_value as $formkey) {
       if (!isset($values[$formkey])) {
