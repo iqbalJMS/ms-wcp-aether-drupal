@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 
 /**
- * @todo Add class description.
+ * Location service for data in Drupal
  */
 final class Location {
 
