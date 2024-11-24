@@ -1,0 +1,41 @@
+uuid: 0592c7fb-ecb4-46c9-9473-a44fbdfbe8ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_info.field_paragraphs
+    - field.field.paragraph.contact_info.field_script
+    - field.field.paragraph.contact_info.field_title
+    - paragraphs.paragraphs_type.contact_info
+  module:
+    - entity_reference_revisions
+id: paragraph.contact_info.default
+targetEntityType: paragraph
+bundle: contact_info
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_script:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }
