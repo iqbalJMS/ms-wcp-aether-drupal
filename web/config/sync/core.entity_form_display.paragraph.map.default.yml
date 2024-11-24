@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.map.field_bri_location
     - field.field.paragraph.map.field_image
+    - field.field.paragraph.map.field_primary_cta
     - paragraphs.paragraphs_type.map
   module:
     - brimw
+    - link
     - media_library
 id: paragraph.map.default
 targetEntityType: paragraph
@@ -16,16 +18,24 @@ mode: default
 content:
   field_bri_location:
     type: brimw_bri_location_widget
-    weight: 2
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 4
+    weight: 1
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_primary_cta:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true

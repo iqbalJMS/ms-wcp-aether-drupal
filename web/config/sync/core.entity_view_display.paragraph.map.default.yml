@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.map.field_bri_location
     - field.field.paragraph.map.field_image
+    - field.field.paragraph.map.field_primary_cta
     - paragraphs.paragraphs_type.map
   module:
     - brimw
+    - link
 id: paragraph.map.default
 targetEntityType: paragraph
 bundle: map
@@ -28,5 +30,17 @@ content:
       link: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden: {  }
