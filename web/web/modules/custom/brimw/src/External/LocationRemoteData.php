@@ -34,11 +34,9 @@ class LocationRemoteData extends BaseRemoteData {
         }) {
           data {
             id
-            mid
             name
             address
             phone
-            service
             category
             tipe
             lat
@@ -304,24 +302,18 @@ class LocationRemoteData extends BaseRemoteData {
 
     $query = <<< GRAPHQL
       mutation {
-        createLocation(data: {
+        createLocation(input: {
           name: "$name"
           address: "$address"
           lat: $lat
           long: $long
-          area: {
-            id_city: "$id_city"
-            id_province: "$id_province"
-            zip: "$zip"
-          }
+          province: "$id_province"
+          city: "$id_city"
+          zip: "$zip"
           data: {
             category: "$category"
-            mid: "$mid"
             phone: "$phone"
-            service: "$service"
-            tid: "$tid"
             tipe: "$tipe"
-            urlMaps: "$url_maps"
           }
         }) {
           id
