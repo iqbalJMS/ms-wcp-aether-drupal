@@ -22,6 +22,11 @@ configuration:
       - json
     supported_auth:
       - basic_auth
+  DELETE:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
   PATCH:
     supported_formats:
       - json
