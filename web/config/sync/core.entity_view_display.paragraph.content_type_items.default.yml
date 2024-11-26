@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.content_type_items.field_content
     - field.field.paragraph.content_type_items.field_title
+    - field.field.paragraph.content_type_items.field_web_variant_styles
     - paragraphs.paragraphs_type.content_type_items
   module:
     - text
@@ -27,5 +28,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_web_variant_styles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: content
 hidden: {  }

@@ -10,7 +10,7 @@ promo_tab.promo_category:
   base_route: bribe.promo
 promo_tab.promo_sub_category:  
   title: 'Sub Category'  
-  route_name: 'bribe.promo_subcategory' 
+  route_name: 'bribe.promo_sub_category' 
   weight: 12
   base_route: bribe.promo
 promo_tab.promo_location:  
@@ -20,6 +20,11 @@ promo_tab.promo_location:
   base_route: bribe.promo
 promo_tab.promo_microsite:  
   title: 'Microsite'  
-  route_name: 'bribe.promo_microsite' 
+  route_name: 'bribe.promo_microsite_owner' 
   weight: 14
+  base_route: bribe.promo
+promo_tab.promo_product:  
+  title: 'Product Type'  
+  route_name: 'bribe.promo_product' 
+  weight: 15
   base_route: bribe.promo

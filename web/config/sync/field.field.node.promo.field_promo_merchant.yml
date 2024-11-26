@@ -1,0 +1,19 @@
+uuid: f8c2d4d3-1d2c-474d-b86e-92b47367731d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promo_merchant
+    - node.type.promo
+id: node.promo.field_promo_merchant
+field_name: field_promo_merchant
+entity_type: node
+bundle: promo
+label: 'Promo Merchant'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

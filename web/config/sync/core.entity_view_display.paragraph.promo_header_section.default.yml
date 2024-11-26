@@ -1,0 +1,36 @@
+uuid: d410c52f-8cde-44f7-b394-f0834dc33089
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.promo_header_section.field_primary_cta
+    - field.field.paragraph.promo_header_section.field_title
+    - paragraphs.paragraphs_type.promo_header_section
+  module:
+    - link
+id: paragraph.promo_header_section.default
+targetEntityType: paragraph
+bundle: promo_header_section
+mode: default
+content:
+  field_primary_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

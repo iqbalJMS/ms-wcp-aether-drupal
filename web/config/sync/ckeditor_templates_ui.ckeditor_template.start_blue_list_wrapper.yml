@@ -1,0 +1,12 @@
+uuid: c2597ba2-5185-45e6-bcdf-c44c5ea2cf78
+langcode: en
+status: true
+dependencies: {  }
+id: start_blue_list_wrapper
+label: 'Start Blue List Wrapper'
+icon: 'public://ckeditor-templates/start-list.png'
+description: ''
+html:
+  value: '<div class="list-star-blue-wrapper"><ul><li>Add Text</li></ul></div>'
+  format: full_template
+weight: 3

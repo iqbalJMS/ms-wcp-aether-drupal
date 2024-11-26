@@ -3,13 +3,22 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.promo_location.field_location_coordinate
     - field.field.node.promo_location.field_location_id
     - node.type.promo_location
+  module:
+    - geolocation
 id: node.promo_location.default
 targetEntityType: node
 bundle: promo_location
 mode: default
 content:
+  field_location_coordinate:
+    type: geolocation_latlng
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_location_id:
     type: string_textfield
     weight: 2
@@ -20,7 +29,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 1
+    weight: 3
     region: content
     settings:
       display_label: true

@@ -33,7 +33,7 @@ class PromoCategoryService
             'schema' => $query
         );
 
-        $getList = $this->remote->list($setData);
+        $getList = $this->remote->request($setData);
 
         return $getList;
     }
@@ -58,7 +58,7 @@ class PromoCategoryService
             'schema' => $query
         );
 
-        $getDetail = $this->remote->list($setData);
+        $getDetail = $this->remote->request($setData);
 
         return $getDetail;
     }
@@ -67,17 +67,10 @@ class PromoCategoryService
     {
         $mutation = <<<GQL
         mutation {
-            createCategory(input: {
+            createCategory(createCategoryInput:{
                 name: "%s"
-                subCategoryIds: [%s]
-            }) {
-                id
-                name
-                subCategories {
-                    id
-                    name
-                }
-            }
+                subCategoryIds: %s
+            }) { id }
         }
         GQL;
 
@@ -86,7 +79,7 @@ class PromoCategoryService
             'schema' => $mutation
         );
 
-        $getCreate = $this->remote->create($setData);
+        $getCreate = $this->remote->request($setData);
 
         return $getCreate;
     }
@@ -98,15 +91,8 @@ class PromoCategoryService
             updateCategory(input: {
                 _id: "%s"
                 name: "%s"
-                subCategoryIds: [%s]
-            }) {
-                _id
-                name
-                subCategories {
-                    _id
-                    name
-                }
-            }
+                subCategoryIds: %s
+            }) { _id }
         }
         GQL;
         $setData = array(
@@ -114,24 +100,24 @@ class PromoCategoryService
             'schema' => $mutation
         );
 
-        $getUpdate = $this->remote->update($setData);
+        $getUpdate = $this->remote->request($setData);
 
         return $getUpdate;
     }
 
-    public function promoCategoryDelete($id)
+    public function promoCategoryDelete($data)
     {
         $mutation = $mutation = <<<GQL
         mutation {
-            deleteCategory(id: $id)
+            deleteCategory(id: "%s")
         }
         GQL;
         $setData = array(
-            'data' => $id,
+            'data' => $data,
             'schema' => $mutation
         );
 
-        $getDelete = $this->remote->delete($setData);
+        $getDelete = $this->remote->request($setData);
 
         return $getDelete;
     }

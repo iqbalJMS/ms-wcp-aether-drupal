@@ -1,0 +1,61 @@
+uuid: f0e40b8a-a8b8-4ed1-b593-80f7d8022a56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.promo_widget.field_primary_cta
+    - field.field.paragraph.promo_widget.field_promo_widget_reference
+    - field.field.paragraph.promo_widget.field_subtitle
+    - field.field.paragraph.promo_widget.field_title
+    - field.field.paragraph.promo_widget.field_web_variant_styles
+    - paragraphs.paragraphs_type.promo_widget
+  module:
+    - link
+id: paragraph.promo_widget.default
+targetEntityType: paragraph
+bundle: promo_widget
+mode: default
+content:
+  field_primary_cta:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_promo_widget_reference:
+    type: entity_reference_autocomplete_tags
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: 'Search with microsite name'
+    third_party_settings: {  }
+  field_subtitle:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 160
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 160
+      placeholder: ''
+    third_party_settings: {  }
+  field_web_variant_styles:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

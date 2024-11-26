@@ -1,117 +1,116 @@
 <?php
 
-namespace Drupal\bribe\Service;  
-  
-  
-class PromoMicrositeService 
-{  
+namespace Drupal\bribe\Service;
 
-  private $remote;
 
-  public function __construct(RemoteService $remote)
-  {
-      $this->remote = $remote;
-  }
-  
-  public function promoMicrositeList() {
-    $list = <<<GQL
-        query {
-            getMicrositeOwners{
-            _id
-            name
-        }
-        }
-    GQL;
-    
-    $setData = array(
-        'data' => '',
-        'schema' => $list
-    );
+class PromoMicrositeService
+{
 
-    $getList = $this->remote->list($setData);
+    private $remote;
 
-    return $getList;
-  }
-  public function promoMicrositeDetail($id) {
-    $detail = <<<GQL
-        query {
-            getMicrositeOwner(id:"%s"){
+    public function __construct(RemoteService $remote)
+    {
+        $this->remote = $remote;
+    }
+
+    public function promoMicrositeList()
+    {
+        $list = <<<GQL
+            query {
+                getMicrositeOwners{
                 _id
                 name
+                }
             }
-        }
-    GQL;
+        GQL;
 
-    $setData = array(
-        'data' => $id,
-        'schema' => $detail
-    );
+        $setData = array(
+            'data' => '',
+            'schema' => $list
+        );
 
-    $getDetail = $this->remote->read($setData);
+        $getList = $this->remote->request($setData);
 
-    return $getDetail;
-  }
-
-  public function promoMicrositeCreate($data) {
-    $mutation = <<<GQL
-        mutation {
-            createMicrositeOwner(createMicrositeOwnerInput: {
-                name: "Microsite 04"
-            }) {
-                _id
-                name
+        return $getList;
+    }
+    public function promoMicrositeDetail($data)
+    {
+        $detail = <<<GQL
+            query {
+                getMicrositeOwner(id:"%s"){
+                    _id
+                    name
+                }
             }
-        }
-    GQL;
+        GQL;
 
-    $setData = array(
-        'data' => $data,
-        'schema' => $mutation
-    );
+        $setData = array(
+            'data' => $data,
+            'schema' => $detail
+        );
 
-    $getCreate = $this->remote->create($setData);
+        $getDetail = $this->remote->request($setData);
 
-    return $getCreate;
-  }
+        return $getDetail;
+    }
 
-  public function promoMicrositeUpdate($data) {
-    $mutation = <<<GQL
-        mutation {
-            updateMicrositeOwner(updateMicrositeOwnerInput: {
-                _id: "%s"
-                name: "%s"
-            }) {
-                _id
-                name
+    public function promoMicrositeCreate($data)
+    {
+        $mutation = <<<GQL
+            mutation {
+                createMicrositeOwner(createMicrositeOwnerInput: {
+                    name: "%s"
+                }) { _id }
             }
-        }
-    GQL;
+        GQL;
 
-    $setData = array(
-        'data' => $data,
-        'schema' => $mutation
-    );
+        $setData = array(
+            'data' => $data,
+            'schema' => $mutation
+        );
 
-    $getUpdate = $this->remote->update($setData);
-    
-    return $getUpdate;
-  }
+        $getCreate = $this->remote->request($setData);
 
-  public function promoMicrositeDelete($id) {
-    $mutation = <<<GQL
-        mutation {
-            deleteMicrositeOwner(id: "%s")
-        }
-    GQL;
+        return $getCreate;
+    }
 
-    $setData = array(
-        'data' => $id,
-        'schema' => $mutation
-    );
+    public function promoMicrositeUpdate($data)
+    {
+        $mutation = <<<GQL
+            mutation {
+                updateMicrositeOwner(updateMicrositeOwnerInput: {
+                    _id: "%s"
+                    name: "%s"
+                }) { _id }
+            }
+        GQL;
 
-    $getDelete = $this->remote->delete($setData);
+        $setData = array(
+            'data' => $data,
+            'schema' => $mutation
+        );
 
-    return $getDelete;
-  }
+        $getUpdate = $this->remote->request($setData);
+
+        return $getUpdate;
+    }
+
+    public function promoMicrositeDelete($data)
+    {
+        $mutation = <<<GQL
+            mutation {
+                deleteMicrositeOwner(id: "%s")
+            }
+        GQL;
+
+        $setData = array(
+            'data' => $data,
+            'schema' => $mutation
+        );
+
+        $getDelete = $this->remote->request($setData);
+
+        return $getDelete;
+    }
 
 }

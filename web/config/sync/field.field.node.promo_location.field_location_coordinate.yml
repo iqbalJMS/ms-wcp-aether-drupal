@@ -1,0 +1,21 @@
+uuid: 15d140e7-97f0-4c6a-bd68-f36e8a599a95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_coordinate
+    - node.type.promo_location
+  module:
+    - geolocation
+id: node.promo_location.field_location_coordinate
+field_name: field_location_coordinate
+entity_type: node
+bundle: promo_location
+label: 'Location Coordinate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

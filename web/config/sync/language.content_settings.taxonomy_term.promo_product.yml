@@ -1,0 +1,11 @@
+uuid: 763f149c-da01-4c63-880e-6482e9c046fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.promo_product
+id: taxonomy_term.promo_product
+target_entity_type_id: taxonomy_term
+target_bundle: promo_product
+default_langcode: und
+language_alterable: false

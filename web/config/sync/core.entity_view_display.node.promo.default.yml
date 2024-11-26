@@ -3,12 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.promo.field_hot_offers
     - field.field.node.promo.field_promo_category
     - field.field.node.promo.field_promo_end_date
     - field.field.node.promo.field_promo_id
     - field.field.node.promo.field_promo_image
     - field.field.node.promo.field_promo_location
+    - field.field.node.promo.field_promo_merchant
     - field.field.node.promo.field_promo_microsite_owner
+    - field.field.node.promo.field_promo_product_type
     - field.field.node.promo.field_promo_start_date
     - field.field.node.promo.field_promo_sub_category
     - field.field.node.promo.field_term_and_condition
@@ -22,6 +25,16 @@ targetEntityType: node
 bundle: promo
 mode: default
 content:
+  field_hot_offers:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 110
+    region: content
   field_promo_category:
     type: entity_reference_label
     label: above
@@ -64,6 +77,13 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
+  field_promo_merchant:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
   field_promo_microsite_owner:
     type: entity_reference_label
     label: above
@@ -71,6 +91,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_promo_product_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
     region: content
   field_promo_start_date:
     type: datetime_default

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_content
-    - filter.format.full_html
     - filter.format.full_template
     - paragraphs.paragraphs_type.content_type_items
   module:
@@ -21,6 +20,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   allowed_formats:
-    - full_html
     - full_template
 field_type: text_long

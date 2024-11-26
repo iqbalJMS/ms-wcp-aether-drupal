@@ -1,0 +1,9 @@
+uuid: ee8478a7-bcfb-40aa-96dd-be61d3c8a4b6
+langcode: und
+status: true
+dependencies: {  }
+name: 'Promo Product'
+vid: promo_product
+description: 'Promo Product'
+weight: 0
+new_revision: false

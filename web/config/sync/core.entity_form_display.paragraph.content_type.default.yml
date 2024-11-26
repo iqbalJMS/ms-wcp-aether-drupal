@@ -4,13 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.content_type.field_content_type
+    - field.field.paragraph.content_type.field_reference_content
     - paragraphs.paragraphs_type.content_type
 id: paragraph.content_type.default
 targetEntityType: paragraph
 bundle: content_type
 mode: default
 content:
-  field_content_type:
+  field_reference_content:
     type: entity_reference_autocomplete
     weight: 0
     region: content
@@ -22,4 +23,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_content_type: true
   status: true

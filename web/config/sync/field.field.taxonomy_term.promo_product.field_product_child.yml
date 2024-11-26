@@ -1,0 +1,28 @@
+uuid: d7516af9-a110-4a15-b82b-5ef9e6f7a2da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_product_child
+    - taxonomy.vocabulary.promo_product
+id: taxonomy_term.promo_product.field_product_child
+field_name: field_product_child
+entity_type: taxonomy_term
+bundle: promo_product
+label: 'Product Child'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      promo_product: promo_product
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

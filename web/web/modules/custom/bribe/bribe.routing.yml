@@ -10,7 +10,7 @@ bribe.promo_category:
     _title: 'Promo Category'
   requirements:
     _permission: 'access promo crud'
-bribe.promo_subcategory:
+bribe.promo_sub_category:
   path: '/admin/promo/sub-category'
   defaults:
     _title: 'Promo Sub Category'
@@ -22,9 +22,15 @@ bribe.promo_location:
     _title: 'Promo Location'
   requirements:
     _permission: 'access promo crud'
-bribe.promo_microsite:
+bribe.promo_microsite_owner:
   path: '/admin/promo/microsite'
   defaults:
     _title: 'Promo Microsite'
+  requirements:
+    _permission: 'access promo crud'
+bribe.promo_product:
+  path: '/admin/promo/product'
+  defaults:
+    _title: 'Promo Product Type'
   requirements:
     _permission: 'access promo crud'

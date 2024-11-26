@@ -4,12 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.promo.field_hot_offers
     - field.field.node.promo.field_promo_category
     - field.field.node.promo.field_promo_end_date
     - field.field.node.promo.field_promo_id
     - field.field.node.promo.field_promo_image
     - field.field.node.promo.field_promo_location
+    - field.field.node.promo.field_promo_merchant
     - field.field.node.promo.field_promo_microsite_owner
+    - field.field.node.promo.field_promo_product_type
     - field.field.node.promo.field_promo_start_date
     - field.field.node.promo.field_promo_sub_category
     - field.field.node.promo.field_term_and_condition
@@ -27,12 +30,15 @@ content:
     weight: 100
     region: content
 hidden:
+  field_hot_offers: true
   field_promo_category: true
   field_promo_end_date: true
   field_promo_id: true
   field_promo_image: true
   field_promo_location: true
+  field_promo_merchant: true
   field_promo_microsite_owner: true
+  field_promo_product_type: true
   field_promo_start_date: true
   field_promo_sub_category: true
   field_term_and_condition: true

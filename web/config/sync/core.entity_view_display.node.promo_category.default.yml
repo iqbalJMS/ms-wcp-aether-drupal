@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.promo_category.field_category_id
+    - field.field.node.promo_category.field_icon
     - field.field.node.promo_category.field_promo_sub_category
     - node.type.promo_category
   module:
@@ -20,6 +21,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_icon:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_promo_sub_category:
     type: entity_reference_label

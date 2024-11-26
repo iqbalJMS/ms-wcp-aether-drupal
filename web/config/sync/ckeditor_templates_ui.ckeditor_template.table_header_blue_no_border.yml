@@ -1,0 +1,12 @@
+uuid: 181e153c-c901-4753-90bd-7021c580e5ef
+langcode: en
+status: true
+dependencies: {  }
+id: table_header_blue_no_border
+label: 'Table Header Blue No Border'
+icon: 'public://ckeditor-templates/table-icon.png'
+description: ''
+html:
+  value: '<table class="table-blue-no-border" style="width:500px;" align="center" border="1" cellpadding="1" cellspacing="1"><thead><tr><th scope="col">Add Header</th><th scope="col">Add Header</th><th scope="col">Add Header</th></tr><tr><th>Add Text</th><th>Add Text</th><th>Add Text</th></tr></thead></table>'
+  format: full_template
+weight: 4

@@ -1,0 +1,29 @@
+uuid: b14345d9-dd05-4fc7-a8b4-262cf2ebd5f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_web_variant_styles
+    - node.type.web_variant_styles
+    - paragraphs.paragraphs_type.content_type_items
+id: paragraph.content_type_items.field_web_variant_styles
+field_name: field_web_variant_styles
+entity_type: paragraph
+bundle: content_type_items
+label: 'Variant Styles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      web_variant_styles: web_variant_styles
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

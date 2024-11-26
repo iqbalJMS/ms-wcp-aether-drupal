@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.promo_location.field_location_coordinate
     - field.field.node.promo_location.field_location_id
     - node.type.promo_location
   module:
@@ -19,5 +20,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_location_coordinate: true
   field_location_id: true
   langcode: true

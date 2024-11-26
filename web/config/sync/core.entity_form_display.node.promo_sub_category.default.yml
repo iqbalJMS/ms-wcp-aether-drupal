@@ -10,6 +10,14 @@ targetEntityType: node
 bundle: promo_sub_category
 mode: default
 content:
+  field_subcategory_id:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 1
@@ -27,7 +35,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_subcategory_id: true
   langcode: true
   path: true
   promote: true

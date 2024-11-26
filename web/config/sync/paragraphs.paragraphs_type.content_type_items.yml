@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: content_type_items
-label: 'Content Type Item (s)'
+label: 'Content Item (s)'
 icon_uuid: null
 icon_default: null
 description: ''

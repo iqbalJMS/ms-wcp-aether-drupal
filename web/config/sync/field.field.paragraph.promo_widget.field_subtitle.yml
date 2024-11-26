@@ -1,0 +1,19 @@
+uuid: 783ae53e-76ff-4fa9-acdc-79e8afc2abfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.promo_widget
+id: paragraph.promo_widget.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: promo_widget
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
