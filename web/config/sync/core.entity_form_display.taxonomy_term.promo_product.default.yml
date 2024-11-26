@@ -1,0 +1,54 @@
+uuid: 36afbf3a-6166-44c0-9c00-169c7861ce60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.promo_product.field_is_parent
+    - field.field.taxonomy_term.promo_product.field_product_child
+    - taxonomy.vocabulary.promo_product
+  module:
+    - cshs
+id: taxonomy_term.promo_product.default
+targetEntityType: taxonomy_term
+bundle: promo_product
+mode: default
+content:
+  field_is_parent:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_product_child:
+    type: cshs
+    weight: 2
+    region: content
+    settings:
+      save_lineage: false
+      force_deepest: false
+      parent: null
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true

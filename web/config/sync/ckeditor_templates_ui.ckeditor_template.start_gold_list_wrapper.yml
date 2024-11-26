@@ -1,0 +1,12 @@
+uuid: 77aa2b30-eacf-45e0-b32e-4c62d1e64eb9
+langcode: en
+status: true
+dependencies: {  }
+id: start_gold_list_wrapper
+label: 'Start Gold List Wrapper'
+icon: 'public://ckeditor-templates/start-list_0.png'
+description: ''
+html:
+  value: '<div class="list-star-gold-wrapper"><ul><li>Add Text</li></ul></div>'
+  format: full_template
+weight: 1

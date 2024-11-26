@@ -1,0 +1,25 @@
+uuid: a1875545-f94c-46c6-b12e-8f4e53dc3529
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_promo_widget_reference
+    - paragraphs.paragraphs_type.promo_widget
+id: paragraph.promo_widget.field_promo_widget_reference
+field_name: field_promo_widget_reference
+entity_type: paragraph
+bundle: promo_widget
+label: 'Promo Widget Reference'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: promo_widget
+      display_name: er_promo_widget
+      arguments: {  }
+field_type: entity_reference

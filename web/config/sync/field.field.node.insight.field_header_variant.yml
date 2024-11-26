@@ -1,0 +1,23 @@
+uuid: 1b76ba79-da25-4ce4-8fe4-7479f7d1245e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_header_variant
+    - node.type.insight
+  module:
+    - options
+id: node.insight.field_header_variant
+field_name: field_header_variant
+entity_type: node
+bundle: insight
+label: 'Header variant'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: normal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

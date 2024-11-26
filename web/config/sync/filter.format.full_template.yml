@@ -35,7 +35,7 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<a class="button button--primary">'
+      allowed_html: '<a class="button button--primary"> <ul class="list star gold start blue">'
       filter_html_help: true
       filter_html_nofollow: false
   media_embed:

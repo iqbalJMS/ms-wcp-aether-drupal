@@ -1,0 +1,42 @@
+uuid: 511e29a8-b104-4080-96f0-56d2f8e28dbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.promo_product.field_is_parent
+    - field.field.taxonomy_term.promo_product.field_product_child
+    - taxonomy.vocabulary.promo_product
+  module:
+    - text
+id: taxonomy_term.promo_product.default
+targetEntityType: taxonomy_term
+bundle: promo_product
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_is_parent:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_product_child:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

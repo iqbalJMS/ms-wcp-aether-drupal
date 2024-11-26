@@ -1,0 +1,23 @@
+uuid: 1fe978d9-9fc9-4398-8c77-1611bafda90c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_is_parent
+    - taxonomy.vocabulary.promo_product
+id: taxonomy_term.promo_product.field_is_parent
+field_name: field_is_parent
+entity_type: taxonomy_term
+bundle: promo_product
+label: 'Is Parent'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

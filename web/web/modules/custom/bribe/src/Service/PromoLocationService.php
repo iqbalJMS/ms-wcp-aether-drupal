@@ -43,22 +43,18 @@ class PromoLocationService
     $mutation = <<<GQL
         mutation{
             createLocation(input: {
-              locationAddress: "%s"
               locationName: "%s"
-            }){
-            _id
-            locationAddress
-            locationName
-          }
+              locationAddress: "%s"
+            }){ _id }
         }
     GQL;
 
     $setData = array(
-        'data' => array($data['name'], $data['address']),
-        'schema' => $mutation
-    );
+      'data' => $data,
+      'schema' => $mutation
+  );
 
-    $getCreate = $this->remote->create($setData);
+    $getCreate = $this->remote->request($setData);
 
     return $getCreate;
   }
@@ -68,27 +64,23 @@ class PromoLocationService
         mutation {
             updateLocation(input: {
               id: "%s"
-              locationAddress: "%s"
               locationName: "%s"
-            }) {
-            _id
-            locationAddress
-            locationName
-          }
+              locationAddress: "%s"
+            }) { _id }
         }
     GQL;
 
     $setData = array(
-        'data' => array($data['id'], $data['name'], $data['address']),
-        'schema' => $mutation
-    );
+      'data' => $data,
+      'schema' => $mutation
+  );
 
-    $getUpdate = $this->remote->update($setData);
+    $getUpdate = $this->remote->request($setData);
 
     return $getUpdate;
   }
 
-  public function promoLocationDelete($id) {
+  public function promoLocationDelete($data) {
     $mutation = <<<GQL
         mutation {
             deleteLocation(id: "%s")
@@ -96,11 +88,11 @@ class PromoLocationService
     GQL;
 
     $setData = array(
-      'data' => array($id),
+      'data' => $data,
       'schema' => $mutation
   );
 
-    $getDelete = $this->remote->delete($id);
+    $getDelete = $this->remote->request($setData);
 
     return $getDelete;
   }

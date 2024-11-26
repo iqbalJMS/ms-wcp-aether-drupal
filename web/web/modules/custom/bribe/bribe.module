@@ -6,6 +6,12 @@
  */
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use \Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Entity\EntityFieldManagerInterface;  
+use Drupal\Core\Entity\EntityTypeManagerInterface; 
 
 use Drupal\bribe\Controller\PromoSubCategoryController;
 use Drupal\bribe\Controller\PromoCategoryController;
@@ -13,135 +19,127 @@ use Drupal\bribe\Controller\PromoController;
 use Drupal\bribe\Controller\PromoLocationController;
 use Drupal\bribe\Controller\PromoMicrositeController;
 
-use Drupal\Core\Form\FormStateInterface;
-
-// function bribe_theme($existing, $type, $theme, $path)
-// {
-//     \Drupal::logger('bribe')->debug('hook_theme called');
-//     return [
-//         'promo' => [
-//             'variables' => ['data' => NULL],
-//         ],
-//         'default' => [
-//             'variables' => ['data' => NULL],
-//         ]
-//     ];
-// }
 
 function bribe_page_attachments(array &$attachments)
 {
     $attachments['#attached']['library'][] = 'bribe/promo';
 }
-function bribe_menu_active_trail_alter(array &$active_trail, $menu_name, RouteMatchInterface $route_match)
+
+function bribe_node_presave(Node $node)
 {
-    // Check if we are on the add promo page.
-    if ($route_match->getRouteName() === 'node.add' && $route_match->getParameter('node_type') === 'promo') {
-        // Add the promo menu link to the active trail.
-        $active_trail[] = 'admin/promo';
+    $getRoute = $node->getType();
+
+    $getValidation = bribeValidation($node);
+
+    if (is_string($getValidation)) {
+        \Drupal::messenger()->addError('An error occurred while save data: ' . $getValidation);
+
+        $url = \Drupal\Core\Url::fromRoute('bribe.' . $getRoute);
+        $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url->toString());
+        $response->send();
+        exit;
     }
 }
 
-// function bribe_entity_presave(EntityInterface $entity)
-// {   
-//     switch ($entity->getEntityTypeId()) {
-//         case 'node':
-//                 switch ($entity->bundle()) {
-//                     case 'promo':
-//                             $promo = new PromoController(\Drupal::service('bribe.promo'));
-//                             if($entity->isNew()) {
-//                                 $promo->remoteCreate($entity);
-//                             } else {
-//                                 $promo->remoteUpdate($entity);
-//                             }
-//                         break;
-//                     case 'promo_category':
-//                             $promoCategory = new PromoCategoryController(\Drupal::service('bribe.promo.category'));
-//                             if($entity->isNew()) {
-//                                 $promoCategory->remoteCreate($entity);
-//                             } else {
-//                                 $promoCategory->remoteUpdate($entity);
-//                             }
-//                             break;
-//                     case 'promo_sub_category':
-//                             $promoSubCategory = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
-//                             if($entity->isNew()) {
-//                                 $promoSubCategory->remoteCreate($entity);
-//                             } else {
-//                                 $promoSubCategory->remoteUpdate($entity);
-//                             }
-//                         break;
-//                     case 'promo_location':
-//                             $promoSubCategory = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
-//                             if($entity->isNew()) {
-//                                 $promoSubCategory->remoteCreate($entity);
-//                             } else {
-//                                 $promoSubCategory->remoteUpdate($entity);
-//                             }
-//                         break;
-//                     case 'promo_microsite_owner':
-//                             $promoMicrosite = new PromoMicrositeController(\Drupal::service('bribe.promo.microsite'));
-//                             if($entity->isNew()) {
-//                                 $promoMicrosite->remoteCreate($entity);
-//                                 \Drupal::messenger()->addError("Dipaksa Error Create");
-//                                 throw new \Drupal\Core\Entity\EntityStorageException('Save operation aborted due to validation errors.');
-//                                 try {
-//                                     //code...
-//                                 } catch (\Throwable $th) {
-//                                     //throw $th;
-//                                 }
-//                             } else {
-//                                 $promoMicrosite->remoteCreate($entity);
-//                                 \Drupal::messenger()->addError("Dipaksa Error Create");
-//                             }
-//                         break;
-//                 }
-//             break;
-//     }
-// }
+function bribe_node_delete($node)
+{
 
-// function bribe_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-//     // var_dump($form_id);
-//     // $form['#validate'][] = 'bribe_promo_validation';
+    $getDeleteRoute = $node->getType();
 
-//     switch ($form_id) {
-//         case 'node_promo_form':
-//             # code...
-//             break;
-//         case 'node_promo_edit_form':
-//             # code...
-//             break;
-//         case 'node_promo_microsite_owner_form':
-//             # code...
-//             break;
-//         case 'node_promo_microsite_owner_edit_form':
-//             # code...
-//             break;
-//         case 'node_promo_location_form':
-//             # code...
-//             break;
-//         case 'node_promo_location_edit_form':
-//             # code...
-//             break;
-//         case 'node_promo_sub_category_form':
-//             # code...
-//             break;
-//         case 'node_promo_sub_category_edit_form':
-//             # code...
-//             break;
-//         case 'node_promo_category_form':
-//             # code...
-//             break;
-//         case 'node_promo_category_edit_form':
-//             # code...
-//             break;
-//         default:
-//             # code...
-//             break;
-//     }
-// }
+    switch ($getDeleteRoute) {
+        case 'promo':
+            $remote = new PromoController(\Drupal::service('bribe.promo'));
+            $idPromo = $node->get('field_promo_id')->value;
+            $response = $remote->remoteDelete($idPromo);
+            break;
+        case 'promo_category':
+            $remote = new PromoCategoryController(\Drupal::service('bribe.promo.category'));
+            $idCategory = $node->get('field_category_id')->value;
+            $response = $remote->remoteDelete($idCategory);
+            break;
+        case 'promo_sub_category':
+            $idSub = $node->get('field_subcategory_id')->value;
+            $remote = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
+            $response = $remote->remoteDelete($idSub);
+            break;
+        case 'promo_location':
+            $idLocation = $node->get('field_location_id')->value;
+            $remote = new PromoLocationController(\Drupal::service('bribe.promo.location'));
+            $response = $remote->remoteDelete($idLocation);
+            break;
+        case 'promo_microsite_owner':
+            $idMicrosite = $node->get('field_microsite_id')->value;
+            $remote = new PromoMicrositeController(\Drupal::service('bribe.promo.microsite'));
+            $response = $remote->remoteDelete($idMicrosite);
+            break;
+    }
+    if (is_string($response)) {
+        \Drupal::messenger()->addError('An error occurred while save data: ' . $response);
 
-//   function bribe_promo_validation($form, FormStateInterface $form_state) {
-//     $form_state->setError($form,'The value entered is not valid.');
-//   }
+        $url = \Drupal\Core\Url::fromRoute('bribe.' . $getDeleteRoute);
+        $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url->toString());
+        $response->send();
+        exit;
+    }
 
-  
+}
+
+/**
+ * Function to save data to the external API.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node object to be sent to the API.
+ *
+ * @return \Psr\Http\Message\ResponseInterface|null
+ *   The response from the external API or null on failure.
+ */
+function bribeValidation($node)
+{
+
+    $type = $node->getType();
+
+    switch ($type) {
+        case 'promo':
+            $remote = new PromoController(\Drupal::service('bribe.promo'));
+            if ($node->isNew()) {
+                $response = $remote->remoteCreate($node);
+            } else {
+                $response = $remote->remoteUpdate($node);
+            }
+            break;
+        case 'promo_category':
+            $remote = new PromoCategoryController(\Drupal::service('bribe.promo.category'));
+            if ($node->isNew()) {
+                $response = $remote->remoteCreate($node);
+            } else {
+                $response = $remote->remoteUpdate($node);
+            }
+            break;
+        case 'promo_sub_category':
+            $remote = new PromoSubCategoryController(\Drupal::service('bribe.promo.sub_category'));
+            if ($node->isNew()) {
+                $response = $remote->remoteCreate($node);
+            } else {
+                $response = $remote->remoteUpdate($node);
+            }
+            break;
+        case 'promo_location':
+            $remote = new PromoLocationController(\Drupal::service('bribe.promo.location'));
+            if ($node->isNew()) {
+                $response = $remote->remoteCreate($node);
+            } else {
+                $response = $remote->remoteUpdate($node);
+            }
+            break;
+        case 'promo_microsite_owner':
+            $remote = new PromoMicrositeController(\Drupal::service('bribe.promo.microsite'));
+            if ($node->isNew()) {
+                $response = $remote->remoteCreate($node);
+            } else {
+                $response = $remote->remoteUpdate($node);
+            }
+            break;
+    }
+
+    return $response;
+}

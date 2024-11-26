@@ -56,7 +56,7 @@ class PromoService
         );
 
 
-        $getDetail = $this->remote->read($setData);
+        $getDetail = $this->remote->request($setData);
 
         return $getDetail;
     }
@@ -66,45 +66,27 @@ class PromoService
         $mutation = <<<GQL
             mutation {
                 createPromo(createPromoInput: {
-                        categoryIds: "%s"
-                        endDate: "%s"
-                        imagePromoUrl: "%s"
-                        lokasiPromo: [%s]
-                        micrositeOwnerIds: "%s"
                         promoTitle: "%s"
                         startDate: "%s"
-                        subCategoryIds: [%s]
+                        endDate: "%s"
                         termsAndConditions: "%s"
+                        imagePromoUrl: "%s"
+                        categoryIds: "%s"
+                        subCategoryIds: %s
+                        lokasiPromo: %s
+                        micrositeOwnerIds: %s
                     }) {
                     _id
-                    category {
-                        _id
-                        name
-                    }
-                    endDate
-                    imagePromoUrl
-                    lokasiPromo
-                    micrositeOwner {
-                        _id
-                        name
-                    }
-                    promoTitle
-                    startDate
-                    subCategory {
-                        _id
-                        name
-                    }
-                    termsAndConditions
                 }
             }
         GQL;
 
         $setData = array(
-            'data' => array($data['nid'], $data['title']),
+            'data' => $data,
             'schema' => $mutation
         );
 
-        $getCreate = $this->remote->create($setData);
+        $getCreate = $this->remote->request($setData);
 
         return $getCreate;
     }
@@ -115,45 +97,27 @@ class PromoService
             mutation {
                 updatePromo(updatePromoInput: {
                         id: "%s"
-                        categoryIds: "%s"
-                        endDate: "%s"
-                        imagePromoUrl: "%s"
-                        lokasiPromo: [%s]
-                        micrositeOwnerIds: "%s"
                         promoTitle: "%s"
                         startDate: "%s"
-                        subCategoryIds: [%s]
+                        endDate: "%s"
                         termsAndConditions: "%s"
+                        imagePromoUrl: "%s"
+                        categoryIds: "%s"
+                        subCategoryIds: %s
+                        lokasiPromo: %s
+                        micrositeOwnerIds: %s
                     }) {
                     _id
-                    category {
-                        _id
-                        name
-                    }
-                    endDate
-                    imagePromoUrl
-                    lokasiPromo
-                    micrositeOwner {
-                        _id
-                        name
-                    }
-                    promoTitle
-                    startDate
-                    subCategory {
-                        _id
-                        name
-                    }
-                    termsAndConditions
                 }
             }
         GQL;
 
         $setData = array(
-            'data' => array($data['nid'], $data['title']),
+            'data' => $data,
             'schema' => $mutation
         );
 
-        $getUpdate = $this->remote->update($setData);
+        $getUpdate = $this->remote->request($setData);
 
         return $getUpdate;
     }
@@ -162,11 +126,16 @@ class PromoService
     {
         $mutation = <<<GQL
             mutation {
-                deletePromo(id: "")
+                deletePromo(id: "%s")
             }
         GQL;
 
-        $getDelete = $this->remote->delete($id);
+        $setData = array(
+            'data' => $id,
+            'schema' => $mutation
+        );
+
+        $getDelete = $this->remote->request($setData);
 
         return $getDelete;
     }

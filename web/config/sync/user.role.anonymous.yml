@@ -3,10 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.full_template
     - rest.resource.rest_menu_item
     - rest.resource.webform_rest_submit
   module:
     - bricc
+    - filter
     - media
     - rest
     - system
@@ -20,6 +22,7 @@ permissions:
   - 'access content'
   - 'restful get rest_menu_item'
   - 'restful post webform_rest_submit'
+  - 'use text format full_template'
   - 'view bricc_card_item'
   - 'view bricc_city'
   - 'view bricc_province'

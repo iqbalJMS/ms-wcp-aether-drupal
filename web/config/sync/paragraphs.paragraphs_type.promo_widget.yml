@@ -1,0 +1,10 @@
+uuid: a0a6b240-1482-4314-84ec-dae38260e645
+langcode: en
+status: true
+dependencies: {  }
+id: promo_widget
+label: 'Promo Widget'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

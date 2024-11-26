@@ -1,0 +1,20 @@
+uuid: 7e7f0a62-7f07-44dc-aa2f-0d18aab4eaba
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_promo_product_type
+field_name: field_promo_product_type
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

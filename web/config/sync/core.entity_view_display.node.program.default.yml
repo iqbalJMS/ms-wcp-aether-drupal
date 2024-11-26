@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.program.field_components
     - field.field.node.program.field_image
     - field.field.node.program.field_items
     - field.field.node.program.field_summary
@@ -16,6 +17,15 @@ targetEntityType: node
 bundle: program
 mode: default
 content:
+  field_components:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: above

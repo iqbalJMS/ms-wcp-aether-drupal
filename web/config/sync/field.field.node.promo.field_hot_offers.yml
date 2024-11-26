@@ -1,0 +1,21 @@
+uuid: d4fc0e11-4194-40ca-84ba-ce5fb90eab32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hot_offers
+    - node.type.promo
+id: node.promo.field_hot_offers
+field_name: field_hot_offers
+entity_type: node
+bundle: promo
+label: 'Hot Offers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

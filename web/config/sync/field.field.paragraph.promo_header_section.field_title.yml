@@ -1,0 +1,19 @@
+uuid: ce2276f4-2f7d-4891-a114-6e0ecd5d8224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.promo_header_section
+id: paragraph.promo_header_section.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: promo_header_section
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

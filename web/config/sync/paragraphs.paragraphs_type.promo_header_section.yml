@@ -1,0 +1,10 @@
+uuid: e23bf6e7-1d06-4256-bc18-94337d99634f
+langcode: en
+status: true
+dependencies: {  }
+id: promo_header_section
+label: 'Promo Header Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

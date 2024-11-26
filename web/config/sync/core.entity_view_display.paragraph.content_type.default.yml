@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.content_type.field_content_type
+    - field.field.paragraph.content_type.field_reference_content
     - paragraphs.paragraphs_type.content_type
 id: paragraph.content_type.default
 targetEntityType: paragraph
@@ -17,5 +18,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_reference_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }

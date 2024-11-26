@@ -12,34 +12,157 @@ class PromoController extends ControllerBase
 {
     protected $promo;
 
-    public function __construct(PromoService $promo) {
+    public function __construct(PromoService $promo)
+    {
         $this->promo = $promo;
     }
 
-    public static function create(ContainerInterface $container) {
+    public static function create(ContainerInterface $container)
+    {
         return new static(
-            $container->get('bribe.promo.sub_category')
+            $container->get('bribe.promo')
         );
     }
-    function getByID(EntityInterface $entity) {
-        $detail = $this->promo->promoDetail($entity);
-        
+    function getByID($data)
+    {
+        $detail = $this->promo->promoDetail($data);
+
         return $detail;
     }
-    function remoteCreate(EntityInterface $entity) {
-        $create = $this->promo->promoCreate($entity);
-        
+    function remoteCreate($node)
+    {
+
+        $categories = $node->get('field_promo_category')->referencedEntities();
+        $locations = $node->get('field_promo_location')->referencedEntities();
+        $microsites = $node->get('field_promo_microsite_owner')->referencedEntities();
+        $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
+
+        $category = "";
+        $subCategory = array();
+        $location = array();
+        $microsite = "";
+
+        foreach ($categories as $cat) {
+            $category = $cat->get('field_category_id')->value;
+        }
+        foreach ($subCategories as $sub) {
+            $subCategory[] = $sub->get('field_subcategory_id')->value;
+        }
+        foreach ($locations as $loc) {
+            $location[] = $loc->get('field_location_id')->value;
+        }
+        foreach ($microsites as $mic) {
+            $microsite = $mic->get('field_microsite_id')->value;
+        }
+
+        $media = $node->get('field_promo_image')->entity;
+        $file = (!empty($media->get('field_media_image')->entity) ? $media->get('field_media_image')->entity : "");
+        $uri = ($file != "" ? $file->getFileUri() : "");
+        $relative_path = str_replace('public://', '', $uri); 
+
+        $dateStart = $node->get('field_promo_start_date')->value;
+        $getStart = new \DateTime($dateStart);
+        $start = $getStart->format('Y-m-d H:i:s');
+
+        $dateEnd = $node->get('field_promo_start_date')->value;
+        $getEnd = new \DateTime($dateEnd);
+        $end = $getEnd->format('Y-m-d H:i:s');
+
+        $send = array(
+            $node->getTitle(),
+            $start,
+            $end,
+            $node->get('field_term_and_condition')->value,
+            $relative_path,
+            $category,
+            json_encode($subCategory),
+            json_encode($location),
+            json_encode($microsite)
+        );
+
+        $create = $this->promo->promoCreate($send);
+
+        if (isset($create['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+
+        $node->set('field_promo_id', $create['data']['createPromo']['_id']);
+
         return $create;
     }
-    function remoteUpdate(EntityInterface $entity) {
-        
-        $update = $this->promo->promoUpdate($entity);
-        
-        return $update;
-    }
-    function remoteDelete(EntityInterface $entity){
-        $delete = $this->promo->promoDelete($entity);
+    function remoteUpdate($node)
+    {
 
+        $categories = $node->get('field_promo_category')->referencedEntities();
+        $locations = $node->get('field_promo_location')->referencedEntities();
+        $microsites = $node->get('field_promo_microsite_owner')->referencedEntities();
+        $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
+
+        $category = "";
+        $subCategory = array();
+        $location = array();
+        $microsite = "";
+
+        foreach ($categories as $cat) {
+            $category = $cat->get('field_category_id')->value;
+        }
+        foreach ($subCategories as $sub) {
+            $subCategory[] = $sub->get('field_subcategory_id')->value;
+        }
+        foreach ($locations as $loc) {
+            $location[] = $loc->get('field_location_id')->value;
+        }
+        foreach ($microsites as $mic) {
+            $microsite = $mic->get('field_microsite_id')->value;
+        }
+
+        $media = $node->get('field_promo_image')->entity;
+        $file = (!empty($media->get('field_media_image')->entity) ? $media->get('field_media_image')->entity : "");
+        $uri = ($file != "" ? $file->getFileUri() : "");
+        $relative_path = str_replace('public://', '', $uri); 
+
+        $dateStart = $node->get('field_promo_start_date')->value;
+        $getStart = new \DateTime($dateStart);
+        $start = $getStart->format('Y-m-d H:i:s');
+
+        $dateEnd = $node->get('field_promo_start_date')->value;
+        $getEnd = new \DateTime($dateEnd);
+        $end = $getEnd->format('Y-m-d H:i:s');
+
+        $send = array(
+            $node->get('field_promo_id')->value,
+            $node->getTitle(),
+            $start,
+            $end,
+            $node->get('field_term_and_condition')->value,
+            $relative_path,
+            $category,
+            json_encode($subCategory),
+            json_encode($location),
+            json_encode($microsite)
+        );
+
+
+        $update = $this->promo->promoUpdate($send);
+
+        if (isset($update['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+
+        return $node;
+    }
+    function remoteDelete($id)
+    {
+
+        $send = array(
+            $id
+        );
+
+        $delete = $this->promo->promoDelete($send);
+
+        if (isset($delete['errors'])) {
+            return 'Error Connection Or From Data';
+        }
         return $delete;
     }
 }

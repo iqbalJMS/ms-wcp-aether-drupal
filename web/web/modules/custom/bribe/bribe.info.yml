@@ -4,3 +4,5 @@ type: module
 description: "Custom module for retrieving data adn CRUD from BRI BE Service"
 package: Custom
 core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:jsonapi

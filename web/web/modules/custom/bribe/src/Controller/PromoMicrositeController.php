@@ -26,27 +26,55 @@ class PromoMicrositeController extends ControllerBase
         
         return $list;
     }
-    function getByID(EntityInterface $entity) {
-        $detail = $this->microsite->promoMicrositeDetail($entity);
+    function getByID($data) {
+        $detail = $this->microsite->promoMicrositeDetail($data);
         
         return $detail;
     }
-    function remoteCreate(EntityInterface $entity) {
-        $create = $this->microsite->promoMicrositeCreate($entity);
+    function remoteCreate($node) {
 
-        throw new \Drupal\Core\Entity\EntityStorageException('Save operation aborted due to validation errors.');
-        
-        // return $create;
-    }
-    function remoteUpdate(EntityInterface $entity) {
+        $send = array(
+            $node->getTitle()
+        );
 
-        $update = $this->microsite->promoMicrositeUpdate($entity);
-        throw new \Drupal\Core\Entity\EntityStorageException('Save operation aborted due to validation errors.');
-        
-        // return $update;
+
+        $create = $this->microsite->promoMicrositeCreate($send);
+
+        if(isset($create['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+
+        $node->set('field_microsite_id', $create['data']['createMicrositeOwner']['_id']);
+
+        return $node;
+
     }
-    function remoteDelete(EntityInterface $entity){
-        $delete = $this->microsite->promoMicrositeDelete($entity);
+    function remoteUpdate($node) {
+
+        $send = array(
+            $node->get('field_microsite_id')->value,
+            $node->getTitle()
+        );
+
+        $update = $this->microsite->promoMicrositeUpdate($send);
+
+        if(isset($update['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+        
+        return $node;
+    }
+    function remoteDelete($id){
+        
+        $send = array(
+            $id
+        );
+
+        $delete = $this->microsite->promoMicrositeDelete($send);
+
+        if(isset($delete['errors'])) {
+            return 'Error Connection Or From Data';
+        }
 
         return $delete;
     }

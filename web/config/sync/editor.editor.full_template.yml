@@ -56,6 +56,12 @@ settings:
         -
           label: 'Button Primary'
           element: '<a class="button button--primary">'
+        -
+          label: 'List Start Gold'
+          element: '<ul class="list star gold">'
+        -
+          label: 'List Start Blue'
+          element: '<ul class="list start blue">'
     ckeditor5_template_template:
       file_path: /modules/contrib/ckeditor5_template/template/ckeditor5_template.json.example
       custom_toolbar_text: Template

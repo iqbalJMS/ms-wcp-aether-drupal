@@ -4,15 +4,23 @@ status: true
 dependencies:
   config:
     - field.field.node.promo_category.field_category_id
+    - field.field.node.promo_category.field_icon
     - field.field.node.promo_category.field_promo_sub_category
     - node.type.promo_category
   module:
-    - path
+    - media_library
 id: node.promo_category.default
 targetEntityType: node
 bundle: promo_category
 mode: default
 content:
+  field_icon:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_promo_sub_category:
     type: entity_reference_autocomplete_tags
     weight: 0
@@ -22,12 +30,6 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -48,6 +50,7 @@ hidden:
   created: true
   field_category_id: true
   langcode: true
+  path: true
   promote: true
   sticky: true
   uid: true

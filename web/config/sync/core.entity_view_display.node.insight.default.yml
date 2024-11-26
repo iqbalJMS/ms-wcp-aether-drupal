@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.insight.field_header_variant
     - field.field.node.insight.field_image
     - field.field.node.insight.field_items
     - field.field.node.insight.field_summary
     - node.type.insight
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.insight.default
@@ -16,6 +18,13 @@ targetEntityType: node
 bundle: insight
 mode: default
 content:
+  field_header_variant:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: above

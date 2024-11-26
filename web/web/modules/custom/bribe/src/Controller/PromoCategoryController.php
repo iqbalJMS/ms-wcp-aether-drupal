@@ -26,24 +26,72 @@ class PromoCategoryController extends ControllerBase
         
         return $list;
     }
-    function getByID(EntityInterface $entity) {
-        $detail = $this->category->promoCategoryDetail($entity);
+    function getByID($data) {
+        $detail = $this->category->promoCategoryDetail($data);
         
         return $detail;
     }
-    function remoteCreate(EntityInterface $entity) {
-        $create = $this->category->promoCategoryCreate($entity);
+    function remoteCreate($node) {
+
+        $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
+
+        $subCategory = array();
+
+        foreach ($subCategorylist as $sub) {
+            $subCategory[] = $sub->get('field_subcategory_id')->value;
+        }
+
+        $send = array(
+            $node->getTitle(),
+            json_encode($subCategory)
+        );
+        $create = $this->category->promoCategoryCreate($send);
+
+        if(isset($create['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+
+        $node->set('field_category_id', $create['data']['createCategory']['id']);
         
-        return $create;
+        return $node;
     }
-    function remoteUpdate(EntityInterface $entity) {
+    function remoteUpdate($node) {
+
+        $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
+
+        $subCategory = array();
         
-        $update = $this->category->promoCategoryUpdate($entity);
+        foreach ($subCategorylist as $sub) {
+            $subCategory[] = $sub->get('field_subcategory_id')->value;
+        }
         
-        return $update;
+
+        $send = array(
+            $node->get('field_category_id')->value,
+            $node->getTitle(),
+            json_encode($subCategory)
+        );
+        
+        $update = $this->category->promoCategoryUpdate($send);
+
+        if(isset($update['errors'])) {
+            return 'Error Connection Or From Data';
+        }
+        
+        return $node;
     }
-    function remoteDelete(EntityInterface $entity){
-        $delete = $this->category->promoCategoryDelete($entity);
+    function remoteDelete($idCategory)
+    {
+
+        $send = array(
+            $idCategory
+        );
+
+        $delete = $this->category->promoCategoryDelete($send);
+
+        if(isset($delete['errors'])) {
+            return 'Error Connection Or From Data';
+        }
 
         return $delete;
     }
