@@ -33,21 +33,39 @@ final class Location {
 
     // Format the array.
     foreach ($province_entities as $province) {
-      $provinces[$province->id()] = $province->label();
+      $provinces[$province->uuid()] = $province->label();
     }
 
     return $provinces;
   }
 
-  public function getAllCities(): array {
+  public function getAllCities($province_uuid = NULL): array {
     $cities = [];
 
-    $city_entities = $this->entityTypeManager
-      ->getStorage('bricc_city')
-      ->loadMultiple();
+    if (!is_null($province_uuid)) {
 
-    foreach ($city_entities as $city) {
-      $cities[$city->id()] = $city->label();
+      $province_entities = $this->entityTypeManager->getStorage('bricc_province')->loadByProperties(
+        ['uuid' => $province_uuid]
+      );
+      $province_entity = reset($province_entities);
+      if ($province_entity) {
+        $province = $province_entity->id();
+
+        $city_entity_ids = $this->entityTypeManager
+          ->getStorage('bricc_city')
+          ->getQuery()
+          ->accessCheck(FALSE)
+          ->condition('field_province.target_id', $province)
+          ->execute();
+
+        $city_entities = $this->entityTypeManager
+          ->getStorage('bricc_city')
+          ->loadMultiple($city_entity_ids);
+
+        foreach ($city_entities as $city) {
+          $cities[$city->uuid()] = $city->label();
+        }
+      }
     }
 
     return $cities;

@@ -138,7 +138,7 @@ class LocationRemoteData extends BaseRemoteData {
 
     $query = <<< GRAPHQL
       query {
-        getAllTypes(input:{
+        allTypes(param:{
           skip:$skip,
           limit: $limit,
           filter: {
@@ -160,7 +160,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getAllTypes'];
+    return $result['data']['allTypes'];
   }
 
   public function getAllLocationCategory($params) {
@@ -313,7 +313,7 @@ class LocationRemoteData extends BaseRemoteData {
           data: {
             category: "$category"
             phone: "$phone"
-            tipe: "$tipe"
+            tipe: "$type"
           }
         }) {
           id
@@ -452,20 +452,12 @@ class LocationRemoteData extends BaseRemoteData {
           address
           lat
           long
-          data {
-            category
-            mid
-            tid
-            service
-            phone
-            tipe
-          }
-          area {
-            _id
-            key
-            value
-            zip
-          }
+          province
+          city
+          zip
+          category
+          tipe
+          phone
         }
       }
     GRAPHQL;
@@ -491,20 +483,13 @@ class LocationRemoteData extends BaseRemoteData {
             address: "$address"
             lat: $lat
             long: $long
-            area: {
-              id_city: "$id_city"
-              id_province: "$id_province"
-              zip: "$zip"
-            }
-            data: {
-              category: "$category"
-              mid: "$mid"
-              phone: "$phone"
-              service: "$service"
-              tid: "$tid"
-              tipe: "$type"
-              urlMaps: "$url_maps"
-            }
+            city: "$id_city"
+            province: "$id_province"
+            zip: "$zip"
+            category: "$category"
+            phone: "$phone"
+            tipe: "$type"
+            urlMaps: "$url_maps"
           }
         )
       }

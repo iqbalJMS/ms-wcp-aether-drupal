@@ -25,9 +25,9 @@ final class LocationForm extends FormBase {
   /**
    * @var \Drupal\brimw\External\LocationRemoteData
    */
-  private LocationRemoteData $locationRemoteData;
+  private ?LocationRemoteData $locationRemoteData = NULL;
 
-  private Location $location;
+  private ?Location $location = NULL;
 
   /**
    * Constructs a new LocationForm object.
@@ -57,6 +57,10 @@ final class LocationForm extends FormBase {
     return 'brimw_location';
   }
 
+  public function updateCityField(array &$form, FormStateInterface $form_state) {
+    return $form['id_city'];
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -64,29 +68,23 @@ final class LocationForm extends FormBase {
     // Get the 'id' parameter from the current route.
     $this->locationId = \Drupal::routeMatch()->getParameter('id');
 
+    if (!$this->location instanceof Location) {
+      $this->location = \Drupal::service('bricc.location');
+    }
+
+    if (!$this->locationRemoteData instanceof LocationRemoteData) {
+      $this->locationRemoteData = \Drupal::service('brimw.location_remote_data');
+    }
+
     if ($this->locationId) {
       // Edit mode
 
       $data = $this->locationRemoteData->getLocation($this->locationId);
 
-      // Area
-      if (isset($data['area']) && is_array($data['area'])) {
-        foreach ($data['area'] as $area) {
-          if ($area['key'] === 'city') {
-            $data['zip'] = $area['zip'];
-          }
-
-          $data[$area['key']] = [
-            'id' => $area['_id'],
-            'name' => $area['value'],
-          ];
-        }
-      }
-
       $form['id'] = [
         '#type' => 'textfield',
         '#title' => $this->t('ID'),
-        '#title' => $this->t('ID is read-only'),
+        '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
         '#required' => TRUE,
         '#attributes' => ['readonly' => 'readonly'], // Make the ID field read-only.
@@ -101,45 +99,13 @@ final class LocationForm extends FormBase {
         'lat' => '',
         'long' => '',
         'zip' => '',
-        'data' => [
-          'category' => '',
-          'mid' => '',
-          'tid' => '',
-          'service' => '',
-          'phone' => '',
-          'tipe' => '',
-        ],
-        'province' => [
-          'id' => '',
-          'name' => '',
-        ],
-        'city' => [
-          'id' => '',
-          'name' => '',
-        ],
-        'area' => [
-          [
-            '_id' => '',
-            'key' => '',
-            'value' => '',
-            'zip' => '',
-          ],
-          [
-            '_id' => '',
-            'key' => '',
-            'value' => '',
-            'zip' => '',
-          ],
-        ],
+        'category' => '',
+        'phone' => '',
+        'tipe' => '',
+        'province' => '',
+        'city' => '',
       ];
     }
-
-    $form['mid'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('MID'),
-      '#default_value' => $data['data']['mid'],
-      '#required' => FALSE,
-    ];
 
     $form['name'] = [
       '#type' => 'textfield',
@@ -148,27 +114,34 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-//    $all_provinces = $this->locationRemoteData->getAllProvinces([
-//      'skip' => 0,
-//      'limit' => 99,
-//    ]);
-//    $province_options = array_column($all_provinces['data'], 'name', 'id');
     $province_options = $this->location->getAllProvinces();
 
     $form['id_province'] = [
       '#type' => 'select',
       '#title' => $this->t('Province'),
-      '#default_value' => $data['province']['id'],
+      '#default_value' => $data['province'],
       '#options' => ['' => '-None -'] + $province_options,
       '#required' => TRUE,
+      '#ajax' => [
+        'callback' => [$this, 'updateCityField'],
+        'event' => 'change',
+        'wrapper' => 'city-wrapper',
+      ],
     ];
 
-//    $all_cities = $this->locationRemoteData->getAllCities([
-//      'skip' => 0,
-//      'limit' => 99,
-//    ]);
-//    $city_options = array_column($all_cities['data'], 'name', 'id');
-    $city_options = $this->location->getAllCities();
+    $city_options = [];
+    $triggering_element = $form_state->getTriggeringElement();
+    if ($triggering_element) {
+      if ($triggering_element['#name'] == 'id_province') {
+        $uuid_province = empty($triggering_element) ? NULL : $triggering_element['#value'];
+        $city_options = $this->location->getAllCities($uuid_province);
+      }
+    }
+    else {
+      if ($data['province']) {
+        $city_options = $this->location->getAllCities($data['province']);
+      }
+    }
 
     $form['id_city'] = [
       '#type' => 'select',
@@ -176,6 +149,8 @@ final class LocationForm extends FormBase {
       '#default_value' => $data['city'],
       '#options' => ['' => '-None -'] + $city_options,
       '#required' => FALSE,
+      '#prefix' => '<div id="city-wrapper">',
+      '#suffix' => '</div>',
     ];
 
     $form['zip'] = [
@@ -195,14 +170,7 @@ final class LocationForm extends FormBase {
     $form['phone'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Phone'),
-      '#default_value' => $data['data']['phone'],
-      '#required' => FALSE,
-    ];
-
-    $form['service'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Service'),
-      '#default_value' => $data['data']['service'],
+      '#default_value' => $data['phone'],
       '#required' => FALSE,
     ];
 
@@ -210,7 +178,7 @@ final class LocationForm extends FormBase {
     $form['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#default_value' => $data['data']['tipe'],
+      '#default_value' => $data['tipe'],
       '#options' => ['' => '-None -'] + $type_options,
       '#required' => TRUE,
     ];
@@ -219,7 +187,7 @@ final class LocationForm extends FormBase {
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
-      '#default_value' => $data['data']['category'],
+      '#default_value' => $data['category'],
       '#options' => ['' => '-None -'] + $category_options,
       '#required' => FALSE,
     ];
@@ -247,6 +215,8 @@ final class LocationForm extends FormBase {
       ],
     ];
 
+//    dump($form);
+
     return $form;
   }
 
@@ -271,24 +241,23 @@ final class LocationForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+
+    if (!$this->locationRemoteData instanceof LocationRemoteData) {
+      $this->locationRemoteData = \Drupal::service('brimw.location_remote_data');
+    }
+
     $this->messenger()->addStatus($this->t('The location has been saved.'));
     $form_state->setRedirect('view.location.page_1');
 
     // Get the form values.
     $values = $form_state->getValues();
-    if (!isset($values['tid'])) {
-      $values['tid'] = '';
-    }
     $empty_string_value = [
-      'mid',
-      'tid',
       'category',
-      'service',
       'phone',
       'zip',
       'lat',
       'long',
-      'id_city',
+      'city',
     ];
     foreach ($empty_string_value as $formkey) {
       if (!isset($values[$formkey])) {
@@ -304,7 +273,6 @@ final class LocationForm extends FormBase {
 
     if ($this->locationId) {
       // Editing: Update existing location data.
-      $location_data = [];
       $update_status = $this->locationRemoteData->updateLocation($this->locationId, $values);
     } else {
       // Adding: Insert new location data.
