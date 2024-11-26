@@ -179,6 +179,10 @@ class LocationRemoteData extends BaseRemoteData {
           data{
             id
             name
+            type {
+              id
+              name
+            }
           }
           pagination{
             total
@@ -268,14 +272,18 @@ class LocationRemoteData extends BaseRemoteData {
   public function getCategory($id) {
     $query = <<< GRAPHQL
       query {
-        getByIdCategory (id: "$id") {
+        getCategoryById (id: "$id") {
           id
           name
+          type {
+            id
+            name
+          }
         }
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdCategory'];
+    return $result['data']['getCategoryById'];
   }
 
   public function updateCategory($id, $name, $type_id) {

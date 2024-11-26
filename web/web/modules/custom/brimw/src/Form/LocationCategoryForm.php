@@ -67,6 +67,7 @@ final class LocationCategoryForm extends FormBase {
       $form['id'] = [
         '#type' => 'textfield',
         '#title' => $this->t('ID'),
+        '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
         '#required' => TRUE,
         '#attributes' => ['readonly' => 'readonly'], // Make the ID field read-only.
@@ -77,7 +78,9 @@ final class LocationCategoryForm extends FormBase {
       $data = [
         'id' => '',
         'name' => '',
-        'type' => '',
+        'type' => [
+          'id' => ''
+        ],
       ];
     }
 
@@ -96,7 +99,7 @@ final class LocationCategoryForm extends FormBase {
       '#title' => $this->t('Type'),
       '#required' => TRUE,
       '#options' => $location_types,
-      '#default_value' => $data['type'],
+      '#default_value' => $data['type']['id'],
     ];
 
     $form['name'] = [
@@ -143,9 +146,7 @@ final class LocationCategoryForm extends FormBase {
     $values = $form_state->getValues();
 
     if ($this->categoryId) {
-      // Editing: Update existing location data.
-      // TODO Edit category
-      \Drupal::messenger()->addMessage($this->t('Category edit not implemented.'));
+
       try {
         $update_status = $this->locationRemoteData->updateCategory($this->categoryId, $values['name'], $values['type']);
         if ($update_status) {
