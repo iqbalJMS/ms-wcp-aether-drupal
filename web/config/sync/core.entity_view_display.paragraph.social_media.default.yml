@@ -1,0 +1,48 @@
+uuid: e9ad9578-f7e0-4683-99fc-734a53764fa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.social_media.field_facebook
+    - field.field.paragraph.social_media.field_instagram
+    - field.field.paragraph.social_media.field_twitter
+    - field.field.paragraph.social_media.field_youtube
+    - paragraphs.paragraphs_type.social_media
+id: paragraph.social_media.default
+targetEntityType: paragraph
+bundle: social_media
+mode: default
+content:
+  field_facebook:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_instagram:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_twitter:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_youtube:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

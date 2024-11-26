@@ -26,3 +26,7 @@ services:
   bricc.menu_icon_manipulators:
     class: Drupal\bricc\MenuIconManipulators
     arguments: ['@entity_type.repository', '@entity_type.manager']
+
+  bricc.location:
+    class: Drupal\bricc\Location
+    arguments: ['@entity_type.manager', '@bricc.logger.channel']

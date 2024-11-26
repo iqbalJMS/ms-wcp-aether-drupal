@@ -1,0 +1,21 @@
+uuid: 10be0c9e-896a-49f0-ba2c-a9fbe4c71dd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - bricc
+    - entity_reference_revisions
+    - paragraphs
+id: bricc_card_item.field_summary
+field_name: field_summary
+entity_type: bricc_card_item
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

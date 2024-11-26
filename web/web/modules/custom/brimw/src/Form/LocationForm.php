@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\brimw\Form;
 
+use Drupal\bricc\Location;
 use Drupal\brimw\External\LocationRemoteData;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -26,14 +27,17 @@ final class LocationForm extends FormBase {
    */
   private LocationRemoteData $locationRemoteData;
 
+  private Location $location;
+
   /**
    * Constructs a new LocationForm object.
    *
    * @param LocationRemoteData $locationRemoteData
    *   The remote data service.
    */
-  public function __construct(LocationRemoteData $locationRemoteData) {
+  public function __construct(LocationRemoteData $locationRemoteData, Location $location) {
     $this->locationRemoteData = $locationRemoteData;
+    $this->location = $location;
   }
 
   /**
@@ -41,7 +45,8 @@ final class LocationForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('brimw.location_remote_data')
+      $container->get('brimw.location_remote_data'),
+      $container->get('bricc.location'),
     );
   }
 
@@ -133,7 +138,7 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('MID'),
       '#default_value' => $data['data']['mid'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['name'] = [
@@ -143,11 +148,12 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $all_provinces = $this->locationRemoteData->getAllProvinces([
-      'skip' => 0,
-      'limit' => 99,
-    ]);
-    $province_options = array_column($all_provinces['data'], 'name', 'id');
+//    $all_provinces = $this->locationRemoteData->getAllProvinces([
+//      'skip' => 0,
+//      'limit' => 99,
+//    ]);
+//    $province_options = array_column($all_provinces['data'], 'name', 'id');
+    $province_options = $this->location->getAllProvinces();
 
     $form['id_province'] = [
       '#type' => 'select',
@@ -157,25 +163,26 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $all_cities = $this->locationRemoteData->getAllCities([
-      'skip' => 0,
-      'limit' => 99,
-    ]);
-    $city_options = array_column($all_cities['data'], 'name', 'id');
+//    $all_cities = $this->locationRemoteData->getAllCities([
+//      'skip' => 0,
+//      'limit' => 99,
+//    ]);
+//    $city_options = array_column($all_cities['data'], 'name', 'id');
+    $city_options = $this->location->getAllCities();
 
     $form['id_city'] = [
       '#type' => 'select',
       '#title' => $this->t('City'),
       '#default_value' => $data['city'],
       '#options' => ['' => '-None -'] + $city_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['zip'] = [
       '#type' => 'textfield',
       '#title' => $this->t('ZIP code'),
       '#default_value' => $data['zip'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['address'] = [
@@ -189,14 +196,14 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Phone'),
       '#default_value' => $data['data']['phone'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['service'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Service'),
       '#default_value' => $data['data']['service'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $type_options = $this->locationRemoteData->getTypeOptions();
@@ -214,21 +221,21 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('Category'),
       '#default_value' => $data['data']['category'],
       '#options' => ['' => '-None -'] + $category_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['lat'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Latitude'),
       '#default_value' => $data['lat'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['long'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Longitude'),
       '#default_value' => $data['long'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     // Add submit button.
@@ -271,6 +278,28 @@ final class LocationForm extends FormBase {
     $values = $form_state->getValues();
     if (!isset($values['tid'])) {
       $values['tid'] = '';
+    }
+    $empty_string_value = [
+      'mid',
+      'tid',
+      'category',
+      'service',
+      'phone',
+      'zip',
+      'lat',
+      'long',
+      'id_city',
+    ];
+    foreach ($empty_string_value as $formkey) {
+      if (!isset($values[$formkey])) {
+        $values[$formkey] = "";
+      }
+    }
+
+    $values['url_maps'] = '';
+    if (isset($values['lat']) && isset($values['long'])) {
+      // Format: https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
+      $values['url_maps'] = 'https://www.google.com/maps/search/?api=1&query=' . $values['lat'] . '&' . $values['long'];
     }
 
     if ($this->locationId) {

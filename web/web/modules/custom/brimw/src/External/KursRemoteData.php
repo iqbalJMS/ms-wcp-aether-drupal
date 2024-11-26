@@ -23,11 +23,12 @@ class KursRemoteData extends BaseRemoteData
           isShow
           sellRateCounter
           sellRateERate
+          timeUpdated
         }
       }
     GRAPHQL;
 
-    $result = array_column($this->gql($query)['data']['getKurs'], null, 'currency');
+    $result = array_column($this->gql($query)['data']['getKurs'] ?? [], null, 'currency');
     
     $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('currency');
 
@@ -93,7 +94,7 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['getStock'];
+    return $this->gql($query)['data']['getStock'] ?: [];
   }
 
 
@@ -101,63 +102,75 @@ class KursRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       mutation {
-        postBuyRateCounterCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postBuyRateCounterCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postBuyRateeRateCalculator(Request $request): array
   {
     $query = <<< GRAPHQL
       mutation {
-        postBuyRateeRateCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postBuyRateeRateCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postSellRateCounterCalculator(Request $request): array
   {
     $query = <<< GRAPHQL
       mutation {
-        postSellRateCounterCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postSellRateCounterCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 
   public function postSellRateeRateCalculator(Request $request): array
   {
     $query = <<< GRAPHQL
       mutation {
-        postSellRateeRateCalculator(input: {
-          amount: {$request->get('amount')}
-          calcType: {$request->get('calcType')}
-          fromCurrency: "{$request->get('fromCurrency')}"
-          toCurrency: "{$request->get('toCurrency')}"
-        })
+        postSellRateeRateCalculator(
+          input: {
+            amount: {
+              currency: "{$request->get('fromCurrency')}"
+              value: {$request->get('amount')}
+            }
+            to: "{$request->get('toCurrency')}"
+          }
+        )
       }
     GRAPHQL;
 
-    return $this->gql($query)['data'];
+    return $this->gql($query)['data'] ?: [];
   }
 }

@@ -38,14 +38,6 @@ class KursRequest extends BaseRequest
                 new Range(min: 1, max: 10 * 1000 * 1000 * 1000),
             ),
             $this->rules(
-                'calcType',
-                new NotBlank, 
-                new Choice([
-                    "Jual",
-                    "Beli",
-                ]),
-            ),
-            $this->rules(
                 'fromCurrency',
                 new NotBlank,
                 new Choice($availableCurrencies),

@@ -1,0 +1,19 @@
+uuid: a9198d77-b541-452a-a986-1539eca471c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_facebook
+    - paragraphs.paragraphs_type.social_media
+id: paragraph.social_media.field_facebook
+field_name: field_facebook
+entity_type: paragraph
+bundle: social_media
+label: Facebook
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

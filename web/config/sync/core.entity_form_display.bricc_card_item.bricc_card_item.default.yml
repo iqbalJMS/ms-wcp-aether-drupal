@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.bricc_card_item.bricc_card_item.field_able_to_apply
     - field.field.bricc_card_item.bricc_card_item.field_advantage
     - field.field.bricc_card_item.bricc_card_item.field_basic_annualfee
     - field.field.bricc_card_item.bricc_card_item.field_billing_fee
@@ -21,12 +22,14 @@ dependencies:
     - field.field.bricc_card_item.bricc_card_item.field_max_cash_withdraw
     - field.field.bricc_card_item.bricc_card_item.field_overlimit_fee
     - field.field.bricc_card_item.bricc_card_item.field_pin_change_fee
+    - field.field.bricc_card_item.bricc_card_item.field_summary
     - field.field.bricc_card_item.bricc_card_item.field_supplement_annualfee
     - field.field.bricc_card_item.bricc_card_item.field_trans_summary_yearly_fee
   module:
     - bricc
     - field_group
     - media_library
+    - paragraphs
     - text
 third_party_settings:
   field_group:
@@ -37,7 +40,7 @@ third_party_settings:
       label: 'Card detail'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 8
       format_type: html_element
       format_settings:
         classes: ''
@@ -111,7 +114,7 @@ third_party_settings:
       label: 'Card view'
       region: content
       parent_name: ''
-      weight: 7
+      weight: 9
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -128,15 +131,22 @@ mode: default
 content:
   description:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_able_to_apply:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_advantage:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -144,7 +154,7 @@ content:
     third_party_settings: {  }
   field_basic_annualfee:
     type: number
-    weight: 15
+    weight: 10
     region: content
     settings:
       placeholder: ''
@@ -264,9 +274,27 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_summary:
+    type: paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
   field_supplement_annualfee:
     type: number
-    weight: 16
+    weight: 11
     region: content
     settings:
       placeholder: ''
@@ -288,7 +316,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
