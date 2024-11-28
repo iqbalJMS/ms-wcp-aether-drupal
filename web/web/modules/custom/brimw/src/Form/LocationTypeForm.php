@@ -126,7 +126,6 @@ final class LocationTypeForm extends FormBase {
 
     if ($this->typeId) {
       // Editing: Update existing location data.
-      // TODO Edit category
       try {
         $update_status = $this->locationRemoteData->updateType($this->typeId, $values['name']);
         if ($update_status) {

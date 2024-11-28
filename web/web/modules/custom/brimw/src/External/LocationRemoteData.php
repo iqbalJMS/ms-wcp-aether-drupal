@@ -198,6 +198,42 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['allCategories'];
   }
 
+  /**
+   * @param $type_id
+   *
+   * @return string[]
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   * @todo Wait for service to return data
+   */
+  public function getCategoryByType($type_id) {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+
+    $query = <<< GRAPHQL
+      query {
+        getCategoryByType (type_id: "$type_id"){
+          data{
+            id
+            name
+            type {
+              id
+              name
+            }
+          }
+          pagination{
+            total
+            totalPages
+            currentPage
+            isPrev
+            isNext
+          }
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['getCategoryByType'];
+  }
+
   public function getCategoryOptions() {
     $cache_key = self::CACHEKEY_CATEGORY_OPTIONS;
     if ($cache = $this->cache->get($cache_key)) {
@@ -287,11 +323,14 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function updateCategory($id, $name, $type_id) {
-    // TODO mutation update category
-    return TRUE;
+    // Update category
     $query = <<< GRAPHQL
       mutation {
-        updateType (id: "$id", name: "$name")
+        updateCategory(input: {
+          id: "$id",
+          name: "$name"
+          type_id: "$type_id"
+        })
       }
     GRAPHQL;
     $result = $this->gql($query);
