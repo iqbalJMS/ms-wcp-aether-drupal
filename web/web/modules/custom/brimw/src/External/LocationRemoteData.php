@@ -203,7 +203,6 @@ class LocationRemoteData extends BaseRemoteData {
    *
    * @return string[]
    * @throws \GuzzleHttp\Exception\GuzzleException
-   * @todo Wait for service to return data
    */
   public function getCategoryByType($type_id) {
     $skip = $params['skip'] ?? 0;
