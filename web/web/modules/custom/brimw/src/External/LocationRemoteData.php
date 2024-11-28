@@ -41,6 +41,7 @@ class LocationRemoteData extends BaseRemoteData {
             tipe
             lat
             long
+            urlMaps
           }
           pagination {
             total
@@ -512,6 +513,7 @@ class LocationRemoteData extends BaseRemoteData {
           category
           tipe
           phone
+          urlMaps
         }
       }
     GRAPHQL;

@@ -125,7 +125,7 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('Province'),
       '#default_value' => $data['province'],
       '#options' => ['' => '-None -'] + $province_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#ajax' => [
         'callback' => [$this, 'updateCityField'],
         'event' => 'change',
@@ -193,7 +193,7 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('Type'),
       '#default_value' => $data['tipe'],
       '#options' => ['' => '-None -'] + $type_options,
-      '#required' => TRUE,
+      '#required' => FALSE,
       '#ajax' => [
         'callback' => [$this, 'updateCategoryField'],
         'event' => 'change',
@@ -222,6 +222,13 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Longitude'),
       '#default_value' => $data['long'],
+      '#required' => FALSE,
+    ];
+
+    $form['url_maps'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('URL Maps'),
+      '#default_value' => $data['urlMaps'],
       '#required' => FALSE,
     ];
 
@@ -282,10 +289,18 @@ final class LocationForm extends FormBase {
       }
     }
 
-    $values['url_maps'] = '';
-    if (isset($values['lat']) && isset($values['long'])) {
-      // Format: https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
-      $values['url_maps'] = 'https://www.google.com/maps/search/?api=1&query=' . $values['lat'] . '&' . $values['long'];
+    if (!isset($values['lat'])) {
+      $values['lat'] = 0;
+    }
+    if (!isset($values['long'])) {
+      $values['long'] = 0;
+    }
+
+    if (!isset($values['url_maps'])) {
+      if (!empty($values['lat']) && !empty($values['long'])) {
+        // Format: https://www.google.com/maps/search/?api=1&query=<lat>,<lng>
+        $values['url_maps'] = 'https://www.google.com/maps/search/?api=1&query=' . $values['lat'] . '&' . $values['long'];
+      }
     }
 
     if ($this->locationId) {
