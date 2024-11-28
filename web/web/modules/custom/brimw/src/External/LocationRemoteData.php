@@ -233,6 +233,14 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['getCategoryByType'];
   }
 
+  public function getCategoryByTypeOptions($type_id) {
+    $categories = $this->getCategoryByType($type_id);
+
+    if ($categories) {
+      return array_column($categories['data'], 'name', 'id');
+    }
+  }
+
   public function getCategoryOptions() {
     $cache_key = self::CACHEKEY_CATEGORY_OPTIONS;
     if ($cache = $this->cache->get($cache_key)) {

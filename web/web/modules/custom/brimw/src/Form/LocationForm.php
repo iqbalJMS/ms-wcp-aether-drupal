@@ -61,6 +61,10 @@ final class LocationForm extends FormBase {
     return $form['id_city'];
   }
 
+  public function updateCategoryField(array &$form, FormStateInterface $form_state) {
+    return $form['category'];
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -130,16 +134,25 @@ final class LocationForm extends FormBase {
     ];
 
     $city_options = [];
+    $category_options = [];
+
     $triggering_element = $form_state->getTriggeringElement();
     if ($triggering_element) {
       if ($triggering_element['#name'] == 'id_province') {
         $uuid_province = empty($triggering_element) ? NULL : $triggering_element['#value'];
         $city_options = $this->location->getAllCities($uuid_province);
       }
+      if ($triggering_element['#name'] == 'type') {
+        $type_id = empty($triggering_element) ? NULL : $triggering_element['#value'];
+        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($type_id);
+      }
     }
     else {
       if ($data['province']) {
         $city_options = $this->location->getAllCities($data['province']);
+      }
+      if ($data['tipe']) {
+        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($data['tipe']);
       }
     }
 
@@ -181,15 +194,21 @@ final class LocationForm extends FormBase {
       '#default_value' => $data['tipe'],
       '#options' => ['' => '-None -'] + $type_options,
       '#required' => TRUE,
+      '#ajax' => [
+        'callback' => [$this, 'updateCategoryField'],
+        'event' => 'change',
+        'wrapper' => 'category-wrapper',
+      ],
     ];
 
-    $category_options = $this->locationRemoteData->getCategoryOptions();
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
       '#default_value' => $data['category'],
       '#options' => ['' => '-None -'] + $category_options,
       '#required' => FALSE,
+      '#prefix' => '<div id="category-wrapper">',
+      '#suffix' => '</div>',
     ];
 
     $form['lat'] = [
