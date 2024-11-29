@@ -12,7 +12,7 @@ bundle: content_type
 mode: default
 content:
   field_reference_content:
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     weight: 0
     region: content
     settings:
