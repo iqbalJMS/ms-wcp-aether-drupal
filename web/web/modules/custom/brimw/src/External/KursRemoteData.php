@@ -17,29 +17,38 @@ class KursRemoteData extends BaseRemoteData
     $query = <<< GRAPHQL
       query {
         getKurs {
-          buyRateCounter
-          buyRateERate
-          currency
-          isShow
-          sellRateCounter
-          sellRateERate
-          timeUpdated
+          data {
+            buyRateCounter
+            buyRateERate
+            currency
+            isShow
+            sellRateCounter
+            sellRateERate
+          }
+          note {
+            timeUpdated
+            value
+          }
         }
       }
     GRAPHQL;
 
-    $result = array_column($this->gql($query)['data']['getKurs'] ?? [], null, 'currency');
-    
+    $result = $this->gql($query)['data']['getKurs'] ?? [];
+
     $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('currency');
+
+    $currencies = array_column($this->gql($query)['data']['getKurs']['data'] ?? [], null, 'currency');
 
     foreach ($terms as $_term) {
       $term = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($_term->tid);
-      if (isset($result[$term->name->value])) {
-        $result[$term->name->value]['image'] = $term?->field_image?->entity?->field_media_image?->entity?->createFileUrl();;
+      if (isset($currencies[$term->name->value])) {
+        $currencies[$term->name->value]['image'] = $term?->field_image?->entity?->field_media_image?->entity?->createFileUrl();
       }
     }
 
-    return array_values($result);
+    $result['data'] = $currencies;
+
+    return $result;
   }
 
   public function getStock(): array
@@ -98,11 +107,11 @@ class KursRemoteData extends BaseRemoteData
   }
 
 
-  public function postBuyRateCounterCalculator(Request $request): array
+  public function calcBuyCounter(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
-        postBuyRateCounterCalculator(
+      query {
+        calcBuyCounter(
           input: {
             amount: {
               currency: "{$request->get('fromCurrency')}"
@@ -117,11 +126,11 @@ class KursRemoteData extends BaseRemoteData
     return $this->gql($query)['data'] ?: [];
   }
 
-  public function postBuyRateeRateCalculator(Request $request): array
+  public function calcBuyeRate(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
-        postBuyRateeRateCalculator(
+      query {
+        calcBuyeRate(
           input: {
             amount: {
               currency: "{$request->get('fromCurrency')}"
@@ -136,11 +145,11 @@ class KursRemoteData extends BaseRemoteData
     return $this->gql($query)['data'] ?: [];
   }
 
-  public function postSellRateCounterCalculator(Request $request): array
+  public function calcSellCounter(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
-        postSellRateCounterCalculator(
+      query {
+        calcSellCounter(
           input: {
             amount: {
               currency: "{$request->get('fromCurrency')}"
@@ -155,11 +164,11 @@ class KursRemoteData extends BaseRemoteData
     return $this->gql($query)['data'] ?: [];
   }
 
-  public function postSellRateeRateCalculator(Request $request): array
+  public function calcSelleRate(Request $request): array
   {
     $query = <<< GRAPHQL
       mutation {
-        postSellRateeRateCalculator(
+        calcSelleRate(
           input: {
             amount: {
               currency: "{$request->get('fromCurrency')}"

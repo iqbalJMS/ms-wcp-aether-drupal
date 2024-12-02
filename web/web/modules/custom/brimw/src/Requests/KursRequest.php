@@ -11,10 +11,10 @@ use Drupal;
 class KursRequest extends BaseRequest
 {
     private $availableTypes = [
-        'postBuyRateCounterCalculator',
-        'postBuyRateeRateCalculator',
-        'postSellRateCounterCalculator',
-        'postSellRateeRateCalculator',
+        'calcBuyCounter',
+        'calcBuyeRate',
+        'calcSellCounter',
+        'calcSelleRate',
     ];
       
     public function validateType(string $type)
@@ -40,12 +40,10 @@ class KursRequest extends BaseRequest
             $this->rules(
                 'fromCurrency',
                 new NotBlank,
-                new Choice($availableCurrencies),
             ),
             $this->rules(
                 'toCurrency',
                 new NotBlank, 
-                new Choice($availableCurrencies),
             )
         ));
     }
