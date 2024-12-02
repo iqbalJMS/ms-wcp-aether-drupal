@@ -1,0 +1,21 @@
+uuid: 01a70937-1605-47ea-a1cd-9dc86a929e58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_promo_configuration
+    - paragraphs.paragraphs_type.promo_widget
+  module:
+    - options
+id: paragraph.promo_widget.field_promo_configuration
+field_name: field_promo_configuration
+entity_type: paragraph
+bundle: promo_widget
+label: 'Promo Configuration'
+description: 'Dapat memilih lebih dari satu. pilihan dalam konfigurasi ini tergantung dengan halaman yang dibutuhkan'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

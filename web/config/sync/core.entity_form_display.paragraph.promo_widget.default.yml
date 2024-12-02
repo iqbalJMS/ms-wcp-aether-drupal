@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.promo_widget.field_primary_cta
-    - field.field.paragraph.promo_widget.field_promo_widget_reference
+    - field.field.paragraph.promo_widget.field_promo_configuration
     - field.field.paragraph.promo_widget.field_subtitle
     - field.field.paragraph.promo_widget.field_title
     - field.field.paragraph.promo_widget.field_web_variant_styles
@@ -24,19 +24,15 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_promo_widget_reference:
-    type: entity_reference_autocomplete_tags
-    weight: 3
+  field_promo_configuration:
+    type: options_buttons
+    weight: 1
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: 'Search with microsite name'
+    settings: {  }
     third_party_settings: {  }
   field_subtitle:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 160
@@ -44,7 +40,7 @@ content:
     third_party_settings: {  }
   field_title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 160

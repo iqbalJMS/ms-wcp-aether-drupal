@@ -4,13 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.promo_widget.field_primary_cta
-    - field.field.paragraph.promo_widget.field_promo_widget_reference
+    - field.field.paragraph.promo_widget.field_promo_configuration
     - field.field.paragraph.promo_widget.field_subtitle
     - field.field.paragraph.promo_widget.field_title
     - field.field.paragraph.promo_widget.field_web_variant_styles
     - paragraphs.paragraphs_type.promo_widget
   module:
     - link
+    - options
 id: paragraph.promo_widget.default
 targetEntityType: paragraph
 bundle: promo_widget
@@ -28,13 +29,12 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_promo_widget_reference:
-    type: entity_reference_label
+  field_promo_configuration:
+    type: list_default
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 12
     region: content
   field_subtitle:
     type: string

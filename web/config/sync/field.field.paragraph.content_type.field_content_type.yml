@@ -1,4 +1,4 @@
-uuid: 22cfe660-77ea-4a9a-bbe8-a11a7ab14aa5
+uuid: f4c17859-a82d-4ead-ae13-d9baeec12004
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ id: paragraph.content_type.field_content_type
 field_name: field_content_type
 entity_type: paragraph
 bundle: content_type
-label: 'Content Type'
+label: content_type
 description: ''
 required: true
 translatable: false
