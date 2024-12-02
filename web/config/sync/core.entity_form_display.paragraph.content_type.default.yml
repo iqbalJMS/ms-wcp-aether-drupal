@@ -4,24 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.content_type.field_content_type
-    - field.field.paragraph.content_type.field_reference_content
     - paragraphs.paragraphs_type.content_type
 id: paragraph.content_type.default
 targetEntityType: paragraph
 bundle: content_type
 mode: default
 content:
-  field_reference_content:
-    type: entity_reference_autocomplete_tags
+  field_content_type:
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
-  field_content_type: true
   status: true

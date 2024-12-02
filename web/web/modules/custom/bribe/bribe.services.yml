@@ -17,3 +17,13 @@ services:
   bribe.promo.remote:
     class: Drupal\bribe\Service\RemoteService
     arguments: ['@http_client']
+  bribe.promo.normalizer:
+    class: Drupal\bribe\Normalizer\ReferenceContenTypeNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 100 }
+  bribe.promo.normalizer.promo:
+    class: Drupal\bribe\Normalizer\PromoContentNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 100 }
