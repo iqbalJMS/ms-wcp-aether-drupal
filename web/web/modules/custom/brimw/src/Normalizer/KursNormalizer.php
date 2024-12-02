@@ -37,17 +37,19 @@ class KursNormalizer extends BaseParagraphNormalizer
 
     } else {
 
-      $data = array_filter(\Drupal::service('brimw.kurs_remote_data')->getKurs(), function ($data) use ($allowed_currencies) {
+      $data = array_filter(\Drupal::service('brimw.kurs_remote_data')->getKurs()['data'], function ($data) use ($allowed_currencies) {
         return in_array($data['currency'], $allowed_currencies);
       });
       
       $normalized['data'] = array_values($data);
 
     }
+      
+    $normalized['note'] = \Drupal::service('brimw.kurs_remote_data')->getKurs()['note'];
 
     $normalized['available_currency'] = array_merge(
       ['IDR'],
-      array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs(), 'currency')
+      array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs()['data'], 'currency')
     );
 
     return $normalized;

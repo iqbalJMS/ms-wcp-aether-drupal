@@ -33,18 +33,22 @@ class KursRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    $result = array_column($this->gql($query)['data']['getKurs'] ?? [], null, 'currency');
-    
+    $result = $this->gql($query)['data']['getKurs'] ?? [];
+
     $terms = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('currency');
+
+    $currencies = array_column($this->gql($query)['data']['getKurs']['data'] ?? [], null, 'currency');
 
     foreach ($terms as $_term) {
       $term = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($_term->tid);
-      if (isset($result[$term->name->value])) {
-        $result[$term->name->value]['image'] = $term?->field_image?->entity?->field_media_image?->entity?->createFileUrl();;
+      if (isset($currencies[$term->name->value])) {
+        $currencies[$term->name->value]['image'] = $term?->field_image?->entity?->field_media_image?->entity?->createFileUrl();
       }
     }
 
-    return array_values($result);
+    $result['data'] = $currencies;
+
+    return $result;
   }
 
   public function getStock(): array

@@ -17,7 +17,7 @@ function brimw_options_select_simulation_allowed_values(FieldStorageDefinitionIn
 
 function brimw_select_field_currency_allowed_values(FieldStorageDefinitionInterface $definition, ?FieldableEntityInterface $entity = NULL, &$cacheable = TRUE)
 {
-  return array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs(), 'currency', 'currency');
+  return array_column(\Drupal::service('brimw.kurs_remote_data')->getKurs()['data'], 'currency', 'currency');
 }
 
 /**
