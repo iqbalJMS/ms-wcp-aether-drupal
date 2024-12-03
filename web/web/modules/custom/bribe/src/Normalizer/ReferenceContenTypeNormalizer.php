@@ -88,7 +88,7 @@ class ReferenceContenTypeNormalizer extends ContentEntityNormalizer
                 if (strpos($field_definition->getType(), 'entity_reference') !== false) {
                     // Get the referenced entities
                     $referenced_entities = $node->get($field_name)->referencedEntities();
-                    $fields_data[$field_name][] = $this->serializer->normalize($referenced_entities, 'json_recursive');
+                    $fields_data[$field_name] = $this->serializer->normalize($referenced_entities, 'json_recursive');
 
                     // dump($referenced_entities);
 

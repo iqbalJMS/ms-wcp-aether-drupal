@@ -12,7 +12,7 @@ entity_type: node
 bundle: promo
 label: 'Promo Sub Category'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
