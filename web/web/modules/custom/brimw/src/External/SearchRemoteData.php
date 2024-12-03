@@ -18,7 +18,7 @@ class SearchRemoteData extends BaseRemoteData
 
   public function allSearch(Request $request): array
   { 
-    $page = $request->get('page') ?: 1;
+    $page = $request->get('page') ?: 0;
     $query = <<< GRAPHQL
       query {
         allSearch (param: {
