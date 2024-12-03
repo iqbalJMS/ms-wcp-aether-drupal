@@ -18,40 +18,40 @@ class SearchRemoteData extends BaseRemoteData
 
   public function allSearch(Request $request): array
   { 
+    $page = $request->get('page') ?: 1;
     $query = <<< GRAPHQL
       query {
         allSearch (param: {
-          filter: {
-            ngrams: "{$request->get('ngrams')}"
-          }
+          filter: "{$request->get('filter')}"
+          category: "{$request->get('category')}"
+          parent: "{$request->get('parent')}"
+          page: {$page}
         }) {
-          product {
+          list {
             id
+            title
             content
+            sub_content
             type
             service_url
+            image {
+              fileId
+              url
+            }
+            parent
             category
+            recordInfo {
+              created_at
+              updated_at
+              deleted_at
+            }
           }
-          promo {
-            id
-            content
-            type
-            service_url
-            category
-          }
-          report {
-            id
-            content
-            type
-            service_url
-            category
-          }
-          news {
-            id
-            content
-            type
-            service_url
-            category
+          pagination {
+            totalData
+            totalPages
+            currentPage
+            isPrev
+            isNext
           }
         }
       }

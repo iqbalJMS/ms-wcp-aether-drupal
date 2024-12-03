@@ -17,7 +17,7 @@ class SearchRequest extends BaseRequest
     {
         $this->finalizeValidation(array_merge(
             $this->rules(
-                'ngrams',
+                'filter',
                 new NotBlank, 
             ),
         ));

@@ -167,7 +167,7 @@ class KursRemoteData extends BaseRemoteData
   public function calcSelleRate(Request $request): array
   {
     $query = <<< GRAPHQL
-      mutation {
+      query {
         calcSelleRate(
           input: {
             amount: {

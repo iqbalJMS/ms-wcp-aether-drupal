@@ -155,16 +155,16 @@ class SimulationRemoteData extends BaseRemoteData
     $query = <<< GRAPHQL
       query {
         estimateBritamaRencana (input: {
-          month: {$request->get('month')}
-          amount: {$request->get('amount')}
-          premiAsuransi: {$request->get('premiAsuransi')}
+          durationInMonths: {$request->get('durationInMonths')}
+          monthlyDeposit: {$request->get('monthlyDeposit')}
+          insurancePremium: {$request->get('insurancePremium')}
         }) {
-          bungaSaldoBritamaRencana
-          saldoTanpaBunga
-          bunga
-          totalInvestasiBritamaRencana
+          interestEarnings
+          balanceWithoutInterest
+          interest
+          totalBritamaPlanInvestment
           interestRate
-          asurancePremium
+          insurancePremium
         }
       }
     GRAPHQL;
@@ -178,20 +178,15 @@ class SimulationRemoteData extends BaseRemoteData
   {
     $query = <<< GRAPHQL
       query {
-        estimateBriguna (
-          karyaInput: {
-            salary: {$request->get('karyaSalary')}
-            installmentTerm: {$request->get('karyaInstallmentTerm')}
-            InterestRate: {$request->get('karyaInterestRate')}
-          }
-          purnaInput: {
-            salary: {$request->get('purnaSalary')}
-            installmentTerm: {$request->get('purnaInstallmentTerm')}
-            InterestRate: {$request->get('purnaInterestRate')}
-          }
-        ) {
+        estimateBriguna (input: {
+          salary: {$request->get('salary')}
+          installmentTerm: {$request->get('installmentTerm')}
+          InterestRate: {$request->get('interestRate')}
+          type: {$request->get('type')}
+        }) {
           monthlyInstallment
           interestRate
+          type
         }
       }
     GRAPHQL;
@@ -368,7 +363,6 @@ class SimulationRemoteData extends BaseRemoteData
           totalInstallmentPerMonth
           administrationFee
           totalPayment
-          provisionFee
         }
       }
     GRAPHQL;
