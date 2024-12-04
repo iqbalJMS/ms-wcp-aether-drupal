@@ -91,6 +91,9 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         if (in_array('popular_category', $getConfig)) {
             $configuration['popularCat'] = true;
         }
+        
+        $configuration['title'] = $request->query->get('search', '');
+        
         $normalized['promo'] =[];
 
         $data['items'] = $this->promoList($configuration);
@@ -125,6 +128,9 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         }
         if($configuration['catID'] !== 'all') {
             $query->condition('field_promo_category', $configuration['locID']);
+        }
+        if($configuration['title'] != ''){
+            $query->condition('title', '%' . $configuration['title'] . '%', 'LIKE');
         }
         $nids = $query->execute();
 
