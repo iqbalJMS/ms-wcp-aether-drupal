@@ -11,13 +11,13 @@ use Drupal;
  * Returns responses for Bricc routes.
  */
 class SimulationController extends ControllerBase {
-  public function submit(Request $request, string $type): JsonResponse 
+  public function submit(Request $request, string $simulation): JsonResponse 
   {
-    Drupal::service('brimw.simulation_request')->validate($type);
+    Drupal::service('brimw.simulation_request')->validate($simulation);
 
     return new JsonResponse([
       'data' => Drupal::service('brimw.simulation_remote_data')
-                  ->{$type}($request),
+                  ->{$simulation}($request),
     ]);
   }
 }

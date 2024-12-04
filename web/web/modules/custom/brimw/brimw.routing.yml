@@ -1,5 +1,5 @@
 brimw.calculate_simulation:
-  path: '/api/brimw/simulasi/{type}'
+  path: '/api/brimw/simulasi/{simulation}'
   defaults:
     _controller: '\Drupal\brimw\Controllers\SimulationController::submit'
     _title: 'Calculate simulation'

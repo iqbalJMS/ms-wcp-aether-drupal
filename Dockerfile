@@ -38,6 +38,11 @@ RUN apt-get install sudo -y
 RUN rm /etc/nginx/sites-enabled/default
 RUN git config --global --add safe.directory /workspaces
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Copy custom php.ini for both CLI and FPM
+COPY config/php.ini /etc/php/8.3/fpm/php.ini
+COPY config/php.ini /etc/php/8.3/cli/php.ini
+
 RUN chmod +x /workspaces/server/entrypoint.sh
 
 EXPOSE 5000
