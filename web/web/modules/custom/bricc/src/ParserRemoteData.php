@@ -56,7 +56,7 @@ class ParserRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function post(string $uri, array $options = []): array {
-    $cache_key = sprintf('bricc:%s:%s', md5($uri), json_encode($options));
+    $cache_key = sprintf('bricc:%s:%s', hash('sha256', $uri), json_encode($options));
 
     $options = array_merge([
       'headers' => [

@@ -50,7 +50,7 @@ final class LocationTypeWidget extends WidgetBase {
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state): array {
     $item = NULL;
 
-    foreach ($values as $delta => &$item) {
+    foreach ($values as $delta => $item) {
       $item['delta'] = $delta;
 
       // Take "label (entity id)", match the ID from inside the parentheses.

@@ -1,7 +1,0 @@
-global-styling:
-  css:
-    base:
-      dist/tailwind.css: {}
-  js:
-    dist/bri.js: {}
-    dist/main.js: {}

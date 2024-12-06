@@ -85,7 +85,7 @@ final class BriLocationItem extends FieldItemBase {
   public static function generateSampleValue(FieldDefinitionInterface $field_definition): array {
     $random = new Random();
     $values['location_id'] = '6yj3jh5u9iojx2ub' . \Drupal\Component\Datetime\time();
-    $values['location_name'] = $random->word(mt_rand(10, 20));
+    $values['location_name'] = $random->word(random_int(10, 20));
     return $values;
   }
 
