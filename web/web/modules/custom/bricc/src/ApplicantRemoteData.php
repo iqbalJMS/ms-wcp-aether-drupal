@@ -93,7 +93,7 @@ class ApplicantRemoteData
    */
   public function post(string $uri, array $options = [], $nocache = FALSE): array
   {
-    $cache_key = sprintf('bricc:%s:%s', md5($uri), md5(json_encode($options)));
+    $cache_key = sprintf('bricc:%s:%s', hash('sha256', $uri), hash('sha256', json_encode($options)));
 
     $options = array_merge([
       'headers' => [

@@ -3,16 +3,16 @@
   <a class="button button-primary" href="{{ path('bricc.applicant_detail', { 'id': detail._id, 'mode': 'excel' }) }}">Download Excel</a>
   <a class="button button-primary" href="{{ path('bricc.applicant_detail', { 'id': detail._id, 'mode': 'pdf' }) }}">Download PDF</a>
   {% if detail.documents.ktpUrl %}
-    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.ktpUrl }}">Download KTP</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.ktpUrl }}" rel="noopener noreferrer">Download KTP</a>
   {% endif %}
   {% if detail.documents.npwpUrl %}
-    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.npwpUrl }}">Download NPWP</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.npwpUrl }}" rel="noopener noreferrer">Download NPWP</a>
   {% endif %}
   {% if detail.documents.swafotoKtpUrl %}
-    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.swafotoKtpUrl }}">Download Selfie</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.swafotoKtpUrl }}" rel="noopener noreferrer">Download Selfie</a>
   {% endif %}
   {% if detail.documents.slipGajiUrl %}
-    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.slipGajiUrl }}">Download Slip Gaji</a>
+    <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.slipGajiUrl }}" rel="noopener noreferrer">Download Slip Gaji</a>
   {% endif %}
 </div>
 <h2>{{ 'Data Pribadi'|t }}</h2>

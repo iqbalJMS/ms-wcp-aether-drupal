@@ -83,8 +83,8 @@ final class LocationtypeItem extends FieldItemBase {
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition): array {
     $random = new Random();
-    $values['type_id'] = $random->word(mt_rand(10, 15));
-    $values['type_name'] = $random->word(mt_rand(10, 15));
+    $values['type_id'] = $random->word(random_int(10, 15));
+    $values['type_name'] = $random->word(random_int(10, 15));
     return $values;
   }
 
