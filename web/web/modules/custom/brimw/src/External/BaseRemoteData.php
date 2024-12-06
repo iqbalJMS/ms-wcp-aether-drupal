@@ -81,7 +81,7 @@ class BaseRemoteData {
       return Json::decode((string) $response->getBody());
     }
 
-    $cache_key = sprintf('brimw:%s:%s', md5($this->gqlUrl), json_encode($query));
+    $cache_key = sprintf('brimw:%s:%s', urlencode($this->gqlUrl), json_encode($query));
 
     $options = [
       'headers' => [
