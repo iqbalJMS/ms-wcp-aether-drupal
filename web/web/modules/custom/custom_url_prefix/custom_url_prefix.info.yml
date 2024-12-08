@@ -1,4 +1,0 @@
-name: 'Custom URL Prefix'
-type: module
-description: 'Adds a prefix to URLs globally.'
-core_version_requirement: ^10 || ^9
