@@ -65,6 +65,7 @@ module:
   restui: 0
   schemata: 0
   schemata_json_schema: 0
+  seckit: 0
   serialization: 0
   session_limit: 0
   simple_menu_permissions: 0
