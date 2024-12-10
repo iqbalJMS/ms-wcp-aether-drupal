@@ -108,6 +108,7 @@ final class LocationForm extends FormBase {
         'tipe' => '',
         'province' => '',
         'city' => '',
+        'urlMaps' => '',
       ];
     }
 
