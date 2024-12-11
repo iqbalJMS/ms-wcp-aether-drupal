@@ -14,8 +14,6 @@ dependencies:
     - node.type.promo_location
     - node.type.promo_microsite_owner
     - node.type.promo_sub_category
-    - user.role.admin_main_website
-    - user.role.administrator
   module:
     - datetime
     - node
@@ -537,11 +535,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: role
+        type: perm
         options:
-          role:
-            admin_main_website: admin_main_website
-            administrator: administrator
+          perm: 'access promo crud'
       cache:
         type: none
         options: {  }
@@ -903,7 +899,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_promo_category'
         - 'config:field.storage.node.field_promo_end_date'
@@ -1286,7 +1282,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   promo_location:
     id: promo_location
@@ -1655,7 +1651,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   promo_microsite:
     id: promo_microsite
@@ -2024,7 +2020,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   promo_page:
     id: promo_page
@@ -2677,7 +2673,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_promo_category'
         - 'config:field.storage.node.field_promo_end_date'
@@ -3060,5 +3056,5 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }

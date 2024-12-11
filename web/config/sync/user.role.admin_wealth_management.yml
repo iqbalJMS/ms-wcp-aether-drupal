@@ -29,6 +29,7 @@ dependencies:
     - taxonomy.vocabulary.infograph
     - taxonomy.vocabulary.personal_profile_type
   module:
+    - bribe
     - brimw
     - content_translation
     - filter
@@ -51,6 +52,7 @@ permissions:
   - 'access location crud'
   - 'access media overview'
   - 'access own webform configuration'
+  - 'access promo crud'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access webform overview'
