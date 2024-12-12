@@ -544,6 +544,7 @@ class LocationRemoteData extends BaseRemoteData {
             category: "$category"
             phone: "$phone"
             tipe: "$type"
+            site: "$site"
             urlMaps: "$url_maps"
           }
         )
