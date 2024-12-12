@@ -239,8 +239,8 @@ final class LocationForm extends FormBase {
       '#title' => $this->t('Site'),
       '#options' => [
         '' => $this->t('- Select -'),
-        'bri_main' => $this->t('BRI Main'),
-        'bri_promo' => $this->t('BRI Promo'),
+        'HOME' => $this->t('BRI Home'),
+        'PRIORITAS' => $this->t('BRI Prioritas'),
       ],
       '#default_value' => $data['site'],
       '#required' => FALSE,
