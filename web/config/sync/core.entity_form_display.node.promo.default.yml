@@ -28,13 +28,12 @@ third_party_settings:
         - field_hot_offers
         - field_promo_microsite_owner
         - field_promo_category
-        - field_promo_sub_category
         - field_promo_product_type
         - field_promo_location
       label: 'Promo Config'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -50,7 +49,7 @@ third_party_settings:
       label: 'Promo Schedule'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -88,14 +87,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_promo_id:
-    type: string_textfield
-    weight: 8
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_promo_image:
     type: media_library_widget
     weight: 1
@@ -115,7 +106,7 @@ content:
     third_party_settings: {  }
   field_promo_merchant:
     type: string_textarea
-    weight: 6
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -147,19 +138,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_promo_sub_category:
-    type: entity_reference_autocomplete_tags
-    weight: 8
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_term_and_condition:
     type: text_textarea
-    weight: 7
+    weight: 5
     region: content
     settings:
       rows: 3
@@ -167,7 +148,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 9
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -182,6 +163,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_promo_id: true
+  field_promo_sub_category: true
   langcode: true
   path: true
   promote: true
