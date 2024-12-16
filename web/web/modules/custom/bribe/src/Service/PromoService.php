@@ -41,10 +41,6 @@ class PromoService
                         name
                     }
                     promoTitle
-                    subCategory {
-                        _id
-                        name
-                    }
                     termsAndConditions
                 }
             }
@@ -72,7 +68,6 @@ class PromoService
                         termsAndConditions: "%s"
                         imagePromoUrl: "%s"
                         categoryIds: "%s"
-                        subCategoryIds: %s
                         lokasiPromo: %s
                         micrositeOwnerIds: %s
                     }) {
@@ -103,7 +98,6 @@ class PromoService
                         termsAndConditions: "%s"
                         imagePromoUrl: "%s"
                         categoryIds: "%s"
-                        subCategoryIds: %s
                         lokasiPromo: %s
                         micrositeOwnerIds: %s
                     }) {

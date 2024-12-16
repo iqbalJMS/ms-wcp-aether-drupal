@@ -45,10 +45,6 @@ class PromoCategoryService
             getCategories(id: "") {
                 _id
                 name
-                subCategories {
-                    _id
-                    name
-                }
             }
         }
         GQL;
@@ -69,7 +65,6 @@ class PromoCategoryService
         mutation {
             createCategory(createCategoryInput:{
                 name: "%s"
-                subCategoryIds: %s
             }) { id }
         }
         GQL;
@@ -91,7 +86,6 @@ class PromoCategoryService
             updateCategory(input: {
                 _id: "%s"
                 name: "%s"
-                subCategoryIds: %s
             }) { _id }
         }
         GQL;
