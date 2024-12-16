@@ -109,6 +109,7 @@ final class LocationForm extends FormBase {
         'province' => '',
         'city' => '',
         'urlMaps' => '',
+        'site' => '',
       ];
     }
 
@@ -232,6 +233,19 @@ final class LocationForm extends FormBase {
       '#default_value' => $data['urlMaps'],
       '#required' => FALSE,
     ];
+
+    $form['site'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Site'),
+      '#options' => [
+        '' => $this->t('- Select -'),
+        'HOME' => $this->t('BRI Home'),
+        'PRIORITAS' => $this->t('BRI Prioritas'),
+      ],
+      '#default_value' => $data['site'],
+      '#required' => FALSE,
+    ];
+
 
     // Add submit button.
     $form['actions'] = [

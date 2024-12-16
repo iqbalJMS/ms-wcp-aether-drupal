@@ -37,6 +37,7 @@ class SearchRemoteData extends BaseRemoteData
             image {
               fileId
               url
+              base64
             }
             parent
             category

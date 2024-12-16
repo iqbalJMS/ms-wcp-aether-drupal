@@ -365,11 +365,10 @@ class LocationRemoteData extends BaseRemoteData {
           province: "$id_province"
           city: "$id_city"
           zip: "$zip"
-          data: {
-            category: "$category"
-            phone: "$phone"
-            tipe: "$type"
-          }
+          site: "$site"
+          category: "$category"
+          phone: "$phone"
+          tipe: "$type"
         }) {
           id
         }
@@ -545,6 +544,7 @@ class LocationRemoteData extends BaseRemoteData {
             category: "$category"
             phone: "$phone"
             tipe: "$type"
+            site: "$site"
             urlMaps: "$url_maps"
           }
         )
