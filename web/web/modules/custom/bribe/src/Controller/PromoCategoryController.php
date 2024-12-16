@@ -33,17 +33,17 @@ class PromoCategoryController extends ControllerBase
     }
     function remoteCreate($node) {
 
-        $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
+        // $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
 
-        $subCategory = array();
+        // $subCategory = array();
 
-        foreach ($subCategorylist as $sub) {
-            $subCategory[] = $sub->get('field_subcategory_id')->value;
-        }
+        // foreach ($subCategorylist as $sub) {
+        //     $subCategory[] = $sub->get('field_subcategory_id')->value;
+        // }
 
         $send = array(
             $node->getTitle(),
-            json_encode($subCategory)
+            // json_encode($subCategory)
         );
         $create = $this->category->promoCategoryCreate($send);
 
@@ -57,19 +57,19 @@ class PromoCategoryController extends ControllerBase
     }
     function remoteUpdate($node) {
 
-        $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
+        // $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
 
-        $subCategory = array();
+        // $subCategory = array();
         
-        foreach ($subCategorylist as $sub) {
-            $subCategory[] = $sub->get('field_subcategory_id')->value;
-        }
+        // foreach ($subCategorylist as $sub) {
+        //     $subCategory[] = $sub->get('field_subcategory_id')->value;
+        // }
         
 
         $send = array(
             $node->get('field_category_id')->value,
-            $node->getTitle(),
-            json_encode($subCategory)
+            $node->getTitle()
+            // json_encode($subCategory)
         );
         
         $update = $this->category->promoCategoryUpdate($send);

@@ -35,19 +35,19 @@ class PromoController extends ControllerBase
         $categories = $node->get('field_promo_category')->referencedEntities();
         $locations = $node->get('field_promo_location')->referencedEntities();
         $microsites = $node->get('field_promo_microsite_owner')->referencedEntities();
-        $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
+        // $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
 
         $category = "";
-        $subCategory = array();
+        // $subCategory = array();
         $location = array();
         $microsite = "";
 
         foreach ($categories as $cat) {
             $category = $cat->get('field_category_id')->value;
         }
-        foreach ($subCategories as $sub) {
-            $subCategory[] = $sub->get('field_subcategory_id')->value;
-        }
+        // foreach ($subCategories as $sub) {
+        //     $subCategory[] = $sub->get('field_subcategory_id')->value;
+        // }
         foreach ($locations as $loc) {
             $location[] = $loc->get('field_location_id')->value;
         }
@@ -75,7 +75,7 @@ class PromoController extends ControllerBase
             $node->get('field_term_and_condition')->value,
             $relative_path,
             $category,
-            json_encode($subCategory),
+            // json_encode($subCategory),
             json_encode($location),
             json_encode($microsite)
         );
@@ -96,19 +96,19 @@ class PromoController extends ControllerBase
         $categories = $node->get('field_promo_category')->referencedEntities();
         $locations = $node->get('field_promo_location')->referencedEntities();
         $microsites = $node->get('field_promo_microsite_owner')->referencedEntities();
-        $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
+        // $subCategories = $node->get('field_promo_sub_category')->referencedEntities();
 
         $category = "";
-        $subCategory = array();
+        // $subCategory = array();
         $location = array();
         $microsite = "";
 
         foreach ($categories as $cat) {
             $category = $cat->get('field_category_id')->value;
         }
-        foreach ($subCategories as $sub) {
-            $subCategory[] = $sub->get('field_subcategory_id')->value;
-        }
+        // foreach ($subCategories as $sub) {
+        //     $subCategory[] = $sub->get('field_subcategory_id')->value;
+        // }
         foreach ($locations as $loc) {
             $location[] = $loc->get('field_location_id')->value;
         }
@@ -137,7 +137,7 @@ class PromoController extends ControllerBase
             $node->get('field_term_and_condition')->value,
             $relative_path,
             $category,
-            json_encode($subCategory),
+            // json_encode($subCategory),
             json_encode($location),
             json_encode($microsite)
         );
