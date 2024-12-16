@@ -8,11 +8,11 @@ promo_tab.promo_category:
   route_name: 'bribe.promo_category'  
   weight: 11  
   base_route: bribe.promo
-promo_tab.promo_sub_category:  
-  title: 'Sub Category'  
-  route_name: 'bribe.promo_sub_category' 
-  weight: 12
-  base_route: bribe.promo
+# promo_tab.promo_sub_category:  
+#   title: 'Sub Category'  
+#   route_name: 'bribe.promo_sub_category' 
+#   weight: 12
+#   base_route: bribe.promo
 promo_tab.promo_location:  
   title: 'Location'  
   route_name: 'bribe.promo_location'  

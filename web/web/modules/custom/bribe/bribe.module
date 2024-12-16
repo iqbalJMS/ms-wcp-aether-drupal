@@ -4,14 +4,9 @@
  * @file  
  * Bri Backend Integration.  
  */
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Messenger\MessengerInterface;
-use \Drupal\Core\Form\FormStateInterface;
+
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
-use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\Core\Entity\EntityFieldManagerInterface;  
-use Drupal\Core\Entity\EntityTypeManagerInterface; 
 
 use Drupal\bribe\Controller\PromoSubCategoryController;
 use Drupal\bribe\Controller\PromoCategoryController;
@@ -142,4 +137,48 @@ function bribeValidation($node)
     }
 
     return $response;
+}
+
+function bribe_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+
+    $form_object = $form_state->getFormObject();
+    $node = $form_object->getEntity();
+    $content_type = $node->bundle();
+
+    $type = array('promo', 'promo_category', 'promo_sub_category', 'promo_location', 'promo_microsite_owner', 'promo_product');
+
+    if (in_array($content_type, $type)) {
+        $form['actions']['submit']['#submit'][] = 'bribe_node_form_submit';
+    }
+}
+
+function bribe_node_form_submit($form, FormStateInterface $form_state)
+{
+    $form_object = $form_state->getFormObject();
+    $node = $form_object->getEntity();
+    $content_type = $node->bundle();
+
+    $form_state->setRedirect('bribe.' . $content_type);
+}
+
+function bribe_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+    // // Check if we are on the content administration page.
+    if ($form_id == 'views_exposed_form' && $form['#id'] === 'views-exposed-form-content-page-1') {
+        $hidden_content_types = ['promo', 'promo_category', 'promo_location', 'promo_microsite_owner', 'promo_sub_category'];
+
+        // Get the current options for the content type filter.
+        $content_type_options = $form['type']['#options'];
+
+        // Loop through the hidden content types and unset them from the options.
+        foreach ($hidden_content_types as $type) {
+            if (isset($content_type_options[$type])) {
+                unset($content_type_options[$type]);
+            }
+        }
+
+        // Set the modified options back to the form.
+        $form['type']['#options'] = $content_type_options;
+    }
 }

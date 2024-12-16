@@ -2686,6 +2686,7 @@ display:
     display_plugin: page
     position: 3
     display_options:
+      enabled: false
       title: 'Sub Category'
       fields:
         node_bulk_form:
