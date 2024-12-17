@@ -42,6 +42,7 @@ class PromoService
                     }
                     promoTitle
                     termsAndConditions
+                    isHotOffer
                 }
             }
         GQL;
@@ -70,6 +71,7 @@ class PromoService
                         categoryIds: "%s"
                         lokasiPromo: %s
                         micrositeOwnerIds: %s
+                        isHotOffer: %s
                     }) {
                     _id
                 }
@@ -100,6 +102,7 @@ class PromoService
                         categoryIds: "%s"
                         lokasiPromo: %s
                         micrositeOwnerIds: %s
+                        isHotOffer: %s
                     }) {
                     _id
                 }

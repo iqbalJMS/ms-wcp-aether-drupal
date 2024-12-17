@@ -67,6 +67,7 @@ class PromoController extends ControllerBase
         $dateEnd = $node->get('field_promo_start_date')->value;
         $getEnd = new \DateTime($dateEnd);
         $end = $getEnd->format('Y-m-d H:i:s');
+        $hotOffer = $node->get('field_hot_offers')->value == 1 ? 'true' : 'false';
 
         $send = array(
             $node->getTitle(),
@@ -75,9 +76,9 @@ class PromoController extends ControllerBase
             $node->get('field_term_and_condition')->value,
             $relative_path,
             $category,
-            // json_encode($subCategory),
             json_encode($location),
-            json_encode($microsite)
+            json_encode($microsite),
+            $hotOffer
         );
 
         $create = $this->promo->promoCreate($send);
@@ -128,6 +129,7 @@ class PromoController extends ControllerBase
         $dateEnd = $node->get('field_promo_start_date')->value;
         $getEnd = new \DateTime($dateEnd);
         $end = $getEnd->format('Y-m-d H:i:s');
+        $hotOffer = $node->get('field_hot_offers')->value == 1 ? 'true' : 'false';
 
         $send = array(
             $node->get('field_promo_id')->value,
@@ -137,9 +139,9 @@ class PromoController extends ControllerBase
             $node->get('field_term_and_condition')->value,
             $relative_path,
             $category,
-            // json_encode($subCategory),
             json_encode($location),
-            json_encode($microsite)
+            json_encode($microsite),
+            $hotOffer
         );
 
 
