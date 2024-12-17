@@ -572,6 +572,17 @@ class LocationRemoteData extends BaseRemoteData {
     return $this->gql($query);
   }
 
+
+  public function deleteLocationType($id) {
+    $query = <<< GRAPHQL
+      mutation {
+        deleteType (id: "$id")
+      }
+    GRAPHQL;
+
+    return $this->gql($query);
+  }
+
   /**
    * @param $id
    *
