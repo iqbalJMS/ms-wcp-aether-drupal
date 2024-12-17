@@ -300,10 +300,13 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['createCategory']['id'];
   }
 
-  public function createType($name) {
+  public function createType($name, $site) {
     $query = <<< GRAPHQL
       mutation {
-        createType(name: "$name") {
+        createType(input: {
+          name: "$name"
+          site: "$site"
+        }) {
           id
         }
       }
@@ -470,20 +473,25 @@ class LocationRemoteData extends BaseRemoteData {
   public function getType($id) {
     $query = <<< GRAPHQL
       query {
-        getByIdType(id: "$id") {
+        getTypeById(id: "$id"){
           id
           name
+          site
         }
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdType'];
+    return $result['data']['getTypeById'];
   }
 
-  public function updateType($id, $name) {
+  public function updateType($id, $name, $site) {
     $query = <<< GRAPHQL
       mutation {
-        updateType (id: "$id", name: "$name")
+        updateType(input: {
+          id: "$id"
+          name: "$name"
+          site: "$site"
+        })
       }
     GRAPHQL;
     $result = $this->gql($query);

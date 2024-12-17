@@ -78,6 +78,7 @@ final class LocationTypeForm extends FormBase {
       $data = [
         'id' => '',
         'name' => '',
+        'site' => '',
       ];
     }
 
@@ -86,6 +87,18 @@ final class LocationTypeForm extends FormBase {
       '#title' => $this->t('Name'),
       '#required' => TRUE,
       '#default_value' => $data['name'],
+    ];
+
+    $form['site'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Site'),
+      '#options' => [
+        '' => $this->t('- Select -'),
+        'HOME' => $this->t('BRI Home'),
+        'PRIORITAS' => $this->t('BRI Prioritas'),
+      ],
+      '#default_value' => $data['site'],
+      '#required' => FALSE,
     ];
 
     $form['actions'] = [
@@ -127,7 +140,7 @@ final class LocationTypeForm extends FormBase {
     if ($this->typeId) {
       // Editing: Update existing location data.
       try {
-        $update_status = $this->locationRemoteData->updateType($this->typeId, $values['name']);
+        $update_status = $this->locationRemoteData->updateType($this->typeId, $values['name'], $values['site']);
         if ($update_status) {
           \Drupal::messenger()->addMessage($this->t('Type updated successfully'));
         }
@@ -141,7 +154,7 @@ final class LocationTypeForm extends FormBase {
     } else {
       // Adding: Insert new location data.
       try {
-        $new_id = $this->locationRemoteData->createType($values['name']);
+        $new_id = $this->locationRemoteData->createType($values['name'], $values['site']);
         \Drupal::messenger()->addMessage($this->t('Type @name added successfully with ID: @id', ['@name' => $values['name'], '@id' => $new_id]));
       }
       catch (\Exception $e) {
