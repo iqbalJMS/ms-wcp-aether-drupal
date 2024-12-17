@@ -113,6 +113,14 @@ brimw.location.category.edit:
   requirements:
     _permission: 'access location crud'
 
+brimw.location.category.delete:
+  path: '/admin/bri/location/category/{id}/delete'
+  defaults:
+    _title: 'Confirm delete Location category'
+    _form: 'Drupal\brimw\Form\LocationCategoryDeleteConfirmForm'
+  requirements:
+    _permission: 'access location crud'
+
 brimw.location.type.add:
   path: '/admin/bri/location/type/add'
   defaults:
