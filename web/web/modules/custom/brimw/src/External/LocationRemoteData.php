@@ -346,7 +346,7 @@ class LocationRemoteData extends BaseRemoteData {
     GRAPHQL;
     $result = $this->gql($query);
     $this->cache->delete(self::CACHEKEY_CATEGORY_OPTIONS);
-    return $result['data']['updateType'];
+    return $result['data']['updateCategory'];
   }
 
   /**
