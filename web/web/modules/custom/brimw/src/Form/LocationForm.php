@@ -342,7 +342,8 @@ final class LocationForm extends FormBase {
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createLocation($values);
-      \Drupal::messenger()->addMessage($this->t('Location added successfully with ID: @id', ['@id' => $new_id]));
+      $sanitized_name = sprintf('%s', $values['name']);
+      \Drupal::messenger()->addMessage($this->t('Location @name added successfully', ['@name' => $sanitized_name]));
     }
   }
 
