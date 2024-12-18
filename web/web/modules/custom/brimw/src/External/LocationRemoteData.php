@@ -527,11 +527,12 @@ class LocationRemoteData extends BaseRemoteData {
           tipe
           phone
           urlMaps
+          site
         }
       }
     GRAPHQL;
         $result = $this->gql($query);
-        $this->cache->set($cache_key, $result['data']['getLocationById'], strtotime($this->cacheDuration));
+        $this->cache->set($cache_key, $result['data']['getLocationById']);
         return $result['data']['getLocationById'];
       } catch (RequestException $e) {
         $this->logger->warning($e->getMessage());

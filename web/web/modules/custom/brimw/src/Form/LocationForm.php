@@ -122,7 +122,12 @@ final class LocationForm extends FormBase {
 
     $province_options = ['none' => '-None -'] + $this->location->getAllProvinces();
     if (empty($form_state->getValue('id_province'))) {
-      $selected_province = key($province_options);
+      if (isset($data['province']) && $data['province'] !== 'none') {
+        $selected_province = $data['province'];
+      }
+      else {
+        $selected_province = key($province_options);
+      }
     }
     else {
       // Get the value if it already exists.
@@ -145,27 +150,19 @@ final class LocationForm extends FormBase {
     $city_options = [];
     $category_options = [];
 
-//    $triggering_element = $form_state->getTriggeringElement();
-//    if ($triggering_element) {
-//      if ($triggering_element['#name'] == 'id_province') {
-//        $uuid_province = empty($triggering_element) ? NULL : $triggering_element['#value'];
-//        $city_options = $this->location->getAllCities($uuid_province);
-//      }
-//      if ($triggering_element['#name'] == 'type') {
-//        $type_id = empty($triggering_element) ? NULL : $triggering_element['#value'];
-//        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($type_id);
-//      }
-//    }
-//    else {
-//      if ($data['province']) {
-//        $city_options = $this->location->getAllCities($data['province']);
-//      }
-//      if ($data['tipe']) {
-//        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($data['tipe']);
-//      }
-//    }
+    $city_options = ['none' => '-None -'] + $this->location->getAllCities($selected_province);
 
-    $city_options = ['' => '-None -'] + $this->location->getAllCities($selected_province);
+    if (empty($form_state->getValue('id_city'))) {
+      if (isset($data['city']) && $data['city'] !== 'none') {
+        $selected_city = $data['city'];
+      }
+      else {
+        $selected_city = key($city_options);
+      }
+    }
+    else {
+      $selected_city =  $form_state->getValue('id_city');
+    }
 
     $form['id_city'] = [
       '#type' => 'select',
@@ -174,7 +171,7 @@ final class LocationForm extends FormBase {
       '#required' => FALSE,
       '#prefix' => '<div id="city-wrapper">',
       '#suffix' => '</div>',
-      '#default_value' => !empty($form_state->getValue('id_city')) ? $form_state->getValue('id_city') : '',
+      '#default_value' => $selected_city,
     ];
 
     $form['zip'] = [
@@ -200,7 +197,12 @@ final class LocationForm extends FormBase {
 
     $type_options = ['none' => '-None -'] + $this->locationRemoteData->getTypeOptions();
     if (empty($form_state->getValue('type'))) {
-      $selected_type = key($type_options);
+      if (isset($data['tipe']) && $data['tipe'] !== 'none') {
+        $selected_type = $data['tipe'];
+      }
+      else {
+        $selected_type = key($type_options);
+      }
     }
     else {
       // Get the value if it already exists.
@@ -220,11 +222,23 @@ final class LocationForm extends FormBase {
       ],
     ];
 
-    $category_options = ['' => '-None -'] + $this->locationRemoteData->getCategoryByTypeOptions($selected_type);
+    $category_options = ['none' => '-None -'] + $this->locationRemoteData->getCategoryByTypeOptions($selected_type);
+    if (empty($form_state->getValue('category'))) {
+      if (isset($data['category']) && $data['category'] !== 'none') {
+        $selected_category = $data['category'];
+      }
+      else {
+        $selected_category = key($category_options);
+      }
+    }
+    else {
+      // Get the value if it already exists.
+      $selected_category = $form_state->getValue('category');
+    }
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
-      '#default_value' => !empty($form_state->getValue('category')) ? $form_state->getValue('category') : '',
+      '#default_value' => $selected_category,
       '#options' => $category_options,
       '#required' => FALSE,
       '#prefix' => '<div id="category-wrapper">',
