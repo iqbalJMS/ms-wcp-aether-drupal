@@ -66,15 +66,16 @@ class BreadcrumbNormalizer extends BaseParagraphNormalizer
     return $normalized;
   }
 
-  protected function getMenuTrail($trees, $node, $trail = [])
+  protected function getMenuTrail($trees, $node, $_trail = [])
   {
     foreach ($trees as $tree) {
+      $trail = $_trail;
       $trail[] = $tree;
       if ($tree->link->getUrlObject()->toUriString() === $node->toUrl()->toUriString()) {
         return $trail;
       }
-      if ($trail = $this->getMenuTrail($tree->subtree, $node, $trail)) {
-        return $trail;
+      if ($result = $this->getMenuTrail($tree->subtree, $node, $trail)) {
+        return $result;
       }
     }
 
