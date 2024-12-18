@@ -22,6 +22,7 @@ class LocationRemoteData extends BaseRemoteData {
   public function getAllLocations($params = []): array {
     $skip = $params['skip'] ?? 0;
     $limit = $params['limit'] ?? 10;
+    $search = $params['name'] ?? '';
 
     $query = <<< GRAPHQL
       query {
@@ -29,7 +30,7 @@ class LocationRemoteData extends BaseRemoteData {
           skip: $skip
           limit: $limit
           filter: {
-            search: ""
+            search: "$search"
           }
         }) {
           data {
