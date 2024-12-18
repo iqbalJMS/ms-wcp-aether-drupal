@@ -42,6 +42,10 @@ final class Location {
   public function getAllCities($province_uuid = NULL): array {
     $cities = [];
 
+    if ($province_uuid === 'none') {
+      $province_uuid = NULL;
+    }
+
     if (!is_null($province_uuid)) {
 
       $province_entities = $this->entityTypeManager->getStorage('bricc_province')->loadByProperties(

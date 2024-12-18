@@ -235,6 +235,11 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function getCategoryByTypeOptions($type_id) {
+
+    if ($type_id === '' || $type_id === null || $type_id === 'none') {
+      return [];
+    }
+
     $categories = $this->getCategoryByType($type_id);
 
     if ($categories) {
