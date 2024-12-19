@@ -506,13 +506,8 @@ class LocationRemoteData extends BaseRemoteData {
   }
 
   public function getLocation($id) {
-    $cache_key = self::CACHEKEY_LOCATION_PREFIX . $id;
-    if ($cache = $this->cache->get($cache_key)) {
-      return $cache->data;
-    }
-    else {
-      try {
-        $query = <<< GRAPHQL
+    try {
+      $query = <<< GRAPHQL
       query {
         getLocationById (id: "$id") {
           id
@@ -531,13 +526,11 @@ class LocationRemoteData extends BaseRemoteData {
         }
       }
     GRAPHQL;
-        $result = $this->gql($query);
-        $this->cache->set($cache_key, $result['data']['getLocationById']);
-        return $result['data']['getLocationById'];
-      } catch (RequestException $e) {
-        $this->logger->warning($e->getMessage());
-        return [];
-      }
+      $result = $this->gql($query);
+      return $result['data']['getLocationById'];
+    } catch (RequestException $e) {
+      $this->logger->warning($e->getMessage());
+      return [];
     }
   }
 
