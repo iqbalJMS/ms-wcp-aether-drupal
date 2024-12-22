@@ -65,7 +65,7 @@ final class LocationCategoryForm extends FormBase {
 
       // Edit
       $form['id'] = [
-        '#type' => 'textfield',
+        '#type' => 'hidden',
         '#title' => $this->t('ID'),
         '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],

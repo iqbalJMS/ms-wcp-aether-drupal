@@ -86,7 +86,7 @@ final class LocationForm extends FormBase {
       $data = $this->locationRemoteData->getLocation($this->locationId);
 
       $form['id'] = [
-        '#type' => 'textfield',
+        '#type' => 'hidden',
         '#title' => $this->t('ID'),
         '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
