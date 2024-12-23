@@ -48,6 +48,7 @@ class SimulationNormalizer extends BaseParagraphNormalizer
       "DEPOSITO_BISNIS_VALAS" => "depositoBisnisValas",
       "INVESTASI_DPLK" => "investasiDplk",
       "KREDIT_INVESTASI" => "kreditInvestasi",
+      "CICILAN_KENDARAAN" => "vehicleInstallment",
     ][$key] ?? 'all';
   }
 

@@ -60,17 +60,22 @@ class SimulationRemoteData extends BaseRemoteData
           GRAPHQL,
       'deposito' => <<< GRAPHQL
           depositoScheme {
-            interestRate
+            interestRateOne
+            interestRateThree
+            interestRateSixToThirtySix
           }
           GRAPHQL,
       'depositoValas' => <<< GRAPHQL
           depositoValasScheme {
             interestRate
+            interestRateSixMonth
           }
           GRAPHQL,
       'depositoBusiness' => <<< GRAPHQL
           depositoBusinessScheme {
-            interestRate
+            interestRateOne
+            interestRateThree
+            interestRateSixToThirtySix
           }
           GRAPHQL,
       'mutualFund' => <<< GRAPHQL
@@ -103,7 +108,7 @@ class SimulationRemoteData extends BaseRemoteData
         }
       }
     GRAPHQL;
-    
+
     $response = $this->gql($query);
 
     return $response['data']['getMasterData'] ?? $this->error($response);
