@@ -103,8 +103,10 @@ class SimulationRemoteData extends BaseRemoteData
         }
       }
     GRAPHQL;
+    
+    $response = $this->gql($query);
 
-    return $this->gql($query)['data']['getMasterData'] ?? $this->error($response);
+    return $response['data']['getMasterData'] ?? $this->error($response);
   }
 
   public function estimateKpr(Request $request): array
