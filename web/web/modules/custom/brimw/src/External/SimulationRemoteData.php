@@ -60,17 +60,22 @@ class SimulationRemoteData extends BaseRemoteData
           GRAPHQL,
       'deposito' => <<< GRAPHQL
           depositoScheme {
-            interestRate
+            interestRateOne
+            interestRateThree
+            interestRateSixToThirtySix
           }
           GRAPHQL,
       'depositoValas' => <<< GRAPHQL
           depositoValasScheme {
             interestRate
+            interestRateSixMonth
           }
           GRAPHQL,
       'depositoBusiness' => <<< GRAPHQL
           depositoBusinessScheme {
-            interestRate
+            interestRateOne
+            interestRateThree
+            interestRateSixToThirtySix
           }
           GRAPHQL,
       'mutualFund' => <<< GRAPHQL
@@ -104,7 +109,9 @@ class SimulationRemoteData extends BaseRemoteData
       }
     GRAPHQL;
 
-    return $this->gql($query)['data']['getMasterData'] ?? $this->error($response);
+    $response = $this->gql($query);
+
+    return $response['data']['getMasterData'] ?? $this->error($response);
   }
 
   public function estimateKpr(Request $request): array
@@ -267,12 +274,14 @@ class SimulationRemoteData extends BaseRemoteData
         estimateDepositoValas (input: {
           termInMonths: {$request->get('termInMonths')}
           depositAmount: {$request->get('depositAmount')}
+          currency: "{$request->get('currency')}"
         }
         ) {
           totalInterest
           totalDeposit
           totalDepositWithInterest
           rate
+          currency
         }
       }
     GRAPHQL;
@@ -302,6 +311,31 @@ class SimulationRemoteData extends BaseRemoteData
     $response = $this->gql($query);
 
     return $response['data']['estimateDepositoBusiness'] ?? $this->error($response);
+  }
+
+  public function estimateDepositoBusinessValas(Request $request): array
+  {
+    $query = <<< GRAPHQL
+      query {
+        estimateDepositoBusinessValas (input: {
+          interestRate: {$request->get('interestRate')}
+          depositAmount: {$request->get('depositAmount')}
+          termInMonths: {$request->get('termInMonths')}
+          currency: "{$request->get('currency')}"
+        }
+        ) {
+          totalInterest
+          totalDeposit
+          totalDepositWithInterest
+          rate
+          currency
+        }
+      }
+    GRAPHQL;
+
+    $response = $this->gql($query);
+
+    return $response['data']['estimateDepositoBusinessValas'] ?? $this->error($response);
   }
 
   public function estimateInitialInvestment(Request $request): array

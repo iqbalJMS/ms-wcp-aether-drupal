@@ -93,6 +93,8 @@ function bribeValidation($node)
 
     $type = $node->getType();
 
+    $response = null;
+
     switch ($type) {
         case 'promo':
             $remote = new PromoController(\Drupal::service('bribe.promo'));

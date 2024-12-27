@@ -23,6 +23,7 @@ class SimulationRequest extends BaseRequest
         'estimateDeposito',
         'estimateDepositoValas',
         'estimateDepositoBusiness',
+        'estimateDepositoBusinessValas',
         'estimateInvestment',
         'estimateInitialInvestment',
         'estimateVehicleInstallment',
@@ -168,6 +169,10 @@ class SimulationRequest extends BaseRequest
                 'termInMonths',
                 new NotBlank, 
             ),
+            $this->rules(
+                'currency',
+                new NotBlank, 
+            ),
         ));
     }
     
@@ -180,6 +185,28 @@ class SimulationRequest extends BaseRequest
             ), 
             $this->rules(
                 'termInMonths',
+                new NotBlank, 
+            ),
+        ));
+    }
+    
+    protected function validateEstimateDepositoBusinessValas(array $errors = [])
+    {
+        return $this->finalizeValidation(array_merge(
+            $this->rules(
+                'interestRate',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'depositAmount',
+                new NotBlank, 
+            ), 
+            $this->rules(
+                'termInMonths',
+                new NotBlank, 
+            ),
+            $this->rules(
+                'currency',
                 new NotBlank, 
             ),
         ));

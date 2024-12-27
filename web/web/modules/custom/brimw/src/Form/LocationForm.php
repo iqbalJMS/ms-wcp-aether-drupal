@@ -86,7 +86,7 @@ final class LocationForm extends FormBase {
       $data = $this->locationRemoteData->getLocation($this->locationId);
 
       $form['id'] = [
-        '#type' => 'textfield',
+        '#type' => 'hidden',
         '#title' => $this->t('ID'),
         '#description' => $this->t('ID is read-only'),
         '#default_value' => $data['id'],
@@ -106,8 +106,8 @@ final class LocationForm extends FormBase {
         'category' => '',
         'phone' => '',
         'tipe' => '',
-        'province' => '',
-        'city' => '',
+        'province' => 'none',
+        'city' => 'none',
         'urlMaps' => '',
         'site' => '',
       ];
@@ -120,13 +120,25 @@ final class LocationForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $province_options = $this->location->getAllProvinces();
+    $province_options = ['none' => '-None -'] + $this->location->getAllProvinces();
+    if (empty($form_state->getValue('id_province'))) {
+      if (isset($data['province']) && $data['province'] !== 'none') {
+        $selected_province = $data['province'];
+      }
+      else {
+        $selected_province = key($province_options);
+      }
+    }
+    else {
+      // Get the value if it already exists.
+      $selected_province = $form_state->getValue('id_province');
+    }
 
     $form['id_province'] = [
       '#type' => 'select',
       '#title' => $this->t('Province'),
-      '#default_value' => $data['province'],
-      '#options' => ['' => '-None -'] + $province_options,
+      '#default_value' => $selected_province,
+      '#options' => $province_options,
       '#required' => FALSE,
       '#ajax' => [
         'callback' => [$this, 'updateCityField'],
@@ -138,34 +150,28 @@ final class LocationForm extends FormBase {
     $city_options = [];
     $category_options = [];
 
-    $triggering_element = $form_state->getTriggeringElement();
-    if ($triggering_element) {
-      if ($triggering_element['#name'] == 'id_province') {
-        $uuid_province = empty($triggering_element) ? NULL : $triggering_element['#value'];
-        $city_options = $this->location->getAllCities($uuid_province);
+    $city_options = ['none' => '-None -'] + $this->location->getAllCities($selected_province);
+
+    if (empty($form_state->getValue('id_city'))) {
+      if (isset($data['city']) && $data['city'] !== 'none') {
+        $selected_city = $data['city'];
       }
-      if ($triggering_element['#name'] == 'type') {
-        $type_id = empty($triggering_element) ? NULL : $triggering_element['#value'];
-        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($type_id);
+      else {
+        $selected_city = key($city_options);
       }
     }
     else {
-      if ($data['province']) {
-        $city_options = $this->location->getAllCities($data['province']);
-      }
-      if ($data['tipe']) {
-        $category_options = $this->locationRemoteData->getCategoryByTypeOptions($data['tipe']);
-      }
+      $selected_city =  $form_state->getValue('id_city');
     }
 
     $form['id_city'] = [
       '#type' => 'select',
       '#title' => $this->t('City'),
-      '#default_value' => $data['city'],
-      '#options' => ['' => '-None -'] + $city_options,
+      '#options' => $city_options,
       '#required' => FALSE,
       '#prefix' => '<div id="city-wrapper">',
       '#suffix' => '</div>',
+      '#default_value' => $selected_city,
     ];
 
     $form['zip'] = [
@@ -189,12 +195,25 @@ final class LocationForm extends FormBase {
       '#required' => FALSE,
     ];
 
-    $type_options = $this->locationRemoteData->getTypeOptions();
+    $type_options = ['none' => '-None -'] + $this->locationRemoteData->getTypeOptions();
+    if (empty($form_state->getValue('type'))) {
+      if (isset($data['tipe']) && $data['tipe'] !== 'none') {
+        $selected_type = $data['tipe'];
+      }
+      else {
+        $selected_type = key($type_options);
+      }
+    }
+    else {
+      // Get the value if it already exists.
+      $selected_type = $form_state->getValue('type');
+    }
+
     $form['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#default_value' => $data['tipe'],
-      '#options' => ['' => '-None -'] + $type_options,
+      '#default_value' => $selected_type,
+      '#options' => $type_options,
       '#required' => FALSE,
       '#ajax' => [
         'callback' => [$this, 'updateCategoryField'],
@@ -203,11 +222,24 @@ final class LocationForm extends FormBase {
       ],
     ];
 
+    $category_options = ['none' => '-None -'] + $this->locationRemoteData->getCategoryByTypeOptions($selected_type);
+    if (empty($form_state->getValue('category'))) {
+      if (isset($data['category']) && $data['category'] !== 'none') {
+        $selected_category = $data['category'];
+      }
+      else {
+        $selected_category = key($category_options);
+      }
+    }
+    else {
+      // Get the value if it already exists.
+      $selected_category = $form_state->getValue('category');
+    }
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
-      '#default_value' => $data['category'],
-      '#options' => ['' => '-None -'] + $category_options,
+      '#default_value' => $selected_category,
+      '#options' => $category_options,
       '#required' => FALSE,
       '#prefix' => '<div id="category-wrapper">',
       '#suffix' => '</div>',
@@ -324,7 +356,8 @@ final class LocationForm extends FormBase {
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createLocation($values);
-      \Drupal::messenger()->addMessage($this->t('Location added successfully with ID: @id', ['@id' => $new_id]));
+      $sanitized_name = sprintf('%s', $values['name']);
+      \Drupal::messenger()->addMessage($this->t('Location @name added successfully', ['@name' => $sanitized_name]));
     }
   }
 
