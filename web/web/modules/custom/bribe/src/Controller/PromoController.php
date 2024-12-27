@@ -127,7 +127,7 @@ class PromoController extends ControllerBase
         $getStart = new \DateTime($dateStart);
         $start = $getStart->format('Y-m-d H:i:s');
 
-        $dateEnd = $node->get('field_promo_end_date')->value;
+        $dateEnd = $node->get('field_promo_end_date')->value; 
         $getEnd = new \DateTime($dateEnd);
         $end = $getEnd->format('Y-m-d H:i:s');
         $hotOffer = $node->get('field_hot_offers')->value == 1 ? 'true' : 'false';
