@@ -231,7 +231,7 @@ display:
           admin_label: ''
           plugin_id: views_remote_data_property
           label: Category
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -281,7 +281,7 @@ display:
           admin_label: ''
           plugin_id: views_remote_data_property
           label: Type
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
