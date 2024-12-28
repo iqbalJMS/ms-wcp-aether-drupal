@@ -96,13 +96,27 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         
         $normalized['promo'] =[];
 
-        $data['items'] = $this->promoList($configuration);
+        $getItems = $this->promoList($configuration);
+
+        $data['items'] = [];
+        foreach ($getItems as $keyItems => $valueItems) {
+            $data['items'][] = $valueItems;
+        }
+
         $data['sidebar'] = $this->promoSidebar($configuration);
-        $data['popular_category'] = $this->promoCategory($configuration);
+
+        $getPopularCategory = $this->promoPopularCategory($configuration);
+        
+        $data['popular_category'] = [];
+        foreach ($getPopularCategory as $keySPopularCategory => $valuePopularCategory) {
+            $data['popular_category'][] = $valuePopularCategory;
+        }
+
         $data['configurations'] = $configuration;
         $data['config'] = $getConfig;
 
-        $normalized['promo_data'] = $this->serializer->normalize($data, 'json_recursive');
+        // $normalized['promo_data'] = $this->serializer->normalize($data, 'json_recursive');
+        $normalized['promo_data'] = $data;
         return $normalized;
     }
 
@@ -136,22 +150,36 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
 
         $nodes = $node_storage->loadMultiple($nids);
 
-        return $nodes;
+        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+
+        return $getNodes;
     }
 
     function promoSidebar($configuration)
     {
         if(isset($configuration['with_sidebar']) && $configuration['with_sidebar'] === true ) {
-            $data['category'] = $this->promoCategory($configuration);
-            $data['product'] = $this->promoProduct($configuration);
-            $data['location'] = $this->promoLocation($configuration);
+            $getCategory = $this->promoCategory($configuration);
+            $data['category'] = [];
+            foreach ($getCategory as $keyCategory => $valueCategory) {
+                $data['category'][] = $valueCategory;
+            }
+            $getProduct = $this->promoProduct($configuration);
+            $data['product'] = [];
+            foreach ($getProduct as $keyProduct => $valueProduct) {
+                $data['product'][] = $valueProduct;
+            }
+            $getLocation = $this->promoLocation($configuration);
+            $data['location'] = [];
+            foreach ($getLocation as $keyLocation => $valueLocation) {
+                $data['location'][] = $valueLocation;
+            }
             return $data;
         }
 
         return [];
 
     }
-
+    
     function promoCategory($configuration)
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
@@ -161,7 +189,29 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
             ->execute();
         $nodes = $node_storage->loadMultiple($nids);
 
-        return $nodes;
+        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+
+        return $getNodes;
+    }
+
+    function promoPopularCategory($configuration)
+    {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $query = $node_storage->getQuery()
+            ->condition('type', 'promo_category')
+            ->accessCheck(TRUE)
+            ->sort('changed', 'DESC')
+            ->range(0,4);
+        $or_group = $query->orConditionGroup();
+        $or_group->condition('status', 1); // Condition for published nodes.
+        $or_group->condition('title', 'Others');
+        $query->condition($or_group);
+        $nids = $query->execute();
+        $nodes = $node_storage->loadMultiple($nids);
+
+        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+
+        return $getNodes;
     }
 
     function promoProduct($configuration)
@@ -174,7 +224,10 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
             ->execute();
 
         $terms = $term_storage->loadMultiple($tids);
-        return $terms;
+
+        $getTerms = $this->serializer->normalize($terms, 'json_recursive');
+
+        return $getTerms;
     }
 
     function promoLocation($configuration)
@@ -185,7 +238,10 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
             ->accessCheck(TRUE)
             ->execute();
         $nodes = $node_storage->loadMultiple($nids);
-        return $nodes;
+
+        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+
+        return $getNodes;
     }
 
 }

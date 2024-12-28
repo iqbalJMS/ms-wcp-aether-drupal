@@ -56,7 +56,7 @@ class PromoController extends ControllerBase
         }
 
         $media = $node->get('field_promo_image')->entity;
-        $file = (!empty($media->get('field_media_image')->entity) ? $media->get('field_media_image')->entity : "");
+        $file = (!empty($media) ? $media->get('field_media_image')->entity : "");
         $uri = ($file != "" ? $file->getFileUri() : "");
         $relative_path = str_replace('public://', '', $uri); 
 
@@ -74,7 +74,7 @@ class PromoController extends ControllerBase
             $node->getTitle(),
             $start,
             $end,
-            $node->get('field_term_and_condition')->value,
+            str_replace('"', "'", $node->get('field_term_and_condition')->value),
             $relative_path,
             $category,
             json_encode($location),
@@ -119,7 +119,7 @@ class PromoController extends ControllerBase
         }
 
         $media = $node->get('field_promo_image')->entity;
-        $file = (!empty($media->get('field_media_image')->entity) ? $media->get('field_media_image')->entity : "");
+        $file = (!empty($media) ? $media->get('field_media_image')->entity : "");
         $uri = ($file != "" ? $file->getFileUri() : "");
         $relative_path = str_replace('public://', '', $uri); 
 
@@ -137,7 +137,7 @@ class PromoController extends ControllerBase
             $node->getTitle(),
             $start,
             $end,
-            $node->get('field_term_and_condition')->value,
+            str_replace('"', "'", $node->get('field_term_and_condition')->value),
             $relative_path,
             $category,
             json_encode($location),
