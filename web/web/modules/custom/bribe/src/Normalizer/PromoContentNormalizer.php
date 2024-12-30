@@ -78,6 +78,8 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $configuration = [];
 
 
+        $configuration['offset'] = $offset;
+        $configuration['limit'] = $limit;
         $configuration['catID'] = $categoryIDs;
         $configuration['locID'] = $locationIDs;
         $configuration['prodID'] = $productIDs;
@@ -90,6 +92,12 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         }
         if (in_array('popular_category', $getConfig)) {
             $configuration['popularCat'] = true;
+        }
+        if (in_array('latest_four', $getConfig)) {
+            $configuration['latest_four'] = 4;
+        }
+        if (in_array('latest_seven', $getConfig)) {
+            $configuration['latest_seven'] = 7;
         }
         
         $configuration['title'] = $request->query->get('search', '');
@@ -145,6 +153,21 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         }
         if($configuration['title'] != ''){
             $query->condition('title', '%' . $configuration['title'] . '%', 'LIKE');
+        }
+        if(!empty($configuration['limit'])){
+            $query->range(0,$configuration['limit']);
+        }
+        if(!empty($configuration['limit'])){
+            $query->range(0,$configuration['limit']);
+        }
+        if(!empty($configuration['offset'])){
+            $query->range(0,$configuration['offset']);
+        }
+        if(!empty($configuration['latest_four'])){
+            $query->range(0,4);
+        }
+        if(!empty($configuration['latest_seven'])){
+            $query->range(0,5);
         }
         $nids = $query->execute();
 
