@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.promo_widget.field_primary_cta
     - field.field.paragraph.promo_widget.field_promo_configuration
+    - field.field.paragraph.promo_widget.field_promo_microsite
     - field.field.paragraph.promo_widget.field_subtitle
     - field.field.paragraph.promo_widget.field_title
     - field.field.paragraph.promo_widget.field_web_variant_styles
@@ -35,6 +36,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 12
+    region: content
+  field_promo_microsite:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
     region: content
   field_subtitle:
     type: string

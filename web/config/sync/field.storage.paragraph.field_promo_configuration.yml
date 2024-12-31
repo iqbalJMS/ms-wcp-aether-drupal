@@ -26,6 +26,9 @@ settings:
     -
       value: popular_category
       label: 'Popular Category'
+    -
+      value: microsite
+      label: microsite
   allowed_values_function: ''
 module: options
 locked: false
