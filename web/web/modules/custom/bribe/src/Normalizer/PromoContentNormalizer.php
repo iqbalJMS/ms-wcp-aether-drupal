@@ -67,8 +67,11 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $categoryIDs = $request->query->get('category_id', 'all');
         $locationIDs = $request->query->get('location_id', 'all');
         $productIDs = $request->query->get('product_id', 'all');
+        $micrositeIDs = $request->query->get('microsite_id', 'all');
 
         $config = $entity->get('field_promo_configuration')->getValue();
+
+        $filterMicrosite = $entity->get('field_promo_microsite')->getValue();
 
         $getConfig = [];
         foreach ($config as $value) {
@@ -83,7 +86,12 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $configuration['catID'] = $categoryIDs;
         $configuration['locID'] = $locationIDs;
         $configuration['prodID'] = $productIDs;
-
+        $configuration['micrositeID'] = $micrositeIDs;
+        if(!empty($filterMicrosite)) {
+            foreach ($filterMicrosite as $value) {
+                $configuration['filter_microsite'] = $value['target_id'];
+            }
+        }
         if (in_array('with_sidebar', $getConfig)) {
             $configuration['with_sidebar'] = true;
         }
@@ -98,6 +106,9 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         }
         if (in_array('latest_seven', $getConfig)) {
             $configuration['latest_seven'] = 7;
+        }
+        if (in_array('microsite', $getConfig)) {
+            $configuration['microsite'] = true;
         }
         
         $configuration['title'] = $request->query->get('search', '');
@@ -116,8 +127,15 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $getPopularCategory = $this->promoPopularCategory($configuration);
         
         $data['popular_category'] = [];
-        foreach ($getPopularCategory as $keySPopularCategory => $valuePopularCategory) {
+        foreach ($getPopularCategory as $keyPopularCategory => $valuePopularCategory) {
             $data['popular_category'][] = $valuePopularCategory;
+        }
+
+        $getMicrosite = $this->promoMicrosite($configuration);
+
+        $data['promo_microsite'] = [];
+        foreach ($getMicrosite as $keyMicrosite => $valueMicrosite) {
+            $data['promo_microsite'][] = $valueMicrosite;
         }
 
         $data['configurations'] = $configuration;
@@ -143,19 +161,25 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
             $query->condition('field_hot_offers', 1);
         }
         if($configuration['prodID'] !== 'all') {
-            $query->condition('field_promo_product_type', $configuration['catID']);
+            $query->condition('field_promo_product_type', (int) $configuration['prodID']);
         }
         if($configuration['locID'] !== 'all') {
-            $query->condition('field_promo_location', $configuration['locID']);
+            $query->condition('field_promo_location', (int) $configuration['locID']);
         }
         if($configuration['catID'] !== 'all') {
-            $query->condition('field_promo_category', $configuration['locID']);
+            $query->condition('field_promo_category', (int) $configuration['catID']);
+        }
+        if($configuration['micrositeID'] !== 'all'){
+            $query->condition('field_promo_microsite_owner', (int) $configuration['micrositeID']);
+        }
+        if(!empty($configuration['microsite'])){
+            $query->condition('field_promo_microsite_owner', (int) $configuration['microsite']);
+        }
+        if(!empty($configuration['filter_microsite'])){
+            $query->condition('field_promo_microsite_owner', (int) $configuration['filter_microsite']);
         }
         if($configuration['title'] != ''){
             $query->condition('title', '%' . $configuration['title'] . '%', 'LIKE');
-        }
-        if(!empty($configuration['limit'])){
-            $query->range(0,$configuration['limit']);
         }
         if(!empty($configuration['limit'])){
             $query->range(0,$configuration['limit']);
@@ -258,6 +282,20 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $nids = $node_storage->getQuery()
             ->condition('type', 'promo_location')
+            ->accessCheck(TRUE)
+            ->execute();
+        $nodes = $node_storage->loadMultiple($nids);
+
+        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+
+        return $getNodes;
+    }
+
+    function promoMicrosite($configuration)
+    {
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $nids = $node_storage->getQuery()
+            ->condition('type', 'promo_microsite_owner')
             ->accessCheck(TRUE)
             ->execute();
         $nodes = $node_storage->loadMultiple($nids);

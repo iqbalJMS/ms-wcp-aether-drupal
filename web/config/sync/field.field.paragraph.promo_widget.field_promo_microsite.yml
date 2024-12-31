@@ -1,0 +1,29 @@
+uuid: a3dcb18a-ce92-4dca-acf4-6dcacaf96df4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_promo_microsite
+    - node.type.promo_microsite_owner
+    - paragraphs.paragraphs_type.promo_widget
+id: paragraph.promo_widget.field_promo_microsite
+field_name: field_promo_microsite
+entity_type: paragraph
+bundle: promo_widget
+label: 'Promo Microsite'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      promo_microsite_owner: promo_microsite_owner
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
