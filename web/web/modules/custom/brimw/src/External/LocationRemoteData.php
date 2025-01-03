@@ -421,6 +421,7 @@ class LocationRemoteData extends BaseRemoteData {
           category: "$category"
           phone: "$phone"
           tipe: "$type"
+          kodeAgen: "$kodeAgen"
         }) {
           id
         }
@@ -566,6 +567,7 @@ class LocationRemoteData extends BaseRemoteData {
           phone
           urlMaps
           site
+          kodeAgen
         }
       }
     GRAPHQL;

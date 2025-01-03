@@ -110,6 +110,7 @@ final class LocationForm extends FormBase {
         'city' => 'none',
         'urlMaps' => '',
         'site' => '',
+        'kodeAgen' => '',
       ];
     }
 
@@ -275,6 +276,13 @@ final class LocationForm extends FormBase {
         'PRIORITAS' => $this->t('BRI Prioritas'),
       ],
       '#default_value' => $data['site'],
+      '#required' => FALSE,
+    ];
+
+    $form['kodeagen'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Kode Agen'),
+      '#default_value' => $data['kodeAgen'],
       '#required' => FALSE,
     ];
 
