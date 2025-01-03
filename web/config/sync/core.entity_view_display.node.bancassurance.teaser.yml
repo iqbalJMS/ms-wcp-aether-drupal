@@ -1,0 +1,29 @@
+uuid: 1a0395f3-698a-486c-8e96-70b41a6556e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bancassurance.field_components
+    - field.field.node.bancassurance.field_image
+    - field.field.node.bancassurance.field_items
+    - field.field.node.bancassurance.field_summary
+    - node.type.bancassurance
+  module:
+    - user
+id: node.bancassurance.teaser
+targetEntityType: node
+bundle: bancassurance
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_components: true
+  field_image: true
+  field_items: true
+  field_summary: true
+  langcode: true

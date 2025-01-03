@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Recent log messages'
+      title: 'Audit Trails ( Recent log messages )'
       fields:
         nothing:
           id: nothing
@@ -387,6 +387,55 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        hostname:
+          id: hostname
+          table: watchdog
+          field: hostname
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          label: 'User Hostname / IP'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
         link:
           id: link
           table: watchdog
@@ -600,6 +649,7 @@ display:
             timestamp: timestamp
             message: message
             name: name
+            hostname: hostname
             link: link
           default: wid
           info:
@@ -642,14 +692,21 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             name:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
+              responsive: ''
+            hostname:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             link:
               align: ''
               separator: ''
@@ -696,10 +753,11 @@ display:
       tags: {  }
   page:
     id: page
-    display_title: Page
+    display_title: 'Audit Trails'
     display_plugin: page
     position: 1
     display_options:
+      display_description: 'Log User Access And operation With Severity'
       display_extenders: {  }
       path: admin/reports/dblog
     cache_metadata:

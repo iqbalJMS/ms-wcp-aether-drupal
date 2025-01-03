@@ -1,6 +1,6 @@
 {{ attach_library('bri_admin/global') }}
 <div class="applicant-detail--header">
-  <a class="button button-primary" href="{{ path('bricc.applicant_detail', { 'id': detail._id, 'mode': 'excel' }) }}">Download Excel</a>
+  <!-- <a class="button button-primary" href="{{ path('bricc.applicant_detail', { 'id': detail._id, 'mode': 'excel' }) }}">Download Excel</a>
   <a class="button button-primary" href="{{ path('bricc.applicant_detail', { 'id': detail._id, 'mode': 'pdf' }) }}">Download PDF</a>
   {% if detail.documents.ktpUrl %}
     <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.ktpUrl }}" rel="noopener noreferrer">Download KTP</a>
@@ -13,7 +13,7 @@
   {% endif %}
   {% if detail.documents.slipGajiUrl %}
     <a class="button button-primary float-right" target="_blank" href="{{ detail.documents.slipGajiUrl }}" rel="noopener noreferrer">Download Slip Gaji</a>
-  {% endif %}
+  {% endif %} -->
 </div>
 <h2>{{ 'Data Pribadi'|t }}</h2>
 <div class="applicant-detail--wrapper">
