@@ -1,0 +1,11 @@
+uuid: 06e77e36-f24e-468d-93b6-568caf3c44d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bancassurance
+id: node.bancassurance
+target_entity_type_id: node
+target_bundle: bancassurance
+default_langcode: site_default
+language_alterable: false

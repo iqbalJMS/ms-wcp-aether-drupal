@@ -1,0 +1,11 @@
+uuid: 5e438a8a-5e3a-4009-9925-ac8ba3afae5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.investasi
+id: node.investasi
+target_entity_type_id: node
+target_bundle: investasi
+default_langcode: site_default
+language_alterable: false

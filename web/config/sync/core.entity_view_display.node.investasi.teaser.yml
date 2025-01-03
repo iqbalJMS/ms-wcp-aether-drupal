@@ -1,0 +1,29 @@
+uuid: fa17ddfa-e17b-441c-b860-b11e4d108003
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.investasi.field_components
+    - field.field.node.investasi.field_image
+    - field.field.node.investasi.field_items
+    - field.field.node.investasi.field_summary
+    - node.type.investasi
+  module:
+    - user
+id: node.investasi.teaser
+targetEntityType: node
+bundle: investasi
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_components: true
+  field_image: true
+  field_items: true
+  field_summary: true
+  langcode: true
