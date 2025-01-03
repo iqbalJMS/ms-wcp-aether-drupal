@@ -41,11 +41,16 @@ final class LocationController extends ControllerBase {
    */
   public function location(Request $request, string $type): JsonResponse {
     $result['data'] = [];
+    $type = strtolower($type);
 
     $query = $request->query->all();
 
     if ($type === 'province') {
       $result = $this->locationRemoteData->getAllProvinces();
+    }
+    elseif ($type === 'name') {
+      // Autosuggest name
+      $result = $this->locationRemoteData->getLocationAutosuggest($query);
     }
     else {
       $result = $this->locationRemoteData->getAllLocations($query);

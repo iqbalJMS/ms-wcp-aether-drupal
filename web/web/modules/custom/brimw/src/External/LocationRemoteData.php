@@ -67,6 +67,40 @@ class LocationRemoteData extends BaseRemoteData {
     return $result['data']['allLocations'];
   }
 
+  public function getLocationAutosuggest($params) {
+    $skip = $params['skip'] ?? 0;
+    $limit = $params['limit'] ?? 10;
+    $search = $params['key'] ?? '';
+    $tipe = $params['tipe'] ?? '';
+
+    $query = <<< GRAPHQL
+      query {
+        allLocations (param: {
+          skip: $skip
+          limit: $limit
+          filter: {
+            search: "$search"
+            tipe: "$tipe"
+          }
+        }) {
+          data {
+            id
+            name
+          }
+          pagination {
+            total
+            totalPages
+            currentPage
+            isPrev
+            isNext
+          }
+        }
+      }
+    GRAPHQL;
+    $result = $this->gql($query);
+    return $result['data']['allLocations'];
+  }
+
   public function getAllProvinces($params = []): array {
     $skip = $params['skip'] ?? 0;
     $limit = $params['limit'] ?? 10;
