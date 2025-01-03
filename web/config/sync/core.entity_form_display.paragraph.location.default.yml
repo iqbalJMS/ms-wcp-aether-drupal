@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.location.field_bri_location_type
+    - field.field.paragraph.location.field_location_filter
     - paragraphs.paragraphs_type.location
   module:
     - brimw
@@ -14,6 +15,12 @@ mode: default
 content:
   field_bri_location_type:
     type: brimw_location_type_widget
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_location_filter:
+    type: options_select
     weight: 0
     region: content
     settings: {  }

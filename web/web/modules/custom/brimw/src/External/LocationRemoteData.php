@@ -23,6 +23,9 @@ class LocationRemoteData extends BaseRemoteData {
     $skip = $params['skip'] ?? 0;
     $limit = $params['limit'] ?? 10;
     $search = $params['name'] ?? '';
+    $province = $params['province'] ?? '';
+    $category = $params['category'] ?? '';
+    $tipe = $params['tipe'] ?? '';
 
     $query = <<< GRAPHQL
       query {
@@ -31,6 +34,9 @@ class LocationRemoteData extends BaseRemoteData {
           limit: $limit
           filter: {
             search: "$search"
+            province: "$province"
+            category: "$category"
+            tipe: "$tipe"
           }
         }) {
           data {
@@ -43,6 +49,9 @@ class LocationRemoteData extends BaseRemoteData {
             lat
             long
             urlMaps
+            province
+            city
+            kodeAgen
           }
           pagination {
             total

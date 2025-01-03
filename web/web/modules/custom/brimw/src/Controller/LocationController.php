@@ -48,7 +48,7 @@ final class LocationController extends ControllerBase {
       $result = $this->locationRemoteData->getAllProvinces();
     }
     else {
-      $result = $this->locationRemoteData->getAllLocations();
+      $result = $this->locationRemoteData->getAllLocations($query);
     }
 
     return new JsonResponse([
