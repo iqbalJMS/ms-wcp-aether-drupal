@@ -40,6 +40,7 @@ dependencies:
   module:
     - bribe
     - brimw
+    - config_pages
     - content_translation
     - filter
     - media
@@ -115,6 +116,7 @@ permissions:
   - 'edit any promo_location content'
   - 'edit any promo_microsite_owner content'
   - 'edit any promo_sub_category content'
+  - 'edit bri_mw_simulation config page entity'
   - 'edit contact-us menu'
   - 'edit footer menu'
   - 'edit footer-secondary menu'
