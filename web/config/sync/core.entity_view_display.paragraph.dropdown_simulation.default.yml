@@ -1,0 +1,22 @@
+uuid: e3026cc2-8125-457b-8fcc-1e6f34d8301b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dropdown_simulation.field_image
+    - paragraphs.paragraphs_type.dropdown_simulation
+id: paragraph.dropdown_simulation.default
+targetEntityType: paragraph
+bundle: dropdown_simulation
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

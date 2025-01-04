@@ -1,0 +1,27 @@
+uuid: 1816da09-9883-4b62-9099-2b9a8342eaf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.bri_mw_simulation
+    - field.field.config_pages.bri_mw_simulation.field_simulation_url
+  module:
+    - link
+id: config_pages.bri_mw_simulation.default
+targetEntityType: config_pages
+bundle: bri_mw_simulation
+mode: default
+content:
+  field_simulation_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

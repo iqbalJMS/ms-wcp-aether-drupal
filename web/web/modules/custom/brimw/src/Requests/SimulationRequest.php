@@ -30,6 +30,7 @@ class SimulationRequest extends BaseRequest
         'estimateObligasi',
         'estimateReksadana',
         'estimateKreditInvestasi',
+        'getAllInstallmentSchemes'
     ];
       
     public function validateType(string $simulation)

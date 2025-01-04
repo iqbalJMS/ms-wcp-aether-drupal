@@ -1,0 +1,10 @@
+uuid: 5224e4a4-111d-4bec-bf31-b08f4097d7eb
+langcode: en
+status: true
+dependencies: {  }
+id: dropdown_simulation
+label: 'Dropdown Simulation'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

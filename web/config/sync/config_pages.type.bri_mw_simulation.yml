@@ -1,0 +1,17 @@
+uuid: 9d203003-635c-498a-99ad-42913bc0db69
+langcode: en
+status: true
+dependencies: {  }
+id: bri_mw_simulation
+label: 'BRI MW Simulation'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/bri/mw-simulation
+  weight: 0
+  description: 'Settings page for Simulation Dropdown URL'

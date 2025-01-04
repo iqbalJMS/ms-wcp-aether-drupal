@@ -59,6 +59,10 @@ services:
     class: Drupal\brimw\Normalizer\ExternalMagazineNormalizer
     tags:
       - { name: normalizer, priority: 10 }
+  brimw.dropdown_simulation_normalizer:
+    class: Drupal\brimw\Normalizer\DropdownSimulationNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
   brimw.location_remote_data:
     class: Drupal\brimw\External\LocationRemoteData
     arguments: [ '@http_client', '@cache.data', '@bricc.logger.channel', '@file_system', '@entity_type.manager' ]
