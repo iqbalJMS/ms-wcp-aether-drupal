@@ -22,6 +22,7 @@ module:
   default_content_deploy: 0
   dynamic_page_cache: 0
   editor: 0
+  encrypt: 0
   entity_reference_revisions: 0
   entity_usage: 0
   field: 0
@@ -38,6 +39,7 @@ module:
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
   js_cookie: 0
+  key: 0
   language: 0
   link: 0
   locale: 0
@@ -54,9 +56,13 @@ module:
   openapi_ui_swagger: 0
   options: 0
   page_cache: 0
+  password_policy_characters: 0
+  password_policy_consecutive: 0
+  password_policy_length: 0
   path: 0
   path_alias: 0
   pgsql: 0
+  real_aes: 0
   rest: 0
   rest_entity_recursive: 0
   rest_export_nested: 0
@@ -73,6 +79,7 @@ module:
   taxonomy: 0
   telephone: 0
   text: 0
+  tfa: 0
   token: 0
   toolbar: 0
   update: 0
@@ -88,6 +95,7 @@ module:
   webform_ui: 0
   pathauto: 1
   content_translation: 10
+  password_policy: 10
   views: 10
   paragraphs: 11
   minimal: 1000

@@ -13,6 +13,7 @@ dependencies:
     - media
     - rest
     - system
+    - tfa
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
@@ -21,7 +22,9 @@ weight: -9
 is_admin: false
 permissions:
   - 'access content'
+  - 'disable own tfa'
   - 'restful post webform_rest_submit'
+  - 'setup own tfa'
   - 'use text format full_template'
   - 'use text format limited_html'
   - 'use text format webform_default'
