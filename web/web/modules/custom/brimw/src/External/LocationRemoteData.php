@@ -26,6 +26,7 @@ class LocationRemoteData extends BaseRemoteData {
     $province = $params['province'] ?? '';
     $category = $params['category'] ?? '';
     $tipe = $params['tipe'] ?? '';
+    $site = $params['site'] ?? '';
 
     $query = <<< GRAPHQL
       query {
@@ -37,6 +38,7 @@ class LocationRemoteData extends BaseRemoteData {
             province: "$province"
             category: "$category"
             tipe: "$tipe"
+            site: "$site"
           }
         }) {
           data {
@@ -52,6 +54,7 @@ class LocationRemoteData extends BaseRemoteData {
             province
             city
             kodeAgen
+            site
           }
           pagination {
             total
