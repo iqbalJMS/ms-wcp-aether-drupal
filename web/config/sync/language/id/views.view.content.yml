@@ -1,72 +1,72 @@
-label: Content
-description: 'Find and manage content.'
+label: Konten
+description: 'Cari dan kelola konten.'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: Content
+      title: Konten
       fields:
         title:
-          label: Title
+          label: Judul
         type:
-          label: 'Content type'
+          label: 'Jenis konten'
           separator: ', '
         name:
-          label: Author
+          label: Penulis
         status:
           label: Status
           settings:
-            format_custom_false: Unpublished
-            format_custom_true: Published
+            format_custom_false: 'Tidak dipublikasikan'
+            format_custom_true: Dipublikasikan
         changed:
-          label: Updated
+          label: Diperbaharui
         langcode:
-          label: Language
+          label: Bahasa
           separator: ', '
         operations:
-          label: Operations
+          label: Operasi
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
+            first: '« Pertama'
+            last: 'Terakhir »'
       exposed_form:
         options:
-          submit_button: Filter
+          submit_button: Saring
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No content available.'
+          content: 'Tidak ada konten yang tersedia.'
       filters:
         title:
           expose:
-            label: Title
+            label: Judul
         type:
           expose:
-            label: 'Content type'
+            label: 'Jenis konten'
         status:
           expose:
             label: Status
           group_info:
-            label: 'Published status'
+            label: 'Status diterbitkan'
             group_items:
               1:
-                title: Published
+                title: Dipublikasikan
               2:
-                title: Unpublished
+                title: 'Tidak dipublikasikan'
         langcode:
           expose:
-            label: Language
+            label: Bahasa
   page_1:
-    display_title: Page
+    display_title: Halaman
     display_options:
       menu:
-        title: Content
+        title: Konten
       tab_options:
-        title: Content
-        description: 'Find and manage content'
+        title: Konten
+        description: 'Cari dan kelola konten'

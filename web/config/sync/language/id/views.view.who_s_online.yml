@@ -1,30 +1,30 @@
-label: "Who's online block"
-description: 'Shows the user names of the most recently active users, and the total number of active users.'
+label: 'Blok pengguna online'
+description: 'Tampilkan nama-nama pengguna yang aktif akhir-akhir ini, dan jumlah total pengguna aktif.'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: "Who's online"
+      title: 'Siapa yang online'
       exposed_form:
         options:
-          submit_button: Apply
+          submit_button: Terapkan
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'There are currently 0 users online.'
+          content: 'Saat ini terdapat 0 pengguna online'
       filters:
         access:
           expose:
-            label: 'Last access'
-            description: 'A user is considered online for this long after they have last viewed a page.'
+            label: 'Akses terakhir'
+            description: 'Seorang anggota akan dianggap online selama ini jika dia sudah membuka minimal satu halaman.'
       header:
         result:
-          content: 'There are currently @total users online.'
+          content: 'Saat ini terdapat @total pengguna online.'
   who_s_online_block:
-    display_title: "Who's online"
+    display_title: 'Siapa yang online'
     display_options:
-      display_description: 'A list of users that are currently logged in.'
-      block_description: "Who's online"
+      display_description: 'Daftar pengguna yang sedang online'
+      block_description: 'Siapa yang online'

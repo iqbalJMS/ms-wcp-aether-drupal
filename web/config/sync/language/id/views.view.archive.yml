@@ -1,34 +1,33 @@
-label: Archive
-description: 'All content, by month.'
+label: Arsip
+description: 'Semua konten, per bulan.'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: 'Monthly archive'
+      title: 'Arsip Bulanan'
       pager:
         options:
           tags:
             next: ››
-            previous: ‹‹
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       exposed_form:
         options:
-          submit_button: Apply
+          submit_button: Terapkan
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       arguments:
         created_year_month:
           title: '{{ arguments.created_year_month }}'
   block_1:
-    display_title: Block
+    display_title: Blok
     display_options:
       arguments:
         created_year_month:
           title: '{{ arguments.created_year_month }}'
   page_1:
-    display_title: Page
+    display_title: Halaman

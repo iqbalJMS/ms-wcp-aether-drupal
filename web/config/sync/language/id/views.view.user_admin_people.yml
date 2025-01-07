@@ -1,78 +1,78 @@
-label: People
-description: 'Find and manage people interacting with your site.'
+label: Orang
+description: 'Cari dan kelola orang yang berinteraksi dengan situs Anda.'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: People
+      title: Orang
       fields:
         user_bulk_form:
-          label: 'Bulk update'
+          label: 'Pemutakhiran masal'
         name:
-          label: Username
+          label: 'Nama pengguna'
         status:
           label: Status
           settings:
-            format_custom_false: Blocked
-            format_custom_true: Active
+            format_custom_false: Diblokir
+            format_custom_true: Aktif
         roles_target_id:
-          label: Roles
+          label: Peran
         created:
-          label: 'Member for'
+          label: 'Anggota selama'
         access:
-          label: 'Last access'
+          label: 'Akses terakhir'
           settings:
-            past_format: '@interval ago'
+            past_format: '@interval lalu'
         operations:
-          label: Operations
+          label: Operasi
         mail:
           separator: ', '
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
+            first: '« Pertama'
+            last: 'Terakhir »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       exposed_form:
         options:
-          submit_button: Filter
+          submit_button: Saring
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No people available.'
+          content: 'Tidak tersedia orang.'
       filters:
         combine:
           expose:
-            label: 'Name or email contains'
+            label: 'Nama atau email mengandung'
         status:
           group_info:
             label: Status
             group_items:
               1:
-                title: Active
+                title: Aktif
               2:
-                title: Blocked
+                title: Diblokir
         roles_target_id:
           expose:
-            label: Role
+            label: Peran
         permission:
           expose:
-            label: Permission
-      use_more_text: more
+            label: Kewenangan
+      use_more_text: selengkapnya
   page_1:
-    display_title: Page
+    display_title: Halaman
     display_options:
       menu:
-        title: List
-        description: 'Find and manage people interacting with your site.'
+        title: Daftar
+        description: 'Cari dan kelola orang yang berinteraksi dengan situs Anda.'
       tab_options:
-        title: People
-        description: 'Manage user accounts, roles, and permissions.'
+        title: Orang
+        description: 'Kelola profil pengguna, pemeran dan kewenangan.'

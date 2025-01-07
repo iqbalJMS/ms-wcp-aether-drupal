@@ -1,23 +1,23 @@
-label: 'Recent content'
-description: 'Recent content.'
+label: 'Konten terbaru'
+description: 'Konten terbaru'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: 'Recent content'
+      title: 'Konten terbaru'
       fields:
         changed:
           separator: ', '
       exposed_form:
         options:
-          submit_button: Apply
+          submit_button: Terapkan
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No content available.'
-      use_more_text: More
+          content: 'Tidak ada konten yang tersedia.'
+      use_more_text: Selengkapnya
   block_1:
-    display_title: Block
+    display_title: Blok

@@ -1,93 +1,92 @@
-label: Files
-description: 'Find and manage files.'
+label: Berkas
+description: 'Cari dan kelola file'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: Files
+      title: Berkas
       fields:
         fid:
           label: Fid
         filename:
-          label: Name
+          label: Nama
           separator: ', '
         filemime:
-          label: 'MIME type'
+          label: 'Jenis MIME'
         filesize:
-          label: Size
+          label: Ukuran
         status:
           label: Status
           settings:
-            format_custom_false: Temporary
-            format_custom_true: Permanent
+            format_custom_false: Sementara
+            format_custom_true: Permanen
         created:
-          label: 'Upload date'
+          label: 'Tanggal diunggah'
         changed:
-          label: 'Changed date'
+          label: 'Tanggal diubah'
         count:
-          label: 'Used in'
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+          label: 'Digunakan di'
         operations:
-          label: Operations
+          label: Operasi
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       exposed_form:
         options:
-          submit_button: Filter
+          submit_button: Saring
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No files available.'
+          content: 'Tidak ada file yang tersedia.'
       filters:
         filename:
           expose:
-            label: Filename
+            label: 'Nama berkas'
         filemime:
           expose:
-            label: 'MIME type'
+            label: 'Jenis MIME'
         status:
           expose:
             label: Status
   page_1:
-    display_title: 'Files overview'
+    display_title: 'Tinjauan berkas'
     display_options:
       menu:
-        title: Files
+        title: Berkas
   page_2:
-    display_title: 'File usage'
+    display_title: 'Penggunaan berkas'
     display_options:
-      title: 'File usage'
+      title: 'Penggunaan berkas'
       fields:
         entity_label:
-          label: Entity
+          label: Entitas
         type:
-          label: 'Entity type'
+          label: 'Jenis Entity'
         module:
-          label: 'Registering module'
+          label: 'Mendaftarkan modul'
         count:
-          label: 'Use count'
+          label: 'Jumlah penggunaan'
           format_plural_string: !!binary MQNAY291bnQ=
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       arguments:
         fid:
           exception:
-            title: All
-          title: 'File usage information for {{ arguments.fid }}'
+            title: Semua
+          title: 'Informasi penggunaan file untuk {{ arguments.fid }}'
