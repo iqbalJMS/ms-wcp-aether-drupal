@@ -46,7 +46,19 @@ final class LocationController extends ControllerBase {
     $query = $request->query->all();
 
     if ($type === 'province') {
-      $result = $this->locationRemoteData->getAllProvinces();
+      $rows = $this->entityTypeManager()->getStorage('bricc_province')
+        ->loadByProperties(['status' => TRUE]);
+
+      /**
+       * @var int $id
+       * @var \Drupal\bricc\Entity\BriccProvince $row
+       */
+      foreach ($rows as $id => $row) {
+        $result['data'][] = [
+          'id' => $id,
+          'name' => $row->label(),
+        ];
+      }
     }
     elseif ($type === 'name') {
       // Autosuggest name
@@ -88,7 +100,7 @@ final class LocationController extends ControllerBase {
         [
           'title' => $this->t('Type icon'),
           'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
-            'taxonomy_vocabulary' => 'location_type'
+            'taxonomy_vocabulary' => 'location_type',
           ]),
           'description' => 'Manage icon for location type.',
         ],
