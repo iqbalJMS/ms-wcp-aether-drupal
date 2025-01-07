@@ -1,54 +1,53 @@
 label: Watchdog
-description: 'Recent log messages'
+description: 'Pesan log terbaru'
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
-      title: 'Recent log messages'
+      title: 'Pesan log terbaru'
       fields:
         nothing:
-          admin_label: Icon
+          admin_label: Ikon
         wid:
           label: WID
         severity:
-          label: Severity
+          label: Keparahan
         type:
-          label: Type
+          label: Jenis
         timestamp:
-          label: Date
+          label: Tanggal
         message:
-          label: Message
+          label: Pesan
         name:
-          label: User
+          label: Pengguna
           separator: ', '
         link:
-          label: Operations
+          label: Operasi
       pager:
         options:
           tags:
             next: ››
-            previous: ‹‹
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       exposed_form:
         options:
-          submit_button: Filter
+          submit_button: Saring
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area:
-          admin_label: 'No log messages available.'
-          content: 'No log messages available.'
+          admin_label: 'Tidak ada pesan log yang tersedia.'
+          content: 'Tidak ada pesan log yang tersedia.'
       filters:
         type:
           expose:
-            label: Type
+            label: Jenis
         severity:
           expose:
-            label: Severity
+            label: Keparahan
   page:
-    display_title: Page
+    display_title: Halaman

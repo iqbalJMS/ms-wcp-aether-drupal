@@ -22,6 +22,27 @@ function bribe_page_attachments(array &$attachments)
 
 function bribe_node_presave(Node $node)
 {
+    $alias_manager = \Drupal::service('path_alias.manager');
+    $internal_path = '/node/' . $node->id();
+    $url_alias = $node->get('path')->getValue();
+    $url_alias = $url_alias[0]['alias'] ?? '';
+    $url_alias = explode('/', $url_alias);
+
+    if(!empty($url_alias)) {
+        $node->set('path', '/'.end($url_alias));
+    }
+    $title = $node->getTitle();
+    if (!empty($title)) {
+        $filtered_title = strip_tags($title);
+        $node->setTitle($filtered_title);
+
+    }
+    $log_message = $node->get('revision_log')->getValue();
+    if (!empty($log_message)) {
+        $filtered_log = strip_tags($log_message[0]['value']);
+        $node->set('revision_log', $filtered_log);
+    }
+
     $getRoute = $node->getType();
 
     $getValidation = bribeValidation($node);
@@ -142,7 +163,7 @@ function bribeValidation($node)
 }
 
 function bribe_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id)
-{
+{   // $form['#validate'][] = 'custom_xss_filter_validate_node_form';
 
     $form_object = $form_state->getFormObject();
     $node = $form_object->getEntity();

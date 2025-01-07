@@ -1,150 +1,140 @@
 display:
   default:
-    display_title: Master
     display_options:
       exposed_form:
         options:
-          submit_button: Apply
+          submit_button: Terapkan
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       pager:
         options:
           tags:
-            previous: ‹‹
             next: ››
-            first: '« First'
-            last: 'Last »'
+            first: '« Pertama'
+            last: 'Terakhir »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       fields:
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         created:
-          label: Created
+          label: Dibuat
           separator: ', '
         remote_addr:
-          label: 'IP address'
+          label: 'Alamat IP'
           separator: ', '
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operasi
+          text: tampilan
+      header:
+        result:
+          content: 'Menampilkan @start - @end dari @total'
       arguments:
         in_draft:
           exception:
-            title: All
+            title: Semua
   embed_administer:
     display_options:
       fields:
         webform_submission_bulk_form:
-          action_title: Action
+          action_title: Tindakan
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
-          label: Sticky
+          label: Menempel
           separator: ', '
         locked:
-          label: Locked
+          label: Dikunci
           separator: ', '
         created:
-          label: Created
+          label: Dibuat
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
-          label: 'IP address'
+          label: 'Alamat IP'
           separator: ', '
         operations:
-          label: Operations
+          label: Operasi
       filters:
         sticky:
           expose:
-            label: Sticky
+            label: Menempel
         locked:
           expose:
-            label: Locked
+            label: Dikunci
   embed_manage:
     display_options:
       fields:
         webform_submission_bulk_form:
-          action_title: Action
+          action_title: Tindakan
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
-          label: Sticky
+          label: Menempel
           separator: ', '
         locked:
-          label: Locked
+          label: Dikunci
           separator: ', '
         created:
-          label: Created
+          label: Dibuat
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
-          label: 'IP address'
+          label: 'Alamat IP'
           separator: ', '
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operasi
+          text: tampilan
         edit_webform_submission:
-          label: Operations
+          label: Operasi
           text: edit
       filters:
         sticky:
           expose:
-            label: Sticky
+            label: Menempel
         locked:
           expose:
-            label: Locked
+            label: Dikunci
   embed_review:
     display_options:
       fields:
         sid:
-          label: '#'
           separator: ', '
         in_draft:
-          label: Draft
           separator: ', '
         sticky:
-          label: Sticky
+          label: Menempel
           separator: ', '
         locked:
-          label: Locked
+          label: Dikunci
           separator: ', '
         created:
-          label: Created
+          label: Dibuat
           separator: ', '
         completed:
-          label: Completed
           separator: ', '
         remote_addr:
-          label: 'IP address'
+          label: 'Alamat IP'
           separator: ', '
         view_webform_submission:
-          label: Operations
-          text: view
+          label: Operasi
+          text: tampilan
       filters:
         sticky:
           expose:
-            label: Sticky
+            label: Menempel
         locked:
           expose:
-            label: Locked
+            label: Dikunci

@@ -1,72 +1,72 @@
 label: Media
 display:
   default:
-    display_title: Default
+    display_title: Bawaan
     display_options:
       title: Media
       fields:
         media_bulk_form:
-          action_title: Action
+          action_title: Tindakan
         thumbnail__target_id:
-          label: Thumbnail
+          label: Miniatur
           separator: ', '
         name:
           separator: ', '
         bundle:
-          label: Type
+          label: Jenis
           separator: ', '
         uid:
-          label: Author
+          label: Penulis
           separator: ', '
         status:
           label: Status
           settings:
-            format_custom_false: Unpublished
-            format_custom_true: Published
+            format_custom_false: 'Tidak dipublikasikan'
+            format_custom_true: Dipublikasikan
           separator: ', '
         changed:
-          label: Updated
+          label: Diperbaharui
           separator: ', '
         operations:
-          label: Operations
+          label: Operasi
       pager:
         options:
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
+            first: '« Pertama'
+            last: 'Terakhir »'
           expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
       exposed_form:
         options:
-          submit_button: Filter
+          submit_button: Saring
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
           sort_desc_label: Desc
       empty:
         area_text_custom:
-          content: 'No media available.'
+          content: 'Media tidak tersedia.'
       filters:
         bundle:
           expose:
-            label: Type
+            label: Jenis
         status:
           expose:
-            label: 'True'
+            label: Benar
           group_info:
-            label: 'Published status'
+            label: 'Status diterbitkan'
             group_items:
               1:
-                title: Published
+                title: Dipublikasikan
               2:
-                title: Unpublished
+                title: 'Tidak dipublikasikan'
         langcode:
           expose:
-            label: Language
+            label: Bahasa
   media_page_list:
     display_title: Media
     display_options:
