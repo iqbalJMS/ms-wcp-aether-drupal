@@ -64,6 +64,21 @@ final class LocationController extends ControllerBase {
       // Autosuggest name
       $result = $this->locationRemoteData->getLocationAutosuggest($query);
     }
+    elseif ($type === 'tipe') {
+      $result = $this->locationRemoteData->getAllLocationType($query);
+    }
+    elseif ($type === 'category') {
+      $result = $this->locationRemoteData->getAllLocationCategory($query);
+
+      // Manually filter because no filter option from remote endpoint
+      if (isset($query['tipe_id']) && isset($result['data'])) {
+        foreach ($result['data'] as $idx => &$category) {
+          if ($category['type']['id'] !== $query['tipe_id']) {
+            unset($result['data'][$idx]);
+          }
+        }
+      }
+    }
     else {
       $result = $this->locationRemoteData->getAllLocations($query);
     }
