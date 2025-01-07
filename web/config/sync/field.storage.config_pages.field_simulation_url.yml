@@ -1,0 +1,19 @@
+uuid: 89b1d8ff-29c2-4e85-8a22-562b9d1edeea
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - link
+id: config_pages.field_simulation_url
+field_name: field_simulation_url
+entity_type: config_pages
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

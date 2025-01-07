@@ -41,14 +41,46 @@ final class LocationController extends ControllerBase {
    */
   public function location(Request $request, string $type): JsonResponse {
     $result['data'] = [];
+    $type = strtolower($type);
 
     $query = $request->query->all();
 
     if ($type === 'province') {
-      $result = $this->locationRemoteData->getAllProvinces();
+      $rows = $this->entityTypeManager()->getStorage('bricc_province')
+        ->loadByProperties(['status' => TRUE]);
+
+      /**
+       * @var int $id
+       * @var \Drupal\bricc\Entity\BriccProvince $row
+       */
+      foreach ($rows as $id => $row) {
+        $result['data'][] = [
+          'id' => $id,
+          'name' => $row->label(),
+        ];
+      }
+    }
+    elseif ($type === 'name') {
+      // Autosuggest name
+      $result = $this->locationRemoteData->getLocationAutosuggest($query);
+    }
+    elseif ($type === 'tipe') {
+      $result = $this->locationRemoteData->getAllLocationType($query);
+    }
+    elseif ($type === 'category') {
+      $result = $this->locationRemoteData->getAllLocationCategory($query);
+
+      // Manually filter because no filter option from remote endpoint
+      if (isset($query['tipe_id']) && isset($result['data'])) {
+        foreach ($result['data'] as $idx => &$category) {
+          if ($category['type']['id'] !== $query['tipe_id']) {
+            unset($result['data'][$idx]);
+          }
+        }
+      }
     }
     else {
-      $result = $this->locationRemoteData->getAllLocations();
+      $result = $this->locationRemoteData->getAllLocations($query);
     }
 
     return new JsonResponse([
@@ -83,7 +115,7 @@ final class LocationController extends ControllerBase {
         [
           'title' => $this->t('Type icon'),
           'url' => Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
-            'taxonomy_vocabulary' => 'location_type'
+            'taxonomy_vocabulary' => 'location_type',
           ]),
           'description' => 'Manage icon for location type.',
         ],

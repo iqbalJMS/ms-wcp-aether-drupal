@@ -1,0 +1,21 @@
+uuid: 922c3498-f9b5-462f-be58-dbf3bbf3eb89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_location_filter
+    - paragraphs.paragraphs_type.location
+  module:
+    - options
+id: paragraph.location.field_location_filter
+field_name: field_location_filter
+entity_type: paragraph
+bundle: location
+label: Filter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

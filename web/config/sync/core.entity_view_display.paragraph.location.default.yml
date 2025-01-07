@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.location.field_bri_location_type
+    - field.field.paragraph.location.field_location_filter
     - paragraphs.paragraphs_type.location
   module:
     - brimw
+    - options
 id: paragraph.location.default
 targetEntityType: paragraph
 bundle: location
@@ -18,5 +20,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_location_filter:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }

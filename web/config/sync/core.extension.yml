@@ -22,6 +22,7 @@ module:
   default_content_deploy: 0
   dynamic_page_cache: 0
   editor: 0
+  encrypt: 0
   entity_reference_revisions: 0
   entity_usage: 0
   field: 0
@@ -38,6 +39,7 @@ module:
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
   js_cookie: 0
+  key: 0
   language: 0
   link: 0
   locale: 0
@@ -65,6 +67,7 @@ module:
   path: 0
   path_alias: 0
   pgsql: 0
+  real_aes: 0
   rest: 0
   rest_entity_recursive: 0
   rest_export_nested: 0
@@ -81,6 +84,7 @@ module:
   taxonomy: 0
   telephone: 0
   text: 0
+  tfa: 0
   token: 0
   toolbar: 0
   update: 0

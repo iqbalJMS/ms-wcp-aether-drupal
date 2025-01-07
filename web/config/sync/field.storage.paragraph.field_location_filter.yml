@@ -1,0 +1,27 @@
+uuid: a930f127-6d2c-41c2-8ed3-6c563c6828cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_location_filter
+field_name: field_location_filter
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: province
+      label: Province
+    -
+      value: name
+      label: Name
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
