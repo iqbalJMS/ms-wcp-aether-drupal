@@ -65,6 +65,7 @@ permissions:
   - 'access own webform configuration'
   - 'access promo crud'
   - 'access site in maintenance mode'
+  - 'access site reports'
   - 'access toolbar'
   - 'access webform overview'
   - 'add new links to contact-us menu'
