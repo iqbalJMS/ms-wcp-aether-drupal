@@ -205,3 +205,24 @@ function bribe_form_alter(&$form, FormStateInterface $form_state, $form_id)
         $form['type']['#options'] = $content_type_options;
     }
 }
+
+function bribe_entity_presave($entity) {
+    if ($entity->getEntityTypeId() === 'media') {
+        if ($entity->hasField('name') && !$entity->get('name')->isEmpty()) {
+
+            $name_value = $entity->get('name')->value;
+            $filtered_name = strip_tags($name_value);
+            $entity->set('name', $filtered_name);
+
+            \Drupal::logger('bribe.media.xss')->info('XSS Media Name Detected : @name', ['@name' => $name_value]);
+        }
+        if ($entity->hasField('revision_log') && !$entity->get('revision_log')->isEmpty()) {
+
+            $log_value = $entity->get('revision_log')->value;
+            $filtered_log = strip_tags($log_value);
+            $entity->set('revision_log', $filtered_log);
+
+            \Drupal::logger('bribe.media.xss')->info('XSS Media Log Detected : @name', ['@name' => $log_value]);
+        }
+    }
+}
