@@ -60,9 +60,9 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
 
         $request = \Drupal::request();
 
-        $limit = $request->query->get('limit', 10);
+        $limit = $request->query->get('limit', 0);
         $page = $request->query->get('page', 0);
-        $offset = $page * $limit;
+        $offset = ($page - 1) * $limit;
 
         $categoryIDs = $request->query->get('category_id', 'all');
         $locationIDs = $request->query->get('location_id', 'all');
@@ -155,7 +155,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $query = $node_storage->getQuery();
-        $query->accessCheck(TRUE);
+        $query->accessCheck(false);
         $query->condition('type', 'promo');
         if(isset($configuration['hotOffers'])) {
             $query->condition('field_hot_offers', 1);
@@ -175,7 +175,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         if(!empty($configuration['microsite'])){
             $query->condition('field_promo_microsite_owner', (int) $configuration['microsite']);
         }
-        if(!empty($configuration['filter_microsite'])){
+        if(!empty($configuration['filter_microsite']) && $configuration['micrositeID'] == 'all'){
             $query->condition('field_promo_microsite_owner', (int) $configuration['filter_microsite']);
         }
         if($configuration['title'] != ''){
@@ -184,13 +184,10 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         if(!empty($configuration['limit'])){
             $query->range(0,$configuration['limit']);
         }
-        if(!empty($configuration['offset'])){
-            $query->range(0,$configuration['offset']);
-        }
-        if(!empty($configuration['latest_four'])){
+        if(!empty($configuration['latest_four']) && empty($configuration['limit']) && empty($configuration['latest_seven'])){
             $query->range(0,4);
         }
-        if(!empty($configuration['latest_seven'])){
+        if(!empty($configuration['latest_seven']) && empty($configuration['limit']) && empty($configuration['latest_four'])){
             $query->range(0,5);
         }
         $nids = $query->execute();
