@@ -8,6 +8,8 @@ use Drupal\brimw\External\LocationRemoteData;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -66,6 +68,46 @@ final class LocationController extends ControllerBase {
     }
     elseif ($type === 'tipe') {
       $result = $this->locationRemoteData->getAllLocationType($query);
+      $vocabulary = 'location_type';
+      $query = \Drupal::entityQuery('taxonomy_term')
+        ->accessCheck(FALSE)
+        ->condition('vid', $vocabulary);
+      $tids = $query->execute();
+      $term_icons = [];
+
+      if (!empty($tids)) {
+        // Load full term entities.
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($tids);
+
+        /** @var \Drupal\taxonomy\Entity\Term $term */
+        foreach ($terms as $term) {
+          if ($term->hasField('field_bri_location_type')) {
+            if (!$term->get('field_bri_location_type')->isEmpty()) {
+              $field_value = $term->get('field_bri_location_type')->first()->getValue();
+
+              if (!$term->get('field_image')->isEmpty()) {
+                $media = $term->get('field_image')->entity;
+                if ($media && $media->hasField('field_media_image') && !$media->get('field_media_image')->isEmpty()) {
+                  // Get the File entity referenced in the Media field.
+                  $file = $media->get('field_media_image')->entity;
+
+                  if ($file instanceof File) {
+                    // Get the file URL.
+                    $url = \Drupal::service('file_url_generator')->generateString($file->getFileUri());
+                    $term_icons[$field_value['type_id']] = $url;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      foreach ($result['data'] as $idx => $row) {
+        if (isset($term_icons[$row['id']])) {
+          $result['data'][$idx]['term_icon'] = $term_icons[$row['id']];
+        }
+      }
     }
     elseif ($type === 'category') {
       $result = $this->locationRemoteData->getAllLocationCategory($query);
