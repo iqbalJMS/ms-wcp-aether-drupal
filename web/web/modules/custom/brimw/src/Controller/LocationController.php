@@ -59,6 +59,7 @@ final class LocationController extends ControllerBase {
         $result['data'][] = [
           'id' => $id,
           'name' => $row->label(),
+          'uuid' => $row->uuid(),
         ];
       }
     }
