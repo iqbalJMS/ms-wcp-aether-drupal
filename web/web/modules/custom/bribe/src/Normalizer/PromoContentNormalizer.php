@@ -5,6 +5,9 @@ namespace Drupal\bribe\Normalizer;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\rest_entity_recursive\Normalizer\ContentEntityNormalizer;
 
+use Drupal\Core\Pager\PagerManagerInterface;
+
+
 final class PromoContentNormalizer extends ContentEntityNormalizer
 {
     /**
@@ -62,7 +65,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
 
         $limit = $request->query->get('limit', 0);
         $page = $request->query->get('page', 0);
-        $offset = ($page - 1) * $limit;
+        $offset = max(($page - 1) * $limit,0);
 
         $categoryIDs = $request->query->get('category_id', 'all');
         $locationIDs = $request->query->get('location_id', 'all');
@@ -81,8 +84,9 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $configuration = [];
 
 
-        $configuration['offset'] = $offset;
+        $configuration['page'] = $page;
         $configuration['limit'] = $limit;
+        $configuration['offset'] = $offset;
         $configuration['catID'] = $categoryIDs;
         $configuration['locID'] = $locationIDs;
         $configuration['prodID'] = $productIDs;
@@ -118,9 +122,11 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $getItems = $this->promoList($configuration);
 
         $data['items'] = [];
-        foreach ($getItems as $keyItems => $valueItems) {
+        foreach ($getItems['list'] as $keyItems => $valueItems) {
             $data['items'][] = $valueItems;
         }
+
+        $data['pager'] = $getItems['pager'];
 
         $data['sidebar'] = $this->promoSidebar($configuration);
 
@@ -157,44 +163,69 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         $query = $node_storage->getQuery();
         $query->accessCheck(false);
         $query->condition('type', 'promo');
+        $query->sort('changed', 'DESC');
+        $pager = $node_storage->getQuery();
+        $pager->accessCheck(false);
+        $pager->condition('type', 'promo');
+        $pager->sort('changed', 'DESC');
+
         if(isset($configuration['hotOffers'])) {
             $query->condition('field_hot_offers', 1);
+            $pager->condition('field_hot_offers', 1);
         }
         if($configuration['prodID'] !== 'all') {
             $query->condition('field_promo_product_type', (int) $configuration['prodID']);
+            $pager->condition('field_promo_product_type', (int) $configuration['prodID']);
         }
         if($configuration['locID'] !== 'all') {
             $query->condition('field_promo_location', (int) $configuration['locID']);
+            $pager->condition('field_promo_location', (int) $configuration['locID']);
         }
         if($configuration['catID'] !== 'all') {
             $query->condition('field_promo_category', (int) $configuration['catID']);
+            $pager->condition('field_promo_category', (int) $configuration['catID']);
         }
         if($configuration['micrositeID'] !== 'all'){
             $query->condition('field_promo_microsite_owner', (int) $configuration['micrositeID']);
+            $pager->condition('field_promo_microsite_owner', (int) $configuration['micrositeID']);
         }
         if(!empty($configuration['microsite'])){
             $query->condition('field_promo_microsite_owner', (int) $configuration['microsite']);
+            $pager->condition('field_promo_microsite_owner', (int) $configuration['microsite']);
         }
         if(!empty($configuration['filter_microsite']) && $configuration['micrositeID'] == 'all'){
             $query->condition('field_promo_microsite_owner', (int) $configuration['filter_microsite']);
+            $pager->condition('field_promo_microsite_owner', (int) $configuration['filter_microsite']);
         }
         if($configuration['title'] != ''){
             $query->condition('title', '%' . $configuration['title'] . '%', 'LIKE');
-        }
-        if(!empty($configuration['limit'])){
-            $query->range(0,$configuration['limit']);
+            $pager->condition('title', '%' . $configuration['title'] . '%', 'LIKE');
         }
         if(!empty($configuration['latest_four']) && empty($configuration['limit']) && empty($configuration['latest_seven'])){
-            $query->range(0,4);
+            $configuration['limit'] = 4;
         }
         if(!empty($configuration['latest_seven']) && empty($configuration['limit']) && empty($configuration['latest_four'])){
-            $query->range(0,5);
+            $configuration['limit'] = 7;
         }
+        
+        $configuration['limit'] = !empty($configuration['limit']) ? $configuration['limit'] : 10;
+
+        $query->range($configuration['offset'], $configuration['limit']);
+
         $nids = $query->execute();
 
         $nodes = $node_storage->loadMultiple($nids);
 
-        $getNodes = $this->serializer->normalize($nodes, 'json_recursive');
+        $total = $pager->count()->execute();
+
+        $getNodes['pager'] = array(
+            'total' => $total,
+            'limit' => (int) $configuration['limit'],
+            'page' => (int) $configuration['page'],
+            'total_page' => ceil($total / $configuration['limit']),
+        );
+
+        $getNodes['list'] = $this->serializer->normalize($nodes, 'json_recursive');
 
         return $getNodes;
     }
