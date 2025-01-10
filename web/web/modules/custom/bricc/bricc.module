@@ -157,7 +157,7 @@ function bricc_page_attachments(array &$attachments) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function bricc_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+function bricc_form_tfa_entry_form_alter(&$form, FormStateInterface $form_state) {
   $form['#submit'][] = 'bricc_user_login_submit';
   $form['#attached']['library'][] = 'bricc/login';
 }

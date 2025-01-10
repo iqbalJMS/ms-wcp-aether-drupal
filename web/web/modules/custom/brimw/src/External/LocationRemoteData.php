@@ -196,6 +196,7 @@ class LocationRemoteData extends BaseRemoteData {
           data{
             id
             name
+            site
           }
           pagination{
             total
