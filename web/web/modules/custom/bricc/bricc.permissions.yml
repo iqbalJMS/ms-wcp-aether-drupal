@@ -51,3 +51,8 @@ administer bricc_applicant_status:
 view card detail on list:
   title: 'View Card Detail on List'
   description: 'Allow user to see Card Detail content on content list'
+
+view full applicant detail:
+  title: 'View Full Applicant Detail'
+  description: 'Allow user to see Applicant Detail data without masked'
+  restrict access: true

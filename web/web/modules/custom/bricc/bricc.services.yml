@@ -30,3 +30,8 @@ services:
   bricc.location:
     class: Drupal\bricc\Location
     arguments: ['@entity_type.manager', '@bricc.logger.channel']
+
+  bricc.twig_extension:
+    class: Drupal\bricc\BriccTwigExtension
+    tags:
+      - { name: twig.extension }

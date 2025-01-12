@@ -44,7 +44,7 @@
 
   <div class="applicant-detail--item">
     <h6>Nomor Identitas Penduduk</h6>
-    <p>{{ detail.nik }}</p>
+    <p>{{ detail.unmasked ? detail.nik : detail.nik|maskdata }}</p>
   </div>
   <div class="applicant-detail--item">
     <h6>Tempat lahir</h6>
@@ -78,12 +78,12 @@
 
   <div class="applicant-detail--item">
     <h6>Telepon Rumah</h6>
-    <p>{{ detail.noTelp }}</p>
+    <p>{{ detail.unmasked ? detail.noTelp : detail.noTelp|maskdata }}</p>
   </div>
 
   <div class="applicant-detail--item">
     <h6>No. Handphone</h6>
-    <p>{{ detail.noHp }}</p>
+    <p>{{ detail.unmasked ? detail.noHp : detail.noHp|maskdata }}</p>
   </div>
   <div class="applicant-detail--item">
     <h6>Status</h6>
@@ -176,6 +176,7 @@
   <div class="applicant-detail--item">
     <h6>Telpon Kantor</h6>
     <p>{{ detail.jobInfo.teleponPerusahaan }}</p>
+    <p>{{ detail.unmasked ? detail.jobInfo.teleponPerusahaan : detail.jobInfo.teleponPerusahaan|maskdata }}</p>
   </div>
   <div class="applicant-detail--item">
     <h6>Penghasilan (Per Tahun)</h6>

@@ -391,8 +391,8 @@ display:
           label: 'No. Handphone'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if user.hasPermission('view full applicant detail') %}\r\n{{ property_5 }}\r\n{% else %}\r\n{{ property_5|maskdata }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -491,8 +491,8 @@ display:
           label: NIK
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if user.hasPermission('view full applicant detail') %}\r\n{{ property_7 }}\r\n{% else %}\r\n{{ property_7|maskdata }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -3837,8 +3837,8 @@ display:
           label: 'No. Handphone'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if user.hasPermission('view full applicant detail') %}\r\n{{ property_5 }}\r\n{% else %}\r\n{{ property_5|maskdata }}\r\n{% endif %}\r\n"
             make_link: false
             path: ''
             absolute: false
