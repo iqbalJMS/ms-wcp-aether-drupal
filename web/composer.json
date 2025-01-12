@@ -35,6 +35,7 @@
         "drupal/default_content_deploy": "^2.0",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.4",
+        "drupal/flood_control": "^3.0",
         "drupal/geolocation": "^3.13",
         "drupal/gin": "^3.0@rc",
         "drupal/gin_login": "^2.1",
