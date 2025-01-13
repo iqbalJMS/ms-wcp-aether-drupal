@@ -1,5 +1,6 @@
 display:
   default:
+    display_title: Master
     display_options:
       exposed_form:
         options:
@@ -11,6 +12,7 @@ display:
       pager:
         options:
           tags:
+            previous: ‹‹
             next: ››
             first: '« Pertama'
             last: 'Terakhir »'
@@ -20,8 +22,10 @@ display:
             offset_label: Letak
       fields:
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Draft
           separator: ', '
         created:
           label: Dibuat
@@ -45,8 +49,10 @@ display:
         webform_submission_bulk_form:
           action_title: Tindakan
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Draft
           separator: ', '
         sticky:
           label: Menempel
@@ -58,6 +64,7 @@ display:
           label: Dibuat
           separator: ', '
         completed:
+          label: Completed
           separator: ', '
         remote_addr:
           label: 'Alamat IP'
@@ -77,8 +84,10 @@ display:
         webform_submission_bulk_form:
           action_title: Tindakan
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Draft
           separator: ', '
         sticky:
           label: Menempel
@@ -90,6 +99,7 @@ display:
           label: Dibuat
           separator: ', '
         completed:
+          label: Completed
           separator: ', '
         remote_addr:
           label: 'Alamat IP'
@@ -111,8 +121,10 @@ display:
     display_options:
       fields:
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Draft
           separator: ', '
         sticky:
           label: Menempel
@@ -124,6 +136,7 @@ display:
           label: Dibuat
           separator: ', '
         completed:
+          label: Completed
           separator: ', '
         remote_addr:
           label: 'Alamat IP'

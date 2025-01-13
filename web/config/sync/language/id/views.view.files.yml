@@ -26,6 +26,7 @@ display:
           label: 'Tanggal diubah'
         count:
           label: 'Digunakan di'
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
         operations:
           label: Operasi
       pager:

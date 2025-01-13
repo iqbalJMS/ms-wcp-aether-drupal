@@ -1,5 +1,6 @@
 cancel_confirm:
   subject: 'Permintaan pembatalan untuk akun [user:display-name] pada [site:name]'
+  body: "[user:display-name]\r\n\r\nA request to cancel your account has been made at [site:name].\r\n\r\nYou may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:\r\n\r\n[user:cancel-url]\r\n\r\nNOTE: The cancellation of your account is not reversible.\r\n\r\nThis link expires in one day and nothing will happen if it is not used.\r\n\r\n--  [site:name] team"
 password_reset:
   subject: 'Penggantian informasi masuk untuk [user:display-name] pada [site:name]'
   body: "[user:display-name],\r\n\r\nPermintaan penggatian kata sandi untuk akun Anda telah dibuat pada [site:name].\r\n\r\nAnda dapat masuk dengan klik tautan atau salin lalu tempel pada peramban Anda:\r\n[user:one-time-login-url]\r\n\r\nTautan ini hanya dapat digunakan sekali untuk masuk dan membawa Anda ke laman tempat mengganti kata sandi Anda. Ini akan kadar luasa setelah satu hari dan tidak akan terjadi apa-apa jika tidak digunakan.\r\n\r\n--  Tim [site:name]"
@@ -17,6 +18,7 @@ register_pending_approval_admin:
   body: "[user:display-name] telah diaplikasikan untuk akun.\r\n\r\n[user:edit-url]"
 status_activated:
   subject: 'Detil akun untuk [user:display-name] di [site:name] (disetujui)'
+  body: "[user:display-name],\r\n\r\nYour account at [site:name] has been activated.\r\n\r\nYou may now log in by clicking this link or copying and pasting it into your browser:\r\n\r\n[user:one-time-login-url]\r\n\r\nThis link can only be used once to log in and will lead you to a page where you can set your password.\r\n\r\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\r\n\r\nusername: [user:account-name]\r\npassword: Your password\r\n\r\n--  [site:name] team"
 status_blocked:
   subject: 'Detil akun untuk [user:display-name] di [site:name] (diblokir)'
   body: "[user:display-name],\r\n\r\nAkun anda di [site:name] telah diblokir.\r\n\r\n--  [site:name] team"
