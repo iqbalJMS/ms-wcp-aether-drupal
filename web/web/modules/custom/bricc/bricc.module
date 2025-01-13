@@ -238,6 +238,10 @@ function bricc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
       ];
       foreach ($field_date as $field) {
         $form[$field]['#type']= 'date';
+
+        if ($field == 'startdate') {
+          $form[$field]['#attributes']['min'] = '2024-01-01';
+        }
       }
 
       $export_route = 'view.applicant.data_export_1';
