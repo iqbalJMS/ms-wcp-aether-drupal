@@ -87,5 +87,5 @@ bricc.document_detail:
     _controller: '\Drupal\bricc\Controller\BriccController::documentDetail'
     _title: 'Document detail'
   requirements:
-    _permission: 'access administration pages'
+    _permission: 'administer modules'
     id: '[a-zA-Z0-9_-]*'

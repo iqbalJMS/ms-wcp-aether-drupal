@@ -589,7 +589,7 @@ display:
           admin_label: ''
           plugin_id: custom
           label: KTP
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "<a href=\"{{ path('bricc.document_detail', {'type': 'ktp', 'id': property_8}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP</a>"
@@ -688,7 +688,7 @@ display:
           admin_label: ''
           plugin_id: custom
           label: 'KTP Selfie'
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "<a href=\"{{ path('bricc.document_detail', {'type': 'swafoto-ktp', 'id': property_9}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">KTP Selfie</a>"
@@ -787,7 +787,7 @@ display:
           admin_label: ''
           plugin_id: custom
           label: NPWP
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "{% if property_10 == '000' %}\r\n  -\r\n{% else %}\r\n  <a href=\"{{ path('bricc.document_detail', {'type': 'npwp', 'id': property_10}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">NPWP</a>\r\n{% endif %}"
@@ -886,7 +886,7 @@ display:
           admin_label: ''
           plugin_id: custom
           label: 'Slip Gaji'
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "<a href=\"{{ path('bricc.document_detail', {'type': 'slip-gaji', 'id': property_11}) }}\" class=\"use-ajax\" data-dialog-type=\"modal\">Slip Gaji</a>"
