@@ -115,11 +115,14 @@ final class LocationController extends ControllerBase {
 
       // Manually filter because no filter option from remote endpoint
       if (isset($query['tipe_id']) && isset($result['data'])) {
+        $newresult = [];
         foreach ($result['data'] as $idx => &$category) {
-          if ($category['type']['id'] !== $query['tipe_id']) {
-            unset($result['data'][$idx]);
+          if ($category['type']['id'] === $query['tipe_id']) {
+            $newresult[] = $result['data'][$idx];
           }
         }
+        $result['data'] = $newresult;
+        unset($result['pagination']);
       }
     }
     else {

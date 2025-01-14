@@ -2,11 +2,15 @@ settings:
   default_submit_button_label: Kirim
   default_reset_button_label: Reset
   default_delete_button_label: Hapus
+  default_wizard_start_label: Start
+  default_wizard_confirmation_label: Complete
   default_preview_next_button_label: Pratinjau
   default_preview_label: Pratinjau
   dialog_options:
     narrow:
       title: Sempit
+    normal:
+      title: Normal
     wide:
       title: Lebar
 element:

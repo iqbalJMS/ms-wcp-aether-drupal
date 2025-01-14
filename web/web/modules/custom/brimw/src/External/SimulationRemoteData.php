@@ -394,6 +394,7 @@ class SimulationRemoteData extends BaseRemoteData
           interestRate
           principalInstallment
           interestInstallmentPerMonth
+          provisionFee
           totalInstallmentPerMonth
           administrationFee
           totalPayment

@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Returns responses for Bricc routes.
@@ -157,6 +158,13 @@ class BriccController extends ControllerBase {
     $detail = \Drupal::service('bricc.application_remote_data')->applicantDetail($id);
     $card_type_brigate_link = \Drupal::service('bricc.application_remote_data')->listCardItem();
 
+    $unmasked = \Drupal::currentUser()->hasPermission('view full applicant detail');
+    $detail['unmasked'] = $unmasked;
+    $this->getLogger('bricc')->info('Applicant %applicant_id viewed by %user_id.', [
+      '%applicant_id' => $id,
+      '%user_id' => \Drupal::currentUser()->getAccountName(),
+    ]);
+
     if (isset($detail['documents']['ktpId'])) {
       $detail['documents']['ktpUrl'] = \Drupal::service('bricc.application_remote_data')->documentDetail('ktp', $detail['documents']['ktpId']);
     }
@@ -248,6 +256,9 @@ class BriccController extends ControllerBase {
       return $build;
     }
     else {
+
+      throw new NotFoundHttpException('Page Not Found');
+
       $build['detail_applicant'] = [
         '#theme' => 'applicant_detail_alt',
         '#detail' => $detail,
