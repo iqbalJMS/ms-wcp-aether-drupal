@@ -1,0 +1,29 @@
+uuid: cea2d8c7-7a34-4154-9e32-750e96336966
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_site_id
+    - node.type.news
+    - taxonomy.vocabulary.site_id
+id: node.news.field_site_id
+field_name: field_site_id
+entity_type: node
+bundle: news
+label: 'Site ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      site_id: site_id
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
