@@ -251,7 +251,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
             return $data;
         }
 
-        return [];
+        return null;
 
     }
     
