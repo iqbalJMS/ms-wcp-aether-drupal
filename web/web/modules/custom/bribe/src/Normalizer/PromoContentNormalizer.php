@@ -321,6 +321,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
 
     function promoMicrosite($configuration)
     {
+        //update
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $nids = $node_storage->getQuery()
             ->condition('type', 'promo_microsite_owner')
