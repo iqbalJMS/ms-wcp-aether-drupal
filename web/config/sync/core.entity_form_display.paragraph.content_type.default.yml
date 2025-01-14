@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.content_type.field_content_type
+    - field.field.paragraph.content_type.field_title
     - paragraphs.paragraphs_type.content_type
 id: paragraph.content_type.default
 targetEntityType: paragraph
@@ -12,9 +13,17 @@ mode: default
 content:
   field_content_type:
     type: options_select
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
