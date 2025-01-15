@@ -12,6 +12,34 @@
             Drupal.behaviors.briccApplicant.setFilterType(e.target.value, element);
           });
 
+          // Validate date field
+          const startDateInput = element.querySelector('[data-drupal-selector="edit-startdate"]');
+          const endDateInput = element.querySelector('[data-drupal-selector="edit-enddate"]');
+
+          if (startDateInput && endDateInput) {
+            // Event listener for start date changes
+            startDateInput.addEventListener('change', function () {
+              const startDate = new Date(this.value);
+
+              if (endDateInput.value && new Date(endDateInput.value) < startDate) {
+                endDateInput.value = ''; // Reset end date if it's before the start date
+              }
+
+              endDateInput.min = this.value; // Set minimum for end date
+            });
+
+            // Event listener for end date changes
+            endDateInput.addEventListener('change', function () {
+              const endDate = new Date(this.value);
+
+              if (startDateInput.value && new Date(startDateInput.value) > endDate) {
+                startDateInput.value = ''; // Reset start date if it's after the end date
+              }
+
+              startDateInput.max = this.value; // Set maximum for start date
+            });
+          }
+
       });
     },
     init: function (e) {
