@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\bricc\EventSubscriber;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -13,6 +14,12 @@ use Symfony\Component\HttpKernel\KernelEvents;
  * @todo Add description for this subscriber.
  */
 final class BriccDecryptPasswordSubscriber implements EventSubscriberInterface {
+
+  public function __construct(
+    private LoggerInterface $logger
+  ) {
+
+  }
 
   /**
    * Kernel request event handler.
@@ -27,7 +34,12 @@ final class BriccDecryptPasswordSubscriber implements EventSubscriberInterface {
         $encryptedPassword = $request->request->get('encrypted_password');
 
         // Decrypt the password (replace this with your actual decryption logic).
-        $decryptedPassword = $this->decryptPassword($encryptedPassword);
+        try {
+          $decryptedPassword = $this->decryptPassword($encryptedPassword);
+        }
+        catch (\Exception $e) {
+          $this->logger->error($e->getMessage());
+        }
 
         // Replace the 'pass' field in the POST data with the decrypted password.
         $request->request->set('pass', $decryptedPassword);
@@ -52,18 +64,19 @@ final class BriccDecryptPasswordSubscriber implements EventSubscriberInterface {
     ];
   }
 
+  /**
+   * @throws \Exception
+   */
   private function decryptPassword(float|bool|int|string|null $encryptedPassword
   ) {
     // Load private key from env
-    $privateKeyString =  <<< STR
-
-STR;
+    $privateKeyString =  str_replace('||', PHP_EOL, $_ENV['PRIVATE_KEY']);
 
     // Load the private key from the string
     $keyResource = openssl_pkey_get_private($privateKeyString);
 
     if (!$keyResource) {
-      die('Private key is invalid or cannot be loaded.');
+      throw new \Exception('Private key is invalid or cannot be loaded.');
     }
 
     // Base64 decode the encrypted message

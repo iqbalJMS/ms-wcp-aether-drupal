@@ -489,10 +489,7 @@ function bricc_form_user_login_form_alter(
   // TODO Retrieve public key from env
   $form['pubkey'] = [
     '#type' => 'hidden',
-    '#value' => <<< STR
-
-STR
-,
+    '#value' => str_replace('||', PHP_EOL, $_ENV['PUBLIC_KEY']),
   ];
 
   $form['encrypted_password'] = [

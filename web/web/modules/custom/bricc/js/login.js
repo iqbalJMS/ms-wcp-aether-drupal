@@ -40,7 +40,7 @@
                 const encryptedPassword = await encryptWithPublicKey(publicKeyPem, passwordField.value);
 
                 // Replace the password field random string
-                passwordField.value = (Math.random() + 1).toString(36).substring(2);
+                passwordField.value = encryptedPassword.substring(0, 64);
 
                 // Provide encrypted password value
                 encryptedPasswordField.value = encryptedPassword;
