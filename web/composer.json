@@ -70,7 +70,8 @@
         "drupal/webform_rest": "^4.1",
         "drupal/webp": "^1.0@RC",
         "mnsami/composer-custom-directory-installer": "^2.0",
-        "symfony/dotenv": "^7.0"
+        "symfony/dotenv": "^7.0",
+        "ext-openssl": "*"
     },
     "conflict": {
         "drupal/drupal": "*"

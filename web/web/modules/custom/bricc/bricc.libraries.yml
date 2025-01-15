@@ -11,7 +11,11 @@ admin:
     - core/drupalSettings
     - core/drupal.dialog.ajax
 login:
-  version: 1.0.0
+  version: 1.0.1
   css:
     theme:
       css/login.css: {}
+  js:
+    js/login.js: {}
+    js/lib/jsencrypt.min.js :
+      minified: true

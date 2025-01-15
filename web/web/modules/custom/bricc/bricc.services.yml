@@ -35,3 +35,8 @@ services:
     class: Drupal\bricc\BriccTwigExtension
     tags:
       - { name: twig.extension }
+
+  bricc.descrypt_password_subscriber:
+    class: Drupal\bricc\EventSubscriber\BriccDecryptPasswordSubscriber
+    tags:
+      - { name: event_subscriber }

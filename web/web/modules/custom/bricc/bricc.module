@@ -475,3 +475,27 @@ function bricc_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
     \Drupal::service('cache_tags.invalidator')->invalidateTags($cache_tags);
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function bricc_form_user_login_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  $form['#attached']['library'][] = 'bricc/login';
+
+  // TODO Retrieve public key from env
+  $form['pubkey'] = [
+    '#type' => 'hidden',
+    '#value' => <<< STR
+
+STR
+,
+  ];
+
+  $form['encrypted_password'] = [
+    '#type' => 'hidden',
+  ];
+}
