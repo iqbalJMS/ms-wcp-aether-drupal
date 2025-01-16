@@ -1,0 +1,36 @@
+uuid: edfe052a-aa54-43dc-bdc2-3f4dd09531c6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_category
+field_name: field_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: investasi
+      label: ⁠Investasi
+    -
+      value: bancasurrance
+      label: Bancasurrance
+    -
+      value: reksa_dana
+      label: '⁠Reksa Dana'
+    -
+      value: obligasi
+      label: Obligasi
+    -
+      value: brifine
+      label: BRIFINE
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

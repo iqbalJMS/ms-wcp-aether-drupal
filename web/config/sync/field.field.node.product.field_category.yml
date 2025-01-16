@@ -1,0 +1,21 @@
+uuid: 10d127e7-a758-45d9-95e2-5c8a379c22ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.product
+  module:
+    - options
+id: node.product.field_category
+field_name: field_category
+entity_type: node
+bundle: product
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
