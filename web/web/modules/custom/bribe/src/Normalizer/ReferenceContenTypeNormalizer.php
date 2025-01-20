@@ -68,12 +68,12 @@ class ReferenceContenTypeNormalizer extends ContentEntityNormalizer
 
         $request = \Drupal::request();
 
-        $limit = $request->query->get('limit', 10); // Default limit
-        $page = $request->query->get('page', 0); // Default page
-        $offset = $page * $limit;
+        // $limit = $request->query->get('limit', 10); // Default limit
+        //$page = $request->query->get('page', 0); // Default page
+        // $offset = $page * $limit;
 
         $node_datas = $node_storage->loadByProperties(['type' => $entity->get('field_content_type')->target_id]);
-        $node_datas = array_slice($node_datas, $offset, $limit);
+        // $node_datas = array_slice($node_datas, $offset, $limit);
 
         $data = [];
         foreach ($node_datas as $node) {

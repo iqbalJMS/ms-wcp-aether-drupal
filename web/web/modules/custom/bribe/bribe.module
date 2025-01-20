@@ -28,8 +28,8 @@ function bribe_node_presave(Node $node)
     $url_alias = $url_alias[0]['alias'] ?? '';
     $url_alias = explode('/', $url_alias);
 
-    if(!empty($url_alias)) {
-        $node->set('path', '/'.end($url_alias));
+    if (!empty($url_alias)) {
+        $node->set('path', '/' . end($url_alias));
     }
     $title = $node->getTitle();
     if (!empty($title)) {
@@ -206,7 +206,8 @@ function bribe_form_alter(&$form, FormStateInterface $form_state, $form_id)
     }
 }
 
-function bribe_entity_presave($entity) {
+function bribe_entity_presave($entity)
+{
     if ($entity->getEntityTypeId() === 'media') {
         if ($entity->hasField('name') && !$entity->get('name')->isEmpty()) {
 

@@ -446,7 +446,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: dblog_operations
-          label: Operations
+          label: Operasi
           exclude: false
           alter:
             alter_text: false

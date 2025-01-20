@@ -16,6 +16,9 @@ settings:
       label: '⁠Main Website'
     -
       value: wealth_management
+      label: 'Wealth Management'
+    -
+      value: bri_private
       label: 'BRI Private'
     -
       value: bri_prioritas

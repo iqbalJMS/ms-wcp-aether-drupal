@@ -21,8 +21,6 @@ display:
         name:
           label: Pengguna
           separator: ', '
-        link:
-          label: Operasi
       pager:
         options:
           tags:
