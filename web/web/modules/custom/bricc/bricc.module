@@ -16,6 +16,9 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\user\UserInterface;
+use Drupal\views\Plugin\views\join\Standard;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_theme().
@@ -496,3 +499,25 @@ function bricc_form_user_login_form_alter(
     '#type' => 'hidden',
   ];
 }
+
+/**
+ * Implements hook_views_pre_view().
+ *
+ */
+function bricc_views_pre_view(ViewExecutable $view, $display_id, array $args) {
+  // Check if the view is the one we want to alter.
+  if ($view->id() === 'watchdog') {
+    // Change a filter.
+    $display = $view->getDisplay();
+    $filters = $view->getDisplay()->getOption('filters');
+
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+    $role = array_pop($roles);
+    $filters['roles_target_id']['value'] = [
+      $role => $role
+    ];
+    $display->setOption('filters', $filters);
+  }
+}
+
