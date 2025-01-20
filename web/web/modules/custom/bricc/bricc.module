@@ -512,11 +512,17 @@ function bricc_views_pre_view(ViewExecutable $view, $display_id, array $args) {
     $filters = $view->getDisplay()->getOption('filters');
 
     $current_user = \Drupal::currentUser();
-    $roles = $current_user->getRoles();
-    $role = array_pop($roles);
-    $filters['roles_target_id']['value'] = [
-      $role => $role
-    ];
+
+    if ($current_user->id() === '1') {
+      unset($filters['roles_target_id']);
+    }
+    else {
+      $roles = $current_user->getRoles();
+      $role = array_pop($roles);
+      $filters['roles_target_id']['value'] = [
+        $role => $role
+      ];
+    }
     $display->setOption('filters', $filters);
   }
 }
