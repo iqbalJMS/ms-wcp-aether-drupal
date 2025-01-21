@@ -113,6 +113,20 @@
     }
   }
 
+  Drupal.behaviors.briccStructureItem = {
+    attach(context, settings) {
+      const paths = [
+        '/admin/structure/taxonomy'
+      ];
+      once('briccSI_admin_credit_card', 'body.admin_credit_card .admin-item__link', context)
+        .forEach(function (linkElement) {
+          if (linkElement.getAttribute('href') !== '/admin/structure/taxonomy') {
+            linkElement.closest('div.admin-item').classList.add('hidden');
+          }
+        });
+    }
+  }
+
   Drupal.behaviors.briCardGroupNav = {
     attach(context, settings) {
       const nodeForm = once('cardGroupNav', '.node-form', context)
