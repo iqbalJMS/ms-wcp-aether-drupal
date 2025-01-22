@@ -32,12 +32,27 @@ final class BriccCardItemListBuilder extends EntityListBuilder {
     /** @var \Drupal\bricc\BriccCardItemInterface $entity */
     $row['id'] = $entity->id();
     $row['label'] = $entity->toLink();
-//    $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
-    $username_options = [
-      'label' => 'hidden',
-      'settings' => ['link' => $entity->get('uid')->entity->isAuthenticated()],
-    ];
-    $row['uid']['data'] = $entity->get('uid')->view($username_options);
+    $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
+
+    // Check if the 'uid' field has a value and the referenced entity exists
+    if ($entity->hasField('uid') && !$entity->get('uid')->isEmpty() && $entity->get('uid')->entity) {
+      $user_entity = $entity->get('uid')->entity;
+
+      // Safely determine if the user is authenticated
+      $is_authenticated = $user_entity instanceof \Drupal\user\UserInterface && $user_entity->isAuthenticated();
+
+      $username_options = [
+        'label' => 'hidden',
+        'settings' => ['link' => $is_authenticated],
+      ];
+
+      // Render the 'uid' field with the options
+      $row['uid']['data'] = $entity->get('uid')->view($username_options);
+    } else {
+      // Handle cases where 'uid' or the referenced entity is missing
+      $row['uid']['data'] = NULL;
+    }
+
     $row['created']['data'] = $entity->get('created')->view(['label' => 'hidden']);
     $row['changed']['data'] = $entity->get('changed')->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
