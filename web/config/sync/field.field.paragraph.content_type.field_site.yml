@@ -1,0 +1,21 @@
+uuid: 05942c7b-9128-4664-ae7b-ea29f4e567d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_site
+    - paragraphs.paragraphs_type.content_type
+  module:
+    - options
+id: paragraph.content_type.field_site
+field_name: field_site
+entity_type: paragraph
+bundle: content_type
+label: Site
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

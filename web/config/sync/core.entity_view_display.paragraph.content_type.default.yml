@@ -3,14 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.content_type.field_category_product
     - field.field.paragraph.content_type.field_content_type
+    - field.field.paragraph.content_type.field_site
     - field.field.paragraph.content_type.field_title
     - paragraphs.paragraphs_type.content_type
+  module:
+    - options
 id: paragraph.content_type.default
 targetEntityType: paragraph
 bundle: content_type
 mode: default
 content:
+  field_category_product:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_content_type:
     type: entity_reference_label
     label: above
@@ -18,6 +29,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_site:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_title:
     type: string

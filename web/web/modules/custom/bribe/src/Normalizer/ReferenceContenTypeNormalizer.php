@@ -57,26 +57,54 @@ class ReferenceContenTypeNormalizer extends ContentEntityNormalizer
 
     public function normalize($entity, $format = null, array $context = []): array|\ArrayObject|bool|float|int|string|null
     {
-
         $normalized = parent::normalize(
             $entity,
             $format,
             $context
         );
 
-        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $getContentType = $entity->get('field_content_type')->target_id;
+        $categories = $entity->get('field_category_product')->getValue();
+        $sites = $entity->get('field_site')->getValue();
+        $cats = [];
+        foreach ($categories as $cat) {
+            $cats[] = $cat['value'];
+        }
+        $sitelist = [];
+        foreach ($sites as $site) {
+            $sitelist[] = $site['value'];
+        }
 
-        $request = \Drupal::request();
+        // dump($categories);
+        // exit;
+
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+        $query = $node_storage->getQuery();
+        $query->accessCheck(false);
+        $query->condition('type', $getContentType);
+        if($getContentType == 'product'){
+            if(!empty($cats)) {
+                $query->condition('field_category', $cats, 'IN');
+            }
+            if(!empty($sitelist)){
+                $query->condition('field_site', $sitelist, 'IN');
+            }
+            // $query->condition('field_category', $sites, 'IN');
+        }
+        $nids = $query->execute();
+
+
+        $nodes = $node_storage->loadMultiple($nids);
 
         // $limit = $request->query->get('limit', 10); // Default limit
         //$page = $request->query->get('page', 0); // Default page
         // $offset = $page * $limit;
 
-        $node_datas = $node_storage->loadByProperties(['type' => $entity->get('field_content_type')->target_id]);
+        // $node_datas = $node_storage->loadByProperties(['type' => $entity->get('field_content_type')->target_id]);
         // $node_datas = array_slice($node_datas, $offset, $limit);
 
         $data = [];
-        foreach ($node_datas as $node) {
+        foreach ($nodes as $node) {
             // Get the details of each node
             $fields_data = [];
 
@@ -88,7 +116,7 @@ class ReferenceContenTypeNormalizer extends ContentEntityNormalizer
                 if (strpos($field_definition->getType(), 'entity_reference') !== false) {
                     // Get the referenced entities
                     $referenced_entities = $node->get($field_name)->referencedEntities();
-                    $fields_data[$field_name] = $this->serializer->normalize($referenced_entities, 'json_recursive');
+                    $fields_data[$field_name] = $this->serializer->normalize($referenced_entities, 'json');
 
                     // dump($referenced_entities);
 

@@ -1,0 +1,33 @@
+uuid: 22cd3e44-e9fe-4ff9-804c-e9c24868a840
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_site
+field_name: field_site
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: main_website
+      label: '⁠Main Website'
+    -
+      value: wealth_management
+      label: 'Wealth Management'
+    -
+      value: bri_prioritas
+      label: 'BRI Prioritas'
+    -
+      value: bri_private
+      label: 'BRI Private'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
