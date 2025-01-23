@@ -1,0 +1,21 @@
+uuid: 8cce592a-c6a9-4a43-828c-bf1a96bea493
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_category_product
+    - paragraphs.paragraphs_type.content_type
+  module:
+    - options
+id: paragraph.content_type.field_category_product
+field_name: field_category_product
+entity_type: paragraph
+bundle: content_type
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.content_type.field_category_product
     - field.field.paragraph.content_type.field_content_type
+    - field.field.paragraph.content_type.field_site
     - field.field.paragraph.content_type.field_title
     - paragraphs.paragraphs_type.content_type
 id: paragraph.content_type.default
@@ -11,9 +13,21 @@ targetEntityType: paragraph
 bundle: content_type
 mode: default
 content:
+  field_category_product:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_content_type:
     type: options_select
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_site:
+    type: options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
