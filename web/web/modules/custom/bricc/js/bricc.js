@@ -116,7 +116,6 @@
   Drupal.behaviors.briccStructureItem = {
     attach(context, settings) {
       if (window.location.pathname === '/admin/structure') {
-        console.log('page structure');
         once('briccSI_admin_credit_card', 'body.admin_credit_card .admin-item__link', context)
           .forEach(function (linkElement) {
             if (linkElement.getAttribute('href') !== '/admin/structure/taxonomy') {
