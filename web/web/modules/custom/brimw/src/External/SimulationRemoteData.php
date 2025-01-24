@@ -340,7 +340,7 @@ class SimulationRemoteData extends BaseRemoteData
 
   public function estimateInitialInvestment(Request $request): array
   {
-    $interestRate = $request->get('interestRate') ?: 0.0;
+    $interestRate = $request->get('interestRate') ?: 1;
 
     $query = <<< GRAPHQL
       query {
