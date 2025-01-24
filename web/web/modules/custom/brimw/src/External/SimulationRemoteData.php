@@ -345,6 +345,7 @@ class SimulationRemoteData extends BaseRemoteData
         estimateInitialInvestment (input: {
           targetInvestmentValue: {$request->get('targetInvestmentValue')}
           duration: {$request->get('duration')}
+          interestRate: {$request->get('interestRate')}
         }
         ) {
           oneTimeInvestmentRequired
