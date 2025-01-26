@@ -67,7 +67,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allLocations'];
+    return $result['data']['allLocations'] ?? $result;
   }
 
   public function getLocationAutosuggest($params) {
