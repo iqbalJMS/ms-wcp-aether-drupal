@@ -327,9 +327,15 @@ class LocationRemoteData extends BaseRemoteData {
           'skip' => 0,
           'limit' => 99,
         ]);
-        $type_options = array_column($types['data'], 'name', 'id');
-        $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
-        return $type_options;
+
+        if (isset($types['data'])) {
+          $type_options = array_column($types['data'], 'name', 'id');
+          $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
+          return $type_options;
+        }
+        else {
+          return [];
+        }
       } catch (RequestException $e) {
         $this->logger->warning($e->getMessage());
         return [];
