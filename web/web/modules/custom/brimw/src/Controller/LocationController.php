@@ -129,6 +129,10 @@ final class LocationController extends ControllerBase {
       $result = $this->locationRemoteData->getAllLocations($query);
     }
 
+    \Drupal::logger('bricc')->info(json_encode($query));
+
+    \Drupal::logger('bricc')->info(json_encode($result));
+
     return new JsonResponse([
       'data' => $result,
     ]);

@@ -479,6 +479,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -544,8 +545,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           action_title: Action
-          include_exclude: exclude
-          selected_actions: {  }
+          include_exclude: include
+          selected_actions:
+            - media_publish_action
+            - media_save_action
         name:
           id: name
           table: media_field_data

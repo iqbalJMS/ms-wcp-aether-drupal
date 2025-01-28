@@ -967,9 +967,8 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - node_delete_action
+            - node_publish_action
             - node_save_action
-            - node_unpublish_action
         title:
           id: title
           table: node_field_data
@@ -1345,9 +1344,8 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - node_delete_action
+            - node_publish_action
             - node_save_action
-            - node_unpublish_action
         title:
           id: title
           table: node_field_data
@@ -1714,9 +1712,8 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - node_delete_action
+            - node_publish_action
             - node_save_action
-            - node_unpublish_action
         title:
           id: title
           table: node_field_data
@@ -2083,9 +2080,8 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - node_delete_action
+            - node_publish_action
             - node_save_action
-            - node_unpublish_action
         title:
           id: title
           table: node_field_data
