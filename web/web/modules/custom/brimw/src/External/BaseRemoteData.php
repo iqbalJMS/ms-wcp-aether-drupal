@@ -76,7 +76,14 @@ class BaseRemoteData {
         ],
         'body' => json_encode(['query' => $query]),
       ];
-      $response = $this->client->post($this->gqlUrl, $options);
+      try {
+        $response = $this->client->post($this->gqlUrl, $options);
+      }
+      catch (\Exception $e) {
+        $this->logger->warning($e->getMessage());
+        $data = Json::decode((string) $e->getResponse()->getBody()->__toString());
+        return $data ?? ['error' => [['message' => "Server error"]]];
+      }
 
       return Json::decode((string) $response->getBody());
     }

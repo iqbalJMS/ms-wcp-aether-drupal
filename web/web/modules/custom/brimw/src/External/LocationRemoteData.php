@@ -67,7 +67,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allLocations'];
+    return $result['data']['allLocations'] ?? $result;
   }
 
   public function getLocationAutosuggest($params) {
@@ -101,7 +101,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allLocations'];
+    return $result['data']['allLocations'] ?? $result;
   }
 
   public function getAllProvinces($params = []): array {
@@ -132,7 +132,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allProvinces'];
+    return $result['data']['allProvinces'] ?? $result;
   }
 
   public function createProvince($name): string {
@@ -157,7 +157,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdProvince'];
+    return $result['data']['getByIdProvince'] ?? $result;
   }
 
   public function updateProvince($id, $name) {
@@ -209,7 +209,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allTypes'];
+    return $result['data']['allTypes'] ?? $result;
   }
 
   public function getAllLocationCategory($params) {
@@ -244,7 +244,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allCategories'];
+    return $result['data']['allCategories'] ?? $result;
   }
 
   /**
@@ -279,7 +279,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getCategoryByType'];
+    return $result['data']['getCategoryByType'] ?? $result;
   }
 
   public function getCategoryByTypeOptions($type_id) {
@@ -290,7 +290,7 @@ class LocationRemoteData extends BaseRemoteData {
 
     $categories = $this->getCategoryByType($type_id);
 
-    if ($categories) {
+    if ($categories['data']) {
       return array_column($categories['data'], 'name', 'id');
     }
   }
@@ -327,9 +327,15 @@ class LocationRemoteData extends BaseRemoteData {
           'skip' => 0,
           'limit' => 99,
         ]);
-        $type_options = array_column($types['data'], 'name', 'id');
-        $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
-        return $type_options;
+
+        if (isset($types['data'])) {
+          $type_options = array_column($types['data'], 'name', 'id');
+          $this->cache->set($cache_key, $type_options, strtotime($this->cacheDuration));
+          return $type_options;
+        }
+        else {
+          return [];
+        }
       } catch (RequestException $e) {
         $this->logger->warning($e->getMessage());
         return [];
@@ -383,7 +389,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getCategoryById'];
+    return $result['data']['getCategoryById'] ?? $result;
   }
 
   public function updateCategory($id, $name, $type_id) {
@@ -467,7 +473,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['allCitys'];
+    return $result['data']['allCitys'] ?? $result;
   }
 
   public function createCity($id_province, $name): string {
@@ -496,7 +502,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getByIdCity'];
+    return $result['data']['getByIdCity'] ?? $result;
   }
 
   public function updateCity($id, $name, $province_id) {
@@ -535,7 +541,7 @@ class LocationRemoteData extends BaseRemoteData {
       }
     GRAPHQL;
     $result = $this->gql($query);
-    return $result['data']['getTypeById'];
+    return $result['data']['getTypeById'] ?? $result;
   }
 
   public function updateType($id, $name, $site) {

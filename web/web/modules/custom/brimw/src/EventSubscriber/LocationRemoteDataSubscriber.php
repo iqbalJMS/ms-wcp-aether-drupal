@@ -67,7 +67,7 @@ final class LocationRemoteDataSubscriber implements EventSubscriberInterface {
         $remote_data = $this->locationRemoteData->getAllCities($params);
       }
 
-      if (!empty($remote_data)) {
+      if (isset($remote_data['data'])) {
         $event->getView()->getPager()->total_items = $remote_data['pagination']['total'];
 
         foreach ($remote_data['data'] as $idx => $item) {
