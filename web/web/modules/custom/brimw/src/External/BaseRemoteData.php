@@ -56,6 +56,8 @@ class BaseRemoteData {
   protected function gqlUrl(): string
   {
     throw new \Exception('Please set graphql url.');
+
+    return '';
   }
 
   /**
