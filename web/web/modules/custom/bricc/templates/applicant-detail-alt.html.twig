@@ -6,77 +6,74 @@
 
 {# Data pribadi #}
 <table>
+  <caption>Data Pribadi</caption>
   <tr>
-    <td>Data Pribadi</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>
+    <th>
       <strong>No. Aplikasi</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Jenis Kartu Kredit</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail._id }}</td>
     <td>{{ detail.jenisKartuKredit }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Nama Lengkap</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Nama yang dikehendaki pada kartu</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.namaDepan ~ ' ' ~ detail.namaBelakang }}</td>
     <td>{{ detail.namaDiKartu }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Jenis Kelamin</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Kewarganegaraan</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.sexType == 1 ? 'Pria' : 'Wanita' }}</td>
     <td>{{ detail.kewarganegaraan }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>NIK</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Tempat Lahir</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.nik }}</td>
     <td>{{ detail.tempatLahir }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Tanggal Lahir</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Email</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.tanggalLahir }}</td>
     <td>{{ detail.email }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Status Rumah</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Tinggal Sejak</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.statusRumah }}</td>
@@ -92,60 +89,60 @@
   </tr>
 
   <tr>
-    <td>
+    <th>
       <strong>Asal Kota</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Telepon Rumah</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.asalKota }}</td>
     <td>{{ detail.noTelp }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>No. Handphone</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Jumlah Tanggungan</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.noHp }}</td>
     <td>{{ detail.jumlahAnak }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Tingkat Edukasi</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Nama Ibu Kandung</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.edukasi }}</td>
     <td>{{ detail.namaIbuKandung }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Status Pernikahan</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>Tanggal Pengajuan</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.statusNikah }}</td>
     <td>{{ detail.tanggalPengajuan }}</td>
   </tr>
   <tr>
-    <td>
+    <th>
       <strong>Status Pengajuan</strong>
-    </td>
-    <td>
+    </th>
+    <th>
       <strong>&nbsp;</strong>
-    </td>
+    </th>
   </tr>
   <tr>
     <td>{{ detail.statusPengajuan }}</td>
@@ -155,12 +152,10 @@
 
 {# Data keluarga terdekat #}
 <table>
+  <caption>Data Keluarga Terdekat</caption>
   <tr>
-    <td colspan="2">Data Keluarga Terdekat</td>
-  </tr>
-  <tr>
-    <td><strong>Nama Kontak Darurat</strong></td>
-    <td><strong>Hubungan</strong></td>
+    <th><strong>Nama Kontak Darurat</strong></th>
+    <th><strong>Hubungan</strong></th>
   </tr>
   <tr>
     <td>{{ detail.emergencyRelation.namaKontakDarurat }}</td>
@@ -173,8 +168,8 @@
     <td colspan="2">{{ [detail.emergencyRelation.alamat1, detail.emergencyRelation.alamat2, detail.emergencyRelation.alamat3]|join(' ') }}</td>
   </tr>
   <tr>
-    <td><strong>Kota</strong></td>
-    <td><strong>No. Handphone</strong></td>
+    <th><strong>Kota</strong></th>
+    <th><strong>No. Handphone</strong></th>
   </tr>
   <tr>
     <td>{{ detail.emergencyRelation.emergencyCity }}</td>
@@ -184,36 +179,34 @@
 
 {# Data pekerjaan #}
 <table>
+  <caption>Data Pekerjaan</caption>
   <tr>
-    <td colspan="2">Data Pekerjaan</td>
-  </tr>
-  <tr>
-    <td><strong>Nama Perusahaan</strong></td>
-    <td><strong>Total Pegawai</strong></td>
+    <th><strong>Nama Perusahaan</strong></th>
+    <th><strong>Total Pegawai</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.namaPerusahaan }}</td>
     <td>{{ detail.jobInfo.totalPegawai }}</td>
   </tr>
   <tr>
-    <td><strong>Kategori Pekerjaan</strong></td>
-    <td><strong>Status Pekerjaan</strong></td>
+    <th><strong>Kategori Pekerjaan</strong></th>
+    <th><strong>Status Pekerjaan</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.kategoriPekerjaan }}</td>
     <td>{{ detail.jobInfo.statusPekerjaan }}</td>
   </tr>
   <tr>
-    <td><strong>Bidang Pekerjaan	</strong></td>
-    <td><strong>Sub Bidang Pekerjaan		</strong></td>
+    <th><strong>Bidang Pekerjaan	</strong></th>
+    <th><strong>Sub Bidang Pekerjaan		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.bidangPekerjaan }}</td>
     <td>{{ detail.jobInfo.subBidangPekerjaan }}</td>
   </tr>
   <tr>
-    <td><strong>Title Pekerjaan	</strong></td>
-    <td><strong>Bekerja Sejak		</strong></td>
+    <th><strong>Title Pekerjaan	</strong></th>
+    <th><strong>Bekerja Sejak		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.titelPekerjaan }}</td>
@@ -226,16 +219,16 @@
     <td colspan="2">{{ detail.jobInfo.alamatPerusahaan1 }}</td>
   </tr>
   <tr>
-    <td><strong>Kota	</strong></td>
-    <td><strong>Kode Pos Kantor		</strong></td>
+    <th><strong>Kota	</strong></th>
+    <th><strong>Kode Pos Kantor		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.kotaPerusahaan }}</td>
     <td>{{ detail.jobInfo.kodePos }}</td>
   </tr>
   <tr>
-    <td><strong>No. Telp Kantor	</strong></td>
-    <td><strong>Penghasilan (Per-Tahun)		</strong></td>
+    <th><strong>No. Telp Kantor	</strong></th>
+    <th><strong>Penghasilan (Per-Tahun)		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.jobInfo.teleponPerusahaan }}</td>
@@ -245,9 +238,7 @@
 
 {# Informasi rekening BRI #}
 <table>
-  <tr>
-    <td colspan="2">Informasi Rekening BRI</td>
-  </tr>
+  <caption>Informasi Rekening BRI</caption>
   <tr>
     <td colspan="2"><strong>No. Rekening</strong></td>
   </tr>
@@ -259,20 +250,18 @@
 
 {# Autodebet #}
 <table>
+  <caption>Auto Debet</caption>
   <tr>
-    <td colspan="2">Auto Debet</td>
-  </tr>
-  <tr>
-    <td><strong>No. Rekening</strong></td>
-    <td><strong>Sebesar		</strong></td>
+    <th><strong>No. Rekening</strong></th>
+    <th><strong>Sebesar		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.autodebet.noRekening }}</td>
     <td>{{ detail.autodebet.sebesar }}</td>
   </tr>
   <tr>
-    <td><strong>BRI Protection Plus	</strong></td>
-    <td><strong></strong></td>
+    <th><strong>BRI Protection Plus	</strong></th>
+    <th><strong></strong></th>
   </tr>
   <tr>
     <td>{{ detail.autodebet.protectionPlan }}</td>
@@ -282,20 +271,18 @@
 
 {# Dokumen pribadi #}
 <table>
+  <caption>Dokumen Pribadi</caption>
   <tr>
-    <td colspan="2">Dokumen Pribadi</td>
-  </tr>
-  <tr>
-    <td><strong>KTP	</strong></td>
-    <td><strong>Swafoto KTP		</strong></td>
+    <th><strong>KTP	</strong></th>
+    <th><strong>Swafoto KTP		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.documents.ktpId ? 'Ada' : '-' }}</td>
     <td>{{ detail.documents.swafotoKtpId ? 'Ada' : '-' }}</td>
   </tr>
   <tr>
-    <td><strong>NPWP	</strong></td>
-    <td><strong>Slip Gaji		</strong></td>
+    <th><strong>NPWP	</strong></th>
+    <th><strong>Slip Gaji		</strong></th>
   </tr>
   <tr>
     <td>{{ detail.documents.npwpId ? 'Ada' : '-' }}</td>
