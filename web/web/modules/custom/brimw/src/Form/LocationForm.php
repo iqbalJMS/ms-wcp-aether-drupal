@@ -186,7 +186,9 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Address'),
       '#default_value' => $data['address'],
+      '#description' => $this->t('Maximum length: 100 characters'),
       '#required' => TRUE,
+      '#maxlength' => 100,
     ];
 
     $form['phone'] = [
@@ -325,7 +327,6 @@ final class LocationForm extends FormBase {
       $this->locationRemoteData = \Drupal::service('brimw.location_remote_data');
     }
 
-    $this->messenger()->addStatus($this->t('The location has been saved.'));
     $form_state->setRedirect('view.location.page_1');
 
     // Get the form values.
@@ -358,13 +359,26 @@ final class LocationForm extends FormBase {
       }
     }
 
+    $sanitized_name = sprintf('%s', $values['name']);
     if ($this->locationId) {
       // Editing: Update existing location data.
-      $update_status = $this->locationRemoteData->updateLocation($this->locationId, $values);
+      $result = $this->locationRemoteData->updateLocation($this->locationId, $values);
+      if (isset($result['errors'])) {
+        $err_msg = $this->locationRemoteData->formatError($result['errors']);
+        $this->messenger()->addError($this->t('Location @name could not be updated. Error message: @err', ['@name' => $sanitized_name, '@err' => $err_msg]));
+      }
+      else {
+        $update_status = $result['data']['updateLocation'];
+        if ($update_status) {
+          $this->messenger()->addStatus($this->t('Location @name has been updated', ['@name' => $sanitized_name]));
+        }
+        else {
+          $this->messenger()->addError($this->t('Location @name could not be updated', ['@name' => $sanitized_name]));
+        }
+      }
     } else {
       // Adding: Insert new location data.
       $new_id = $this->locationRemoteData->createLocation($values);
-      $sanitized_name = sprintf('%s', $values['name']);
       \Drupal::messenger()->addMessage($this->t('Location @name added successfully', ['@name' => $sanitized_name]));
     }
   }
