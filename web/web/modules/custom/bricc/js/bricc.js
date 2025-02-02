@@ -104,7 +104,7 @@
           const hasRoleClass = roles.some(role => $('body').hasClass(role));
           if (paths.includes(currentPath) && hasRoleClass) {
             $('.block-local-tasks-block').addClass('hidden');
-            $('.menu-item__system-admin_structure').hide();
+            // $('.menu-item__system-admin_structure').hide();
           }
           else if (hasRoleClass) {
             // $('.menu-item__system-admin_structure').hide();
@@ -123,6 +123,34 @@
             }
           });
       }
+    }
+  }
+
+  Drupal.behaviors.briccWatchdog = {
+    attach(context, settings) {
+      // Hide View text on empty link
+      once('briWatchdog', 'div.admin-dblog td.views-field-link a', context)
+      .forEach(function (element) {
+        if (element.getAttribute('href') === '') {
+          element.classList.add('hidden');
+        }
+      });
+    }
+  }
+  Drupal.behaviors.briContent = {
+    attach(context, settings) {
+      once('briContent', '.block-local-tasks-block', context)
+        .forEach(function (element) {
+          const targetElement = element.querySelector('[data-drupal-link-system-path="admin/content/media"]');
+          if (targetElement) {
+            targetElement.parentElement.style.display = 'none';
+          }
+          const elementDocument = element.querySelector('[data-drupal-link-system-path="admin/content/document"]');
+          if (elementDocument) {
+            elementDocument.parentElement.style.display = 'none';
+          }
+        });
+
     }
   }
 
