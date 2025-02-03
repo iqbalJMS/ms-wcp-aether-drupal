@@ -135,6 +135,14 @@
           element.classList.add('hidden');
         }
       });
+
+      once('briWdDetail', '.dblog-event', context)
+      .forEach(function (element) {
+        let table = element.querySelector("tbody");
+        if (table && table.lastElementChild) {
+          table.removeChild(table.lastElementChild);
+        }
+      })
     }
   }
   Drupal.behaviors.briContent = {
