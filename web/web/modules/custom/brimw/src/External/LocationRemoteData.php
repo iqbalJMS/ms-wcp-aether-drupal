@@ -264,9 +264,6 @@ class LocationRemoteData extends BaseRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function getCategoryByType($type_id) {
-    $skip = $params['skip'] ?? 0;
-    $limit = $params['limit'] ?? 10;
-
     $query = <<< GRAPHQL
       query {
         getCategoryByType (type_id: "$type_id"){
