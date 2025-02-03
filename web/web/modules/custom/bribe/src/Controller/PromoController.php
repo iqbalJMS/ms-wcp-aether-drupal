@@ -23,13 +23,13 @@ class PromoController extends ControllerBase
             $container->get('bribe.promo')
         );
     }
-    function getByID($data)
+    public function getByID($data)
     {
         $detail = $this->promo->promoDetail($data);
 
         return $detail;
     }
-    function remoteCreate($node)
+    public function remoteCreate($node)
     {
 
         $categories = $node->get('field_promo_category')->referencedEntities();
@@ -92,7 +92,7 @@ class PromoController extends ControllerBase
 
         return $create;
     }
-    function remoteUpdate($node)
+    public function remoteUpdate($node)
     {
 
         $categories = $node->get('field_promo_category')->referencedEntities();
@@ -154,7 +154,7 @@ class PromoController extends ControllerBase
 
         return $node;
     }
-    function remoteDelete($id)
+    public function remoteDelete($id)
     {
 
         $send = array(
