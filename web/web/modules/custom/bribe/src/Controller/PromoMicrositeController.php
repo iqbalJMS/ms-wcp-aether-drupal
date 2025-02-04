@@ -21,17 +21,17 @@ class PromoMicrositeController extends ControllerBase
             $container->get('bribe.promo.microsite')
         );
     }
-    function getlist() {
+    public function getlist() {
         $list = $this->microsite->promoMicrositeList();
         
         return $list;
     }
-    function getByID($data) {
+    public function getByID($data) {
         $detail = $this->microsite->promoMicrositeDetail($data);
         
         return $detail;
     }
-    function remoteCreate($node) {
+    public function remoteCreate($node) {
 
         $send = array(
             $node->getTitle()
@@ -49,7 +49,7 @@ class PromoMicrositeController extends ControllerBase
         return $node;
 
     }
-    function remoteUpdate($node) {
+    public function remoteUpdate($node) {
 
         $send = array(
             $node->get('field_microsite_id')->value,
@@ -64,7 +64,7 @@ class PromoMicrositeController extends ControllerBase
         
         return $node;
     }
-    function remoteDelete($id){
+    public function remoteDelete($id){
         
         $send = array(
             $id

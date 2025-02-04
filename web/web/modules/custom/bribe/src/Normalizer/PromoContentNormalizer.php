@@ -157,7 +157,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
      *
      * @return void
      */
-    function promoList($configuration): array|\ArrayObject
+    public function promoList($configuration): array|\ArrayObject
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $query = $node_storage->getQuery();
@@ -230,7 +230,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         return $getNodes;
     }
 
-    function promoSidebar($configuration)
+    public function promoSidebar($configuration)
     {
         if(isset($configuration['with_sidebar']) && $configuration['with_sidebar'] === true ) {
             $getCategory = $this->promoCategory($configuration);
@@ -255,7 +255,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
 
     }
     
-    function promoCategory($configuration)
+    public function promoCategory($configuration)
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $nids = $node_storage->getQuery()
@@ -269,7 +269,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         return $getNodes;
     }
 
-    function promoPopularCategory($configuration)
+    public function promoPopularCategory($configuration)
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $query = $node_storage->getQuery()
@@ -289,7 +289,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         return $getNodes;
     }
 
-    function promoProduct($configuration)
+    public function promoProduct($configuration)
     {
         $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
         $vocabulary_name = 'promo_product'; // Replace with your vocabulary machine name.
@@ -305,7 +305,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         return $getTerms;
     }
 
-    function promoLocation($configuration)
+    public function promoLocation($configuration)
     {
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');
         $nids = $node_storage->getQuery()
@@ -319,7 +319,7 @@ final class PromoContentNormalizer extends ContentEntityNormalizer
         return $getNodes;
     }
 
-    function promoMicrosite($configuration)
+    public function promoMicrosite($configuration)
     {
         //update
         $node_storage = \Drupal::entityTypeManager()->getStorage('node');

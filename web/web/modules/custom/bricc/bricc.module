@@ -489,7 +489,7 @@ function bricc_form_user_login_form_alter(
 ) {
   $form['#attached']['library'][] = 'bricc/login';
 
-  // TODO Retrieve public key from env
+  // Retrieve public key from env
   $form['pubkey'] = [
     '#type' => 'hidden',
     '#value' => str_replace('||', PHP_EOL, $_ENV['PUBLIC_KEY']),

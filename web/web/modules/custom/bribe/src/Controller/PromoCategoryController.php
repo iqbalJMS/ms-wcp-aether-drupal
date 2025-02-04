@@ -21,17 +21,17 @@ class PromoCategoryController extends ControllerBase
             $container->get('bribe.promo.category')
         );
     }
-    function getlist() {
+    public function getlist() {
         $list = $this->category->promoCategoryList();
         
         return $list;
     }
-    function getByID($data) {
+    public function getByID($data) {
         $detail = $this->category->promoCategoryDetail($data);
         
         return $detail;
     }
-    function remoteCreate($node) {
+    public function remoteCreate($node) {
 
         // $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
 
@@ -55,7 +55,7 @@ class PromoCategoryController extends ControllerBase
         
         return $node;
     }
-    function remoteUpdate($node) {
+    public function remoteUpdate($node) {
 
         // $subCategorylist = $node->get('field_promo_sub_category')->referencedEntities();
 
@@ -80,7 +80,7 @@ class PromoCategoryController extends ControllerBase
         
         return $node;
     }
-    function remoteDelete($idCategory)
+    public function remoteDelete($idCategory)
     {
 
         $send = array(

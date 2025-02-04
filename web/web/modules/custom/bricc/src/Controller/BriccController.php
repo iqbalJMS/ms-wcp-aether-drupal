@@ -256,63 +256,7 @@ class BriccController extends ControllerBase {
       return $build;
     }
     else {
-
       throw new NotFoundHttpException('Page Not Found');
-
-      $build['detail_applicant'] = [
-        '#theme' => 'applicant_detail_alt',
-        '#detail' => $detail,
-      ];
-
-      if ($mode === 'pdf') {
-        $build['detail_applicant']['#is_print'] = 'yes';
-      }
-
-      /** @var \Drupal\Core\Render\RendererInterface $renderer */
-      $renderer = \Drupal::service('renderer');
-      $html = (string) $renderer->renderRoot($build['detail_applicant']);
-
-      if ($mode === 'excel') {
-        $fname = \Drupal\Component\Utility\Html::cleanCssIdentifier($detail['namaDiKartu']);
-        $file_name = sprintf('%s--%s.xlsx', $fname, $id);
-        $destination = 'public://' . $file_name;
-        $binary = NULL;
-
-        try {
-          // Create a new Spreadsheet object
-          $spreadsheet = new Spreadsheet();
-          $reader = new Html();
-          $spreadsheet = $reader->loadFromString($html);
-
-          $writer = new Xlsx($spreadsheet);
-          ob_start();
-          $writer->save('php://output');
-          $spreadsheet->disconnectWorksheets();
-          $binary =  ob_get_clean();
-
-          $directory = dirname($destination);
-          \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
-          $destination = \Drupal::service('file_system')->getDestinationFilename($destination, FileExists::Replace);
-          $file_uri = \Drupal::service('file_system')->saveData($binary, $destination, FileExists::Replace);
-
-          $file = File::create([
-            'uri' => $file_uri,
-          ]);
-          $file->save();
-        }
-        catch (\Exception $e) {
-          // TODO Log error
-        }
-
-        $path = \Drupal::service('file_system')->realpath($file->getFileUri());
-        $file_url = $file->createFileUrl();
-
-        return new RedirectResponse($file_url);
-      }
-      else {
-        // PDF
-        return new Response($html);
-      }
     }
   }
 

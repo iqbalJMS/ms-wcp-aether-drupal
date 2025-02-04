@@ -21,17 +21,17 @@ class PromoLocationController extends ControllerBase
             $container->get('bribe.promo.sub_category')
         );
     }
-    function getlist($data) {
+    public function getlist($data) {
         $list = $this->location->promoLocationList($data);
         
         return $list;
     }
-    function getByID($data) {
+    public function getByID($data) {
         $detail = $this->location->promoLocationDetail($data);
         
         return $detail;
     }
-    function remoteCreate($node) {
+    public function remoteCreate($node) {
 
         $send = array(
             $node->getTitle(),
@@ -49,7 +49,7 @@ class PromoLocationController extends ControllerBase
         return $node;
         
     }
-    function remoteUpdate($node) {
+    public function remoteUpdate($node) {
         
         $send = array(
             $node->get('field_location_id')->value,
@@ -65,7 +65,7 @@ class PromoLocationController extends ControllerBase
         
         return $update;
     }
-    function remoteDelete($id){
+    public function remoteDelete($id){
 
         $send = array(
             $id

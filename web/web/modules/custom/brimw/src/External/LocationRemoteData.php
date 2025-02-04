@@ -19,6 +19,16 @@ class LocationRemoteData extends BaseRemoteData {
     return $_ENV['LOCATION_URL'];
   }
 
+  public function formatError($errors) {
+    $output = [];
+    if (is_array($errors)) {
+      foreach ($errors as $error) {
+        $output[] = $error['message'];
+      }
+    }
+    return implode(". ", $output);
+  }
+
   public function getAllLocations($params = []): array {
     $skip = $params['skip'] ?? 0;
     $limit = $params['limit'] ?? 10;
@@ -254,9 +264,6 @@ class LocationRemoteData extends BaseRemoteData {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function getCategoryByType($type_id) {
-    $skip = $params['skip'] ?? 0;
-    $limit = $params['limit'] ?? 10;
-
     $query = <<< GRAPHQL
       query {
         getCategoryByType (type_id: "$type_id"){
@@ -613,8 +620,8 @@ class LocationRemoteData extends BaseRemoteData {
         )
       }
     GRAPHQL;
-    $result = $this->gql($query);
-    return $result['data']['updateLocation'];
+
+    return $this->gql($query);
   }
 
   public function deleteLocation($id) {

@@ -447,7 +447,7 @@ display:
           admin_label: ''
           plugin_id: dblog_operations
           label: Operasi
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''

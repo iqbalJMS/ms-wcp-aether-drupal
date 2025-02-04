@@ -21,7 +21,7 @@ class RemoteService
         $this->promoServiceUrl = $_ENV['PROMO_URL'];
     }
 
-    function request($data)
+    public function request($data)
     {
         $reqData = sprintf($data['schema'], ...$data['data']);
         \Drupal::logger('bribe.promo')->notice('Request merging: @message', ['@message' => $reqData]);

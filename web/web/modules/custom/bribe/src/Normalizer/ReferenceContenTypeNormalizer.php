@@ -128,8 +128,7 @@ class ReferenceContenTypeNormalizer extends ContentEntityNormalizer
 
             $data[] = $fields_data;
         }
-        $normalized['field_content_type'] = [];
-        $normalized['field_content_type'] = $data;
+        $normalized['field_content_type'] = $data ?: [];
 
         return $normalized;
     }
