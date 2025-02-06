@@ -96,7 +96,8 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch"
+                "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch",
+                "3394691 - setting path alias to `/` causes PHP8.1/str_starts_with/null error": "https://www.drupal.org/files/issues/2023-10-18/3394691-2.patch"
             }
         },
         "patchLevel": {
