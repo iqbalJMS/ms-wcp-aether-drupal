@@ -141,12 +141,12 @@ class BriccController extends ControllerBase {
         [
           'title' => $this->t('Province'),
           'url' => Url::fromRoute('entity.bricc_province.collection'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage Province data.',
         ],
         [
           'title' => $this->t('City'),
           'url' => Url::fromRoute('entity.bricc_city.collection'),
-          'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'description' => 'Manage City data.',
         ],
       ],
     ];

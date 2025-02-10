@@ -27,9 +27,9 @@
         "drupal/classy": "^1.0",
         "drupal/config_pages": "^2.15",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "^10.2",
-        "drupal/core-project-message": "^10.2",
-        "drupal/core-recommended": "^10.2",
+        "drupal/core-composer-scaffold": "10.4.*",
+        "drupal/core-project-message": "10.4.*",
+        "drupal/core-recommended": "10.4.*",
         "drupal/cshs": "^4.0",
         "drupal/custom_login_url": "^2.0",
         "drupal/default_content_deploy": "^2.0",
@@ -96,7 +96,8 @@
         "enable-patching": true,
         "patches": {
             "drupal/core": {
-                "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch"
+                "3066751 - `link` fields in REST, JSON:API and GraphQL cannot be rendered by client": "patches/3066751-custompatch.patch",
+                "3394691 - setting path alias to `/` causes PHP8.1/str_starts_with/null error": "https://www.drupal.org/files/issues/2023-10-18/3394691-2.patch"
             }
         },
         "patchLevel": {

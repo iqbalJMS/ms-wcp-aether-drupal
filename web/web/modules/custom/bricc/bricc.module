@@ -477,6 +477,12 @@ function bricc_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
 
     \Drupal::service('cache_tags.invalidator')->invalidateTags($cache_tags);
   }
+  else {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags([
+      "entity:{$entity->getEntityTypeId()}:{$entity->id()}",
+      "entity_type:{$entity->getEntityTypeId()}",
+    ]);
+  }
 }
 
 /**

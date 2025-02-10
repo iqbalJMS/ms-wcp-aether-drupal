@@ -159,6 +159,30 @@
           }
         });
 
+      /**
+       * Workaround for link not displayed correctly on /admin/content
+       */
+      once('briContentAdmin', '.view-id-content .views-view-table tbody tr', context)
+        .forEach(function (element) {
+          const titleColumnLink = element.querySelector('td.views-field-title a');
+          const operationsColumn = element.querySelector('td.views-field-operations');
+
+          if (titleColumnLink && operationsColumn) {
+            const hrefValue = titleColumnLink.getAttribute('href');
+
+            // Check if href is empty, or contains "/id" or "/en"
+            if (!hrefValue || hrefValue.includes('/id') || hrefValue.includes('/en')) {
+              const editLink = operationsColumn.querySelector('a[href*="/edit"]');
+
+              if (editLink) {
+                let newHref = editLink.getAttribute('href').split('/edit')[0]; // Remove everything after "/edit"
+                titleColumnLink.setAttribute('href', newHref);
+              }
+            }
+          }
+        });
+
+
     }
   }
 
