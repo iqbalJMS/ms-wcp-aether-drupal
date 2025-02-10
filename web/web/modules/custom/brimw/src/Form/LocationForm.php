@@ -238,6 +238,9 @@ final class LocationForm extends FormBase {
       // Get the value if it already exists.
       $selected_category = $form_state->getValue('category');
     }
+
+    $data['lat'] =  !empty($data['lat']) ? $data['lat'] : 0;
+    $data['long'] =  !empty($data['long']) ? $data['lat'] : 0;
     $form['category'] = [
       '#type' => 'select',
       '#title' => $this->t('Category'),
@@ -252,14 +255,14 @@ final class LocationForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Latitude'),
       '#default_value' => $data['lat'],
-      '#required' => FALSE,
+      '#required' => TRUE,
     ];
 
     $form['long'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Longitude'),
       '#default_value' => $data['long'],
-      '#required' => FALSE,
+      '#required' => TRUE,
     ];
 
     $form['url_maps'] = [
@@ -281,7 +284,7 @@ final class LocationForm extends FormBase {
       '#required' => FALSE,
     ];
 
-    $form['kodeagen'] = [
+    $form['kodeAgen'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Kode Agen'),
       '#default_value' => $data['kodeAgen'],
