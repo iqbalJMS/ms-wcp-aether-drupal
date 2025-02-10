@@ -50,6 +50,15 @@ final class LocationRemoteDataSubscriber implements EventSubscriberInterface {
       $params['skip'] =  $event->getOffset();
       $params['limit'] = $event->getLimit();
 
+      $getCondition  = $event->getConditions();
+
+      if(isset( $getCondition)) {
+        $getConditionName = $event->getConditions()[1]['conditions'][0]['value'];
+
+        $params['name'] = $getConditionName;
+
+      }
+
       // Fetch data
       if ($display_id === 'page_1') {
         $remote_data = $this->locationRemoteData->getAllLocations($params);

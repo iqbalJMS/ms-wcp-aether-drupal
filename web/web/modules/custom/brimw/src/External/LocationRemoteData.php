@@ -439,6 +439,7 @@ class LocationRemoteData extends BaseRemoteData {
           phone: "$phone"
           tipe: "$type"
           kodeAgen: "$kodeAgen"
+          urlMaps: "$url_maps"
         }) {
           id
         }
@@ -616,6 +617,7 @@ class LocationRemoteData extends BaseRemoteData {
             tipe: "$type"
             site: "$site"
             urlMaps: "$url_maps"
+            kodeAgen: "$kodeAgen"
           }
         )
       }
