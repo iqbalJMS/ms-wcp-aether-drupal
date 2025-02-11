@@ -1,0 +1,20 @@
+uuid: 7e6aa1cd-34cb-4377-abfc-86370aa4888b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.personal_profile
+  module:
+    - path
+id: node.personal_profile.path
+field_name: path
+entity_type: node
+bundle: personal_profile
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

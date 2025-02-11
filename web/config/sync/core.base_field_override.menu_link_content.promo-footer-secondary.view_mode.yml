@@ -1,0 +1,20 @@
+uuid: be085c14-35e2-4a42-837f-30c0c49a0b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-footer-secondary
+  module:
+    - menu_item_extras
+id: menu_link_content.promo-footer-secondary.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: promo-footer-secondary
+label: 'View mode'
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

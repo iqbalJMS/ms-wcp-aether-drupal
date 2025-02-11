@@ -1,0 +1,18 @@
+uuid: d5c8ea23-6fee-4f56-9b7d-5ce2645b0f6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.our_story
+id: node.our_story.changed
+field_name: changed
+entity_type: node
+bundle: our_story
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

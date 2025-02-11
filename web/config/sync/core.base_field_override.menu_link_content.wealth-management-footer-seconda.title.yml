@@ -1,0 +1,18 @@
+uuid: 592df1fa-84c3-4139-9c1d-d5d026883810
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-footer-seconda
+id: menu_link_content.wealth-management-footer-seconda.title
+field_name: title
+entity_type: menu_link_content
+bundle: wealth-management-footer-seconda
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: e46e29cb-b95e-435b-b4b7-211f5dbce04b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+id: node.promo_microsite_owner.uid
+field_name: uid
+entity_type: node
+bundle: promo_microsite_owner
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

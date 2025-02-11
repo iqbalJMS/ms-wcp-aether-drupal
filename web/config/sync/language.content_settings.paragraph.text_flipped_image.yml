@@ -1,0 +1,18 @@
+uuid: 2db719b5-9a79-4eea-a8eb-2458f0ef9019
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.text_flipped_image
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.text_flipped_image
+target_entity_type_id: paragraph
+target_bundle: text_flipped_image
+default_langcode: site_default
+language_alterable: false

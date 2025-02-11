@@ -1,0 +1,18 @@
+uuid: 979d6b13-64ee-4d33-81a0-94b65f1281b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.currency
+id: taxonomy_term.currency.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: currency
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

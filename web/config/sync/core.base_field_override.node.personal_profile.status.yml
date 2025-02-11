@@ -1,0 +1,22 @@
+uuid: 5df4c6cd-b107-4713-a13f-745b12fc137a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.personal_profile
+id: node.personal_profile.status
+field_name: status
+entity_type: node
+bundle: personal_profile
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

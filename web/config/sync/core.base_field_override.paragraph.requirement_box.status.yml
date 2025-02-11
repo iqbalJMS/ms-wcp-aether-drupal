@@ -1,0 +1,22 @@
+uuid: fc2e1a2d-1a82-48d9-9547-43a909117108
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.requirement_box
+id: paragraph.requirement_box.status
+field_name: status
+entity_type: paragraph
+bundle: requirement_box
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 69970d5c-62df-4b4e-a1f4-e6c4a712ba48
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_magazine
+id: node.external_magazine.title
+field_name: title
+entity_type: node
+bundle: external_magazine
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

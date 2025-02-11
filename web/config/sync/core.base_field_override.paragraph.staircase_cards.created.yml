@@ -1,0 +1,18 @@
+uuid: 77a09811-3c93-4dde-a6eb-04a6b5317a75
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.staircase_cards
+id: paragraph.staircase_cards.created
+field_name: created
+entity_type: paragraph
+bundle: staircase_cards
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: f0c8402e-08f3-4159-a7d0-20387a14ae90
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.staircase_cards
+id: paragraph.staircase_cards.status
+field_name: status
+entity_type: paragraph
+bundle: staircase_cards
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 0871e369-5416-48a9-803f-2bc5e3395bd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_magazine
+  module:
+    - path
+id: node.external_magazine.path
+field_name: path
+entity_type: node
+bundle: external_magazine
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

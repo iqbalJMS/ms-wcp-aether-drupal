@@ -1,0 +1,18 @@
+uuid: adac3b49-e1ab-433f-a839-6d267b0b5c60
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.top-navigation
+id: menu_link_content.top-navigation.title
+field_name: title
+entity_type: menu_link_content
+bundle: top-navigation
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

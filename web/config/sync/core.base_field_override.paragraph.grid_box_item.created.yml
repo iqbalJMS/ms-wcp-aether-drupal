@@ -1,0 +1,18 @@
+uuid: a24ba04e-ed5a-47be-8e3a-88d81640a798
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.grid_box_item
+id: paragraph.grid_box_item.created
+field_name: created
+entity_type: paragraph
+bundle: grid_box_item
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

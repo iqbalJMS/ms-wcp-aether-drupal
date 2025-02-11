@@ -1,0 +1,20 @@
+uuid: 42315b91-af9e-4f17-907b-5a10583589da
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.magazine_category
+  module:
+    - path
+id: taxonomy_term.magazine_category.path
+field_name: path
+entity_type: taxonomy_term
+bundle: magazine_category
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

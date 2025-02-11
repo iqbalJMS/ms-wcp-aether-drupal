@@ -1,0 +1,18 @@
+uuid: ebe0ade1-fc6d-4da6-bd3c-3388f3347a30
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.recruitment-main-navigation
+id: menu_link_content.recruitment-main-navigation.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: recruitment-main-navigation
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

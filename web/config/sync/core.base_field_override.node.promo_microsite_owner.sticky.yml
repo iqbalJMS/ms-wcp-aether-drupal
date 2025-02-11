@@ -1,0 +1,22 @@
+uuid: 8d1e3445-3cb1-4184-b6ef-8053342941ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+id: node.promo_microsite_owner.sticky
+field_name: sticky
+entity_type: node
+bundle: promo_microsite_owner
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

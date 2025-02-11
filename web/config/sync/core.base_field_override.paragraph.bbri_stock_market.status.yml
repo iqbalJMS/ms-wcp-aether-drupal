@@ -1,0 +1,22 @@
+uuid: 1bcb9995-cc2b-4220-bf4b-0f7092839446
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bbri_stock_market
+id: paragraph.bbri_stock_market.status
+field_name: status
+entity_type: paragraph
+bundle: bbri_stock_market
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

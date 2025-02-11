@@ -1,0 +1,22 @@
+uuid: 1fc776e7-0b5a-422c-b5b8-264148f1e33d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+id: node.promo_microsite_owner.status
+field_name: status
+entity_type: node
+bundle: promo_microsite_owner
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

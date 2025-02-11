@@ -1,0 +1,22 @@
+uuid: 26196940-d03e-4380-b77c-aa1fc5997857
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo
+id: node.promo.sticky
+field_name: sticky
+entity_type: node
+bundle: promo
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

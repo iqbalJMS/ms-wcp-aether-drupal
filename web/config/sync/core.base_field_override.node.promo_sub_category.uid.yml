@@ -1,0 +1,20 @@
+uuid: f6a2ae51-f981-42e9-bf99-8b9f3c34b75b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+id: node.promo_sub_category.uid
+field_name: uid
+entity_type: node
+bundle: promo_sub_category
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 5c3badb7-4e49-4650-8438-4b0fbe691088
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.external_magazine
+id: paragraph.external_magazine.created
+field_name: created
+entity_type: paragraph
+bundle: external_magazine
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created
