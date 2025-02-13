@@ -1,0 +1,22 @@
+uuid: 6680b9ea-2fe7-401d-a81d-3a7e1ff15949
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.breadcrumb
+id: paragraph.breadcrumb.status
+field_name: status
+entity_type: paragraph
+bundle: breadcrumb
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

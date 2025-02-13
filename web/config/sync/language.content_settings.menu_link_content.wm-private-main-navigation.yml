@@ -1,0 +1,18 @@
+uuid: 4f9a2241-f4ce-48ea-8f70-d0d332e8a9d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-private-main-navigation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.wm-private-main-navigation
+target_entity_type_id: menu_link_content
+target_bundle: wm-private-main-navigation
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: 710fafce-e6d3-4c2a-ba5c-6eac1109ec04
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.outlet
+id: node.outlet.changed
+field_name: changed
+entity_type: node
+bundle: outlet
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

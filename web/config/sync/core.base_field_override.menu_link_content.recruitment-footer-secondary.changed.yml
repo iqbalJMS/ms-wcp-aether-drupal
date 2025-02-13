@@ -1,0 +1,18 @@
+uuid: 8385182b-6bbc-44a5-a4ab-ee29e78e22dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.recruitment-footer-secondary
+id: menu_link_content.recruitment-footer-secondary.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: recruitment-footer-secondary
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

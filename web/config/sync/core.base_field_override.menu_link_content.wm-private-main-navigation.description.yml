@@ -1,0 +1,18 @@
+uuid: b0cbec77-b0f4-44af-9719-bc12f7b8bb00
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-private-main-navigation
+id: menu_link_content.wm-private-main-navigation.description
+field_name: description
+entity_type: menu_link_content
+bundle: wm-private-main-navigation
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

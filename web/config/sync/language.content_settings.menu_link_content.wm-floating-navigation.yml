@@ -1,0 +1,18 @@
+uuid: f0cda892-1350-43f8-b7ba-a36221f3b611
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-floating-navigation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.wm-floating-navigation
+target_entity_type_id: menu_link_content
+target_bundle: wm-floating-navigation
+default_langcode: site_default
+language_alterable: false

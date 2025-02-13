@@ -1,0 +1,18 @@
+uuid: 895c366f-f523-46e9-8037-03c2c0a65201
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bbri_stock_market
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.bbri_stock_market
+target_entity_type_id: paragraph
+target_bundle: bbri_stock_market
+default_langcode: site_default
+language_alterable: false

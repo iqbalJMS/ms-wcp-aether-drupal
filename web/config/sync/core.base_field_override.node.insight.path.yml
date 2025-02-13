@@ -1,0 +1,20 @@
+uuid: 890f50ab-4140-4dbe-9140-e0c253d3ca09
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.insight
+  module:
+    - path
+id: node.insight.path
+field_name: path
+entity_type: node
+bundle: insight
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

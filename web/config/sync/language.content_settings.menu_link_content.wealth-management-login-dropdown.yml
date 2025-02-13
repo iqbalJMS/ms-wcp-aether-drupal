@@ -1,0 +1,18 @@
+uuid: dcc1cf2c-b2ff-4036-b1ae-2707b26ec644
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-login-dropdown
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.wealth-management-login-dropdown
+target_entity_type_id: menu_link_content
+target_bundle: wealth-management-login-dropdown
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: ff6a8c88-c3c1-4cec-b7f8-0aeac59fd14f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-top-navigation
+id: menu_link_content.promo-top-navigation.description
+field_name: description
+entity_type: menu_link_content
+bundle: promo-top-navigation
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

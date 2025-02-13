@@ -1,0 +1,20 @@
+uuid: ed036080-cd22-41b5-a1c2-2033160ef4fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.location_region
+  module:
+    - path
+id: taxonomy_term.location_region.path
+field_name: path
+entity_type: taxonomy_term
+bundle: location_region
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

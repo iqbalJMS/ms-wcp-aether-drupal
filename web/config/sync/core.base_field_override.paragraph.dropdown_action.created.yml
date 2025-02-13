@@ -1,0 +1,18 @@
+uuid: fbcf29f3-1cd7-411f-b241-e12dc321b181
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.dropdown_action
+id: paragraph.dropdown_action.created
+field_name: created
+entity_type: paragraph
+bundle: dropdown_action
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

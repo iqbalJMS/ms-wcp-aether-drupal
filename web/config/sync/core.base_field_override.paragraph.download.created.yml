@@ -1,0 +1,18 @@
+uuid: 78fe3c6c-c2d3-4632-8b85-5a1baceb4ec4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.download
+id: paragraph.download.created
+field_name: created
+entity_type: paragraph
+bundle: download
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

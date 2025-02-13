@@ -1,0 +1,18 @@
+uuid: 71358ce3-2697-4a58-a001-06e524d757e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.recruitment-footer-secondary
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.recruitment-footer-secondary
+target_entity_type_id: menu_link_content
+target_bundle: recruitment-footer-secondary
+default_langcode: site_default
+language_alterable: false

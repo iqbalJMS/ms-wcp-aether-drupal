@@ -1,0 +1,18 @@
+uuid: 1126c02b-dadf-4b66-ad77-bf8e11659ada
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-footer
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.promo-footer
+target_entity_type_id: menu_link_content
+target_bundle: promo-footer
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: d64ab7ce-39a7-4248-8f1a-49383358d9c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-private-main-navigation
+id: menu_link_content.wm-private-main-navigation.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: wm-private-main-navigation
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,22 @@
+uuid: 35cf4e5d-d284-4fbc-b543-631cf6b01c6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+id: node.web_variant_styles.sticky
+field_name: sticky
+entity_type: node
+bundle: web_variant_styles
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

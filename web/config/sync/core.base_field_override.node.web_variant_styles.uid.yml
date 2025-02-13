@@ -1,0 +1,20 @@
+uuid: e117d21f-9692-459a-b375-133e5f120490
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+id: node.web_variant_styles.uid
+field_name: uid
+entity_type: node
+bundle: web_variant_styles
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 4e176ea5-ecfb-4e98-b4ee-4ad1b1d0ffdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-main-navigation
+id: menu_link_content.wm-main-navigation.description
+field_name: description
+entity_type: menu_link_content
+bundle: wm-main-navigation
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

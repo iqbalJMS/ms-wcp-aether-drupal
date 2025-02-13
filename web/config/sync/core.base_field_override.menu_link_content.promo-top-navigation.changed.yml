@@ -1,0 +1,18 @@
+uuid: 76498838-94db-4232-b218-20db70d88dc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-top-navigation
+id: menu_link_content.promo-top-navigation.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: promo-top-navigation
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

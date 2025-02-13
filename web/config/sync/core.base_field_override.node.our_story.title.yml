@@ -1,0 +1,18 @@
+uuid: f1f45ff1-b1ee-425d-9a12-d605e4058a45
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.our_story
+id: node.our_story.title
+field_name: title
+entity_type: node
+bundle: our_story
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

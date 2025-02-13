@@ -1,0 +1,22 @@
+uuid: c3b694cb-0e6d-4425-aabb-470ec09ebe28
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lounge
+id: paragraph.lounge.status
+field_name: status
+entity_type: paragraph
+bundle: lounge
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: 8eae2e4c-63f4-4b4c-bc2d-07f257936916
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-prioritas-main-navigation
+  module:
+    - menu_item_extras
+id: menu_link_content.wm-prioritas-main-navigation.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: wm-prioritas-main-navigation
+label: 'View mode'
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

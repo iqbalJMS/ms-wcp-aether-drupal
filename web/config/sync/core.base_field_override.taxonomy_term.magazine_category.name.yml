@@ -1,0 +1,18 @@
+uuid: abd82b0a-8be0-491d-9230-f433cdd90566
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.magazine_category
+id: taxonomy_term.magazine_category.name
+field_name: name
+entity_type: taxonomy_term
+bundle: magazine_category
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: 8b11f418-622c-4ff4-8d52-57d3388bdf7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-prioritas-main-navigation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.wm-prioritas-main-navigation
+target_entity_type_id: menu_link_content
+target_bundle: wm-prioritas-main-navigation
+default_langcode: site_default
+language_alterable: false

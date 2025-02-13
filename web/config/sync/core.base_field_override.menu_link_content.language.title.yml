@@ -1,0 +1,18 @@
+uuid: 93ce618f-d4fc-4bfa-9833-5b8143fb7dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.language
+id: menu_link_content.language.title
+field_name: title
+entity_type: menu_link_content
+bundle: language
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

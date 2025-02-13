@@ -1,0 +1,22 @@
+uuid: fbf964d6-a069-4312-9be2-5134a5705238
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.insight
+id: node.insight.sticky
+field_name: sticky
+entity_type: node
+bundle: insight
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
