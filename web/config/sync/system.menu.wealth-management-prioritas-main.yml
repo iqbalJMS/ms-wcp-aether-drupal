@@ -1,0 +1,8 @@
+uuid: 1444ff65-a30c-4083-9d15-5ba4b7e31083
+langcode: en
+status: true
+dependencies: {  }
+id: wealth-management-prioritas-main
+label: 'WEALTH MANAGEMENT PRIORITAS Main Breadcrumb'
+description: 'WEALTH MANAGEMENT PRIORITAS Main Breadcrumb'
+locked: false
