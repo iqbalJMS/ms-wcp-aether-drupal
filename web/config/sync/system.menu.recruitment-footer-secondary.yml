@@ -1,8 +1,0 @@
-uuid: f4a40259-26e1-442e-9b4e-730cbfddfd78
-langcode: en
-status: true
-dependencies: {  }
-id: recruitment-footer-secondary
-label: 'RECRUITMENT Footer Secondary'
-description: 'Secondary footer menu for recruitment section'
-locked: false
