@@ -1,0 +1,8 @@
+uuid: b5d38f0d-86cd-49a2-b6c2-3f5922727876
+langcode: en
+status: true
+dependencies: {  }
+id: simulasi-keuangan
+label: 'Simulasi Keuangan Breadcrumb'
+description: 'Simulasi Keuangan Breadcrumb'
+locked: false
