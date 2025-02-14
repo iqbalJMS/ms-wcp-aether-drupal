@@ -1,0 +1,18 @@
+uuid: fd0429ad-55a1-4956-b7b9-757b966502d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-login-dropdown
+id: menu_link_content.wealth-management-login-dropdown.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: wealth-management-login-dropdown
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

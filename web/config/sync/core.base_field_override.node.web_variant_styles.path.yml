@@ -1,0 +1,20 @@
+uuid: cad4f3d2-b296-4faf-abd6-45c44e80de9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+  module:
+    - path
+id: node.web_variant_styles.path
+field_name: path
+entity_type: node
+bundle: web_variant_styles
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

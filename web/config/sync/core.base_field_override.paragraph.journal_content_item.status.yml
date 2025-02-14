@@ -1,0 +1,22 @@
+uuid: ca1a4a7e-e127-4b33-83dd-db2c55089919
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.journal_content_item
+id: paragraph.journal_content_item.status
+field_name: status
+entity_type: paragraph
+bundle: journal_content_item
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

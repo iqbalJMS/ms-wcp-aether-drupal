@@ -1,0 +1,18 @@
+uuid: 89ed0112-1c5f-4301-aede-e59b698b8d4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.insight
+id: node.insight.title
+field_name: title
+entity_type: node
+bundle: insight
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

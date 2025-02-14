@@ -1,0 +1,22 @@
+uuid: 3bd8c75d-cc99-44d6-83aa-26188a162edf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_magazine
+id: node.external_magazine.status
+field_name: status
+entity_type: node
+bundle: external_magazine
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

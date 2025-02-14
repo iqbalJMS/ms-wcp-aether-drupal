@@ -1,0 +1,18 @@
+uuid: 416ab116-8e61-4c69-8ef8-e016f69152be
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-footer
+id: menu_link_content.promo-footer.description
+field_name: description
+entity_type: menu_link_content
+bundle: promo-footer
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

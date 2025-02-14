@@ -1,0 +1,18 @@
+uuid: 22cfb351-6ae2-47b2-8a3f-d3bd9967b61c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.top-navigation
+id: menu_link_content.top-navigation.description
+field_name: description
+entity_type: menu_link_content
+bundle: top-navigation
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

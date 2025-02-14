@@ -14,7 +14,7 @@ bundle: promo_widget
 label: 'Promo Configuration'
 description: 'Dapat memilih lebih dari satu. pilihan dalam konfigurasi ini tergantung dengan halaman yang dibutuhkan'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

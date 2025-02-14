@@ -1,0 +1,18 @@
+uuid: 27d60b2b-9b57-4a9d-972c-54506818234d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-prioritas-main-navigation
+id: menu_link_content.wm-prioritas-main-navigation.description
+field_name: description
+entity_type: menu_link_content
+bundle: wm-prioritas-main-navigation
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

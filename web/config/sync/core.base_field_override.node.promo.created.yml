@@ -1,0 +1,18 @@
+uuid: e8c8a258-9308-486f-b0cd-58d50a9e461c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo
+id: node.promo.created
+field_name: created
+entity_type: node
+bundle: promo
+label: 'Authored on'
+description: 'The date and time that the content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

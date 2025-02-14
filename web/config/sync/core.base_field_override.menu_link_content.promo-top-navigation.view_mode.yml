@@ -1,0 +1,20 @@
+uuid: 6afcc215-3bdf-4ce8-873c-a25060a3ecd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-top-navigation
+  module:
+    - menu_item_extras
+id: menu_link_content.promo-top-navigation.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: promo-top-navigation
+label: 'View mode'
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

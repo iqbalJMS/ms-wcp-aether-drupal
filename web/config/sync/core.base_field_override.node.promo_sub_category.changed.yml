@@ -1,0 +1,18 @@
+uuid: c5791258-64b5-4118-a40c-5dfcc19f1188
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+id: node.promo_sub_category.changed
+field_name: changed
+entity_type: node
+bundle: promo_sub_category
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

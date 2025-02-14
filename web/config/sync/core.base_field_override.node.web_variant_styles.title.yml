@@ -1,0 +1,18 @@
+uuid: 65158512-7396-4abb-ac4f-e52a0ff92ba5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+id: node.web_variant_styles.title
+field_name: title
+entity_type: node
+bundle: web_variant_styles
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

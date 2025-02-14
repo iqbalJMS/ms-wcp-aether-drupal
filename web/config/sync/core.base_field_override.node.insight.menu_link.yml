@@ -1,0 +1,20 @@
+uuid: bf7afe2d-2e0c-4337-a91b-1e5bac060d32
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.insight
+id: node.insight.menu_link
+field_name: menu_link
+entity_type: node
+bundle: insight
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

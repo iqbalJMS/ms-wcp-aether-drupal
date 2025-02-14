@@ -1,0 +1,18 @@
+uuid: e7ea1fac-cd58-4591-9a80-390c0d507726
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-footer-secondary
+id: menu_link_content.promo-footer-secondary.title
+field_name: title
+entity_type: menu_link_content
+bundle: promo-footer-secondary
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

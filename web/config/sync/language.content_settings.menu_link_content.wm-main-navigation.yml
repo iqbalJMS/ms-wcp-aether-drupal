@@ -1,0 +1,18 @@
+uuid: b77ac29a-7583-4d95-abf7-4d5f1f2a14d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-main-navigation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.wm-main-navigation
+target_entity_type_id: menu_link_content
+target_bundle: wm-main-navigation
+default_langcode: site_default
+language_alterable: false

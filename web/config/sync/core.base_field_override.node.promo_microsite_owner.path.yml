@@ -1,0 +1,20 @@
+uuid: 5229c4ea-ab90-4600-b512-b50c707f2b46
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+  module:
+    - path
+id: node.promo_microsite_owner.path
+field_name: path
+entity_type: node
+bundle: promo_microsite_owner
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

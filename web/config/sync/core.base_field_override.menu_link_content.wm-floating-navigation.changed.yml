@@ -1,0 +1,18 @@
+uuid: 3591d676-5472-4a98-8eb2-64713a28a879
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-floating-navigation
+id: menu_link_content.wm-floating-navigation.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: wm-floating-navigation
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

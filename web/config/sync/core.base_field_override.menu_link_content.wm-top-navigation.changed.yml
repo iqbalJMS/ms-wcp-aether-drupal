@@ -1,0 +1,18 @@
+uuid: e746e8b0-02bb-4a0c-a8c5-c6f59cdf98e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-top-navigation
+id: menu_link_content.wm-top-navigation.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: wm-top-navigation
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

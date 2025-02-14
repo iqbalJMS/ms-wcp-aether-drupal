@@ -1,0 +1,22 @@
+uuid: a043b5ff-9a73-4f8a-a9a1-4b33f8146c20
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.external_magazine
+id: paragraph.external_magazine.status
+field_name: status
+entity_type: paragraph
+bundle: external_magazine
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

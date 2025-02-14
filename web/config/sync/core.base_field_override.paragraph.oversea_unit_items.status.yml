@@ -1,0 +1,22 @@
+uuid: 8edefb06-f442-4e81-a010-56b3553a6810
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.oversea_unit_items
+id: paragraph.oversea_unit_items.status
+field_name: status
+entity_type: paragraph
+bundle: oversea_unit_items
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

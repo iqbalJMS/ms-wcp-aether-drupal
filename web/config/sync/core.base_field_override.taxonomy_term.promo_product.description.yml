@@ -1,0 +1,21 @@
+uuid: abe509a0-d694-427c-b77c-764539e3dbc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.promo_product
+  module:
+    - text
+id: taxonomy_term.promo_product.description
+field_name: description
+entity_type: taxonomy_term
+bundle: promo_product
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,18 @@
+uuid: dfd3ecbf-542a-4a38-abd2-a317e60bafaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-footer-contact
+id: menu_link_content.wealth-management-footer-contact.title
+field_name: title
+entity_type: menu_link_content
+bundle: wealth-management-footer-contact
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

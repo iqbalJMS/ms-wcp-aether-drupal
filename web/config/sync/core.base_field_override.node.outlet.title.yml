@@ -1,0 +1,18 @@
+uuid: d7f8f61b-f37f-4ac2-a2dc-cae714ac4d3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.outlet
+id: node.outlet.title
+field_name: title
+entity_type: node
+bundle: outlet
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

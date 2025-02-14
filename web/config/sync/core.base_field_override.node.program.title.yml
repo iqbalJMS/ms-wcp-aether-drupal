@@ -1,0 +1,18 @@
+uuid: 7c550b17-edb5-4ee3-8d11-34194a4b45a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.program
+id: node.program.title
+field_name: title
+entity_type: node
+bundle: program
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

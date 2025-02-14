@@ -1,0 +1,18 @@
+uuid: b7a9c69d-f9c3-4d58-8d99-d6d2dad8207d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.promo-main-navigation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.promo-main-navigation
+target_entity_type_id: menu_link_content
+target_bundle: promo-main-navigation
+default_langcode: site_default
+language_alterable: false

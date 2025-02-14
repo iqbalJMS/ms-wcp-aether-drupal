@@ -1,0 +1,22 @@
+uuid: f20c421e-5502-4b45-8619-ea3a55e0a26b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.promo_widget
+id: paragraph.promo_widget.status
+field_name: status
+entity_type: paragraph
+bundle: promo_widget
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

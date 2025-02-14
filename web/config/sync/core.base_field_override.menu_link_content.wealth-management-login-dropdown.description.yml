@@ -1,0 +1,18 @@
+uuid: 621a5578-182e-407a-b7ed-ffc0ab6750ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-login-dropdown
+id: menu_link_content.wealth-management-login-dropdown.description
+field_name: description
+entity_type: menu_link_content
+bundle: wealth-management-login-dropdown
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

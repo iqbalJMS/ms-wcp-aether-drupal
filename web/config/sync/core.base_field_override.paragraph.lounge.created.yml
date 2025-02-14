@@ -1,0 +1,18 @@
+uuid: 947dba8c-3176-4c1e-b076-13150f4033b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.lounge
+id: paragraph.lounge.created
+field_name: created
+entity_type: paragraph
+bundle: lounge
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

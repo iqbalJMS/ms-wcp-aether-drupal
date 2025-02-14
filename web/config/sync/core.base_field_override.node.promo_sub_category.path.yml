@@ -1,0 +1,20 @@
+uuid: ebbdd553-d199-4ee4-a6c7-6e14ce850a70
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_sub_category
+  module:
+    - path
+id: node.promo_sub_category.path
+field_name: path
+entity_type: node
+bundle: promo_sub_category
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

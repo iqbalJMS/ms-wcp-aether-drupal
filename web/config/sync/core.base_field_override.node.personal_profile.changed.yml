@@ -1,0 +1,18 @@
+uuid: db7a4226-00b8-4cda-b157-4545babb2317
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.personal_profile
+id: node.personal_profile.changed
+field_name: changed
+entity_type: node
+bundle: personal_profile
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

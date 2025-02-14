@@ -1,0 +1,18 @@
+uuid: 9597af84-ebd1-4654-83a6-0978dd4bc4a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-middle-footer
+id: menu_link_content.wm-middle-footer.description
+field_name: description
+entity_type: menu_link_content
+bundle: wm-middle-footer
+label: Description
+description: 'Shown when hovering over the menu link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: e1ba73b8-3089-482e-a074-e797139a5e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wealth-management-footer-contact
+  module:
+    - menu_item_extras
+id: menu_link_content.wealth-management-footer-contact.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: wealth-management-footer-contact
+label: 'View mode'
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

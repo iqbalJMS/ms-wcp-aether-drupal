@@ -1,0 +1,18 @@
+uuid: 825f8744-985c-487a-b97d-e99959929015
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.promo_microsite_owner
+id: node.promo_microsite_owner.created
+field_name: created
+entity_type: node
+bundle: promo_microsite_owner
+label: 'Authored on'
+description: 'The date and time that the content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

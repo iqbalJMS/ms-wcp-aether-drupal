@@ -1,0 +1,18 @@
+uuid: d372a213-302c-4b8f-9286-94ff57f729b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.login-dropdown
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.login-dropdown
+target_entity_type_id: menu_link_content
+target_bundle: login-dropdown
+default_langcode: site_default
+language_alterable: false

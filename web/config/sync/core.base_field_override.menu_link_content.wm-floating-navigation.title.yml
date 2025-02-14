@@ -1,0 +1,18 @@
+uuid: 2f358fa0-fabd-42c0-845d-16712ce0d474
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wm-floating-navigation
+id: menu_link_content.wm-floating-navigation.title
+field_name: title
+entity_type: menu_link_content
+bundle: wm-floating-navigation
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

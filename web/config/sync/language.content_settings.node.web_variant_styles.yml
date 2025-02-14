@@ -1,0 +1,18 @@
+uuid: 50c7e157-4317-46ee-8390-69ee0b601c85
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.web_variant_styles
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.web_variant_styles
+target_entity_type_id: node
+target_bundle: web_variant_styles
+default_langcode: site_default
+language_alterable: false

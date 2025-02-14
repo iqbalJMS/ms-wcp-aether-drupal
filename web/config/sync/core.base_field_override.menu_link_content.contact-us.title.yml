@@ -1,0 +1,18 @@
+uuid: 2b2d0ba0-df83-4f86-8f17-52f4c98bb56b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.contact-us
+id: menu_link_content.contact-us.title
+field_name: title
+entity_type: menu_link_content
+bundle: contact-us
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

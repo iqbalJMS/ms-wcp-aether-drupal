@@ -1,0 +1,22 @@
+uuid: b50bf6af-c401-4d2e-8a2c-6c522e56252b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.kurs
+id: paragraph.kurs.status
+field_name: status
+entity_type: paragraph
+bundle: kurs
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
