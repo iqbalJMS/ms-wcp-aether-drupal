@@ -1,0 +1,8 @@
+uuid: 577df1fb-b39d-4fd4-b884-38438f052f6e
+langcode: en
+status: true
+dependencies: {  }
+id: wealth-management-main-breadcrum
+label: 'WEALTH MANAGEMENT Main Breadcrumb'
+description: 'WEALTH MANAGEMENT Main Breadcrumb'
+locked: false

@@ -1,0 +1,8 @@
+uuid: 3974f47e-c584-47ef-9a5f-a115c2c789da
+langcode: en
+status: true
+dependencies: {  }
+id: wealth-management-private-main-b
+label: 'WEALTH MANAGEMENT PRIVATE Main Breadcrumb'
+description: 'WEALTH MANAGEMENT PRIVATE Main Breadcrumb'
+locked: false
