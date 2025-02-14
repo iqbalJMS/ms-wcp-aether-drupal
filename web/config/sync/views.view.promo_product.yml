@@ -342,7 +342,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts: {  }
@@ -358,7 +358,7 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-          operator: '='
+          operator: word
           value: ''
           group: 1
           exposed: true
